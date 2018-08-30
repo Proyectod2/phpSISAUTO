@@ -14,20 +14,17 @@ and open the template in the editor.
         <meta name="author" content="">
         <title>SISAUTO</title>
         <!-- Bootstrap core CSS-->
-        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <!-- Custom fonts for this template-->
-        <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="../assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <!-- Custom styles for this template-->
-        <link href="css/sb-admin.css" rel="stylesheet">
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link href="../assets/css/sb-admin.css" rel="stylesheet">
     </head>
 </head>
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-        <a class="navbar-brand" href="http://localhost/phpSISAUTO/index.php">SISAUTO</a>
+        <a class="navbar-brand" href="http://localhost/phpSISAUTO/view/index.php">SISAUTO</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -35,11 +32,11 @@ and open the template in the editor.
             <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
                 <li class="nav-item" data-toggle="tooltip" data-placement="right">
                     <a class="navbar-brand brand-logo" >
-                        <img src="aut3.png" alt="logo" />
+                        <img src="../assets/img/aut3.png" alt="logo" />
                     </a>
                 </li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right">
-                    <a class="nav-link" href="http://localhost/phpSISAUTO/NuevaVenta.php">
+                    <a class="nav-link" href="http://localhost/phpSISAUTO/view/NuevaVenta.php">
                         <i class="fa fa-dollar"></i>
                         <span class="nav-link-text "> Vender</span>
                     </a>
@@ -51,10 +48,10 @@ and open the template in the editor.
                     </a>
                     <ul class="sidenav-second-level collapse" id="collapseComponents">
                         <li>
-                            <a href="http://localhost/phpSISAUTO/Compras.php"><span class="fa fa-list"> Compras</span></a>
+                            <a href="http://localhost/phpSISAUTO/view/Compras.php"><span class="fa fa-list"> Compras</span></a>
                         </li>
                         <li>
-                            <a href="http://localhost/phpSISAUTO/Ventas.php"> Ventas</a>
+                            <a href="http://localhost/phpSISAUTO/view/Ventas.php"> Ventas</a>
                         </li>
                     </ul>
                 </li>
@@ -65,13 +62,13 @@ and open the template in the editor.
                     </a>
                     <ul class="sidenav-second-level collapse" id="collapseExamplePages">
                         <li>
-                            <a href="http://localhost/phpSISAUTO/Cliente.php"><span class="fa fa-user"> Cliente</span></a>
+                            <a href="http://localhost/phpSISAUTO/view/Cliente.php"><span class="fa fa-user"> Cliente</span></a>
                         </li>
                         <li>
-                            <a href="http://localhost/phpSISAUTO/Proveedor.php"><span class="fa fa-user"> Proveedor</span></a>
+                            <a href="http://localhost/phpSISAUTO/view/Proveedor.php"><span class="fa fa-user"> Proveedor</span></a>
                         </li>
                         <li>
-                            <a href="http://localhost/phpSISAUTO/Producto.php"><span class="fa fa-tags"> Producto</span></a>
+                            <a href="http://localhost/phpSISAUTO/view/Producto.php"><span class="fa fa-tags"> Producto</span></a>
                         </li>
                     </ul>
                 </li>
@@ -83,7 +80,7 @@ and open the template in the editor.
                     </a>
                     <ul class="sidenav-second-level collapse" id="collapsenuevo">
                         <li>
-                            <a href="http://localhost/phpSISAUTO/Inventario.php"><span class="fa fa-book"> Inventario Principal</span></a>
+                            <a href="http://localhost/phpSISAUTO/view/Inventario.php"><span class="fa fa-book"> Inventario Principal</span></a>
                         </li>
                         <li>
                             <a href="">seccion1</a>
@@ -98,13 +95,13 @@ and open the template in the editor.
                     </a>
                     <ul class="sidenav-second-level collapse" id="collapseMulti">
                         <li>
-                            <a href="http://localhost/phpSISAUTO/Bitacora.php"><span class="fa fa-history"> Bitacora</span></a>
+                            <a href="http://localhost/phpSISAUTO/view/Bitacora.php"><span class="fa fa-history"> Bitacora</span></a>
                         </li>
                         <li>
-                            <a href="http://localhost/phpSISAUTO/Usuarios.php">Control Usuarios</a>
+                            <a href="http://localhost/phpSISAUTO/view/Usuarios.php">Control Usuarios</a>
                         </li>
                         <li>
-                            <a href="http://localhost/phpSISAUTO/Back.php">Administrar Backup</a>
+                            <a href="http://localhost/phpSISAUTO/view/Back.php">Administrar Backup</a>
                         </li>
                     </ul>
                 </li>
@@ -197,105 +194,110 @@ and open the template in the editor.
             <!-- Breadcrumbs-->
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <a href="http://localhost/phpSISAUTO/index.php">Inicio</a>
+                    <a href="view/index.html">Inicio</a>
                 </li>
-                <li class="breadcrumb-item active">
-                    <a href="http://localhost/phpSISAUTO/Cliente.php">Clientes</a>
-                </li>
-                <li class="breadcrumb-item">
-                    <a>Registrar Cliente</a>
-                </li>
+                <li class="breadcrumb-item active">Compras</li>
             </ol>
-            <!-- Example DataTables Card-->
-            <div class="card mb-3">
-                <div class="card-header">
-                    <i class=""></i> Registrar Cliente</div>
-                <div class="card-body">
-                    <form action="" align="center">
-                        <h5 align="center">Datos Generales</h5><br>
-                        <div class="form-group row">
-                            <label for="num" class="col-sm-12 col-md-2 col-form-label">Código Cliente:</label>
-                            <div class="col-sm-12 col-md-10">
-                                <input class="form-control" type="number" id="num" placeholder="ID" style="width:150px;height:40px">
+            <div class="row">
+                <div class="col-12">
+                    <h1 align="center"></h1>
+                    <a class="pull-right" href="http://localhost/phpSISAUTO/view/AgregarCompra.php">
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#modalNuevo">
+                            Agregar nuevo 
+                            <span class="fa fa-plus"></span>
+                        </button></a><br><br>
+                    <!-- TABLA CLIENTES-->
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            <i class="fa fa-table"></i> Compras</div>
+                            <form align="right" ><br>
+                            <table class="pull-right " id="dataTable" width="100%" cellspacing="0" >
+                                <thead>
+                                    <tr>
+                                        <th style="width:200px"></th>
+                                        <th style="width:120px"><div class="input-group" style="width:500px" align="center">
+                                                <input type="text" class="form-control" placeholder="Buscar" name="" align="center">
+                                                <div class="input-group-btn">
+                                                    <button class="btn btn-default" type="submit" title="Buscar"><i class="fa fa-search" ></i></button>
+                                                </div>
+                                            </div></th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </form>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th style="width:50px">Código</th>
+                                            <th style="width:180px">Fecha</th>
+                                            <th style="width:180px">Proveedor</th>
+                                            <th style="width:150px">Total Compra</th>
+                                            <th align="center" style="width:50px">Acción</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                            <th align="center">
+                                                <button title="Reporte.pdf" type="button" class="btn btn-primary fa fa-file-pdf-o"></button>
+                                                <button title="Devolución" type="button" class="btn btn-dark fa fa-exchange"></button>
+                                            </th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label for="nombre" class="col-sm-12 col-md-2 col-form-label">Nombre:</label>
-                            <div class="col-sm-12 col-md-10">
-                                <input class="form-control" placeholder="Nombre Completo" type="text" id="nombre" style="width:600px;height:40px">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label  for="telefono" class="col-sm-12 col-md-2 col-form-label">Teléfono:</label>
-                            <div  class="col-sm-12 col-md-10">
-                                <input class="form-control" type="tel" id="telefono" placeholder="XXXX-XXXX" style="width:110px;height:40px">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="direccion" class="col-sm-12 col-md-2 col-form-label">Dirección:</label>
-                            <div class="col-sm-12 col-md-10">
-                                <input class="form-control" type="text" placeholder="Dirección" style="width:600px;height:40px">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="nrc" class="col-sm-12 col-md-2 col-form-label">NRC:</label>
-                            <div class="col-sm-12 col-md-10">
-                                <input class="form-control" type="number" placeholder="xxxxxxxx" style="width:150px;height:40px">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-sm-12 col-md-2 col-form-label">NIT:</label>
-                            <div class="col-sm-12 col-md-10">
-                                <input class="form-control" type="number" placeholder="XXXX-XXXX-XX" style="width:150px;height:40px">
-                            </div>
-                        </div><br>
-                        <hr width="75%" />
-                        <div class="form-group" align="center">
-                            <button title="Aceptar" type="button" class="btn btn-success fa fa-check"></button>
-                            <button title="Cancelar" type="button" class="btn btn-warning fa fa-times" style="color:#fff"></button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <!-- /.container-fluid-->
-        <!-- /.content-wrapper-->
-        <footer class="sticky-footer">
-            <div class="container">
-                <div class="text-center">
-                    <small>UES-FMP. DERECHOS RESERVADOS 2018</small>
-                </div>
-            </div>
-        </footer>
-        <!-- Scroll to Top Button-->
-        <a class="scroll-to-top rounded" href="#page-top">
-            <i class="fa fa-angle-up"></i>
-        </a>
-        <!-- Logout Modal-->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">¿Listo para salir?</h5>
-                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">Seleccione "Cerrar sesión" a continuación si está listo para finalizar su sesión actual.</div>
-                    <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                        <a class="btn btn-primary" href="http://localhost/phpSISAUTO/login.html">Cerrar Sesión</a>
+                        <div class="card-footer small text-muted">Ultima actualización </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Bootstrap core JavaScript-->
-        <script src="vendor/jquery/jquery.min.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <!-- Core plugin JavaScript-->
-        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-        <!-- Custom scripts for all pages-->
-        <script src="js/sb-admin.min.js"></script>
     </div>
+    <!-- /.container-fluid-->
+    <!-- /.content-wrapper-->
+    <footer class="sticky-footer">
+        <div class="container">
+            <div class="text-center">
+                <small>UES-FMP. DERECHOS RESERVADOS 2018</small>
+            </div>
+        </div>
+    </footer>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fa fa-angle-up"></i>
+    </a>
+    <!-- Logout Modal-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">¿Listo para salir?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Seleccione "Cerrar sesión" a continuación si está listo para finalizar su sesión actual.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                    <a class="btn btn-primary" href="view/login.html">Cerrar Sesión</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap core JavaScript-->
+    <script src="../assets/vendor/jquery/jquery.min.js"></script>
+    <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="../assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="../assets/js/sb-admin.min.js"></script>
+</div>
 </body>
 </html>
+
+
