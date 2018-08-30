@@ -3,10 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/phpSISAUTO/formularios_php/producto_guardar.php</file>
-            <file>file:/C:/xampp/htdocs/phpSISAUTO/confi/Conexion.php</file>
             <file>file:/C:/xampp/htdocs/phpSISAUTO/confi/pruebaconex.php</file>
-            <file>file:/C:/xampp/htdocs/phpSISAUTO/AgregarProd.php</file>
+            <file>file:/C:/xampp/htdocs/phpSISAUTO/view/Cliente.php</file>
+            <file>file:/C:/xampp/htdocs/phpSISAUTO/view/Back.php</file>
+            <file>file:/C:/xampp/htdocs/phpSISAUTO/view/Compras.php</file>
+            <file>file:/C:/xampp/htdocs/phpSISAUTO/view/NuevaVenta.php</file>
+            <file>file:/C:/xampp/htdocs/phpSISAUTO/view/Inventario.php</file>
         </group>
     </open-files>
 </project-private>
