@@ -14,11 +14,11 @@ and open the template in the editor.
         <meta name="author" content="">
         <title>SISAUTO</title>
         <!-- Bootstrap core CSS-->
-        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <!-- Custom fonts for this template-->
-        <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="../assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <!-- Custom styles for this template-->
-        <link href="css/sb-admin.css" rel="stylesheet">
+        <link href="../assets/css/sb-admin.css" rel="stylesheet">
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -27,7 +27,7 @@ and open the template in the editor.
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-        <a class="navbar-brand" href="http://localhost/phpSISAUTO/index.php">SISAUTO</a>
+        <a class="navbar-brand" href="http://localhost/phpSISAUTO/view/index.php">SISAUTO</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -35,11 +35,11 @@ and open the template in the editor.
             <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
                 <li class="nav-item" data-toggle="tooltip" data-placement="right">
                     <a class="navbar-brand brand-logo" >
-                        <img src="aut3.png" alt="logo" />
+                        <img src="../assets/img/aut3.png" alt="logo" />
                     </a>
                 </li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right">
-                    <a class="nav-link" href="http://localhost/phpSISAUTO/NuevaVenta.php">
+                    <a class="nav-link" href="http://localhost/phpSISAUTO/view/NuevaVenta.php">
                         <i class="fa fa-dollar"></i>
                         <span class="nav-link-text "> Vender</span>
                     </a>
@@ -51,10 +51,10 @@ and open the template in the editor.
                     </a>
                     <ul class="sidenav-second-level collapse" id="collapseComponents">
                         <li>
-                            <a href="http://localhost/phpSISAUTO/Compras.php"><span class="fa fa-list"> Compras</span></a>
+                            <a href="http://localhost/phpSISAUTO/view/Compras.php"><span class="fa fa-list"> Compras</span></a>
                         </li>
                         <li>
-                            <a href="http://localhost/phpSISAUTO/Ventas.php"> Ventas</a>
+                            <a href="http://localhost/phpSISAUTO/view/Ventas.php"> Ventas</a>
                         </li>
                     </ul>
                 </li>
@@ -65,13 +65,13 @@ and open the template in the editor.
                     </a>
                     <ul class="sidenav-second-level collapse" id="collapseExamplePages">
                         <li>
-                            <a href="http://localhost/phpSISAUTO/Cliente.php"><span class="fa fa-user"> Cliente</span></a>
+                            <a href="http://localhost/phpSISAUTO/view/Cliente.php"><span class="fa fa-user"> Cliente</span></a>
                         </li>
                         <li>
-                            <a href="http://localhost/phpSISAUTO/Proveedor.php"><span class="fa fa-user"> Proveedor</span></a>
+                            <a href="http://localhost/phpSISAUTO/view/Proveedor.php"><span class="fa fa-user"> Proveedor</span></a>
                         </li>
                         <li>
-                            <a href="http://localhost/phpSISAUTO/Producto.php"><span class="fa fa-tags"> Producto</span></a>
+                            <a href="http://localhost/phpSISAUTO/view/Producto.php"><span class="fa fa-tags"> Producto</span></a>
                         </li>
                     </ul>
                 </li>
@@ -83,7 +83,7 @@ and open the template in the editor.
                     </a>
                     <ul class="sidenav-second-level collapse" id="collapsenuevo">
                         <li>
-                            <a href="http://localhost/phpSISAUTO/Inventario.php"><span class="fa fa-book"> Inventario Principal</span></a>
+                            <a href="http://localhost/phpSISAUTO/view/Inventario.php"><span class="fa fa-book"> Inventario Principal</span></a>
                         </li>
                         <li>
                             <a href="">seccion1</a>
@@ -98,13 +98,13 @@ and open the template in the editor.
                     </a>
                     <ul class="sidenav-second-level collapse" id="collapseMulti">
                         <li>
-                            <a href="http://localhost/phpSISAUTO/Bitacora.php"><span class="fa fa-history"> Bitacora</span></a>
+                            <a href="http://localhost/phpSISAUTO/view/Bitacora.php"><span class="fa fa-history"> Bitacora</span></a>
                         </li>
                         <li>
-                            <a href="http://localhost/phpSISAUTO/Usuarios.php">Control Usuarios</a>
+                            <a href="http://localhost/phpSISAUTO/view/Usuarios.php">Control Usuarios</a>
                         </li>
                         <li>
-                            <a href="http://localhost/phpSISAUTO/Back.php">Administrar Backup</a>
+                            <a href="http://localhost/phpSISAUTO/view/Back.php">Administrar Backup</a>
                         </li>
                     </ul>
                 </li>
@@ -197,10 +197,10 @@ and open the template in the editor.
             <!-- Breadcrumbs-->
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <a href="http://localhost/phpSISAUTO/index.php">Inicio</a>
+                    <a href="http://localhost/phpSISAUTO/view/index.php">Inicio</a>
                 </li>
                 <li class="breadcrumb-item active">
-                    <a href="http://localhost/phpSISAUTO/Usuarios.php">Usuarios</a>
+                    <a href="http://localhost/phpSISAUTO/view/Usuarios.php">Usuarios</a>
                 </li>
                 <li class="breadcrumb-item">
                     <a>Registrar Usuario</a>
@@ -284,18 +284,18 @@ and open the template in the editor.
                     <div class="modal-body">Seleccione "Cerrar sesión" a continuación si está listo para finalizar su sesión actual.</div>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                        <a class="btn btn-primary" href="http://localhost/phpSISAUTO/login.html">Cerrar Sesión</a>
+                        <a class="btn btn-primary" href="http://localhost/phpSISAUTO/view/login.html">Cerrar Sesión</a>
                     </div>
                 </div>
             </div>
         </div>
         <!-- Bootstrap core JavaScript-->
-        <script src="vendor/jquery/jquery.min.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="../assets/vendor/jquery/jquery.min.js"></script>
+        <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
         <!-- Core plugin JavaScript-->
-        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+        <script src="../assets/vendor/jquery-easing/jquery.easing.min.js"></script>
         <!-- Custom scripts for all pages-->
-        <script src="js/sb-admin.min.js"></script>
+        <script src="../assets/js/sb-admin.min.js"></script>
     </div>
 </body>
 </html>
