@@ -216,7 +216,7 @@ and open the template in the editor.
                 <div class="card-header">
                     <i class=""></i> Registrar Producto</div>
                 <div class="card-body">
-                    <form action="producto_guardar.php" align="center" method="POST" name="form">
+                    <form action="../Controlador/producto_guardar.php" align="center" method="POST" name="form">
                         <div class="form-group row">
                             <label for="num" class="col-sm-12 col-md-2 col-form-label">Codigo:</label>
                             <div class="col-sm-12 col-md-10">
