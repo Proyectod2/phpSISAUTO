@@ -21,8 +21,6 @@ and open the template in the editor.
         <link href="css/sb-admin.css" rel="stylesheet">
     </head>
 </head>
-
-
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
@@ -108,8 +106,6 @@ and open the template in the editor.
                     </ul>
                 </li>
             </ul>
-
-
             <ul class="navbar-nav sidenav-toggler">
                 <li class="nav-item">
                     <a class="nav-link text-center" >
@@ -193,8 +189,6 @@ and open the template in the editor.
             </ul>
         </div>
     </nav>
-
-
     <div class="content-wrapper" style="background-color:#eff3f4;">
         <div class="container-fluid">
             <!-- Breadcrumbs-->
@@ -206,22 +200,18 @@ and open the template in the editor.
             </ol>
             <div class="row">
                 <div class="col-12">
-
                     <h1 align="center"></h1>
                     <a class="pull-right" href="http://localhost/phpSISAUTO/AgregarPro.php">
                         <button class="btn btn-primary" data-toggle="modal" data-target="#modalNuevo">
                             Agregar nuevo 
                             <span class="fa fa-plus"></span>
-                        </button>
-                    </a>
-
+                        </button></a>
                     <a class="pull-right" href="">
                         <button class="btn btn-primary" data-toggle="modal" data-target="#modalNuevo">
                             Reporte
                             <span class="fa fa-file-pdf-o"></span>
                         </button>
                     </a><br><br>
-                    
                     <!-- TABLA CLIENTES-->
                     <div class="card mb-3">
                         <div class="card-header">
@@ -246,7 +236,7 @@ and open the template in the editor.
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <!-- <th style="width:30px">Código</th> -->
+                                            <th style="width:30px">Código</th>
                                             <th style="width:175px">Empresa</th>
                                             <th style="width:85px">Teléfono</th>
                                             <th style="width:175px">Dirección</th>
@@ -256,7 +246,7 @@ and open the template in the editor.
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <!-- <th></th> -->
+                                            <th></th>
                                             <th></th>
                                             <th></th>
                                             <th></th>

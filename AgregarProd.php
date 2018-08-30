@@ -216,17 +216,17 @@ and open the template in the editor.
                 <div class="card-header">
                     <i class=""></i> Registrar Producto</div>
                 <div class="card-body">
-                    <form action="" align="center">
+                    <form action="producto_guardar.php" align="center" method="POST" name="form">
                         <div class="form-group row">
                             <label for="num" class="col-sm-12 col-md-2 col-form-label">Codigo:</label>
                             <div class="col-sm-12 col-md-10">
-                                <input class="form-control" type="number" id="num" placeholder="ID" style="width:150px;height:40px">
+                                <input name="codigo" class="form-control" type="number"  placeholder="ID" style="width:150px;height:40px">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="empresa" class="col-sm-12 col-md-2 col-form-label">Nombre:</label>
                             <div class="col-sm-12 col-md-10">
-                                <input class="form-control" placeholder="Nombre del Producto" type="text" id="empresa" style="width:600px;height:40px">
+                                <input name="nombre" class="form-control" placeholder="Nombre del Producto" type="text" id="empresa" style="width:600px;height:40px">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -248,17 +248,6 @@ and open the template in the editor.
                                     <option value="">Soporte de caja</option>
                                     <option value="">Soporte de cardan</option>
                                     <option value="">Lubricación</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="empresa" class="col-sm-12 col-md-2 col-form-label">Sub-Categoria:</label>
-                            <div class="col-sm-12 col-md-10">
-                                <select style="width:600px;height:40px" class="form-control"> 
-                                    <option value="">[Selecionar Sub-Categoria]</option>
-                                    <option value="">Amortiguación delantera</option>
-                                    <option value="">Amortiguación trasera</option>
-                                    <option value="">Buching de hoja</option>
                                 </select>
                             </div>
                         </div>
@@ -310,7 +299,7 @@ and open the template in the editor.
                         </div><br>
                         <hr width="75%" />
                         <div class="form-group" align="center">
-                            <button title="Aceptar" type="button" class="btn btn-success fa fa-check"></button>
+                            <button title="Aceptar" type="submit" value="guardar" class="btn btn-success fa fa-check"></button>
                             <button title="Cancelar" type="button" class="btn btn-warning fa fa-times" style="color:#fff"></button>
                         </div>
                     </form>

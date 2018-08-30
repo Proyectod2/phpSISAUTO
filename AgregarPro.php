@@ -24,12 +24,8 @@ and open the template in the editor.
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
 </head>
-
-
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
     <!-- Navigation-->
-
-
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
         <a class="navbar-brand" href="http://localhost/phpSISAUTO/index.php">SISAUTO</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -196,10 +192,6 @@ and open the template in the editor.
             </ul>
         </div>
     </nav>
-
-
-
-
     <div class="content-wrapper" style="background-color:#eff3f4;">
         <div class="container-fluid">
             <!-- Breadcrumbs-->
@@ -217,66 +209,53 @@ and open the template in the editor.
             <!-- Example DataTables Card-->
             <div class="card mb-3">
                 <div class="card-header">
-                    <i class=""></i> Registrar Proveedor
-                </div>
-
+                    <i class=""></i> Registrar Proveedor</div>
                 <div class="card-body">
                     <form action="" align="center">
                         <h5 align="center">Datos Generales</h5><br>
-                        
+                        <div class="form-group row">
+                            <label for="num" class="col-sm-12 col-md-2 col-form-label">Código Proveedor:</label>
+                            <div class="col-sm-12 col-md-10">
+                                <input class="form-control" type="number" id="num" placeholder="ID" style="width:150px;height:40px">
+                            </div>
+                        </div>
                         <div class="form-group row">
                             <label for="empresa" class="col-sm-12 col-md-2 col-form-label">Nombre de la Empresa:</label>
                             <div class="col-sm-12 col-md-10">
                                 <input class="form-control" placeholder="Nombre Completo" type="text" id="empresa" style="width:600px;height:40px">
                             </div>
                         </div>
-
-                        <div class="form-group row">
-                            <label for="empresa" class="col-sm-12 col-md-2 col-form-label">Correo:</label>
-                            <div class="col-sm-12 col-md-10">
-                                <input class="form-control" placeholder="Correo de la empresa" type="text" id="correo" style="width:600px;height:40px">
-                            </div>
-                        </div>
-
                         <div class="form-group row">
                             <label  for="tele1" class="col-sm-12 col-md-2 col-form-label">Teléfono:</label>
                             <div  class="col-sm-12 col-md-10">
                                 <input class="form-control" type="tel" id="tele1" placeholder="XXXX-XXXX" style="width:110px;height:40px">
                             </div>
                         </div>
-
                         <div class="form-group row">
                             <label for="direccion" class="col-sm-12 col-md-2 col-form-label">Dirección:</label>
                             <div class="col-sm-12 col-md-10">
                                 <input class="form-control" type="text" placeholder="Dirección" style="width:600px;height:40px" id="direccion">
                             </div>
-                        </div>
-
-                        <br>
+                        </div><br>
                         <hr size="50" style="background-color: #78bab9"/><br>
                         <h5 align="center">Datos del Responsable</h5><br>
-
                         <div class="form-group row">
                             <label for="responsable" class="col-sm-12 col-md-2 col-form-label">Nombre del Responsable:</label>
                             <div class="col-sm-12 col-md-10">
                                 <input class="form-control" type="text" placeholder="Nombre Completo" style="width:600px;height:40px" id="responsable">
                             </div>
                         </div>
-
                         <div class="form-group row">
                             <label for="tel2" class="col-sm-12 col-md-2 col-form-label">Teléfono:</label>
                             <div class="col-sm-12 col-md-10">
                                 <input class="form-control" type="tel" placeholder="XXXX-XXXX" style="width:110px;height:40px" id="tel2">
                             </div>
                         </div><br>
-
                         <hr width="75%" />
-
                         <div class="form-group" align="center">
                             <button title="Aceptar" type="button" class="btn btn-success fa fa-check"></button>
                             <button title="Cancelar" type="button" class="btn btn-warning fa fa-times" style="color:#fff"></button>
                         </div>
-                        
                     </form>
                 </div>
             </div>
