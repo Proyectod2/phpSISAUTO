@@ -9,7 +9,7 @@ $anio = $_POST['anio'];
 $descripcion = $_POST['descripcion'];
 
         
-$sql = "INSERT INTO producto (nombre_Prod, categoria_Prod, marca_Prod, descripcion_Prod,ss modeloVehiculo_Prod, anioVehiculo) VALUES ('$nombrePro','$categoria', '$marca', '$descripcion', '$modelo', '$anio')";
+$sql = "INSERT INTO producto (nombre_Prod,categoria_Prod,marca_Prod,descripcion_Prod,modeloVehiculo_Prod,anioVehiculo_Prod) VALUES ('$nombrePro','$categoria','$marca','$descripcion','$modelo','$anio')";
 
 $conexion = conectarMysql();
 
