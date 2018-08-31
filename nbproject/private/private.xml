@@ -3,10 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/phpSISAUTO/view/Usuarios.php</file>
-            <file>file:/C:/xampp/htdocs/phpSISAUTO/view/Ventas.php</file>
-            <file>file:/C:/xampp/htdocs/phpSISAUTO/view/NuevaVenta.php</file>
-            <file>file:/C:/xampp/htdocs/phpSISAUTO/view/Vender.php</file>
+            <file>file:/C:/xampp/htdocs/phpSISAUTO/confi/Conexion.php</file>
+            <file>file:/C:/xampp/htdocs/phpSISAUTO/view/Proveedor.php</file>
+            <file>file:/C:/xampp/htdocs/phpSISAUTO/Controlador/producto_guardar.php</file>
+            <file>file:/C:/xampp/htdocs/phpSISAUTO/view/AgregarProd.php</file>
+            <file>file:/C:/xampp/htdocs/phpSISAUTO/assets/vendor/bootstrap/css/bootstrap.css</file>
         </group>
     </open-files>
 </project-private>

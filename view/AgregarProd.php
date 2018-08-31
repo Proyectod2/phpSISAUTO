@@ -218,12 +218,6 @@ and open the template in the editor.
                 <div class="card-body">
                     <form action="../Controlador/producto_guardar.php" align="center" method="POST" name="form">
                         <div class="form-group row">
-                            <label for="num" class="col-sm-12 col-md-2 col-form-label">Codigo:</label>
-                            <div class="col-sm-12 col-md-10">
-                                <input name="codigo" class="form-control" type="number"  placeholder="ID" style="width:150px;height:40px">
-                            </div>
-                        </div>
-                        <div class="form-group row">
                             <label for="empresa" class="col-sm-12 col-md-2 col-form-label">Nombre:</label>
                             <div class="col-sm-12 col-md-10">
                                 <input name="nombre" class="form-control" placeholder="Nombre del Producto" type="text" id="empresa" style="width:600px;height:40px">
