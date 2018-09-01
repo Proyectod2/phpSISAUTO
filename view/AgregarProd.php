@@ -1,3 +1,6 @@
+<?php
+include("../Controlador/productoC.php");
+?>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -216,29 +219,23 @@ and open the template in the editor.
                 <div class="card-header">
                     <i class=""></i> Registrar Producto</div>
                 <div class="card-body">
-                    <form action="../Controlador/producto_guardar.php" align="center" method="POST" name="form">
-                        <div class="form-group row">
-                            <label for="num" class="col-sm-12 col-md-2 col-form-label">Codigo:</label>
-                            <div class="col-sm-12 col-md-10">
-                                <input name="codigo" class="form-control" type="number"  placeholder="ID" style="width:150px;height:40px">
-                            </div>
-                        </div>
+                    <form action="" align="center" method="POST" name="form">
                         <div class="form-group row">
                             <label for="empresa" class="col-sm-12 col-md-2 col-form-label">Nombre:</label>
                             <div class="col-sm-12 col-md-10">
-                                <input name="nombre" class="form-control" placeholder="Nombre del Producto" type="text" id="empresa" style="width:600px;height:40px">
+                                <input name="nombrePro" class="form-control" placeholder="Nombre del Producto" type="text" id="empresa" style="width:600px;height:40px">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="empresa" class="col-sm-12 col-md-2 col-form-label">Categoria:</label>
                             <div class="col-sm-12 col-md-10">
-                                <select style="width:600px;height:40px" class="form-control"> 
+                                <select style="width:600px;height:40px" class="form-control" name="categoria"> 
                                     <option value="">[Selecionar Categoria]</option>
-                                    <option value="">Suspensión</option>
-                                    <option value="">Dirección</option>
-                                    <option value="">Eléctrico</option>
-                                    <option value="">Fricción</option>
-                                    <option value="">Rodamiento</option>
+                                    <option value="Suspension">Suspensión</option>
+                                    <option value="Direccion">Dirección</option>
+                                    <option value="Electrico">Eléctrico</option>
+                                    <option value="Friccion">Fricción</option>
+                                    <option value="Rodamiento">Rodamiento</option>
                                     <option value="">Fajas</option>
                                     <option value="">Carburación</option>
                                     <option value="">Bomba</option>
@@ -254,12 +251,12 @@ and open the template in the editor.
                         <div class="form-group row">
                             <label for="empresa" class="col-sm-12 col-md-2 col-form-label">Marca:</label>
                             <div class="col-sm-12 col-md-10">
-                                <select style="width:600px;height:40px" class="form-control"> 
+                                <select style="width:600px;height:40px" class="form-control" name="marca"> 
                                     <option value="">[Selecionar Marca]</option>
-                                    <option value="">Toyota</option>
-                                    <option value="">Suzuki</option>
-                                    <option value="">Honda</option>
-                                    <option value="">Mazda</option>
+                                    <option value="Toyota">Toyota</option>
+                                    <option value="Suzuki">Suzuki</option>
+                                    <option value="Honda">Honda</option>
+                                    <option value="Mazda">Mazda</option>
                                     <option value="">Chevrolet</option>
                                     <option value="">Kia</option>
                                     <option value="">BMW</option>
@@ -274,19 +271,19 @@ and open the template in the editor.
                         <div class="form-group row">
                             <label for="empresa" class="col-sm-12 col-md-2 col-form-label">Modelo:</label>
                             <div class="col-sm-12 col-md-10">
-                                <select style="width:600px;height:40px" class="form-control"> 
+                                <select style="width:600px;height:40px" class="form-control" name="modelo"> 
                                     <option value="">[Selecionar Modelo]</option>
-                                    <option value="">Corolla</option>
-                                    <option value="">Yaris</option>
-                                    <option value="">RAV4</option>
-                                    <option value="">Land Cruiser Coronela</option>
+                                    <option value="Corolla">Corolla</option>
+                                    <option value="Yaris">Yaris</option>
+                                    <option value="RAV4">RAV4</option>
+                                    <option value="Land Cruiser Coronela">Land Cruiser Coronela</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="empresa" class="col-sm-12 col-md-2 col-form-label">Año:</label>
                             <div class="col-sm-12 col-md-10">
-                                <input class="form-control" type="number" id="num" placeholder="Año" style="width:150px;height:40px">
+                                <input class="form-control" type="number" name="anio" placeholder="Año" style="width:150px;height:40px">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -299,7 +296,7 @@ and open the template in the editor.
                         </div><br>
                         <hr width="75%" />
                         <div class="form-group" align="center">
-                            <button title="Aceptar" type="submit" value="guardar" class="btn btn-success fa fa-check"></button>
+                            <button title="Aceptar" type="submit" value="guardar" onClick='<?php $eje = guardarP(); ?>' class="btn btn-success fa fa-check"></button>
                             <button title="Cancelar" type="button" class="btn btn-warning fa fa-times" style="color:#fff"></button>
                         </div>
                     </form>
