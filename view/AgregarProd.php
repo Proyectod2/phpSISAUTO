@@ -1,3 +1,6 @@
+<?php
+include("../Controlador/productoC.php");
+?>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -216,7 +219,7 @@ and open the template in the editor.
                 <div class="card-header">
                     <i class=""></i> Registrar Producto</div>
                 <div class="card-body">
-                    <form action="../Controlador/productoC.php" align="center" method="POST" name="form">
+                    <form action="" align="center" method="POST" name="form">
                         <div class="form-group row">
                             <label for="empresa" class="col-sm-12 col-md-2 col-form-label">Nombre:</label>
                             <div class="col-sm-12 col-md-10">
@@ -293,7 +296,7 @@ and open the template in the editor.
                         </div><br>
                         <hr width="75%" />
                         <div class="form-group" align="center">
-                            <button title="Aceptar" type="submit" value="guardar" class="btn btn-success fa fa-check"></button>
+                            <button title="Aceptar" type="submit" value="guardar" onClick='<?php $eje = guardarP(); ?>' class="btn btn-success fa fa-check"></button>
                             <button title="Cancelar" type="button" class="btn btn-warning fa fa-times" style="color:#fff"></button>
                         </div>
                     </form>
