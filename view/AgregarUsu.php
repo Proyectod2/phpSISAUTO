@@ -213,12 +213,6 @@ and open the template in the editor.
                 <div class="card-body">
                     <form action="../Controlador/usuarioC.php" method="POST" align="center">
                         <h5 align="center">Datos Generales</h5><br>
-                    <!--<div class="form-group row">
-                            <label for="num" class="col-sm-12 col-md-2 col-form-label">Código de Usuario:</label>
-                            <div class="col-sm-12 col-md-10">
-                                <input class="form-control" type="number" id="num" placeholder="ID" style="width:150px;height:40px">
-                            </div>
-                        </div> -->
                         <input type="hidden" value="GuardarUsu" name="bandera"></input>
                         <div class="form-group row">
                             <label for="nombre" class="col-sm-12 col-md-2 col-form-label">Nombre:</label>
@@ -250,20 +244,6 @@ and open the template in the editor.
                                 <input class="form-control" type="number" placeholder="XXXX-XXXX-XX"  name="DUI_Usu" style="width:150px;height:40px">
                             </div>
                         </div>
-                    <!--
-                        <div class="form-group row">
-                            <label class="col-sm-12 col-md-2 col-form-label">estado:</label>
-                            <div class="col-sm-12 col-md-10">
-                                <input class="form-control" type="number" placeholder="XXXX-XXXX-XX"  name="estadou" style="width:150px;height:40px">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-sm-12 col-md-2 col-form-label">tipo:</label>
-                            <div class="col-sm-12 col-md-10">
-                                <input class="form-control" type="number" placeholder="XXXX-XXXX-XX"  name="tipou" style="width:150px;height:40px">
-                            </div>
-                        </div>
-                    -->
                         <div class="form-group row">
                             <label for="direccion" class="col-sm-12 col-md-2 col-form-label">Usuario:</label>
                             <div class="col-sm-12 col-md-10">
