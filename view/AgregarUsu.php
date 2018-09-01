@@ -219,7 +219,7 @@ and open the template in the editor.
                                 <input class="form-control" type="number" id="num" placeholder="ID" style="width:150px;height:40px">
                             </div>
                         </div> -->
-                        <input type="hidden" value="guardar" name="bandera"></input>
+                        <input type="hidden" value="GuardarUsu" name="bandera"></input>
                         <div class="form-group row">
                             <label for="nombre" class="col-sm-12 col-md-2 col-form-label">Nombre:</label>
                             <div class="col-sm-12 col-md-10">
@@ -250,6 +250,7 @@ and open the template in the editor.
                                 <input class="form-control" type="number" placeholder="XXXX-XXXX-XX"  name="DUI_Usu" style="width:150px;height:40px">
                             </div>
                         </div>
+                    <!--
                         <div class="form-group row">
                             <label class="col-sm-12 col-md-2 col-form-label">estado:</label>
                             <div class="col-sm-12 col-md-10">
@@ -262,6 +263,7 @@ and open the template in the editor.
                                 <input class="form-control" type="number" placeholder="XXXX-XXXX-XX"  name="tipou" style="width:150px;height:40px">
                             </div>
                         </div>
+                    -->
                         <div class="form-group row">
                             <label for="direccion" class="col-sm-12 col-md-2 col-form-label">Usuario:</label>
                             <div class="col-sm-12 col-md-10">
