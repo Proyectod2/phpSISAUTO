@@ -192,6 +192,9 @@ and open the template in the editor.
             </ul>
         </div>
     </nav>
+
+
+
     <div class="content-wrapper" style="background-color:#eff3f4;">
         <div class="container-fluid">
             <!-- Breadcrumbs-->
@@ -211,47 +214,43 @@ and open the template in the editor.
                 <div class="card-header">
                     <i class=""></i> Registrar Cliente</div>
                 <div class="card-body">
-                    <form action="" align="center">
+                    <form action="../Controlador/clienteC.php"  method="POST" align="center">
                         <h5 align="center">Datos Generales</h5><br>
-                        <div class="form-group row">
-                            <label for="num" class="col-sm-12 col-md-2 col-form-label">Código Cliente:</label>
-                            <div class="col-sm-12 col-md-10">
-                                <input class="form-control" type="number" id="num" placeholder="ID" style="width:150px;height:40px">
-                            </div>
-                        </div>
+                        <input type="hidden" value="GuardarCli" name="bandera"></input>
+                       
                         <div class="form-group row">
                             <label for="nombre" class="col-sm-12 col-md-2 col-form-label">Nombre:</label>
                             <div class="col-sm-12 col-md-10">
-                                <input class="form-control" placeholder="Nombre Completo" type="text" id="nombre" style="width:600px;height:40px">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label  for="telefono" class="col-sm-12 col-md-2 col-form-label">Teléfono:</label>
-                            <div  class="col-sm-12 col-md-10">
-                                <input class="form-control" type="tel" id="telefono" placeholder="XXXX-XXXX" style="width:110px;height:40px">
+                                <input class="form-control" placeholder="Nombre Completo" name="NombreC" type="text" id="nombre" style="width:600px;height:40px">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="direccion" class="col-sm-12 col-md-2 col-form-label">Dirección:</label>
                             <div class="col-sm-12 col-md-10">
-                                <input class="form-control" type="text" placeholder="Dirección" style="width:600px;height:40px">
+                                <input class="form-control" name="DireccionC" type="text" placeholder="Dirección" style="width:600px;height:40px">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label  for="telefono" class="col-sm-12 col-md-2 col-form-label">Teléfono:</label>
+                            <div  class="col-sm-12 col-md-10">
+                                <input class="form-control" name="TelefonoC" type="tel" id="telefono" placeholder="XXXX-XXXX" style="width:110px;height:40px">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="nrc" class="col-sm-12 col-md-2 col-form-label">NRC:</label>
                             <div class="col-sm-12 col-md-10">
-                                <input class="form-control" type="number" placeholder="xxxxxxxx" style="width:150px;height:40px">
+                                <input class="form-control" name="NRC" type="number" placeholder="xxxxxxxx" style="width:150px;height:40px">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-sm-12 col-md-2 col-form-label">NIT:</label>
                             <div class="col-sm-12 col-md-10">
-                                <input class="form-control" type="number" placeholder="XXXX-XXXX-XX" style="width:150px;height:40px">
+                                <input class="form-control" name="NIT" type="number" placeholder="XXXX-XXXX-XX" style="width:150px;height:40px">
                             </div>
                         </div><br>
                         <hr width="75%" />
                         <div class="form-group" align="center">
-                            <button title="Aceptar" type="button" class="btn btn-success fa fa-check"></button>
+                            <button title="Aceptar" type="submit" class="btn btn-success fa fa-check"></button>
                             <button title="Cancelar" type="button" class="btn btn-warning fa fa-times" style="color:#fff"></button>
                         </div>
                     </form>

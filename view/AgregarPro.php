@@ -192,6 +192,9 @@ and open the template in the editor.
             </ul>
         </div>
     </nav>
+
+
+
     <div class="content-wrapper" style="background-color:#eff3f4;">
         <div class="container-fluid">
             <!-- Breadcrumbs-->
@@ -255,7 +258,7 @@ and open the template in the editor.
                         <div class="form-group row">
                             <label for="tel2" class="col-sm-12 col-md-2 col-form-label">Teléfono:</label>
                             <div class="col-sm-12 col-md-10">
-                                <input class="form-control" type="tel" placeholder="XXXX-XXXX" name="Telefono_Res" style="width:110px;height:40px" id="tel2">
+                                <input class="form-control" type="tel" data-mask="9999-9999" placeholder="XXXX-XXXX" name="Telefono_Res" style="width:110px;height:40px" id="tel2">
                             </div>
                         </div><br>
                         <hr width="75%" />
