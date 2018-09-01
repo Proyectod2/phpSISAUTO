@@ -197,7 +197,7 @@ and open the template in the editor.
             <!-- Breadcrumbs-->
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <a href="http://localhost/phpSISAUTO/view/index.php">Inicio</a>
+                    <a href="index.html">Inicio</a>
                 </li>
                 <li class="breadcrumb-item active">
                     <a href="http://localhost/phpSISAUTO/view/Usuarios.php">Usuarios</a>
@@ -211,47 +211,72 @@ and open the template in the editor.
                 <div class="card-header">
                     <i class=""></i> Registrar Usuario</div>
                 <div class="card-body">
-                    <form action="" align="center">
+                    <form action="../Controlador/usuarioC.php" method="POST" align="center">
                         <h5 align="center">Datos Generales</h5><br>
-                        <div class="form-group row">
+                    <!--<div class="form-group row">
                             <label for="num" class="col-sm-12 col-md-2 col-form-label">Código de Usuario:</label>
                             <div class="col-sm-12 col-md-10">
                                 <input class="form-control" type="number" id="num" placeholder="ID" style="width:150px;height:40px">
                             </div>
-                        </div>
+                        </div> -->
+                        <input type="hidden" value="guardar" name="bandera"></input>
                         <div class="form-group row">
                             <label for="nombre" class="col-sm-12 col-md-2 col-form-label">Nombre:</label>
                             <div class="col-sm-12 col-md-10">
-                                <input class="form-control" placeholder="Nombre Completo" type="text" id="nombre" style="width:600px;height:40px">
+                                <input class="form-control" placeholder="Nombre Completo" type="text" id="nombre"  name="Nombre_Usu" style="width:600px;height:40px">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label  for="telefono" class="col-sm-12 col-md-2 col-form-label">Teléfono:</label>
                             <div  class="col-sm-12 col-md-10">
-                                <input class="form-control" type="tel" id="telefono" placeholder="XXXX-XXXX" style="width:150px;height:40px">
+                                <input class="form-control" type="tel" id="telefono" placeholder="XXXX-XXXX"  name="Telefono_Usu" style="width:150px;height:40px">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="nombre" class="col-sm-12 col-md-2 col-form-label">Correo:</label>
                             <div class="col-sm-12 col-md-10">
-                                <input class="form-control" placeholder="Correo" type="email" id="nombre" style="width:600px;height:40px">
+                                <input class="form-control" placeholder="Correo" type="email" id="nombre"  name="Correo_Usu" style="width:600px;height:40px">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="direccion" class="col-sm-12 col-md-2 col-form-label">Dirección:</label>
+                            <div class="col-sm-12 col-md-10">
+                                <input class="form-control" type="text" placeholder="Dirección" name="Direccion_Usu" style="width:600px;height:40px" id="direccion">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-12 col-md-2 col-form-label">DUI:</label>
+                            <div class="col-sm-12 col-md-10">
+                                <input class="form-control" type="number" placeholder="XXXX-XXXX-XX"  name="DUI_Usu" style="width:150px;height:40px">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-12 col-md-2 col-form-label">estado:</label>
+                            <div class="col-sm-12 col-md-10">
+                                <input class="form-control" type="number" placeholder="XXXX-XXXX-XX"  name="estadou" style="width:150px;height:40px">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-12 col-md-2 col-form-label">tipo:</label>
+                            <div class="col-sm-12 col-md-10">
+                                <input class="form-control" type="number" placeholder="XXXX-XXXX-XX"  name="tipou" style="width:150px;height:40px">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="direccion" class="col-sm-12 col-md-2 col-form-label">Usuario:</label>
                             <div class="col-sm-12 col-md-10">
-                                <input class="form-control" type="text" placeholder="Dirección" style="width:600px;height:40px">
+                                <input class="form-control" type="text" placeholder="Nombre de Usuario"   name="NombreUsu_Usu" style="width:600px;height:40px">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="nrc" class="col-sm-12 col-md-2 col-form-label">Contraseña:</label>
                             <div class="col-sm-12 col-md-10">
-                                <input class="form-control" type="password" placeholder="xxxxxxxx" style="width:150px;height:40px">
+                                <input class="form-control" type="password" placeholder="******"  name="Contrasena_Usu" style="width:150px;height:40px">
                             </div>
                         </div><br>
                         <hr width="75%" />
                         <div class="form-group" align="center">
-                            <button title="Aceptar" type="button" class="btn btn-success fa fa-check"></button>
+                            <button title="Aceptar" type="submit" class="btn btn-success fa fa-check"></button>
                             <button title="Cancelar" type="button" class="btn btn-warning fa fa-times" style="color:#fff"></button>
                         </div>
                     </form>
