@@ -245,7 +245,7 @@ and open the template in the editor.
                         <div class="form-group row">
                             <label class="col-sm-12 col-md-2 col-form-label">NIT:</label>
                             <div class="col-sm-12 col-md-10">
-                                <input class="form-control" name="NIT" type="number" placeholder="XXXX-XXXX-XX" style="width:150px;height:40px">
+                                <input class="form-control" name="NIT" type="number" placeholder="XXXX-XXXX-XXX" style="width:150px;height:40px">
                             </div>
                         </div><br>
                         <hr width="75%" />
