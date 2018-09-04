@@ -2,7 +2,7 @@
 
 $bandera = $_POST["bandera"];
 $nombrePro = $_POST["nombrePro"];
-$categoria = $_POST["categoria"];
+$categoria = $_POST["categorias"];
 $marca = $_POST["marca"];
 $modelo = $_POST["modelo"];
 $anio = $_POST["anio"];

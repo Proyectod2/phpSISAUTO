@@ -227,7 +227,7 @@ and open the template in the editor.
                         <div class="form-group row">
                             <label for="empresa" class="col-sm-12 col-md-2 col-form-label">Categoria:</label>
                             <div class="col-sm-12 col-md-10">
-                                <select style="width:600px;height:40px" class="form-control" name="categoria"> 
+                                <select name="categorias" style="width:600px;height:40px" class="form-control"> 
                                     <option value="">[Selecionar Categoria]</option>
                                     <option value="Suspension">Suspensión</option>
                                     <option value="Direccion">Dirección</option>
