@@ -234,15 +234,15 @@ and open the template in the editor.
                                     <option value="Electrico">Eléctrico</option>
                                     <option value="Friccion">Fricción</option>
                                     <option value="Rodamiento">Rodamiento</option>
-                                    <option value="">Fajas</option>
-                                    <option value="">Carburación</option>
-                                    <option value="">Bomba</option>
-                                    <option value="">Cricos</option>
-                                    <option value="">Soportes de motor</option>
-                                    <option value="">Distribución</option>
-                                    <option value="">Soporte de caja</option>
-                                    <option value="">Soporte de cardan</option>
-                                    <option value="">Lubricación</option>
+                                    <option value="fajas">Fajas</option>
+                                    <option value="Carburacion">Carburación</option>
+                                    <option value="Bomba">Bomba</option>
+                                    <option value="Cricos">Cricos</option>
+                                    <option value="Soporte de motor">Soportes de motor</option>
+                                    <option value="Distribucion">Distribución</option>
+                                    <option value="Soporte de caja">Soporte de caja</option>
+                                    <option value="Soporte de cardan">Soporte de cardan</option>
+                                    <option value="Lubricacion">Lubricación</option>
                                 </select>
                             </div>
                         </div>
@@ -255,14 +255,14 @@ and open the template in the editor.
                                     <option value="Suzuki">Suzuki</option>
                                     <option value="Honda">Honda</option>
                                     <option value="Mazda">Mazda</option>
-                                    <option value="">Chevrolet</option>
-                                    <option value="">Kia</option>
-                                    <option value="">BMW</option>
-                                    <option value="">Nissan</option>
-                                    <option value="">Mitsubishi</option>
-                                    <option value="">Ford</option>
-                                    <option value="">Mercedez-Benz</option>
-                                    <option value="">Hyundai</option>
+                                    <option value="Chevrolet">Chevrolet</option>
+                                    <option value="Kia">Kia</option>
+                                    <option value="BMW">BMW</option>
+                                    <option value="Nissan">Nissan</option>
+                                    <option value="Mitsubichi">Mitsubishi</option>
+                                    <option value="Ford">Ford</option>
+                                    <option value="Mercedez-Benz">Mercedez-Benz</option>
+                                    <option value="Hyundai">Hyundai</option>
                                 </select>
                             </div>
                         </div>
