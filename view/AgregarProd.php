@@ -1,7 +1,3 @@
-<?php
-include("../Controlador/productoC.php");
-include("../confi/Conexion.php");
-?>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -211,16 +207,17 @@ and open the template in the editor.
                 </li>
             </ol>
             <!-- Example DataTables Card-->
-            <a class="pull-right" href="">
-                <button class="btn btn-primary" data-toggle="modal" data-target="#modalNuevo">
-                    Nuevo
-                    <span class="fa fa-new"></span>
-                </button>
-            </a><br><br>
+            <!--<a class="pull-right" href="">-->
+                <!--<button class="btn btn-primary" data-toggle="modal" data-target="#modalNuevo">-->
+                    <!--Nuevo-->
+                    <!--<span class="fa fa-new"></span>-->
+                <!--</button>-->
+            <!--</a><br><br>-->
                 <div class="card-header">
                     <i class=""></i> Registrar Producto</div>
                 <div class="card-body">
-                    <form action="" align="center" method="POST" name="form">
+                    <form action="../Controlador/productoC.php" align="center" method="POST" name="">
+                        <input type="hidden" value="guardar" name="bandera"></input>
                         <div class="form-group row">
                             <label for="empresa" class="col-sm-12 col-md-2 col-form-label">Nombre:</label>
                             <div class="col-sm-12 col-md-10">
@@ -297,7 +294,7 @@ and open the template in the editor.
                         </div><br>
                         <hr width="75%" />
                         <div class="form-group" align="center">
-                            <button title="Aceptar" type="submit" value="guardar" onClick='<?php $eje = guardarP(); ?>' class="btn btn-success fa fa-check"></button>
+                            <button title="Aceptar" type="submit" class="btn btn-success fa fa-check"></button>
                             <button title="Cancelar" type="button" class="btn btn-warning fa fa-times" style="color:#fff"></button>
                         </div>
                     </form>
