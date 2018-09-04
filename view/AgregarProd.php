@@ -1,5 +1,6 @@
 <?php
 include("../Controlador/productoC.php");
+include("../confi/Conexion.php");
 ?>
 <!DOCTYPE html>
 <!--

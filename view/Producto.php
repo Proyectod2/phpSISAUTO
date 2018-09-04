@@ -1,3 +1,6 @@
+<?php
+include("../confi/Conexion.php");
+?>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -217,7 +220,7 @@ and open the template in the editor.
                     <div class="card mb-3">
                         <div class="card-header">
                             <i class="fa fa-table"></i> Productos</div>
-                            <form align="right" ><br>
+                        <form align="right" ><br>
                             <table class="pull-right " id="dataTable" width="100%" cellspacing="0" >
                                 <thead>
                                     <tr>
@@ -237,7 +240,6 @@ and open the template in the editor.
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th style="width:15px">Código</th>
                                             <th style="width:100px">Nombre</th>
                                             <th style="width:100px">Categoria</th>
                                             <th style="width:95px">Sub-Categoria</th>
@@ -248,19 +250,27 @@ and open the template in the editor.
                                         </tr>
                                     </thead>
                                     <tfoot>
-                                        <tr>
-                                            <th></th>
-                                            <th></th>
-                                            <th></th>
-                                            <th></th>
-                                            <th></th>
-                                            <th></th>
-                                            <th></th>
-                                            <th align="center">
-                                                <button title="Editar" type="button" class="btn btn-primary fa fa-pencil-square-o"></button>
-                                                <button title="Cancelar" type="button" class="btn btn-danger fa fa-trash"></button>
-                                            </th>
-                                        </tr>
+                                        <?php
+                                        $sql = "SELECT * FROM producto";
+                                        $result = conectarMysql();
+
+                                        while ($row = $result->fetch_assoc()){
+                                            ?>
+                                            <tr>
+                                                <th><?php echo $row['nombre_Prod'] ?></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th align="center">
+                                                    <button title="Editar" type="button" class="btn btn-primary fa fa-pencil-square-o"></button>
+                                                    <button title="Cancelar" type="button" class="btn btn-danger fa fa-trash"></button>
+                                                </th>
+                                            </tr>
+                                            <?php
+                                        }
+                                        ?>
                                     </tfoot>
                                 </table>
                             </div>
