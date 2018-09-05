@@ -59,17 +59,15 @@ and open the template in the editor.
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th style="width:30px">Código</th>
                                             <th style="width:175px">Empresa</th>
-                                            <th style="width:85px">Teléfono</th>
-                                            <th style="width:175px">Dirección</th>
+                                            <th style="width:85px">Correo</th>
+                                            <th style="width:175px">Teléfono</th>
                                             <th style="width:175px">Responsable</th>
                                             <th align="center" style="width:2px">Acción</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th></th>
                                             <th></th>
                                             <th></th>
                                             <th></th>
