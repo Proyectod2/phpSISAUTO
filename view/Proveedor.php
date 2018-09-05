@@ -65,7 +65,7 @@ and open the template in the editor.
                                         <tr>
                                             <th style="width:175px">Empresa</th>
                                             <!-- <th style="width:85px">Correo</th> -->
-                                            <th style="width:175px">Teléfono</th>
+                                            <th style="width:100px">Teléfono</th>
                                             <th style="width:175px">Responsable</th>
                                             <th align="center" style="width:2px">Acción</th>
                                         </tr>
@@ -79,7 +79,10 @@ and open the template in the editor.
                                             <td><?php echo $proveedore['nombreResp_Prov'] ?></td>
                                                                                        
                                             <th align="center">
+                                                <button type="button" class="btn btn-info"></button>
                                                 <button title="Editar" type="button" class="btn btn-primary fa fa-pencil-square-o"></button>
+                                                <button type="button" class="btn btn-success "></button>
+                                                <!-- <button type="button" class="btn btn-warning"></button> -->
                                                 <button title="Eliminar" type="button" class="btn btn-danger fa fa-trash"></button>
                                             </th>
                                         </tr>
