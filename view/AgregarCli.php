@@ -8,7 +8,6 @@ and open the template in the editor.
 <?php include("Generalidadespantalla/apertura.php"); ?>
  
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
-    <!-- Navigation-->
 
 <?php include("Generalidadespantalla/Menu.php"); ?>
    
