@@ -31,7 +31,7 @@ and open the template in the editor.
                 <div class="card-header">
                     <i class=""></i> Registrar Proveedor</div>
                 <div class="card-body">
-                    <form action="../Controlador/proveedorC.php" method="POST" align="center">
+                    <form action="../Controlador/proveedorC.php" method="POST" align="center" autocomplete="off">
                         <h5 align="center">Datos Generales</h5><br>
                         <!-- <div class="form-group row">
                             <label for="num" class="col-sm-12 col-md-2 col-form-label">Código Proveedor:</label>

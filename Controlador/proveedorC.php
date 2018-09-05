@@ -16,6 +16,7 @@ if($bandera=="guardar"){
     $conexion = conectarMysql();
 
     mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD".mysqli_connect_error());
+     header("location: /phpSISAUTO/view/Proveedor.php");
 
 }
 

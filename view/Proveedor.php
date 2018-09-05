@@ -56,27 +56,34 @@ and open the template in the editor.
                         </form>
                         <div class="card-body">
                             <div class="table-responsive">
+                            <?php include("../confi/Conexion.php"); 
+                            $conexion = conectarMysql();
+                            $sql="SELECT * from proveedor order by nombre_Prov ASC";
+                            $proveedores= mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); ?>
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th style="width:175px">Empresa</th>
-                                            <th style="width:85px">Correo</th>
+                                            <!-- <th style="width:85px">Correo</th> -->
                                             <th style="width:175px">Teléfono</th>
                                             <th style="width:175px">Responsable</th>
                                             <th align="center" style="width:2px">Acción</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
+                                        <?php While($proveedore=mysqli_fetch_assoc($proveedores)){?>
                                         <tr>
-                                            <th></th>
-                                            <th></th>
-                                            <th></th>
-                                            <th></th>
+                                            <td><?php echo $proveedore['nombre_Prov'] ?></td>
+
+                                            <td><?php echo $proveedore['telefono_Prov'] ?></td>
+                                            <td><?php echo $proveedore['nombreResp_Prov'] ?></td>
+                                                                                       
                                             <th align="center">
                                                 <button title="Editar" type="button" class="btn btn-primary fa fa-pencil-square-o"></button>
                                                 <button title="Eliminar" type="button" class="btn btn-danger fa fa-trash"></button>
                                             </th>
                                         </tr>
+                                        <?php } ?>
                                     </tfoot>
                                 </table>
                             </div>
