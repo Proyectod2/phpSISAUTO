@@ -40,7 +40,7 @@
                             <a href="http://localhost/phpSISAUTO/view/Cliente.php"><span class="fa fa-user"> Cliente</span></a>
                         </li>
                         <li>
-                            <a href="http://localhost/phpSISAUTO/view/Proveedor.php"><span class="fa fa-user"> Proveedor</span></a>
+                            <a href="http://localhost/phpSISAUTO/view/Proveedor.php"><span class="fa fa-group"> Proveedor</span></a>
                         </li>
                         <li>
                             <a href="http://localhost/phpSISAUTO/view/Producto.php"><span class="fa fa-tags"> Producto</span></a>

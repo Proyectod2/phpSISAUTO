@@ -63,9 +63,9 @@ and open the template in the editor.
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th style="width:175px">Empresa</th>
+                                            <th style="width:150px">Empresa</th>
                                             <!-- <th style="width:85px">Correo</th> -->
-                                            <th style="width:100px">Teléfono</th>
+                                            <th style="width:80px">Teléfono</th>
                                             <th style="width:175px">Responsable</th>
                                             <th align="center" style="width:2px">Acción</th>
                                         </tr>
@@ -79,11 +79,11 @@ and open the template in the editor.
                                             <td><?php echo $proveedore['nombreResp_Prov'] ?></td>
                                                                                        
                                             <th align="center">
-                                                <button type="button" class="btn btn-info"></button>
+                                                <button type="button" class="btn btn-info fa fa-eye"></button>
                                                 <button title="Editar" type="button" class="btn btn-primary fa fa-pencil-square-o"></button>
-                                                <button type="button" class="btn btn-success "></button>
+                                                <button type="button" class="btn btn-success fa fa-check-square-o "></button>
                                                 <!-- <button type="button" class="btn btn-warning"></button> -->
-                                                <button title="Eliminar" type="button" class="btn btn-danger fa fa-trash"></button>
+                                                <button title="Eliminar" type="button" class="btn btn-danger fa fa-remove"></button>
                                             </th>
                                         </tr>
                                         <?php } ?>
