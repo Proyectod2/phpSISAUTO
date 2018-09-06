@@ -19,7 +19,4 @@ if($bandera=="GuardarCli"){
     header("location: /phpSISAUTO/view/Cliente.php?mensaje=".$mensaje);
 
 }
-
-aqui estoy
-
 ?>
