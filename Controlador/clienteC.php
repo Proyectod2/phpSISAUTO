@@ -20,4 +20,6 @@ if($bandera=="GuardarCli"){
 
 }
 
+aqui estoy
+
 ?>

@@ -6,48 +6,48 @@ and open the template in the editor.
 -->
 <html>
 
-<?php include("Generalidadespantalla/apertura.php"); ?>
+    <?php include("Generalidadespantalla/apertura.php"); ?>
 
-<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+    <body class="fixed-nav sticky-footer bg-dark" id="page-top">
 
-<?php include("Generalidadespantalla/Menu.php"); ?>
+        <?php include("Generalidadespantalla/Menu.php"); ?>
 
-    <div class="content-wrapper" style="background-color:#eff3f4;">
-        <div class="container-fluid">
-            <!-- Breadcrumbs-->
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item">
-                    <a href="..view/index.html">Inicio</a>
+        <div class="content-wrapper" style="background-color:#eff3f4;">
+            <div class="container-fluid">
+                <!-- Breadcrumbs-->
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="..view/index.html">Inicio</a>
 
-                <li class="breadcrumb-item active">
-                    <a href="http://localhost/phpSISAUTO/view/Producto.php">Productos</a>
-                </li>
-                <li class="breadcrumb-item">
-                    <a>Registrar Producto</a>
-                </li>
-            </ol>
-            <!-- Example DataTables Card-->
-            <!--<a class="pull-right" href="">-->
+                    <li class="breadcrumb-item active">
+                        <a href="http://localhost/phpSISAUTO/view/Producto.php">Productos</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a>Registrar Producto</a>
+                    </li>
+                </ol>
+                <!-- Example DataTables Card-->
+                <!--<a class="pull-right" href="">-->
                 <!--<button class="btn btn-primary" data-toggle="modal" data-target="#modalNuevo">-->
-                    <!--Nuevo-->
-                    <!--<span class="fa fa-new"></span>-->
+                <!--Nuevo-->
+                <!--<span class="fa fa-new"></span>-->
                 <!--</button>-->
-            <!--</a><br><br>-->
+                <!--</a><br><br>-->
                 <div class="card-header">
                     <i class=""></i> Registrar Producto</div>
                 <div class="card-body">
-                    <form action="../Controlador/productoC.php" align="center" method="POST" name="">
+                    <form action="../Controlador/productoC.php" method="POST" align="center" id="guardarProd" autocomplete="off">
                         <input type="hidden" value="guardar" name="bandera"></input>
                         <div class="form-group row">
-                            <label for="empresa" class="col-sm-12 col-md-2 col-form-label">Nombre:</label>
+                            <label for="nombreP" class="col-sm-12 col-md-2 col-form-label">Nombre:</label>
                             <div class="col-sm-12 col-md-10">
-                                <input name="nombrePro" class="form-control" placeholder="Nombre del Producto" type="text" id="empresa" style="width:600px;height:40px">
+                                <input name="nombrePro" class="form-control" placeholder="Nombre del Producto" type="text" id="nombreP" style="width:600px;height:40px">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="empresa" class="col-sm-12 col-md-2 col-form-label">Categoria:</label>
+                            <label for="categoriaP" class="col-sm-12 col-md-2 col-form-label">Categoria:</label>
                             <div class="col-sm-12 col-md-10">
-                                <select name="categorias" style="width:600px;height:40px" class="form-control"> 
+                                <select name="categorias" style="width:600px;height:40px" class="form-control" id="categoriaP"> 
                                     <option value="">[Selecionar Categoria]</option>
                                     <option value="Suspension">Suspensión</option>
                                     <option value="Direccion">Dirección</option>
@@ -67,9 +67,9 @@ and open the template in the editor.
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="empresa" class="col-sm-12 col-md-2 col-form-label">Marca:</label>
+                            <label for="marcaP" class="col-sm-12 col-md-2 col-form-label">Marca:</label>
                             <div class="col-sm-12 col-md-10">
-                                <select style="width:600px;height:40px" class="form-control" name="marca"> 
+                                <select style="width:600px;height:40px" class="form-control" name="marca" id="marcaP"> 
                                     <option value="">[Selecionar Marca]</option>
                                     <option value="Toyota">Toyota</option>
                                     <option value="Suzuki">Suzuki</option>
@@ -87,9 +87,9 @@ and open the template in the editor.
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="empresa" class="col-sm-12 col-md-2 col-form-label">Modelo:</label>
+                            <label for="modeloP" class="col-sm-12 col-md-2 col-form-label">Modelo:</label>
                             <div class="col-sm-12 col-md-10">
-                                <select style="width:600px;height:40px" class="form-control" name="modelo"> 
+                                <select style="width:600px;height:40px" class="form-control" name="modelo" id="modeloP"> 
                                     <option value="">[Selecionar Modelo]</option>
                                     <option value="Corolla">Corolla</option>
                                     <option value="Yaris">Yaris</option>
@@ -99,22 +99,22 @@ and open the template in the editor.
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="empresa" class="col-sm-12 col-md-2 col-form-label">Año:</label>
+                            <label for="anioP" class="col-sm-12 col-md-2 col-form-label">Año:</label>
                             <div class="col-sm-12 col-md-10">
-                                <input class="form-control" type="number" name="anio" placeholder="Año" style="width:150px;height:40px">
+                                <input class="form-control" type="number" id="anioP" name="anio" placeholder="Año" style="width:150px;height:40px">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="empresa" class="col-sm-12 col-md-2 col-form-label">Descripción:</label>
+                            <label for="descripcionP" class="col-sm-12 col-md-2 col-form-label">Descripción:</label>
                             <div class="col-sm-12 col-md-2">
                                 <!--wrap="hard"-->
-                                <textarea rows="3" cols="75" name="descripcion"  placeholder="Escriba aqui...">
+                                <textarea rows="3" cols="75" name="descripcion"  placeholder="Escriba aqui..." id="descripcionP">
                                 </textarea>
                             </div>
                         </div><br>
                         <hr width="75%" />
                         <div class="form-group" align="center">
-                            <button title="Aceptar" type="submit" class="btn btn-success fa fa-check"></button>
+                            <button title="Aceptar" type="button" class="btn btn-success fa fa-check" onclick="validarProducto();"></button>
                             <button title="Cancelar" type="button" class="btn btn-warning fa fa-times" style="color:#fff"></button>
                         </div>
                     </form>
@@ -122,9 +122,8 @@ and open the template in the editor.
             </div>
         </div>
         <?php include("Generalidadespantalla/cierre.php"); ?>
-    </div>
-</body>
+        <script src="../assets/Validaciones/validarProducto.js"></script>
+    </body>
 </html>
 
 
-    
