@@ -1,5 +1,7 @@
-<?php
-include("../confi/Conexion.php");
+<?php //
+//include("../confi/Conexion.php");
+//include("../Controlador/productoC.php");
+//$lista = listar();
 ?>
 <!DOCTYPE html>
 <!--
@@ -250,14 +252,8 @@ and open the template in the editor.
                                         </tr>
                                     </thead>
                                     <tfoot>
-                                        <?php
-                                        $sql = "SELECT * FROM producto";
-                                        $result = conectarMysql();
-
-                                        while ($row = $result->fetch_assoc()){
-                                            ?>
                                             <tr>
-                                                <th><?php echo $row['nombre_Prod'] ?></th>
+                                                <th></th>
                                                 <th></th>
                                                 <th></th>
                                                 <th></th>
@@ -268,9 +264,6 @@ and open the template in the editor.
                                                     <button title="Cancelar" type="button" class="btn btn-danger fa fa-trash"></button>
                                                 </th>
                                             </tr>
-                                            <?php
-                                        }
-                                        ?>
                                     </tfoot>
                                 </table>
                             </div>
