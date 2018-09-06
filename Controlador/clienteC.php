@@ -15,6 +15,8 @@ if($bandera=="GuardarCli"){
     $conexion = conectarMysql();
 
     mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD".mysqli_connect_error());
+    $mensaje = "Registro guardado exitosamente";
+    header("location: /phpSISAUTO/view/Cliente.php?mensaje=".$mensaje);
 
 }
 
