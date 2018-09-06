@@ -36,7 +36,7 @@ and open the template in the editor.
                 <div class="card-header">
                     <i class=""></i> Registrar Producto</div>
                 <div class="card-body">
-                    <form action="../Controlador/productoC.php" method="POST" align="center" id="guardarProd">
+                    <form action="../Controlador/productoC.php" method="POST" align="center" id="guardarProd" autocomplete="off">
                         <input type="hidden" value="guardar" name="bandera"></input>
                         <div class="form-group row">
                             <label for="nombreP" class="col-sm-12 col-md-2 col-form-label">Nombre:</label>

@@ -15,9 +15,9 @@ if ($bandera == "guardar") {
 
     $conexion = conectarMysql();
 
-    mysqli_query($conexion, $sql)or die("Error a Conectar en la BD" . mysqli_connect_error());
-    $mensaje = "Registro guardado exitosamente";
-    header("location: /phpSISAUTO/view/Producto.php?mensaje=".$mensaje);
+    mysqli_query($conexion,$sql)or die ("Error a Conectar en la BD".mysqli_connect_error());
+    $mensajes = "Registro guardado exitosamente";
+    header("location: /phpSISAUTO/view/Producto.php?mensaje=".$mensajes);
 }
 
 ?>
