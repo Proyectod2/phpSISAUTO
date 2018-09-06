@@ -1,8 +1,3 @@
-<?php //
-//include("../confi/Conexion.php");
-//include("../Controlador/productoC.php");
-//$lista = listar();
-?>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -41,7 +36,7 @@ and open the template in the editor.
                             <span class="fa fa-file-pdf-o"></span>
                         </button>
                     </a><br><br>
-                    <!-- TABLA CLIENTES-->
+                    <!-- TABLA PRODUCTOS-->
                     <div class="card mb-3">
                         <div class="card-header">
                             <i class="fa fa-table"></i> Productos</div>
@@ -62,12 +57,17 @@ and open the template in the editor.
                         </form>
                         <div class="card-body">
                             <div class="table-responsive">
+                          
+                                <?php include("../confi/Conexion.php"); 
+                            $conexion = conectarMysql();
+                            $sql="SELECT * from producto order by idProducto ASC";
+                            $productos= mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); ?>
+                                
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th style="width:100px">Nombre</th>
                                             <th style="width:100px">Categoria</th>
-                                            <th style="width:95px">Sub-Categoria</th>
                                             <th style="width:95px">Marca</th>
                                             <th style="width:50px">Modelo</th>
                                             <th style="width:85px">Año</th>
@@ -75,18 +75,21 @@ and open the template in the editor.
                                         </tr>
                                     </thead>
                                     <tfoot>
+                                        
+                                        <?php While($producto=mysqli_fetch_assoc($productos)){?>
+                                        
                                             <tr>
-                                                <th></th>
-                                                <th></th>
-                                                <th></th>
-                                                <th></th>
-                                                <th></th>
-                                                <th></th>
+                                                <td><?php echo $producto['nombre_Prod'] ?></td>
+                                                <td><?php echo $producto['categoria_Prod'] ?></td>
+                                                <td><?php echo $producto['marca_Prod'] ?></td>
+                                                <td><?php echo $producto['modeloVehiculo_Prod'] ?></td>
+                                                <td><?php echo $producto['anioVehiculo_Prod'] ?></td>
                                                 <th align="center">
                                                     <button title="Editar" type="button" class="btn btn-primary fa fa-pencil-square-o"></button>
                                                     <button title="Cancelar" type="button" class="btn btn-danger fa fa-trash"></button>
                                                 </th>
                                             </tr>
+                                            <?php } ?>
                                     </tfoot>
                                 </table>
                             </div>
