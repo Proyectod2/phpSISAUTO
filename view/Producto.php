@@ -11,7 +11,7 @@ and open the template in the editor.
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
 
 <?php include("Generalidadespantalla/Menu.php"); ?>
-
+<?php $cate = array(1=>"Suspensión",2=>"Dirección" ); ?>
     <div class="content-wrapper" style="background-color:#eff3f4;">
         <div class="container-fluid">
             <!-- Breadcrumbs-->
@@ -66,6 +66,7 @@ and open the template in the editor.
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
+                                            <th style="width:100px">Codigo</th>
                                             <th style="width:100px">Nombre</th>
                                             <th style="width:100px">Categoria</th>
                                             <th style="width:95px">Marca</th>
@@ -79,8 +80,10 @@ and open the template in the editor.
                                         <?php While($producto=mysqli_fetch_assoc($productos)){?>
                                         
                                             <tr>
+                                                <td><?php echo $producto['codigo_Prod'] ?></td>
                                                 <td><?php echo $producto['nombre_Prod'] ?></td>
-                                                <td><?php echo $producto['categoria_Prod'] ?></td>
+                                                <td><?php echo $cate[$producto['categoria_Prod']] ?></td>
+                                                <!---->
                                                 <td><?php echo $producto['marca_Prod'] ?></td>
                                                 <td><?php echo $producto['modeloVehiculo_Prod'] ?></td>
                                                 <td><?php echo $producto['anioVehiculo_Prod'] ?></td>

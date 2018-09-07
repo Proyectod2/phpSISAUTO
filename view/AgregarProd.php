@@ -10,7 +10,28 @@ and open the template in the editor.
 
     <body class="fixed-nav sticky-footer bg-dark" id="page-top">
 
-        <?php include("Generalidadespantalla/Menu.php"); ?>
+        <?php
+        include("Generalidadespantalla/Menu.php");
+
+        include("../confi/Conexion.php");
+        $conexion = conectarMysql();
+        $sql = "SELECT * from producto order by idProducto ASC";
+        $producto = mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta");
+        $contador=mysqli_num_rows($producto);
+        if($contador>-1 && $contador<9){
+            $ceros="0000";
+        }else if($contador>=9 && $contador<100){
+            $ceros="000";
+        }else if($contador>=99 && $contador<1000){
+            $ceros="00";
+        }else if($contador>=999 && $contador<10000){
+            $ceros="0";
+        }else {
+            $ceros="";
+        }
+            
+         
+        ?>
 
         <div class="content-wrapper" style="background-color:#eff3f4;">
             <div class="container-fluid">
@@ -39,6 +60,12 @@ and open the template in the editor.
                     <form action="../Controlador/productoC.php" method="POST" align="center" id="guardarProd" autocomplete="off">
                         <input type="hidden" value="guardar" name="bandera"></input>
                         <div class="form-group row">
+                            <label for="nombreP" class="col-sm-12 col-md-2 col-form-label">Codigo:</label>
+                            <div class="col-sm-12 col-md-10">
+                                <input name="codigoPro" value="<?php echo $ceros.($contador+1)?>" class="form-control" placeholder="" type="text" id="codigoP" style="width:600px;height:40px" readonly="readonly">
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <label for="nombreP" class="col-sm-12 col-md-2 col-form-label">Nombre:</label>
                             <div class="col-sm-12 col-md-10">
                                 <input name="nombrePro" class="form-control" placeholder="Nombre del Producto" type="text" id="nombreP" style="width:600px;height:40px">
@@ -49,8 +76,8 @@ and open the template in the editor.
                             <div class="col-sm-12 col-md-10">
                                 <select name="categorias" style="width:600px;height:40px" class="form-control" id="categoriaP"> 
                                     <option value="">[Selecionar Categoria]</option>
-                                    <option value="Suspension">Suspensión</option>
-                                    <option value="Direccion">Dirección</option>
+                                    <option value="1">Suspensión</option>
+                                    <option value="2">Dirección</option>
                                     <option value="Electrico">Eléctrico</option>
                                     <option value="Friccion">Fricción</option>
                                     <option value="Rodamiento">Rodamiento</option>
@@ -121,7 +148,7 @@ and open the template in the editor.
                 </div>
             </div>
         </div>
-        <?php include("Generalidadespantalla/cierre.php"); ?>
+<?php include("Generalidadespantalla/cierre.php"); ?>
         <script src="../assets/Validaciones/validarProducto.js"></script>
     </body>
 </html>

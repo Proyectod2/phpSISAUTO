@@ -1,6 +1,7 @@
 <?php
 
 $bandera = $_POST["bandera"];
+$codigo = $_POST["codigoPro"];
 $nombrePro = $_POST["nombrePro"];
 $categoria = $_POST["categorias"];
 $marca = $_POST["marca"];
@@ -9,9 +10,8 @@ $anio = $_POST["anio"];
 $descripcion = $_POST["descripcion"];
 
 include("../confi/Conexion.php");
-
 if ($bandera == "guardar") {
-    $sql = "INSERT INTO producto (nombre_Prod,categoria_Prod,marca_Prod,descripcion_Prod,modeloVehiculo_Prod,anioVehiculo_Prod) VALUES ('$nombrePro','$categoria','$marca','$descripcion','$modelo','$anio')";
+    $sql = "INSERT INTO producto (nombre_Prod,categoria_Prod,marca_Prod,descripcion_Prod,modeloVehiculo_Prod,anioVehiculo_Prod,codigo_Prod) VALUES ('$nombrePro','$categoria','$marca','$descripcion','$modelo','$anio','$codigo')";
 
     $conexion = conectarMysql();
 
