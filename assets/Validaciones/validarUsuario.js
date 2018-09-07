@@ -1,12 +1,12 @@
     function validarUsuario(){
-        var nombreU= validarNombreU();    
-        var telefonoU= validarTelefonoU();
-        var correoU = validarCorreoU(); 
-        var direccionU= validarDireccionU();
-        var duiU= validarDUIU();
-        var nombreUsu = validarNombreUsu();
-        var contraseniaU = validarContraseniaU(); 
-        if (nombreU && telefonoU && correoU && direccionU && duiU && nombreUsu && contraseniaU) {
+        var nombreUs = validarNombreU();    
+        var telefonoUs = validarTelefonoU();
+        var correoUs = validarCorreoU(); 
+        var direccionUs = validarDireccionU();
+        var duiUs = validarDUIU();
+        var nombreusuUs = validarNombreUsu();
+        var contrasenaUs = validarContraseniaU(); 
+        if (nombreUs && telefonoUs && correoUs && direccionUs && duiUs && nombreusuUs && contrasenaUs) {
         	$('#guardarUsu').submit();
         };   
     }
@@ -60,7 +60,7 @@
     }
 
     function validarContraseniaU(){
-        if ($('#contraseniaU').val().trim()=="") {
+        if ($('#contrasenaU').val().trim()=="") {
             notaError("¡La Contraseña de Usuario es obligatorio!");
             return false;
         };
