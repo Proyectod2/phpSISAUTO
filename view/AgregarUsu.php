@@ -73,7 +73,7 @@ and open the template in the editor.
                         <div class="form-group row">
                             <label for="nrc" class="col-sm-12 col-md-2 col-form-label">Contraseña:</label>
                             <div class="col-sm-12 col-md-10">
-                                <input class="form-control" type="password" placeholder="******"  name="Contrasena_Usu" id="contraseniaU" style="width:150px;height:40px">
+                                <input class="form-control" type="password" placeholder="******"  name="Contrasena_Usu" id="contrasenaU" style="width:150px;height:40px">
                             </div>
                         </div><br>
                         <hr width="75%" />
