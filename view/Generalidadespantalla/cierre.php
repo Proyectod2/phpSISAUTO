@@ -2,8 +2,7 @@
             <div class="container">
                 <div class="text-center">
                     <small>UES-FMP. DERECHOS RESERVADOS 2018
-                    <?php
-                    $mensaje=$_GET['mensaje'];?>
+                    <?php?>
                     </small>
                 </div>
             </div>

@@ -39,8 +39,9 @@ and open the template in the editor.
                     <!-- TABLA CLIENTES-->
                     <div class="card mb-3">
                         <div class="card-header">
-                            <i class="fa fa-table"></i>Clientes</div>
-                            <form align="right" ><br>
+                            <i class="fa fa-table"></i>Clientes
+                        </div>
+                        <form align="right" ><br>
                             <table class="pull-right " id="dataTable" width="100%" cellspacing="0" >
                                 <thead>
                                     <tr>
@@ -91,14 +92,21 @@ and open the template in the editor.
                                     </tfoot>
                                 </table>
                             </div>
+
                         </div>
                         <div class="card-footer small text-muted">Ultima actualización </div>
                     </div>
+
                 </div>
             </div>
+
+
         </div>
     </div>
  <?php include("Generalidadespantalla/cierre.php"); ?>
+
+
+
 </body>
 </html>
 

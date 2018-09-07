@@ -38,38 +38,64 @@ and open the template in the editor.
                     <!-- TABLA CLIENTES-->
                     <div class="card mb-3">
                         <div class="card-header">
-                            <i class="fa fa-table"></i>Usuarios</div>
+                            <i class="fa fa-table"></i>     Usuarios</div>
+                            <form align="right" ><br>
+                            <table class="pull-right " id="dataTable" width="100%" cellspacing="0" >
+                                <thead>
+                                    <tr>
+                                        <th style="width:200px"></th>
+                                        <th style="width:120px"><div class="input-group" style="width:500px" align="center">
+                                                <input type="text" class="form-control" placeholder="Buscar" name="" align="center">
+                                                <div class="input-group-btn">
+                                                    <button class="btn btn-default" type="submit" title="Buscar"><i class="fa fa-search" ></i></button>
+                                                </div>
+                                            </div></th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </form>
                         <div class="card-body">
                             <div class="table-responsive">
+
+                            <?php include("../confi/Conexion.php"); 
+                            $conexion = conectarMysql();
+                            $sql="SELECT * from usuario order by nombre_Usu ASC";
+                            $usuarios= mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); ?>
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th style="width:30px">Código</th>
                                             <th style="width:175px">Nombre</th>
+                                            <th style="width:175px">Dirección</th>
+                                            <th style="width:85px">Correo</th>
                                             <th style="width:85px">Teléfono</th>
-                                            <th style="width:175px">Usuario</th>
-                                            <th style="width:85px">Contraseña</th>
+                                            <th style="width:85px">DUI</th>
                                             <th align="center" style="width:2px">Acción</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
+                                    <?php While($usuario=mysqli_fetch_assoc($usuarios)){?>
                                         <tr>
-                                            <th></th>
-                                            <th></th>
-                                            <th></th>
-                                            <th></th>
-                                            <th></th>
+                                            <td><?php echo $usuario['nombre_Usu'] ?></td>
+                                            <td><?php echo $usuario['direccion_Usu'] ?></td>
+                                            <td><?php echo $usuario['correo_Usu'] ?></td>
+                                            <td><?php echo $usuario['telefono_Usu'] ?></td>
+                                            <td><?php echo $usuario['dui_Usu'] ?></td>
+                                                                                       
                                             <th align="center">
                                                 <button title="Editar" type="button" class="btn btn-primary fa fa-pencil-square-o"></button>
                                                 <button title="Eliminar" type="button" class="btn btn-danger fa fa-trash"></button>
                                             </th>
                                         </tr>
+                                        <?php } ?>
                                     </tfoot>
                                 </table>
                             </div>
+
                         </div>
                         <div class="card-footer small text-muted">Ultima actualización </div>
                     </div>
+
+
                 </div>
             </div>
         </div>
