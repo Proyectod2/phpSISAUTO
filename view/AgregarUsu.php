@@ -31,7 +31,7 @@ and open the template in the editor.
                 <div class="card-header">
                     <i class=""></i> Registrar Usuario</div>
                 <div class="card-body">
-                    <form action="../Controlador/usuarioC.php" method="POST" align="center">
+                    <form action="../Controlador/usuarioC.php" method="POST" align="center" id="GuardarUsu" autocomplete="off">
                         <h5 align="center">Datos Generales</h5><br>
                         <input type="hidden" value="GuardarUsu" name="bandera"></input>
                         <div class="form-group row">
@@ -78,7 +78,7 @@ and open the template in the editor.
                         </div><br>
                         <hr width="75%" />
                         <div class="form-group" align="center">
-                            <button title="Aceptar" type="submit" class="btn btn-success fa fa-check"></button>
+                            <button title="Aceptar" type="submit" class="btn btn-success fa fa-check" onclick="validarUsuario();"></button>
                             <button title="Cancelar" type="button" class="btn btn-warning fa fa-times" style="color:#fff"></button>
                         </div>
                     </form>
@@ -86,6 +86,7 @@ and open the template in the editor.
             </div>
         </div>
         <?php include("Generalidadespantalla/cierre.php"); ?>
+        <script src="../assets/Validaciones/validarUsuario.js"></script>
     </div>
 </body>
 </html>
