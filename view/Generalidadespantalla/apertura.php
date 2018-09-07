@@ -13,8 +13,8 @@
         <link href="../assets/css/sb-admin.css" rel="stylesheet">
         <link href="../assets/pNotify/pnotify.custom.min.css" rel="stylesheet">
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="../assets/js/jquery.min.js"></script>
+        <script src="../assets/js/bootstrap.min.js"></script>
         <script src="../js/plugins/dataTables/datatables.min.js"></script>
         <script src="../js/jquery-2.1.1.js"></script>
         <script src="../js/bootstrap.min.js"></script>
@@ -23,6 +23,7 @@
         <script src="../js/plugins/jeditable/jquery.jeditable.js"></script>
         <script src="../js/inspinia.js"></script>
         <script src="../js/plugins/pace/pace.min.js"></script>
+        <script src="../assets/inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
 
         <script>
         $(document).ready(function(){
