@@ -17,10 +17,10 @@ and open the template in the editor.
             <!-- Breadcrumbs-->
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <a href="index.html">Inicio</a>
+                    <a href="index.php">Inicio</a>
                 </li>
                 <li class="breadcrumb-item active">
-                    <a href="http://localhost/phpSISAUTO/view/Usuarios.php">Usuarios</a>
+                    <a href="/phpSISAUTO/view/Usuarios.php">Usuarios</a>
                 </li>
                 <li class="breadcrumb-item">
                     <a>Registrar Usuario</a>
@@ -29,7 +29,7 @@ and open the template in the editor.
             <!-- Example DataTables Card-->
             <div class="card mb-3">
                 <div class="card-header">
-                    <i class=""></i> Registrar Usuario</div>
+                    <i class="fa fa-user"></i> Registrar Usuario</div>
                 <div class="card-body">
                     <form action="../Controlador/usuarioC.php" method="POST" id="guardarUsu" align="center" autocomplete="off">
                         <h5 align="center">Datos Generales</h5><br>

@@ -193,7 +193,7 @@ and open the template in the editor.
             <!-- Breadcrumbs-->
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <a href="view/index.html">Inicio</a>
+                    <a href="index.php">Inicio</a>
                 </li>
                 <li class="breadcrumb-item active">Inicio</li>
             </ol>

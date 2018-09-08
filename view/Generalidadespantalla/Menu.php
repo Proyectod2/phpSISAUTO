@@ -70,10 +70,10 @@
                     </a>
                     <ul class="sidenav-second-level collapse" id="collapseMulti">
                         <li>
-                            <a href="/phpSISAUTO/view/Bitacora.php"><span class="fa fa-history"> Bitacora</span></a>
+                            <a href="/phpSISAUTO/view/Usuarios.php">Control Usuarios</a>
                         </li>
                         <li>
-                            <a href="/phpSISAUTO/view/Usuarios.php">Control Usuarios</a>
+                            <a href="/phpSISAUTO/view/Bitacora.php">Bitacora</a>
                         </li>
                         <li>
                             <a href="/phpSISAUTO/view/Back.php">Administrar Backup</a>

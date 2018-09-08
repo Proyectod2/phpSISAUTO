@@ -17,13 +17,13 @@ and open the template in the editor.
             <!-- Breadcrumbs-->
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <a href="../view/index.html">Inicio</a>
+                    <a href="index.php">Inicio</a>
                 </li>
                 <li class="breadcrumb-item active">Control Usuarios</li>
             </ol>
             <div class="row">
                 <div class="col-12">
-                    <a class="pull-right" href="http://localhost/phpSISAUTO/view/AgregarUsu.php">
+                    <a class="pull-right" href="/phpSISAUTO/view/AgregarUsu.php">
                         <button class="btn btn-primary" data-toggle="modal" data-target="#modalNuevo">
                             Agregar nuevo 
                             <span class="fa fa-plus"></span>
@@ -38,7 +38,7 @@ and open the template in the editor.
                     <!-- TABLA CLIENTES-->
                     <div class="card mb-3">
                         <div class="card-header">
-                            <i class="fa fa-table"></i>     Usuarios</div>
+                            <i class="fa fa-users"></i> Usuarios</div>
                             <form align="right" ><br>
                             <table class="pull-right " id="dataTable" width="100%" cellspacing="0" >
                                 <thead>
@@ -56,7 +56,6 @@ and open the template in the editor.
                         </form>
                         <div class="card-body">
                             <div class="table-responsive">
-
                             <?php include("../confi/Conexion.php"); 
                             $conexion = conectarMysql();
                             $sql="SELECT * from usuario order by nombre_Usu ASC";
@@ -72,7 +71,7 @@ and open the template in the editor.
                                             <th align="center" style="width:2px">Acción</th>
                                         </tr>
                                     </thead>
-                                    <tfoot>
+                                    <tfoot class="contenidobusqueda">
                                     <?php While($usuario=mysqli_fetch_assoc($usuarios)){?>
                                         <tr>
                                             <td><?php echo $usuario['nombre_Usu'] ?></td>
@@ -102,5 +101,24 @@ and open the template in the editor.
     </div>
         <?php include("Generalidadespantalla/cierre.php"); ?>
 </div>
+        <!-- Filtrado de la tabla -->
+        <script type="text/javascript">
+            $(document).ready(function () {
+               $('#entradafilter').keyup(function () {
+                  var rex = new RegExp($(this).val(), 'i');
+                  $('.contenidobusqueda tr').hide();
+                  $('.contenidobusqueda tr').filter(function () {
+                    return rex.test($(this).text());
+                }).show();
+              })
+
+           });
+        </script>
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#example').DataTable();
+            } );
+        </script>
 </body>
 </html>
