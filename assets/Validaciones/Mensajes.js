@@ -1,7 +1,7 @@
 function notaError(sms){
 
 new PNotify({
-    title: 'ERROR!',
+    title: '  ¡ERROR!',
     text: sms,
     type: 'error'
 });
@@ -10,7 +10,7 @@ new PNotify({
 function notaInfo(sms){
 
 new PNotify({
-    title: 'HECHO!',
+    title: '  ¡HECHO!',
     text: sms,
     type: 'success'
 });
