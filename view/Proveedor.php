@@ -45,7 +45,7 @@ and open the template in the editor.
                                     <tr>
                                         <th style="width:200px"></th>
                                         <th style="width:120px"><div class="input-group" style="width:500px" align="center">
-                                                <input type="text" class="form-control" placeholder="Buscar" name="" align="center">
+                                                <input type="text" class="form-control" id="entradafilter" placeholder="Buscar" name="" align="center">
                                                 <div class="input-group-btn">
                                                     <button class="btn btn-default" type="submit" title="Buscar"><i class="fa fa-search" ></i></button>
                                                 </div>
@@ -60,6 +60,7 @@ and open the template in the editor.
                             $conexion = conectarMysql();
                             $sql="SELECT * from proveedor order by nombre_Prov ASC";
                             $proveedores= mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); ?>
+                                <!-- <input id="entradafilter" type="text" class="form-control"> -->
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
@@ -70,7 +71,7 @@ and open the template in the editor.
                                             <th align="center" style="width:2px">Acción</th>
                                         </tr>
                                     </thead>
-                                    <tfoot>
+                                    <tfoot class="contenidobusqueda">
                                         <?php While($proveedore=mysqli_fetch_assoc($proveedores)){?>
                                         <tr>
                                             <td><?php echo $proveedore['nombre_Prov'] ?></td>
@@ -98,6 +99,8 @@ and open the template in the editor.
         </div>
     </div>
 
+      <!-- MODAL VER PROVEEDOR -->
+      
 <div class="modal fade" id="mimodalejemplo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
@@ -157,5 +160,19 @@ and open the template in the editor.
 </div>
 
         <?php include("Generalidadespantalla/cierre.php"); ?>
+
+        <!-- Filtrado de la tabla -->
+        <script type="text/javascript">
+            $(document).ready(function () {
+               $('#entradafilter').keyup(function () {
+                  var rex = new RegExp($(this).val(), 'i');
+                  $('.contenidobusqueda tr').hide();
+                  $('.contenidobusqueda tr').filter(function () {
+                    return rex.test($(this).text());
+                }).show();
+              })
+
+           });
+        </script>
 </body>
 </html>
