@@ -75,7 +75,7 @@ and open the template in the editor.
                             <hr width="75%" />
                             <div class="form-group" align="center">
                                 <button title="Aceptar" type="button" class="btn btn-success fa fa-check" onclick="validarProveedor();"></button>
-                                <button title="Cancelar" type="button" class="btn btn-warning fa fa-times" style="color:#fff"></button>
+                                <button title="Cancelar"  type="reset" value="Cancelar" class="btn btn-warning fa fa-times" style="color:#fff"></button>
                             </div>
                         </form>
                     </div>
