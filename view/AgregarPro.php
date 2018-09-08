@@ -20,7 +20,7 @@ and open the template in the editor.
                 <a href="index.html">Inicio</a>
 
                 <li class="breadcrumb-item active">
-                    <a href="http://localhost/phpSISAUTO/view/Proveedor.php">Proveedores</a>
+                    <a href="/phpSISAUTO/view/Proveedor.php">Proveedores</a>
                 </li>
                 <li class="breadcrumb-item">
                     <a>Registrar Proveedor</a>

@@ -24,7 +24,7 @@ and open the template in the editor.
             <div class="row">
                 <div class="col-12">
                     <h1 align="center"></h1>
-                    <a class="pull-right" href="http://localhost/phpSISAUTO/view/AgregarPro.php">
+                    <a class="pull-right" href="/phpSISAUTO/view/AgregarPro.php">
                         <button class="btn btn-primary" data-toggle="modal" data-target="#modalNuevo">
                             Agregar nuevo 
                             <span class="fa fa-plus"></span>

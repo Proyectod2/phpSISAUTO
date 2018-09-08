@@ -1,3 +1,4 @@
+
         <footer class="sticky-footer">
             <div class="container">
                 <div class="text-center">
@@ -23,7 +24,7 @@
                     <div class="modal-body">Seleccione "Cerrar sesión" a continuación si está listo para finalizar su sesión actual.</div>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                        <a class="btn btn-primary" href="http://localhost/phpSISAUTO/view/login.html">Cerrar Sesión</a>
+                        <a class="btn btn-primary" href="/phpSISAUTO/view/login.html">Cerrar Sesión</a>
                     </div>
                 </div>
             </div>

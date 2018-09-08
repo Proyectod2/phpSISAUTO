@@ -28,7 +28,7 @@
                 if (data==0) {
                     return true;
                 }else{
-                   notaError("El nombre ya ha sido registrado!"); 
+                   notaError("El nombre ingresado ya ha sido registrado!"); 
                    return false;
                 }
             }
@@ -41,9 +41,26 @@
     if ($('#correoEmp').val().trim()=="") {
         notaError("El correo es obligatorio!");
         return false;
-    }
+    }else{
+        var param = {
+            correo: $('#correoEmp').val(),
+            bandera: "ccorreo",
+        };
 
-return true;
+        $.ajax({
+            data: param,
+            url:"/phpSISAUTO/Controlador/proveedorC.php",
+            method: "post",
+            success: function(data){
+                if (data==0) {
+                    return true;
+                }else{
+                   notaError("El correo ingresado ya ha sido registrado!"); 
+                   return false;
+                }
+            }
+        });
+    }
     }
 
     function validarTelefonoE(){
@@ -51,9 +68,26 @@ return true;
     if ($('#telefonoEmp').val().trim()=="") {
         notaError("El teléfono de la empresa es obligatorio!");
         return false;
-    }
+    }else{
+        var param = {
+            telEmp: $('#telefonoEmp').val(),
+            bandera: "ctelEmp",
+        };
 
-return true;
+        $.ajax({
+            data: param,
+            url:"/phpSISAUTO/Controlador/proveedorC.php",
+            method: "post",
+            success: function(data){
+                if (data==0) {
+                    return true;
+                }else{
+                   notaError("El telefono ingresado ya ha sido registrado!"); 
+                   return false;
+                }
+            }
+        });
+    }
     }
 
      function validarDireccionE(){
@@ -83,8 +117,24 @@ return true;
     if ($('#telefonoResp').val().trim()=="") {
     	notaError("El teléfono del responsable es obligatorio!");
     	return false;
-    }
-    
+    }else{
+        var param = {
+            telResp: $('#telefonoResp').val(),
+            bandera: "ctelResp",
+        };
 
-return true;
+        $.ajax({
+            data: param,
+            url:"/phpSISAUTO/Controlador/proveedorC.php",
+            method: "post",
+            success: function(data){
+                if (data==0) {
+                    return true;
+                }else{
+                   notaError("El telefono ingresado ya ha sido registrado!"); 
+                   return false;
+                }
+            }
+        });
+    }
     }

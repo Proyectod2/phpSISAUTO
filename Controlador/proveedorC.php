@@ -26,4 +26,22 @@ if ($bandera=="cnombre") {
     echo mysqli_num_rows($proveedor);
 }
 
+if ($bandera=="ccorreo") {
+	$sql="SELECT * from proveedor where correo_Prov ";
+	$proveedor = mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta");
+    echo mysqli_num_rows($proveedor);
+}
+
+if ($bandera=="ctelEmp") {
+	$sql="SELECT * from proveedor where telefono_Prov ";
+	$proveedor = mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta");
+    echo mysqli_num_rows($proveedor);
+}
+
+if ($bandera=="ctelResp") {
+	$sql="SELECT * from proveedor where telefonoResp_Prov ";
+	$proveedor = mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta");
+    echo mysqli_num_rows($proveedor);
+}
+
 ?>
