@@ -49,7 +49,7 @@ and open the template in the editor.
                             <div class="form-group row">
                                 <label  for="tele1" class="col-sm-12 col-md-2 col-form-label">Teléfono:</label>
                                 <div  class="col-sm-12 col-md-10">
-                                    <input class="form-control" type="text" id="telefonoEmp" data-inputmask="'mask' : '9999-9999'" name="Telefono_Emp" style="width:110px;height:40px"/>
+                                    <input class="form-control" type="text" id="telefonoEmp" placeholder="9999-9999" data-inputmask="'mask' : '9999-9999'" name="Telefono_Emp" style="width:110px;height:40px" onkeypress="return validarTel(this,event,this.value)"/>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -69,8 +69,7 @@ and open the template in the editor.
                             <div class="form-group row">
                                 <label for="tel2" class="col-sm-12 col-md-2 col-form-label">Teléfono:</label>
                                 <div class="col-sm-12 col-md-10">
-                                <input type="tel" class="form-control" placeholder="XXXX-XXXX" data-inputmask="'mask' : '9999-9999'" id="telefonoResp" name="Telefono_Res" maxlength="9" style="width:110px;height:40px" onkeypress="return validarTel(this,event,this.value)"></div>
-                                    <!-- <input class="form-control" type="tel" data-mask="9999-9999" placeholder="XXXX-XXXX" id="telefonoResp" name="Telefono_Res" style="width:110px;height:40px" > -->
+                                <input type="tel" class="form-control" placeholder="9999-9999" data-inputmask="'mask' : '9999-9999'" id="telefonoResp" name="Telefono_Res" maxlength="9" style="width:110px;height:40px" onkeypress="return validarTel(this,event,this.value)"></div>
                                 </div>
                             </div><br>
                             <hr width="75%" />
@@ -84,35 +83,6 @@ and open the template in the editor.
             </div>
             <?php include("Generalidadespantalla/cierre.php"); ?>
             <script src="../assets/Validaciones/validarProveedor.js"></script>
-            <script type="text/javascript">
-                function validarTel(obj, e,valor){
-                  tecla = (document.all) ? e.keyCode : e.which;
-                  val= tecla;
-                  tecla = String.fromCharCode(tecla);
-                  aux=false;
-                  if(valor==''){
-                    if(tecla=='2' || tecla=='7' || tecla=='6'){
-                      aux=true;
-                  }
-              }else if(valor[0]==2 || valor[0]==7 || valor[0]==6){
-                if(val > 47 && val < 58){
-                  if(valor.length<4){
-                    aux=true;
-                }   
-            }
-        }
-        if(valor.length==4 && tecla=='-'){
-            aux=true;
-        }else{
-            if(val > 47 && val < 58){
-              if(valor.length>4 && valor.length<9){
-                aux=true;
-            }
-        }
-    }
-    return aux;
-}
-</script>
 </body>
 </html>
 

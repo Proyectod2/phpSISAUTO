@@ -24,6 +24,7 @@
         <script src="../js/inspinia.js"></script>
         <script src="../js/plugins/pace/pace.min.js"></script>
         <script src="../assets/inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
+        <script src="../assets/Validaciones/validarTelefono.js"></script>
 
         <script>
         $(document).ready(function(){
