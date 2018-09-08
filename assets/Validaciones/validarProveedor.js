@@ -1,10 +1,10 @@
-    function validarProveedor(){
-        var nombreE= validarNombreE(); 
-        var correoE= validarCorreoE();
-        var telefonoE= validarTelefonoE(); 
-        var direccionE= validarDireccionE();    
-        var nombreR= validarNombreR();
-        var telefonoR= validarTelefonoR();  
+    async function validarProveedor(){
+        var nombreE= await validarNombreE(); 
+        var correoE= await validarCorreoE();
+        var telefonoE= await validarTelefonoE(); 
+        var direccionE= await validarDireccionE();    
+        var nombreR= await validarNombreR();
+        var telefonoR= await validarTelefonoR();  
         if (nombreE && correoE && telefonoE && direccionE && nombreR && telefonoR) {
         	$('#guardarPro').submit();
         };      
@@ -14,9 +14,26 @@
     if ($('#nombreEmp').val().trim()=="") {
     	notaError("El nombre de la empresa es obligatorio!");
     	return false;
-    };
+    }else{
+        var param = {
+            nombre: $('#nombreEmp').val(),
+            bandera: "cnombre",
+        };
 
-return true;
+        $.ajax({
+            data: param,
+            url:"/phpSISAUTO/Controlador/proveedorC.php",
+            method: "post",
+            success: function(data){
+                if (data==0) {
+                    return true;
+                }else{
+                   notaError("El nombre ya ha sido registrado!"); 
+                   return false;
+                }
+            }
+        });
+    }
     }
 
     function validarCorreoE(){
@@ -24,7 +41,7 @@ return true;
     if ($('#correoEmp').val().trim()=="") {
         notaError("El correo es obligatorio!");
         return false;
-    };
+    }
 
 return true;
     }
@@ -34,7 +51,7 @@ return true;
     if ($('#telefonoEmp').val().trim()=="") {
         notaError("El teléfono de la empresa es obligatorio!");
         return false;
-    };
+    }
 
 return true;
     }
@@ -44,7 +61,7 @@ return true;
     if ($('#direccionEmp').val().trim()=="") {
     	notaError("La Dirección es obligatoria!");
     	return false;
-    };
+    }
 
 
 return true;
@@ -55,7 +72,7 @@ return true;
     if ($('#nombreResp').val().trim()=="") {
     	notaError("El nombre del responsable es obligatorio!");
     	return false;
-    };
+    }
     
 
 return true;
@@ -66,7 +83,7 @@ return true;
     if ($('#telefonoResp').val().trim()=="") {
     	notaError("El teléfono del responsable es obligatorio!");
     	return false;
-    };
+    }
     
 
 return true;

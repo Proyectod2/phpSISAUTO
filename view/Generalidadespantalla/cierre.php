@@ -2,7 +2,6 @@
             <div class="container">
                 <div class="text-center">
                     <small>UES-FMP. DERECHOS RESERVADOS 2018
-                    <?php?>
                     </small>
                 </div>
             </div>
@@ -42,9 +41,9 @@
     </div>
 
     <?php
-    if (isset($mensaje)) {
+    if (isset($_GET['mensaje'])) {
          echo ("<script type='text/javascript'>
-    notaInfo('".$mensaje."');
+    notaInfo('".$_GET['mensaje']."');
     </script>");
      } 
     ?>
