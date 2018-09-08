@@ -40,7 +40,7 @@ and open the template in the editor.
                         <div class="card-header">
                             <i class="fa fa-table"></i> Proveedores</div>
                             <form align="right" ><br>
-                            <table class="pull-right " id="dataTable" width="100%" cellspacing="0" >
+                            <table id="dataTable" class="pull-right " width="100%" cellspacing="0" >
                                 <thead>
                                     <tr>
                                         <th style="width:200px"></th>
@@ -61,7 +61,7 @@ and open the template in the editor.
                             $sql="SELECT * from proveedor order by nombre_Prov ASC";
                             $proveedores= mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); ?>
                                 <!-- <input id="entradafilter" type="text" class="form-control"> -->
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-striped table-bordered" id="example" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th style="width:150px">Empresa</th>
@@ -71,7 +71,7 @@ and open the template in the editor.
                                             <th align="center" style="width:2px">Acción</th>
                                         </tr>
                                     </thead>
-                                    <tfoot class="contenidobusqueda">
+                                    <tfoot class="contenidobusqueda" >
                                         <?php While($proveedore=mysqli_fetch_assoc($proveedores)){?>
                                         <tr>
                                             <td><?php echo $proveedore['nombre_Prov'] ?></td>
@@ -100,7 +100,7 @@ and open the template in the editor.
     </div>
 
       <!-- MODAL VER PROVEEDOR -->
-      
+
 <div class="modal fade" id="mimodalejemplo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
@@ -173,6 +173,12 @@ and open the template in the editor.
               })
 
            });
+        </script>
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#example').DataTable();
+            } );
         </script>
 </body>
 </html>
