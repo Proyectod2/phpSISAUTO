@@ -65,13 +65,13 @@ and open the template in the editor.
                     </a>
                     <ul class="sidenav-second-level collapse" id="collapseExamplePages">
                         <li>
-                            <a href="http://localhost/phpSISAUTO/view/Cliente.php"><span class="fa fa-user"> Cliente</span></a>
+                            <a href="/phpSISAUTO/view/Cliente.php"><span class="fa fa-user"> Cliente</span></a>
                         </li>
                         <li>
-                            <a href="http://localhost/phpSISAUTO/view/Proveedor.php"><span class="fa fa-user"> Proveedor</span></a>
+                            <a href="/phpSISAUTO/view/Proveedor.php"><span class="fa fa-user"> Proveedor</span></a>
                         </li>
                         <li>
-                            <a href="http://localhost/phpSISAUTO/view/Producto.php"><span class="fa fa-tags"> Producto</span></a>
+                            <a href="/phpSISAUTO/view/Producto.php"><span class="fa fa-tags"> Producto</span></a>
                         </li>
                     </ul>
                 </li>
@@ -94,13 +94,13 @@ and open the template in the editor.
                     </a>
                     <ul class="sidenav-second-level collapse" id="collapseMulti">
                         <li>
-                            <a href="http://localhost/phpSISAUTO/view/Bitacora.php"><span class="fa fa-history"> Bitacora</span></a>
+                            <a href="/phpSISAUTO/view/Usuarios.php"><span class="fa fa-group">  Control Usuarios</span></a>
                         </li>
                         <li>
-                            <a href="http://localhost/phpSISAUTO/view/Usuarios.php"><span class="fa fa-group"> Control Usuarios</span></a>
+                            <a href="/phpSISAUTO/view/Bitacora.php"><span class="fa fa-history"> Bitacora</span></a>
                         </li>
                         <li>
-                            <a href="http://localhost/phpSISAUTO/view/Back.php"><span class="fa fa-database"> Administrar Backup</span></a>
+                            <a href="/phpSISAUTO/view/Back.php"><span class="fa fa-database"> Administrar Backup</span></a>
                         </li>
                     </ul>
                 </li>

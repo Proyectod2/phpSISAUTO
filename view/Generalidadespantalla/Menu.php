@@ -70,13 +70,13 @@
                     </a>
                     <ul class="sidenav-second-level collapse" id="collapseMulti">
                         <li>
-                            <a href="/phpSISAUTO/view/Usuarios.php">Control Usuarios</a>
+                            <a href="/phpSISAUTO/view/Usuarios.php"><span class="fa fa-group">  Control Usuarios</span></a>
                         </li>
                         <li>
-                            <a href="/phpSISAUTO/view/Bitacora.php">Bitacora</a>
+                            <a href="/phpSISAUTO/view/Bitacora.php"><span class="fa fa-history"> Bitacora</span></a>
                         </li>
                         <li>
-                            <a href="/phpSISAUTO/view/Back.php">Administrar Backup</a>
+                            <a href="/phpSISAUTO/view/Back.php"><span class="fa fa-database"> Administrar Backup</span></a>
                         </li>
                     </ul>
                 </li>

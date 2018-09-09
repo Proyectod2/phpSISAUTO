@@ -8,14 +8,14 @@
         var contrasenaU = validarContrasenaU(); 
         if (nombreU && telefonoU && correoU && direccionU && duiU && nombreusuU && contrasenaU) {
         	$('#guardarUsu').submit();
-        };   
+        }  
     }
 
     function validarNombreU(){
         if ($('#nombreUsu').val().trim()=="") {
             notaError("¡El nombre es obligatorio!");
             return false;
-        };
+        }
         return true;
     }
 
@@ -23,7 +23,7 @@
         if ($('#telefonoUsu').val().trim()=="") {
             notaError("¡El teléfono es obligatorio!");
             return false;
-        };
+        }
         return true;
     }
 
@@ -31,7 +31,7 @@
         if ($('#correoUsu').val().trim()=="") {
             notaError("¡El correo es obligatorio!");
             return false;
-        };
+        }
         return true;
     }
 
@@ -39,7 +39,7 @@
         if ($('#direccionUsu').val().trim()=="") {
             notaError("¡La Dirección es obligatoria!");
     	   return false;
-        };
+        }
         return true;
     }
 
@@ -47,7 +47,7 @@
         if ($('#duiUsu').val().trim()=="") {
         	notaError("¡El DUI es obligatorio!");
         	return false;
-        };
+        }
         return true;
     }
 
@@ -55,7 +55,7 @@
         if ($('#nombreusuUsu').val().trim()=="") {
             notaError("¡El Nombre de Usuario es obligatorio!");
             return false;
-        };
+        }
         return true;
     }
 
@@ -63,6 +63,6 @@
         if ($('#contrasenaUsu').val().trim()=="") {
             notaError("¡La Contraseña de Usuario es obligatorio!");
             return false;
-        };
+        }
         return true;
     }

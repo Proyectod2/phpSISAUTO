@@ -23,21 +23,22 @@ and open the template in the editor.
             </ol>
             <div class="row">
                 <div class="col-12">
-                    <a class="pull-right" href="/phpSISAUTO/view/AgregarUsu.php">
-                        <button class="btn btn-primary" data-toggle="modal" data-target="#modalNuevo">
-                            Agregar nuevo 
-                            <span class="fa fa-plus"></span>
-                        </button>
-                    </a>
                     <a class="pull-right" href="">
                         <button class="btn btn-primary" data-toggle="modal" data-target="#modalNuevo">
                             Reporte
                             <span class="fa fa-file-pdf-o"></span>
                         </button>
-                    </a><br><br>
+                    </a>
+                    <a class="pull-right" href="/phpSISAUTO/view/AgregarUsu.php">
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#modalNuevo">
+                            Agregar nuevo
+                            <span class="fa fa-plus"></span>
+                        </button>
+                    </a>
+                    <br><br>
                     <!-- TABLA CLIENTES-->
                     <div class="card mb-3">
-                        <div class="card-header">
+                        <div class="card-header" style="background-color:#eff3f4;">
                             <i class="fa fa-users"></i> Usuarios</div>
                             <form align="right" ><br>
                             <table class="pull-right " id="dataTable" width="100%" cellspacing="0" >
@@ -49,7 +50,8 @@ and open the template in the editor.
                                                 <div class="input-group-btn">
                                                     <button class="btn btn-default" type="submit" title="Buscar"><i class="fa fa-search" ></i></button>
                                                 </div>
-                                            </div></th>
+                                            </div>
+                                        </th>
                                     </tr>
                                 </thead>
                             </table>
@@ -91,7 +93,7 @@ and open the template in the editor.
                             </div>
 
                         </div>
-                        <div class="card-footer small text-muted">Ultima actualización </div>
+                        <div class="card-footer small text-muted"> </div>
                     </div>
 
 

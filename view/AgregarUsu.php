@@ -41,9 +41,9 @@ and open the template in the editor.
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label  for="telefono" class="col-sm-12 col-md-2 col-form-label">Teléfono:</label>
+                            <label  for="tel3" class="col-sm-12 col-md-2 col-form-label">Teléfono:</label>
                             <div  class="col-sm-12 col-md-10">
-                                <input class="form-control" type="tel" id="telefonoUsu" placeholder="XXXX-XXXX"  name="Telefono_Usu" style="width:150px;height:40px">
+                                <input class="form-control" type="text" id="telefonoUsu" placeholder="9999-9999" data-inputmask="'mask' : '9999-9999'" name="Telefono_Usu" style="width:150px;height:40px" onkeypress="return validarTel(this,event,this.value)">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -61,25 +61,25 @@ and open the template in the editor.
                         <div class="form-group row">
                             <label class="col-sm-12 col-md-2 col-form-label">DUI:</label>
                             <div class="col-sm-12 col-md-10">
-                                <input class="form-control" type="number" placeholder="XXXX-XXXX-XX" id="duiUsu"  name="DUI_Usu" style="width:150px;height:40px">
+                                <input class="form-control" type="text" placeholder="99999999-9" id="duiUsu"  name="DUI_Usu" style="width:150px;height:40px" onkeypress="return validarDUI(this,event,this.value)">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="usuario" class="col-sm-12 col-md-2 col-form-label">Usuario:</label>
                             <div class="col-sm-12 col-md-10">
-                                <input class="form-control" type="text" placeholder="Nombre de Usuario" id="nombreusuUsu"  name="NombreUsu_Usu" style="width:600px;height:40px">
+                                <input class="form-control" type="text" placeholder="Nombre de Usuario" id="nombreusuUsu"  name="NombreUsu_Usu" style="width:600px;height:40px" onkeypress="return validarNombreUsuario(this,event,this.value)">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="contrasena" class="col-sm-12 col-md-2 col-form-label">Contraseña:</label>
                             <div class="col-sm-12 col-md-10">
-                                <input class="form-control" type="password" placeholder="******" id="contrasenaUsu"  name="Contrasena_Usu" style="width:150px;height:40px">
+                                <input class="form-control" type="password" placeholder="******" id="contrasenaUsu"  name="Contrasena_Usu" style="width:150px;height:40px" onkeypress="return validarContrasena(this,event,this.value)">
                             </div>
                         </div><br>
                         <hr width="75%" />
                         <div class="form-group" align="center">
-                            <button title="Aceptar" type="button" class="btn btn-success fa fa-check" onclick="validarUsuario();"></button>
-                            <button title="Cancelar" type="reset" value="Cancelar" class="btn btn-warning fa fa-times" style="color:#fff"></button>
+                            <button title="Aceptar" type="button" class="btn btn-success" onclick="validarUsuario();">Aceptar</button>
+                            <button title="Cancelar" type="reset" value="Cancelar" class="btn btn-warning "  style="color:#fff">Cancelar</button>
                         </div>
                     </form>
                 </div>
@@ -87,6 +87,10 @@ and open the template in the editor.
         </div>
         <?php include("Generalidadespantalla/cierre.php"); ?>
         <script src="../assets/Validaciones/validarUsuario.js"></script>
+        <script src="../assets/Validaciones/validarDUI.js"></script>
+        <script src="../assets/Validaciones/validarTelefono.js"></script>
+        <script src="../assets/Validaciones/validarContrasena.js"></script>
+        <script src="../assets/Validaciones/validarNombreUsuario.js"></script>
     </div>
 </body>
 </html>

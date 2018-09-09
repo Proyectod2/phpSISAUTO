@@ -67,7 +67,7 @@ and open the template in the editor.
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="tel2" class="col-sm-12 col-md-2 col-form-label">Teléfono:</label>
+                                <label for="tel2" class="col-sm-12 col-md-2 col-form-label">Teléfono: </label>
                                 <div class="col-sm-12 col-md-10">
                                 <input type="tel" class="form-control" placeholder="9999-9999" data-inputmask="'mask' : '9999-9999'" id="telefonoResp" name="Telefono_Res" maxlength="9" style="width:110px;height:40px" onkeypress="return validarTel(this,event,this.value)"></div>
                                 </div>
