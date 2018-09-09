@@ -16,10 +16,10 @@ and open the template in the editor.
             <!-- Breadcrumbs-->
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <a href="http://localhost/phpSISAUTO/view/index.php">Inicio</a>
+                    <a href="/phpSISAUTO/view/index.php">Inicio</a>
                 </li>
                 <li class="breadcrumb-item active">
-                    <a href="http://localhost/phpSISAUTO/view/Cliente.php">Clientes</a>
+                    <a href="/phpSISAUTO/view/Cliente.php">Clientes</a>
                 </li>
                 <li class="breadcrumb-item">
                     <a>Registrar Cliente</a>

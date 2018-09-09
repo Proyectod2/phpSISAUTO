@@ -17,7 +17,7 @@ and open the template in the editor.
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="index.html">Inicio</a>
+                <a href="index.php">Inicio</a>
 
                 <li class="breadcrumb-item active">
                     <a href="/phpSISAUTO/view/Proveedor.php">Proveedores</a>

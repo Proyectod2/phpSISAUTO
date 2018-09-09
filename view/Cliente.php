@@ -18,13 +18,13 @@ and open the template in the editor.
             <!-- Breadcrumbs-->
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <a href="../view/index.html">Inicio</a>
+                    <a href="index.php">Inicio</a>
                 </li>
                 <li class="breadcrumb-item active">Clientes</li>
             </ol>
             <div class="row">
                 <div class="col-12">
-                    <a class="pull-right" href="http://localhost/phpSISAUTO/view/AgregarCli.php">
+                    <a class="pull-right" href="/phpSISAUTO/view/AgregarCli.php">
                         <button class="btn btn-primary" data-toggle="modal" data-target="#modalNuevo">
                             Agregar nuevo 
                             <span class="fa fa-plus"></span>
