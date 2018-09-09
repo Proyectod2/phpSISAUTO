@@ -141,8 +141,8 @@ and open the template in the editor.
                         </div><br>
                         <hr width="75%" />
                         <div class="form-group" align="center">
-                            <button title="Aceptar" type="button" class="btn btn-success fa fa-check" onclick="validarProducto();"></button>
-                            <button title="Cancelar" type="button" class="btn btn-warning fa fa-times" style="color:#fff"></button>
+                            <button title="Aceptar" type="button" class="btn btn-success " onclick="validarProducto();">Aceptar</button>
+                            <button title="Cancelar" type="button" class="btn btn-warning " style="color:#fff">Cancelar</button>
                         </div>
                     </form>
                 </div>

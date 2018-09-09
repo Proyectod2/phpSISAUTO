@@ -24,18 +24,19 @@ and open the template in the editor.
             </ol>
             <div class="row">
                 <div class="col-12">
+                    <a class="pull-right" href="">
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#modalNuevo">
+                            Reporte
+                            <span class="fa fa-file-pdf-o"></span>
+                        </button>
+                    </a>
                     <a class="pull-right" href="/phpSISAUTO/view/AgregarCli.php">
                         <button class="btn btn-primary" data-toggle="modal" data-target="#modalNuevo">
                             Agregar nuevo 
                             <span class="fa fa-plus"></span>
                         </button>
                     </a>
-                    <a class="pull-right" href="">
-                        <button class="btn btn-primary" data-toggle="modal" data-target="#modalNuevo">
-                            Reporte
-                            <span class="fa fa-file-pdf-o"></span>
-                        </button>
-                    </a><br><br>
+                    <br><br>
                     <!-- TABLA CLIENTES-->
                     <div class="card mb-3">
                         <div class="card-header">
