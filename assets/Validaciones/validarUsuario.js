@@ -15,7 +15,8 @@ function validarNombreU(){
     if ($('#nombreUsu').val().trim()=="") {
         notaError("¡El nombre es obligatorio!");
         return false;
-    }else{
+    }
+    /*else{
         var param = {
             nombre: $('#nombreUsu').val(),
             bandera: "unombre",
@@ -33,7 +34,7 @@ function validarNombreU(){
                 }
             }
         });
-    }
+    }*/
     return true;
 }
 
@@ -46,7 +47,7 @@ function validarTelefonoU(){
 }
 
 function validarCorreoU(){
-    if ($('#correoUsu').val().trim()=="") {
+    if ($('#email').val().trim()=="") {
         notaError("¡El correo es obligatorio!");
         return false;
     }
@@ -78,9 +79,10 @@ function validarNombreUsu(){
 }
 
 function validarContrasenaU(){
-    if ($('#contrasenaUsu').val().trim()=="") {
+    if ($('#contrasenaUsu').val().trim() == "") {
         notaError("¡La Contraseña de Usuario es obligatorio!");
         return false;
     }
     return true;
+
 }

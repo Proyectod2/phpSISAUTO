@@ -38,57 +38,65 @@ and open the template in the editor.
                         <div class="form-group row">
                             <div class="col-sm-12 col-md-1">
                             </div>
-                            <label for="nombre" class="col-sm-12 col-md-2 col-form-label">Nombre:</label>
-                            <div class="col-sm-12 col-md-9">
+                            <label for="nombre" class="col-sm-12 col-md-3 col-form-label">Nombre:</label>
+                            <div class="col-sm-12 col-md-8">
                                 <input class="form-control" placeholder="Nombre Completo" type="text" id="nombreUsu" name="Nombre_Usu" style="width:600px;height:40px"  onkeypress="return validarNombreCompletoUsuario(this,event,this.value)">
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-12 col-md-1">
                             </div>
-                            <label  for="tel3" class="col-sm-12 col-md-2 col-form-label">Teléfono:</label>
-                            <div  class="col-sm-12 col-md-9">
+                            <label  for="tel3" class="col-sm-12 col-md-3 col-form-label">Teléfono:</label>
+                            <div  class="col-sm-12 col-md-8">
                                 <input class="form-control" type="text" id="telefonoUsu" placeholder="9999-9999" data-inputmask="'mask' : '9999-9999'" name="Telefono_Usu" style="width:150px;height:40px" onkeypress="return validarTel(this,event,this.value)">
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-12 col-md-1">
                             </div>
-                            <label for="nombre" class="col-sm-12 col-md-2 col-form-label">Correo:</label>
-                            <div class="col-sm-12 col-md-9">
-                                <input class="form-control" placeholder="Correo" type="email" id="correoUsu"  name="Correo_Usu" style="width:600px;height:40px">
+                            <label for="nombre" class="col-sm-12 col-md-3 col-form-label">Correo:</label>
+                            <div class="col-sm-12 col-md-2">
+                                <input class="form-control" id="email" placeholder="Correo Electrónico" type="text" name="Correo_Usu" style="width:600px;height:40px" onkeyup="validarCorreo(this)"><a id='correoUsu'></a>
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-12 col-md-1">
                             </div>
-                            <label for="direccion" class="col-sm-12 col-md-2 col-form-label">Dirección:</label>
-                            <div class="col-sm-12 col-md-9">
+                            <label for="direccion" class="col-sm-12 col-md-3 col-form-label">Dirección:</label>
+                            <div class="col-sm-12 col-md-8">
                                 <input class="form-control" type="text" placeholder="Dirección" name="Direccion_Usu" style="width:600px;height:40px" id="direccionUsu">
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-12 col-md-1">
                             </div>
-                            <label class="col-sm-12 col-md-2 col-form-label">DUI:</label>
-                            <div class="col-sm-12 col-md-9">
+                            <label class="col-sm-12 col-md-3 col-form-label">DUI:</label>
+                            <div class="col-sm-12 col-md-8">
                                 <input class="form-control" type="text" placeholder="99999999-9" id="duiUsu"  name="DUI_Usu" style="width:150px;height:40px" onkeypress="return validarDUI(this,event,this.value)">
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-12 col-md-1">
                             </div>
-                            <label for="usuario" class="col-sm-12 col-md-2 col-form-label">Usuario:</label>
-                            <div class="col-sm-12 col-md-9">
+                            <label for="usuario" class="col-sm-12 col-md-3 col-form-label">Usuario:</label>
+                            <div class="col-sm-12 col-md-8">
                                 <input class="form-control" type="text" placeholder="Nombre de Usuario" id="nombreusuUsu" name="NombreUsu_Usu" style="width:600px;height:40px" onkeypress="return validarNombreUsuario(this,event,this.value)">
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-12 col-md-1">
                             </div>
-                            <label for="contrasena" class="col-sm-12 col-md-2 col-form-label">Contraseña:</label>
-                            <div class="col-sm-12 col-md-9">
+                            <label for="contrasena" class="col-sm-12 col-md-3 col-form-label">Contraseña:</label>
+                            <div class="col-sm-12 col-md-8">
                                 <input class="form-control" type="password" placeholder="******" id="contrasenaUsu" name="Contrasena_Usu" style="width:150px;height:40px" onkeypress="return validarContrasena(this,event,this.value)">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12 col-md-1">
+                            </div>
+                            <label for="contrasena" class="col-sm-12 col-md-3 col-form-label">Vuelve a escribir la contraseña:</label>
+                            <div class="col-sm-12 col-md-8">
+                                <input class="form-control" type="password" placeholder="******" id="contrasenaUsu2" name="Contrasena_Usu2" style="width:150px;height:40px" onkeypress="return validarContrasena(this,event,this.value)"  onkeyup="validarContrasena2(this)"><a id='contrasenaUsu2'></a>
                             </div>
                         </div><br>
                         <hr width="75%"/>
@@ -107,6 +115,7 @@ and open the template in the editor.
         <script src="../assets/Validaciones/validarContrasena.js"></script>
         <script src="../assets/Validaciones/validarNombreUsuario.js"></script>
         <script src="../assets/Validaciones/validarNombreCompletoUsuario.js"></script>
+        <script src="../assets/Validaciones/validarCorreo.js"></script>
     </div>
 </body>
 </html>

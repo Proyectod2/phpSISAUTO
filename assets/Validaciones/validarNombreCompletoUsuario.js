@@ -9,9 +9,9 @@ function validarNombreCompletoUsuario(obj,e,valor){
     }
   }else if(valor[0] != (val > 64 && val < 91) || (val > 96 && val < 123)){
     if((val > 64 && val < 91) || (val > 96 && val < 123) || val == 32){//poner rangos de letras 
-      if(valor.length<8){
+      
         aux=true;
-      }   
+  
     }
   }
   return aux;
