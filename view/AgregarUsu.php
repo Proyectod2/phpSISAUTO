@@ -89,15 +89,15 @@ and open the template in the editor.
                             <label for="contrasena" class="col-sm-12 col-md-3 col-form-label">Contraseña:</label>
                             <div class="col-sm-12 col-md-8">
                                 <input class="form-control" type="password" placeholder="******" id="contrasenaUsu" name="Contrasena_Usu" style="width:150px;height:40px" onkeypress="return validarContrasena(this,event,this.value)">
-                            </div>
+                            </div><a id='mensajito1'></a>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-12 col-md-1">
                             </div>
                             <label for="contrasena" class="col-sm-12 col-md-3 col-form-label">Vuelve a escribir la contraseña:</label>
                             <div class="col-sm-12 col-md-8">
-                                <input class="form-control" type="password" placeholder="******" id="contrasenaUsu2" name="Contrasena_Usu2" style="width:150px;height:40px" onkeypress="return validarContrasena(this,event,this.value)"  onkeyup="validarContrasena2(this)"><a id='contrasenaUsu2'></a>
-                            </div>
+                                <input class="form-control" type="password" placeholder="******" id="contrasenaUsu2" name="Contrasena_Usu2" style="width:150px;height:40px" onkeyup="return validarContrasena2(this,event,this.value)"</a>
+                            </div><a id='mensajito'></a>
                         </div><br>
                         <hr width="75%"/>
                         <div class="form-group" align="center">

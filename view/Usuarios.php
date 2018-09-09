@@ -79,7 +79,7 @@ and open the template in the editor.
                                             <td><?php echo $usuario['correo_Usu'] ?></td>
                                             <td><?php echo $usuario['telefono_Usu'] ?></td>  
                                             <th align="center">
-                                                <button title="Ver"type="button" class="btn btn-info fa fa-eye" data-toggle="modal" data-target="#modalVerUsuario" href=""></button>
+                                                <button title="Ver"type="button" class="btn btn-info fa fa-eye" data-toggle="modal" data-target="#modalVerUsuario" href="" onclick="mostrarUsu('<?php echo $usuario['nombre_Usu']?>','<?php echo $usuario['telefono_Usu']?>','<?php echo $usuario['correo_Usu']?>','<?php echo $usuario['direccion_Usu']?>','<?php echo $usuario['dui_Usu']?>','<?php echo $usuario['usuario_Usu']?>','<?php echo $usuario['tipo_Usu']?>');"></button>
                                                 <button title="Editar" type="button" class="btn btn-primary fa fa-pencil-square-o"></button>
                                                 <button title="Dar de baja" type="button" class="btn btn-danger fa fa-arrow-circle-down"></button>
                                             </th>
@@ -115,7 +115,7 @@ and open the template in the editor.
                             </div>
                             <label for="nombre" class="col-sm-12 col-md-3 col-form-label">Nombre:</label>
                             <div class="col-sm-12 col-md-8">
-                                <input class="form-control" placeholder="Nombre Completo" type="text" id="nombreUsu" name="Nombre_Usu" style="width:400px;height:40px" disabled="true" aria-required="true" value="">
+                                <input class="form-control" placeholder="Nombre Completo" type="text" id="nombreUsu" name="Nombre_Usu" style="width:400px;height:40px" readonly="readonly" aria-required="true" value="">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -176,7 +176,7 @@ and open the template in the editor.
     </div>
     <?php include("Generalidadespantalla/cierre.php"); ?>
 </div>
-        
+<script src="../assets/Validaciones/mostrarUsuario.js"></script>     
 <!-- Filtrado de la tabla -->
 <script type="text/javascript">
     $(document).ready(function () {
