@@ -40,7 +40,7 @@ and open the template in the editor.
                             </div>
                             <label for="nombre" class="col-sm-12 col-md-2 col-form-label">Nombre:</label>
                             <div class="col-sm-12 col-md-9">
-                                <input class="form-control" placeholder="Nombre Completo" type="text" id="nombreUsu"  name="Nombre_Usu" style="width:600px;height:40px">
+                                <input class="form-control" placeholder="Nombre Completo" type="text" id="nombreUsu" name="Nombre_Usu" style="width:600px;height:40px"  onkeypress="return validarNombreCompletoUsuario(this,event,this.value)">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -106,6 +106,7 @@ and open the template in the editor.
         <script src="../assets/Validaciones/validarTelefono.js"></script>
         <script src="../assets/Validaciones/validarContrasena.js"></script>
         <script src="../assets/Validaciones/validarNombreUsuario.js"></script>
+        <script src="../assets/Validaciones/validarNombreCompletoUsuario.js"></script>
     </div>
 </body>
 </html>
