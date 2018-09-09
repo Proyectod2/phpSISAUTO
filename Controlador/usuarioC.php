@@ -22,4 +22,10 @@
 	    header("location: /phpSISAUTO/view/Usuarios.php?mensaje=".$mensaje);
 	}
 
+	if($bandera=="VerUsu"){
+
+		$sql = "SELECT * FROM `sisauto`.`usuario` where usuario_Usu = '$nombreusuU'";
+        
+	}
+
 ?>

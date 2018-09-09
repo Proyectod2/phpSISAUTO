@@ -81,7 +81,7 @@ and open the template in the editor.
                                             <td><?php echo $proveedore['nombreResp_Prov'] ?></td>
                                                                                        
                                             <th align="center">
-                                                <button type="button" class="btn btn-info fa fa-eye" data-toggle="modal" data-target="#mimodalejemplo"></button>
+                                                <button title="Ver"type="button" class="btn btn-info fa fa-eye" data-toggle="modal" data-target="#mimodalejemplo"></button>
                                                 <button title="Editar" type="button" class="btn btn-primary fa fa-pencil-square-o"></button>
                                                 <!-- <button type="button" class="btn btn-success fa fa-toggle-up "></button> -->
                                                 <!-- <button type="button" class="btn btn-warning"></button> -->
