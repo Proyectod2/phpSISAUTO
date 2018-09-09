@@ -5,7 +5,7 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html>
-
+<script src="../assets/Validaciones/validarProveedor.js"></script>
 <?php include("Generalidadespantalla/apertura.php"); ?>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
@@ -82,7 +82,6 @@ and open the template in the editor.
                 </div>
             </div>
             <?php include("Generalidadespantalla/cierre.php"); ?>
-            <script src="../assets/Validaciones/validarProveedor.js"></script>
 </body>
 </html>
 
