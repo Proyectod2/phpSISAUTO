@@ -38,10 +38,10 @@ and open the template in the editor.
                 <!-- Breadcrumbs-->
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-                        <a href="..view/index.html">Inicio</a>
+                        <a href="index.php">Inicio</a>
 
                     <li class="breadcrumb-item active">
-                        <a href="http://localhost/phpSISAUTO/view/Producto.php">Productos</a>
+                        <a href="/phpSISAUTO/view/Producto.php">Productos</a>
                     </li>
                     <li class="breadcrumb-item">
                         <a>Registrar Producto</a>

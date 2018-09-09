@@ -1,25 +1,31 @@
 <?php
 
 	$bandera = $_POST["bandera"];
-	$nombreusuUs = $_POST["NombreUsu_Usu"];
-	$contrasenaUs = $_POST["Contrasena_Usu"];
-	$nombreUs = $_POST["Nombre_Usu"];
-	$correoUs = $_POST["Correo_Usu"];
-	$direccionUs = $_POST["Direccion_Usu"];
-	$telefonoUs = $_POST["Telefono_Usu"];
-	$duiUs = $_POST["DUI_Usu"];
+	$nombreusuU = $_POST["NombreUsu_Usu"];
+	$contrasenaU = $_POST["Contrasena_Usu"];
+	$nombreU = $_POST["Nombre_Usu"];
+	$correoU = $_POST["Correo_Usu"];
+	$direccionU = $_POST["Direccion_Usu"];
+	$telefonoU = $_POST["Telefono_Usu"];
+	$duiU = $_POST["DUI_Usu"];
 
 	include("../confi/Conexion.php");
 
 	if($bandera=="GuardarUsu"){
 
-		$sql = "INSERT INTO usuario (usuario_Usu,contrasena_Usu,nombre_Usu,correo_Usu,direccion_Usu,telefono_Usu,dui_Usu,tipo_Usu,estado_Usu) VALUES ('$nombreusuUs','$contrasenaUs','$nombreUs','$correoUs','$direccionUs','$telefonoUs','$duiUs',1,1)";
+		$sql = "INSERT INTO usuario (usuario_Usu,contrasena_Usu,nombre_Usu,correo_Usu,direccion_Usu,telefono_Usu,dui_Usu,tipo_Usu,estado_Usu) VALUES ('$nombreusuU','$contrasenaU','$nombreU','$correoU','$direccionU','$telefonoU','$duiU',1,1)";
 
 	    $conexion = conectarMysql();
 
 	    mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD".mysqli_connect_error());
 	    $mensaje = "¡Registro guardado exitosamente!";
 	    header("location: /phpSISAUTO/view/Usuarios.php?mensaje=".$mensaje);
+	}
+
+	if($bandera=="VerUsu"){
+
+		$sql = "SELECT * FROM `sisauto`.`usuario` where usuario_Usu = '$nombreusuU'";
+        
 	}
 
 ?>

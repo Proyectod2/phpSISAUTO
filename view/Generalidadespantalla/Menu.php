@@ -1,5 +1,5 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-        <a class="navbar-brand" href="http://localhost/phpSISAUTO/view/index.php">SISAUTO</a>
+        <a class="navbar-brand" href="/phpSISAUTO/view/index.php">SISAUTO</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -11,7 +11,7 @@
                     </a>
                 </li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right">
-                    <a class="nav-link" href="http://localhost/phpSISAUTO/view/NuevaVenta.php">
+                    <a class="nav-link" href="/phpSISAUTO/view/NuevaVenta.php">
                         <i class="fa fa-dollar"></i>
                         <span class="nav-link-text "> Vender</span>
                     </a>
@@ -23,10 +23,10 @@
                     </a>
                     <ul class="sidenav-second-level collapse" id="collapseComponents">
                         <li>
-                            <a href="http://localhost/phpSISAUTO/view/Compras.php"><span class="fa fa-list"> Compras</span></a>
+                            <a href="/phpSISAUTO/view/Compras.php"><span class="fa fa-list"> Compras</span></a>
                         </li>
                         <li>
-                            <a href="http://localhost/phpSISAUTO/view/Ventas.php"> Ventas</a>
+                            <a href="/phpSISAUTO/view/Ventas.php"> Ventas</a>
                         </li>
                     </ul>
                 </li>
@@ -37,13 +37,13 @@
                     </a>
                     <ul class="sidenav-second-level collapse" id="collapseExamplePages">
                         <li>
-                            <a href="http://localhost/phpSISAUTO/view/Cliente.php"><span class="fa fa-user"> Cliente</span></a>
+                            <a href="/phpSISAUTO/view/Cliente.php"><span class="fa fa-user"> Cliente</span></a>
                         </li>
                         <li>
-                            <a href="http://localhost/phpSISAUTO/view/Proveedor.php"><span class="fa fa-group"> Proveedor</span></a>
+                            <a href="/phpSISAUTO/view/Proveedor.php"><span class="fa fa-group"> Proveedor</span></a>
                         </li>
                         <li>
-                            <a href="http://localhost/phpSISAUTO/view/Producto.php"><span class="fa fa-tags"> Producto</span></a>
+                            <a href="/phpSISAUTO/view/Producto.php"><span class="fa fa-tags"> Producto</span></a>
                         </li>
                     </ul>
                 </li>
@@ -55,7 +55,7 @@
                     </a>
                     <ul class="sidenav-second-level collapse" id="collapsenuevo">
                         <li>
-                            <a href="http://localhost/phpSISAUTO/view/Inventario.php"><span class="fa fa-book"> Inventario Principal</span></a>
+                            <a href="/phpSISAUTO/view/Inventario.php"><span class="fa fa-book"> Inventario Principal</span></a>
                         </li>
                         <li>
                             <a href="">seccion1</a>
@@ -70,13 +70,13 @@
                     </a>
                     <ul class="sidenav-second-level collapse" id="collapseMulti">
                         <li>
-                            <a href="http://localhost/phpSISAUTO/view/Bitacora.php"><span class="fa fa-history"> Bitacora</span></a>
+                            <a href="/phpSISAUTO/view/Usuarios.php"><span class="fa fa-group">  Control Usuarios</span></a>
                         </li>
                         <li>
-                            <a href="http://localhost/phpSISAUTO/view/Usuarios.php">Control Usuarios</a>
+                            <a href="/phpSISAUTO/view/Bitacora.php"><span class="fa fa-history"> Bitacora</span></a>
                         </li>
                         <li>
-                            <a href="http://localhost/phpSISAUTO/view/Back.php">Administrar Backup</a>
+                            <a href="/phpSISAUTO/view/Back.php"><span class="fa fa-database"> Administrar Backup</span></a>
                         </li>
                     </ul>
                 </li>

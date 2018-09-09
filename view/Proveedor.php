@@ -17,35 +17,36 @@ and open the template in the editor.
             <!-- Breadcrumbs-->
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <a href="view/index.html">Inicio</a>
+                    <a href="index.php">Inicio</a>
                 </li>
                 <li class="breadcrumb-item active">Proveedores</li>
             </ol>
             <div class="row">
                 <div class="col-12">
                     <h1 align="center"></h1>
-                    <a class="pull-right" href="http://localhost/phpSISAUTO/view/AgregarPro.php">
-                        <button class="btn btn-primary" data-toggle="modal" data-target="#modalNuevo">
-                            Agregar nuevo 
-                            <span class="fa fa-plus"></span>
-                        </button></a>
                     <a class="pull-right" href="">
                         <button class="btn btn-primary" data-toggle="modal" data-target="#modalNuevo">
                             Reporte
                             <span class="fa fa-file-pdf-o"></span>
                         </button>
-                    </a><br><br>
+                    </a>
+                    <a class="pull-right" href="/phpSISAUTO/view/AgregarPro.php">
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#modalNuevo">
+                            Agregar nuevo 
+                            <span class="fa fa-plus"></span>
+                        </button></a>
+                    <br><br>
                     <!-- TABLA CLIENTES-->
                     <div class="card mb-3">
                         <div class="card-header">
                             <i class="fa fa-table"></i> Proveedores</div>
                             <form align="right" ><br>
-                            <table class="pull-right " id="dataTable" width="100%" cellspacing="0" >
+                            <table id="dataTable" class="pull-right " width="100%" cellspacing="0" >
                                 <thead>
                                     <tr>
                                         <th style="width:200px"></th>
                                         <th style="width:120px"><div class="input-group" style="width:500px" align="center">
-                                                <input type="text" class="form-control" placeholder="Buscar" name="" align="center">
+                                                <input type="text" class="form-control" id="entradafilter" placeholder="Buscar" name="" align="center">
                                                 <div class="input-group-btn">
                                                     <button class="btn btn-default" type="submit" title="Buscar"><i class="fa fa-search" ></i></button>
                                                 </div>
@@ -60,7 +61,8 @@ and open the template in the editor.
                             $conexion = conectarMysql();
                             $sql="SELECT * from proveedor order by nombre_Prov ASC";
                             $proveedores= mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); ?>
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <!-- <input id="entradafilter" type="text" class="form-control"> -->
+                                <table class="table table-striped table-bordered" id="example" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th style="width:150px">Empresa</th>
@@ -70,7 +72,7 @@ and open the template in the editor.
                                             <th align="center" style="width:2px">Acción</th>
                                         </tr>
                                     </thead>
-                                    <tfoot>
+                                    <tfoot class="contenidobusqueda" >
                                         <?php While($proveedore=mysqli_fetch_assoc($proveedores)){?>
                                         <tr>
                                             <td><?php echo $proveedore['nombre_Prov'] ?></td>
@@ -79,7 +81,7 @@ and open the template in the editor.
                                             <td><?php echo $proveedore['nombreResp_Prov'] ?></td>
                                                                                        
                                             <th align="center">
-                                                <button type="button" class="btn btn-info fa fa-eye" data-toggle="modal" data-target="#mimodalejemplo"></button>
+                                                <button title="Ver"type="button" class="btn btn-info fa fa-eye" data-toggle="modal" data-target="#mimodalejemplo"></button>
                                                 <button title="Editar" type="button" class="btn btn-primary fa fa-pencil-square-o"></button>
                                                 <!-- <button type="button" class="btn btn-success fa fa-toggle-up "></button> -->
                                                 <!-- <button type="button" class="btn btn-warning"></button> -->
@@ -97,6 +99,8 @@ and open the template in the editor.
             </div>
         </div>
     </div>
+
+      <!-- MODAL VER PROVEEDOR -->
 
 <div class="modal fade" id="mimodalejemplo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog modal-lg" role="document">
@@ -157,5 +161,25 @@ and open the template in the editor.
 </div>
 
         <?php include("Generalidadespantalla/cierre.php"); ?>
+
+        <!-- Filtrado de la tabla -->
+        <script type="text/javascript">
+            $(document).ready(function () {
+               $('#entradafilter').keyup(function () {
+                  var rex = new RegExp($(this).val(), 'i');
+                  $('.contenidobusqueda tr').hide();
+                  $('.contenidobusqueda tr').filter(function () {
+                    return rex.test($(this).text());
+                }).show();
+              })
+
+           });
+        </script>
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#example').DataTable();
+            } );
+        </script>
 </body>
 </html>

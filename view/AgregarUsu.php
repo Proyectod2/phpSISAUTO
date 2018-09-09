@@ -17,10 +17,10 @@ and open the template in the editor.
             <!-- Breadcrumbs-->
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <a href="index.html">Inicio</a>
+                    <a href="index.php">Inicio</a>
                 </li>
                 <li class="breadcrumb-item active">
-                    <a href="http://localhost/phpSISAUTO/view/Usuarios.php">Usuarios</a>
+                    <a href="/phpSISAUTO/view/Usuarios.php">Usuarios</a>
                 </li>
                 <li class="breadcrumb-item">
                     <a>Registrar Usuario</a>
@@ -29,57 +29,72 @@ and open the template in the editor.
             <!-- Example DataTables Card-->
             <div class="card mb-3">
                 <div class="card-header">
-                    <i class=""></i> Registrar Usuario</div>
+                    <i class="fa fa-user"></i> Registrar Usuario</div>
                 <div class="card-body">
-                    <form action="../Controlador/usuarioC.php" method="POST" align="center" id="guardarUsu" autocomplete="off">
-                        <h5 align="center">Datos Generales</h5><br>
+                    <form action="../Controlador/usuarioC.php" method="POST" id="guardarUsu" align="center" autocomplete="off">
+                        <h5 align="center">Datos Generales</h5>
+                        <hr width="75%" style="background-color:#007bff;"/><br>
                         <input type="hidden" value="GuardarUsu" name="bandera"></input>
                         <div class="form-group row">
+                            <div class="col-sm-12 col-md-1">
+                            </div>
                             <label for="nombre" class="col-sm-12 col-md-2 col-form-label">Nombre:</label>
-                            <div class="col-sm-12 col-md-10">
-                                <input class="form-control" placeholder="Nombre Completo" type="text" id="nombreU"  name="Nombre_Usu" style="width:600px;height:40px">
+                            <div class="col-sm-12 col-md-9">
+                                <input class="form-control" placeholder="Nombre Completo" type="text" id="nombreUsu"  name="Nombre_Usu" style="width:600px;height:40px">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label  for="telefono" class="col-sm-12 col-md-2 col-form-label">Teléfono:</label>
-                            <div  class="col-sm-12 col-md-10">
-                                <input class="form-control" type="tel" id="telefonoU" placeholder="XXXX-XXXX"  name="Telefono_Usu" style="width:150px;height:40px">
+                            <div class="col-sm-12 col-md-1">
+                            </div>
+                            <label  for="tel3" class="col-sm-12 col-md-2 col-form-label">Teléfono:</label>
+                            <div  class="col-sm-12 col-md-9">
+                                <input class="form-control" type="text" id="telefonoUsu" placeholder="9999-9999" data-inputmask="'mask' : '9999-9999'" name="Telefono_Usu" style="width:150px;height:40px" onkeypress="return validarTel(this,event,this.value)">
                             </div>
                         </div>
                         <div class="form-group row">
+                            <div class="col-sm-12 col-md-1">
+                            </div>
                             <label for="nombre" class="col-sm-12 col-md-2 col-form-label">Correo:</label>
-                            <div class="col-sm-12 col-md-10">
-                                <input class="form-control" placeholder="Correo" type="email" id="correoU"  name="Correo_Usu" style="width:600px;height:40px">
+                            <div class="col-sm-12 col-md-9">
+                                <input class="form-control" placeholder="Correo" type="email" id="correoUsu"  name="Correo_Usu" style="width:600px;height:40px">
                             </div>
                         </div>
                         <div class="form-group row">
+                            <div class="col-sm-12 col-md-1">
+                            </div>
                             <label for="direccion" class="col-sm-12 col-md-2 col-form-label">Dirección:</label>
-                            <div class="col-sm-12 col-md-10">
-                                <input class="form-control" type="text" placeholder="Dirección" name="Direccion_Usu" style="width:600px;height:40px" id="direccionU">
+                            <div class="col-sm-12 col-md-9">
+                                <input class="form-control" type="text" placeholder="Dirección" name="Direccion_Usu" style="width:600px;height:40px" id="direccionUsu">
                             </div>
                         </div>
                         <div class="form-group row">
+                            <div class="col-sm-12 col-md-1">
+                            </div>
                             <label class="col-sm-12 col-md-2 col-form-label">DUI:</label>
-                            <div class="col-sm-12 col-md-10">
-                                <input class="form-control" type="number" placeholder="XXXX-XXXX-XX"  name="DUI_Usu" id="duiU" style="width:150px;height:40px">
+                            <div class="col-sm-12 col-md-9">
+                                <input class="form-control" type="text" placeholder="99999999-9" id="duiUsu"  name="DUI_Usu" style="width:150px;height:40px" onkeypress="return validarDUI(this,event,this.value)">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="direccion" class="col-sm-12 col-md-2 col-form-label">Usuario:</label>
-                            <div class="col-sm-12 col-md-10">
-                                <input class="form-control" type="text" placeholder="Nombre de Usuario"   name="NombreUsu_Usu" id="nombreUsu"style="width:600px;height:40px">
+                            <div class="col-sm-12 col-md-1">
+                            </div>
+                            <label for="usuario" class="col-sm-12 col-md-2 col-form-label">Usuario:</label>
+                            <div class="col-sm-12 col-md-9">
+                                <input class="form-control" type="text" placeholder="Nombre de Usuario" id="nombreusuUsu" name="NombreUsu_Usu" style="width:600px;height:40px" onkeypress="return validarNombreUsuario(this,event,this.value)">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="nrc" class="col-sm-12 col-md-2 col-form-label">Contraseña:</label>
-                            <div class="col-sm-12 col-md-10">
-                                <input class="form-control" type="password" placeholder="******"  name="Contrasena_Usu" id="contrasenaU" style="width:150px;height:40px">
+                            <div class="col-sm-12 col-md-1">
+                            </div>
+                            <label for="contrasena" class="col-sm-12 col-md-2 col-form-label">Contraseña:</label>
+                            <div class="col-sm-12 col-md-9">
+                                <input class="form-control" type="password" placeholder="******" id="contrasenaUsu" name="Contrasena_Usu" style="width:150px;height:40px" onkeypress="return validarContrasena(this,event,this.value)">
                             </div>
                         </div><br>
-                        <hr width="75%" />
+                        <hr width="75%"/>
                         <div class="form-group" align="center">
-                            <button title="Aceptar" type="submit" class="btn btn-success fa fa-check" onclick="validarUsuario();"></button>
-                            <button title="Cancelar" type="button" class="btn btn-warning fa fa-times" style="color:#fff"></button>
+                            <button title="Aceptar" type="button" class="btn btn-success" onclick="validarUsuario();">Aceptar</button>
+                            <button title="Cancelar" type="reset" value="Cancelar" class="btn btn-warning" style="color:#fff">Cancelar</button>
                         </div>
                     </form>
                 </div>
@@ -87,6 +102,10 @@ and open the template in the editor.
         </div>
         <?php include("Generalidadespantalla/cierre.php"); ?>
         <script src="../assets/Validaciones/validarUsuario.js"></script>
+        <script src="../assets/Validaciones/validarDUI.js"></script>
+        <script src="../assets/Validaciones/validarTelefono.js"></script>
+        <script src="../assets/Validaciones/validarContrasena.js"></script>
+        <script src="../assets/Validaciones/validarNombreUsuario.js"></script>
     </div>
 </body>
 </html>
