@@ -81,7 +81,7 @@ and open the template in the editor.
                                             <td><?php echo $proveedore['nombreResp_Prov'] ?></td>
                                                                                        
                                             <th align="center">
-                                                <button title="Ver"type="button" class="btn btn-info fa fa-eye" data-toggle="modal" data-target="#modalVerProveedor"></button>
+                                                <button title="Ver"type="button" class="btn btn-info fa fa-eye" data-toggle="modal" data-target="#modalVerProveedor" href="" onclick="mostrarPro('<?php echo $proveedor['nombre_Prov']?>','<?php echo $proveedor['correo_Prov']?>','<?php echo $proveedor['telefono_Prov']?>','<?php echo $proveedor['direccion_Prov']?>','<?php echo $proveedor['nombreResp_Prov']?>','<?php echo $proveedor['telefonoResp_Prov']?>');"></button>
                                                 <button title="Editar" type="button" class="btn btn-primary fa fa-pencil-square-o"></button>
                                                 <!-- <button type="button" class="btn btn-success fa fa-toggle-up "></button> -->
                                                 <!-- <button type="button" class="btn btn-warning"></button> -->
@@ -110,7 +110,7 @@ and open the template in the editor.
                     <h5 class="modal-title" id="myModalLabel"> <i class="fa fa-user"></i> Proveedor</h5>
                 </div>
                 <div class="modal-body">
-                    <form action="../Controlador/usuarioC.php" method="POST" id="guardarUsu" align="center" autocomplete="off">
+                    <form action="../Controlador/proveedorC.php" method="POST" id="guardarPro" align="center" autocomplete="off">
                         <h5 align="center">Datos Generales</h5>
                         <hr width="75%" style="background-color:#007bff;"/>
                         <input type="hidden" value="GuardarPro" name="bandera"></input>
@@ -119,7 +119,7 @@ and open the template in the editor.
                             </div>
                             <label for="nombre" class="col-sm-12 col-md-3 col-form-label">Nombre de la Empresa:</label>
                             <div class="col-sm-12 col-md-8">
-                                <input class="form-control" placeholder="Nombre Completo" type="text" id="nombreProv" name="Nombre_Prov" style="width:400px;height:40px" readonly="readonly" aria-required="true" value="">
+                                <input class="form-control" type="text" id="nombrePro" name="Nombre_Prov" style="width:400px;height:40px" readonly="readonly" aria-required="true" value="">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -127,7 +127,7 @@ and open the template in the editor.
                             </div>
                             <label  for="tel3" class="col-sm-12 col-md-3 col-form-label">Correo:</label>
                             <div  class="col-sm-12 col-md-8">
-                                <input class="form-control" type="email" id="correoPro" placeholder="9999-9999" data-inputmask="'mask' : '9999-9999'" name="Correo_Pro" style="width:150px;height:40px" disabled="true">
+                                <input class="form-control" type="email" id="correoPro" data-inputmask="'mask' : '9999-9999'" name="Correo_Pro" style="width:150px;height:40px" disabled="true">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -135,7 +135,7 @@ and open the template in the editor.
                             </div>
                             <label for="nombre" class="col-sm-12 col-md-3 col-form-label">Teléfono:</label>
                             <div class="col-sm-12 col-md-8">
-                                <input class="form-control" placeholder="Correo" type="text" id="telefonoPro" name="Correo_Usu" style="width:400px;height:40px" value="" disabled="true">
+                                <input class="form-control" type="text" id="telefonoPro" name="Correo_Usu" style="width:400px;height:40px" value="" disabled="true">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -143,7 +143,7 @@ and open the template in the editor.
                             </div>
                             <label for="direccion" class="col-sm-12 col-md-3 col-form-label">Dirección:</label>
                             <div class="col-sm-12 col-md-8">
-                                <input class="form-control" type="text" placeholder="Dirección" name="Direccion_Pro" style="width:400px;height:40px" id="direccionPro" disabled="true">
+                                <input class="form-control" type="text" name="Direccion_Pro" style="width:400px;height:40px" id="direccionPro" disabled="true">
                             </div>
                         </div>
                         <h5 align="center">Datos del Proveedor</h5>
@@ -153,7 +153,7 @@ and open the template in the editor.
                             </div>
                             <label for="nombre" class="col-sm-12 col-md-3 col-form-label">Nombre Responsable:</label>
                             <div class="col-sm-12 col-md-8">
-                                <input class="form-control" type="text" placeholder="Nombre de Usuario" id="telefonoRes" name="NombreUsu_Usu" style="width:400px;height:40px" disabled="true">
+                                <input class="form-control" type="text" id="nombreRes" name="NombreUsu_Usu" style="width:400px;height:40px" disabled="true">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -161,7 +161,7 @@ and open the template in the editor.
                             </div>
                             <label for="usuario" class="col-sm-12 col-md-3 col-form-label">Teléfono:</label> 
                             <div class="col-sm-12 col-md-8">
-                                <input class="form-control" type="text" placeholder="99999999-9" id="nombreRes" name="DUI_Usu" style="width:150px;height:40px" disabled="true">
+                                <input class="form-control" type="text" id="telefonoRes" name="DUI_Usu" style="width:150px;height:40px" disabled="true">
                             </div>
                         </div>
                     </form>
@@ -174,6 +174,8 @@ and open the template in the editor.
     </div>
 
         <?php include("Generalidadespantalla/cierre.php"); ?>
+
+        <script src="../assets/Validaciones/mostrarProveedor.js"></script> 
 
         <!-- Filtrado de la tabla -->
         <script type="text/javascript">
