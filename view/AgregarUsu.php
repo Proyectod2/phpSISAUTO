@@ -47,8 +47,8 @@ and open the template in the editor.
                             <div class="col-sm-12 col-md-1">
                             </div>
                             <label  for="tel3" class="col-sm-12 col-md-3 col-form-label">Teléfono:</label>
-                            <div  class="col-sm-12 col-md-8">
-                                <input class="form-control" type="text" id="telefonoUsu" placeholder="9999-9999" data-inputmask="'mask' : '9999-9999'" name="Telefono_Usu" style="width:150px;height:40px" onkeypress="return validarTel(this,event,this.value)">
+                            <div  class="col-sm-12 col-md-3">
+                                <input class="form-control" type="text" id="telefonoUsu" placeholder="9999-9999" data-inputmask="'mask' : '9999-9999'" name="Telefono_Usu" style="width:150px;height:40px" onkeypress="return validarTel(this,event,this.value)"><a id='mensajitoTel'></a>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -71,8 +71,8 @@ and open the template in the editor.
                             <div class="col-sm-12 col-md-1">
                             </div>
                             <label class="col-sm-12 col-md-3 col-form-label">DUI:</label>
-                            <div class="col-sm-12 col-md-8">
-                                <input class="form-control" type="text" placeholder="99999999-9" id="duiUsu"  name="DUI_Usu" style="width:150px;height:40px" onkeypress="return validarDUI(this,event,this.value)">
+                            <div class="col-sm-12 col-md-4">
+                                <input class="form-control" type="text" placeholder="99999999-9" id="duiUsu"  name="DUI_Usu" style="width:150px;height:40px" onkeypress="return validarDUI(this,event,this.value)"><a id='mensajitoDUI1'></a><a id='mensajitoDUI2'></a>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -87,7 +87,7 @@ and open the template in the editor.
                             <div class="col-sm-12 col-md-1">
                             </div>
                             <label for="contrasena" class="col-sm-12 col-md-3 col-form-label">Contraseña:</label>
-                            <div class="col-sm-12 col-md-8">
+                            <div class="col-sm-12 col-md-2">
                                 <input class="form-control" type="password" placeholder="******" id="contrasenaUsu" name="Contrasena_Usu" style="width:150px;height:40px" onkeypress="return validarContrasena(this,event,this.value)">
                             </div><a id='mensajito1'></a>
                         </div>
@@ -95,7 +95,7 @@ and open the template in the editor.
                             <div class="col-sm-12 col-md-1">
                             </div>
                             <label for="contrasena" class="col-sm-12 col-md-3 col-form-label">Vuelve a escribir la contraseña:</label>
-                            <div class="col-sm-12 col-md-8">
+                            <div class="col-sm-12 col-md-2">
                                 <input class="form-control" type="password" placeholder="******" id="contrasenaUsu2" name="Contrasena_Usu2" style="width:150px;height:40px" onkeyup="return validarContrasena2(this,event,this.value)"</a>
                             </div><a id='mensajito'></a>
                         </div><br>

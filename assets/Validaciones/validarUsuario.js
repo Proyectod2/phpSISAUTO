@@ -48,6 +48,10 @@ function validarTelefonoU(){
         notaError("¡El teléfono es obligatorio!");
         return false;
     }
+    if($('#telefonoUsu').val().length<8){
+        notaError("¡El telefono debe tener 8 digitos!");
+        return false;
+    }
     return true;
 }
 
@@ -77,6 +81,10 @@ function validarDUIU(){
     	notaError("¡El DUI es obligatorio!");
     	return false;
     }
+    if($('#duiUsu').val().length<10){
+        notaError("¡El DUI debe contener los 10 caracteres!");
+        return false;
+    }
     return true;
 }
 
@@ -94,7 +102,7 @@ function validarContrasenaU(){
         return false;
     }
     if($('#contrasenaUsu').val().length<6){
-        notaError("¡La contrasena debe tener al menos 6 caracteres!");
+        notaError("¡La contraseña debe tener al menos 6 caracteres!");
         return false;
     }
     return true;
@@ -102,7 +110,11 @@ function validarContrasenaU(){
 
 function validarContrasenaU2(){
     if ($('#contrasenaUsu2').val().trim() == "") {
-        notaError("¡La verificacion de contraseña de usuario es obligatoria!");
+        notaError("¡La verificacion de contraseña es obligatoria!");
+        return false;
+    }
+    if($('#contrasenaUsu2').val().length<6){
+        notaError("¡La confirmacion de contraseña deben cohincidir!");
         return false;
     }
     return true;

@@ -23,5 +23,16 @@ function validarDUI(obj,e,valor){
       }
     }
   }
+  var tamanio = $('#duiUsu').val().length+1;
+  if(tamanio < 10 && tamanio != 8){
+    $('#mensajitoDUI1').text("Debe contener al menos 10 caracteres");
+  }else{
+    $('#mensajitoDUI1').text("");
+  }
+  if(tamanio == 8){
+    $('#mensajitoDUI2').text("Debe escribir el guión");
+  }else{
+    $('#mensajitoDUI2').text("");
+  }
   return aux;
 }

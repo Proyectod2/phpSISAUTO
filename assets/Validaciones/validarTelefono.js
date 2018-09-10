@@ -25,5 +25,11 @@ function validarTel(obj, e,valor){
       }
     }
     */
+  var tamanio = $('#telefonoUsu').val().length+1;
+  if(tamanio < 8){
+    $('#mensajitoTel').text("Debe contener 8 dígitos");
+  }else{
+    $('#mensajitoTel').text("");
+  }
   return aux;
 }

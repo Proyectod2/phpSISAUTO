@@ -29,8 +29,8 @@ function validarContrasena2(){
   var confirmar = $('#contrasenaUsu').val();
   var contrasena = $('#contrasenaUsu2').val();
   if( confirmar == contrasena){
-    $('#mensajito').text("La contrasena cohinciden");
+    $('#mensajito').text("La contraseña coinciden");
   }else{
-    $('#mensajito').text("La contrasena no cohinciden");
+    $('#mensajito').text("La contraseña no coinciden");
   }
 }
