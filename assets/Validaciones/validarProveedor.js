@@ -41,7 +41,7 @@
 
     function validarCorreoE(){
 
-    if ($('#correoEmp').val().trim()=="") {
+    if ($('#email').val().trim()=="") {
         notaError("El correo es obligatorio!");
         return false;
     }
