@@ -21,17 +21,18 @@ and open the template in the editor.
             <div class="row">
                 <div class="col-12">
                     <h1 align="center"></h1>
-                    <a class="pull-right" href="http://localhost/phpSISAUTO/view/AgregarProd.php">
-                        <button class="btn btn-primary" data-toggle="modal" data-target="#modalNuevo">
-                            Agregar nuevo 
-                            <span class="fa fa-plus"></span>
-                        </button></a>
                     <a class="pull-right" href="">
                         <button class="btn btn-primary" data-toggle="modal" data-target="#modalNuevo">
                             Reporte
                             <span class="fa fa-file-pdf-o"></span>
                         </button>
-                    </a><br><br>
+                    </a>
+                    <a class="pull-right" href="http://localhost/phpSISAUTO/view/AgregarProd.php">
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#modalNuevo">
+                            Agregar nuevo 
+                            <span class="fa fa-plus"></span>
+                        </button></a>
+                    <br><br>
                     <!-- TABLA PRODUCTOS-->
                     <div class="card mb-3">
                         <div class="card-header">

@@ -5,7 +5,7 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html>
-
+<script src="../assets/Validaciones/validarProveedor.js"></script>
 <?php include("Generalidadespantalla/apertura.php"); ?>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
@@ -37,13 +37,13 @@ and open the template in the editor.
                             <div class="form-group row">
                                 <label for="empresa" class="col-sm-12 col-md-2 col-form-label">Nombre de la Empresa:</label>
                                 <div class="col-sm-12 col-md-10">
-                                    <input class="form-control" placeholder="Nombre Completo" type="text" id="nombreEmp" name="Nombre_Emp" style="width:600px;height:40px"/>
+                                    <input class="form-control" placeholder="Nombre Completo" type="text" id="nombreEmp" name="Nombre_Emp" style="width:600px;height:40px" />
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="empresa" class="col-sm-12 col-md-2 col-form-label">Correo:</label>
                                 <div class="col-sm-12 col-md-10">
-                                    <input class="form-control" placeholder="Correo empresa" type="text" id="correoEmp" name="Correo_Emp" style="width:600px;height:40px"/>
+                                    <input class="form-control" placeholder="Correo Electrónico" type="text" id="email" name="Correo_Emp" style="width:600px;height:40px" onkeyup="validarCorreoProv(this)"><a id='correoPro'></a>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -63,7 +63,7 @@ and open the template in the editor.
                             <div class="form-group row">
                                 <label for="responsable" class="col-sm-12 col-md-2 col-form-label">Nombre del Responsable:</label>
                                 <div class="col-sm-12 col-md-10">
-                                    <input class="form-control" type="text" placeholder="Nombre Completo" name="Nombre_Res" style="width:600px;height:40px" id="nombreResp">
+                                    <input class="form-control" type="text" placeholder="Nombre Completo" name="Nombre_Res" style="width:600px;height:40px" id="nombreResp" onkeypress="return validarNombreCompletoProveedor(this,event,this.value)">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -82,7 +82,8 @@ and open the template in the editor.
                 </div>
             </div>
             <?php include("Generalidadespantalla/cierre.php"); ?>
-            <script src="../assets/Validaciones/validarProveedor.js"></script>
+            <script src="../assets/Validaciones/validarCorreo.js"></script>
+            <script src="../assets/Validaciones/validarNombreCompletoUsuario.js"></script>
 </body>
 </html>
 
