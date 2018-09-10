@@ -5,7 +5,7 @@
         var direccionE= await validarDireccionE();    
         var nombreR= await validarNombreR();
         var telefonoR= await validarTelefonoR(); 
-        console.log(direccionE); 
+        // console.log(direccionE); 
         if (nombreE && correoE && telefonoE && direccionE && nombreR && telefonoR) {
         	$('#guardarPro').submit();
         }   
@@ -17,6 +17,7 @@
     	return false;
     }
     return true;
+
     // else{
     //     var param = {
     //         nombre: $('#nombreEmp').val(),
@@ -40,12 +41,22 @@
     }
 
     function validarCorreoE(){
-
+    var regex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
     if ($('#email').val().trim()=="") {
-        notaError("El correo es obligatorio!");
+        notaError("¡El correo es obligatorio!");
         return false;
     }
-  return true;
+    if(!regex.test($('#email').val())){
+        notaError("¡El correo es incorrecto!");
+        return false;
+    }
+    return true;
+
+  //   if ($('#email').val().trim()=="") {
+  //       notaError("El correo es obligatorio!");
+  //       return false;
+  //   }
+  // return true;
     }
 
     function validarTelefonoE(){
