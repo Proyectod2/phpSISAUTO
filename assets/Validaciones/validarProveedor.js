@@ -4,63 +4,59 @@
         var telefonoE= await validarTelefonoE(); 
         var direccionE= await validarDireccionE();    
         var nombreR= await validarNombreR();
-        var telefonoR= await validarTelefonoR();  
+        var telefonoR= await validarTelefonoR(); 
+        // console.log(direccionE); 
         if (nombreE && correoE && telefonoE && direccionE && nombreR && telefonoR) {
         	$('#guardarPro').submit();
-        };      
+        }   
     }
    function validarNombreE(){
 
     if ($('#nombreEmp').val().trim()=="") {
     	notaError("El nombre de la empresa es obligatorio!");
     	return false;
-    }else{
-        var param = {
-            nombre: $('#nombreEmp').val(),
-            bandera: "cnombre",
-        };
-
-        $.ajax({
-            data: param,
-            url:"/phpSISAUTO/Controlador/proveedorC.php",
-            method: "post",
-            success: function(data){
-                if (data==0) {
-                    return true;
-                }else{
-                   notaError("El nombre ingresado ya ha sido registrado!"); 
-                   return false;
-                }
-            }
-        });
     }
+    return true;
+
+    // else{
+    //     var param = {
+    //         nombre: $('#nombreEmp').val(),
+    //         bandera: "cnombre"
+    //     };
+
+    //     $.ajax({
+    //         data: param,
+    //         url:"/phpSISAUTO/Controlador/proveedorC.php",
+    //         method: "post",
+    //         success: function(data){
+    //             if (data==0) {
+    //                 return true;
+    //             }else{
+    //                notaError("El nombre ingresado ya ha sido registrado!"); 
+    //                return false;
+    //             }
+    //         }
+    //     });
+    // }
     }
 
     function validarCorreoE(){
-
-    if ($('#correoEmp').val().trim()=="") {
-        notaError("El correo es obligatorio!");
+    var regex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+    if ($('#email').val().trim()=="") {
+        notaError("¡El correo es obligatorio!");
         return false;
-    }else{
-        var param = {
-            correo: $('#correoEmp').val(),
-            bandera: "ccorreo",
-        };
-
-        $.ajax({
-            data: param,
-            url:"/phpSISAUTO/Controlador/proveedorC.php",
-            method: "post",
-            success: function(data){
-                if (data==0) {
-                    return true;
-                }else{
-                   notaError("El correo ingresado ya ha sido registrado!"); 
-                   return false;
-                }
-            }
-        });
     }
+    if(!regex.test($('#email').val())){
+        notaError("¡El correo es incorrecto!");
+        return false;
+    }
+    return true;
+
+  //   if ($('#email').val().trim()=="") {
+  //       notaError("El correo es obligatorio!");
+  //       return false;
+  //   }
+  // return true;
     }
 
     function validarTelefonoE(){
@@ -68,26 +64,8 @@
     if ($('#telefonoEmp').val().trim()=="") {
         notaError("El teléfono de la empresa es obligatorio!");
         return false;
-    }else{
-        var param = {
-            telEmp: $('#telefonoEmp').val(),
-            bandera: "ctelEmp",
-        };
-
-        $.ajax({
-            data: param,
-            url:"/phpSISAUTO/Controlador/proveedorC.php",
-            method: "post",
-            success: function(data){
-                if (data==0) {
-                    return true;
-                }else{
-                   notaError("El telefono ingresado ya ha sido registrado!"); 
-                   return false;
-                }
-            }
-        });
     }
+return true;
     }
 
      function validarDireccionE(){
@@ -117,24 +95,6 @@ return true;
     if ($('#telefonoResp').val().trim()=="") {
     	notaError("El teléfono del responsable es obligatorio!");
     	return false;
-    }else{
-        var param = {
-            telResp: $('#telefonoResp').val(),
-            bandera: "ctelResp",
-        };
-
-        $.ajax({
-            data: param,
-            url:"/phpSISAUTO/Controlador/proveedorC.php",
-            method: "post",
-            success: function(data){
-                if (data==0) {
-                    return true;
-                }else{
-                   notaError("El telefono ingresado ya ha sido registrado!"); 
-                   return false;
-                }
-            }
-        });
     }
+return true;
     }

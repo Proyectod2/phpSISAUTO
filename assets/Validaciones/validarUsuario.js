@@ -1,12 +1,13 @@
-function validarUsuario(){
-    var nombreU = validarNombreU();    
-    var telefonoU = validarTelefonoU();
+async function validarUsuario(){
+    var nombreU = await validarNombreU();    
+    var telefonoU = await validarTelefonoU();
     var correoU = validarCorreoU(); 
     var direccionU = validarDireccionU();
     var duiU = validarDUIU();
     var nombreusuU = validarNombreUsu();
-    var contrasenaU = validarContrasenaU(); 
-    if (nombreU && telefonoU && correoU && direccionU && duiU && nombreusuU && contrasenaU) {
+    var contrasenaU = validarContrasenaU();
+    var contrasenaU2 = validarContrasenaU2();  
+    if (nombreU && telefonoU && correoU && direccionU && duiU && nombreusuU && contrasenaU && contrasenaU2) {
     	$('#guardarUsu').submit();
     }  
 }
@@ -15,7 +16,8 @@ function validarNombreU(){
     if ($('#nombreUsu').val().trim()=="") {
         notaError("¡El nombre es obligatorio!");
         return false;
-    }else{
+    }/*
+    else{
         var param = {
             nombre: $('#nombreUsu').val(),
             bandera: "unombre",
@@ -25,15 +27,19 @@ function validarNombreU(){
             url:"/phpSISAUTO/Controlador/usuarioC.php",
             method: "post",
             success: function(data){
-                if (data==0){
-                    return true;
+                console.log(data);
+                if (data == 0){
+                    console.log('Hola');
+                    x=true;
                 }else{
+                    console.log('Holaaa');
                     notaError("¡El nombre ingresado ya ha sido registrado!"); 
-                    return false;
+                    x=false;
                 }
+                return x;
             }
         });
-    }
+    }*/
     return true;
 }
 
@@ -42,12 +48,21 @@ function validarTelefonoU(){
         notaError("¡El teléfono es obligatorio!");
         return false;
     }
+    if($('#telefonoUsu').val().length<8){
+        notaError("¡El telefono debe tener 8 digitos!");
+        return false;
+    }
     return true;
 }
 
 function validarCorreoU(){
-    if ($('#correoUsu').val().trim()=="") {
+    var regex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+    if ($('#email').val().trim()=="") {
         notaError("¡El correo es obligatorio!");
+        return false;
+    }
+    if(!regex.test($('#email').val())){
+        notaError("¡El correo es incorrecto!");
         return false;
     }
     return true;
@@ -56,7 +71,7 @@ function validarCorreoU(){
 function validarDireccionU(){
     if ($('#direccionUsu').val().trim()=="") {
         notaError("¡La Dirección es obligatoria!");
-	   return false;
+        return false;
     }
     return true;
 }
@@ -65,6 +80,10 @@ function validarDUIU(){
     if ($('#duiUsu').val().trim()=="") {
     	notaError("¡El DUI es obligatorio!");
     	return false;
+    }
+    if($('#duiUsu').val().length<10){
+        notaError("¡El DUI debe contener los 10 caracteres!");
+        return false;
     }
     return true;
 }
@@ -78,8 +97,24 @@ function validarNombreUsu(){
 }
 
 function validarContrasenaU(){
-    if ($('#contrasenaUsu').val().trim()=="") {
-        notaError("¡La Contraseña de Usuario es obligatorio!");
+    if ($('#contrasenaUsu').val().trim() == "") {
+        notaError("¡La contraseña de usuario es obligatoria!");
+        return false;
+    }
+    if($('#contrasenaUsu').val().length<6){
+        notaError("¡La contraseña debe tener al menos 6 caracteres!");
+        return false;
+    }
+    return true;
+}
+
+function validarContrasenaU2(){
+    if ($('#contrasenaUsu2').val().trim() == "") {
+        notaError("¡La verificacion de contraseña es obligatoria!");
+        return false;
+    }
+    if($('#contrasenaUsu2').val().length<6){
+        notaError("¡La confirmacion de contraseña deben cohincidir!");
         return false;
     }
     return true;

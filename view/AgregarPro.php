@@ -5,8 +5,13 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html>
+<<<<<<< HEAD
 
     <?php include("Generalidadespantalla/apertura.php"); ?>
+=======
+<script src="../assets/Validaciones/validarProveedor.js"></script>
+<?php include("Generalidadespantalla/apertura.php"); ?>
+>>>>>>> 54f70f9544aa038574a8f53c30e747916a91f6a6
 
     <body class="fixed-nav sticky-footer bg-dark" id="page-top">
 
@@ -37,19 +42,23 @@ and open the template in the editor.
                             <div class="form-group row">
                                 <label for="empresa" class="col-sm-12 col-md-2 col-form-label">Nombre de la Empresa:</label>
                                 <div class="col-sm-12 col-md-10">
-                                    <input class="form-control" placeholder="Nombre Completo" type="text" id="nombreEmp" name="Nombre_Emp" style="width:600px;height:40px"/>
+                                    <input class="form-control" placeholder="Nombre Completo" type="text" id="nombreEmp" name="Nombre_Emp" style="width:600px;height:40px" />
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="empresa" class="col-sm-12 col-md-2 col-form-label">Correo:</label>
                                 <div class="col-sm-12 col-md-10">
-                                    <input class="form-control" placeholder="Correo empresa" type="text" id="correoEmp" name="Correo_Emp" style="width:600px;height:40px"/>
+                                    <input class="form-control" placeholder="Correo Electrónico" type="text" id="email" name="Correo_Emp" style="width:600px;height:40px" onkeyup="validarCorreoProv(this)"><a id='correoPro'></a>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label  for="tele1" class="col-sm-12 col-md-2 col-form-label">Teléfono:</label>
                                 <div  class="col-sm-12 col-md-10">
+<<<<<<< HEAD
                                     <input class="form-control" type="text" id="telefonoEmp" placeholder="9999-9999" data-inputmask="'mask' : '9999-9999'" name="Telefono_Emp" style="width:110px;height:40px" onkeypress="return validarTel(this, event, this.value)"/>
+=======
+                                    <input class="form-control" type="text" id="telefonoEmp" placeholder="9999-9999" data-inputmask="'mask' : '9999-9999'" name="Telefono_Emp" style="width:110px;height:40px" onkeypress="return validarTelPro(this,event,this.value)"><a id='mensajitoTel'></a>
+>>>>>>> 54f70f9544aa038574a8f53c30e747916a91f6a6
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -63,13 +72,23 @@ and open the template in the editor.
                             <div class="form-group row">
                                 <label for="responsable" class="col-sm-12 col-md-2 col-form-label">Nombre del Responsable:</label>
                                 <div class="col-sm-12 col-md-10">
-                                    <input class="form-control" type="text" placeholder="Nombre Completo" name="Nombre_Res" style="width:600px;height:40px" id="nombreResp">
+                                    <input class="form-control" type="text" placeholder="Nombre Completo" name="Nombre_Res" style="width:600px;height:40px" id="nombreResp" onkeypress="return validarNombreCompletoProveedor(this,event,this.value)">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="tel2" class="col-sm-12 col-md-2 col-form-label">Teléfono: </label>
                                 <div class="col-sm-12 col-md-10">
+<<<<<<< HEAD
                                     <input type="tel" class="form-control" placeholder="9999-9999" data-inputmask="'mask' : '9999-9999'" id="telefonoResp" name="Telefono_Res" maxlength="9" style="width:110px;height:40px" onkeypress="return validarTel(this, event, this.value)"></div>
+=======
+                                <input type="tel" class="form-control" placeholder="9999-9999" data-inputmask="'mask' : '9999-9999'" id="telefonoResp" name="Telefono_Res" maxlength="9" style="width:110px;height:40px" onkeypress="return validarTelProRes(this,event,this.value)"><a id='mensajitoTel'></a>
+                                </div>
+                            </div><br>
+                            <hr width="75%" />
+                            <div class="form-group" align="center">
+                                <button title="Aceptar" type="button" class="btn btn-success " onclick="validarProveedor();">Aceptar</button>
+                                <button title="Cancelar" type="reset" value="Cancelar" class="btn btn-warning " style="color:#fff">Cancelar</button>
+>>>>>>> 54f70f9544aa038574a8f53c30e747916a91f6a6
                             </div>
                     </div><br>
                     <hr width="75%" />
@@ -80,10 +99,17 @@ and open the template in the editor.
                     </form>
                 </div>
             </div>
+<<<<<<< HEAD
         </div>
         <?php include("Generalidadespantalla/cierre.php"); ?>
         <script src="../assets/Validaciones/validarProveedor.js"></script>
     </body>
+=======
+            <?php include("Generalidadespantalla/cierre.php"); ?>
+            <script src="../assets/Validaciones/validarCorreo.js"></script>
+            <script src="../assets/Validaciones/validarNombreCompletoUsuario.js"></script>
+</body>
+>>>>>>> 54f70f9544aa038574a8f53c30e747916a91f6a6
 </html>
 
 
