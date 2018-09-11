@@ -16,28 +16,27 @@
     	notaError("El nombre de la empresa es obligatorio!");
     	return false;
     }
-    return true;
 
-    // else{
-    //     var param = {
-    //         nombre: $('#nombreEmp').val(),
-    //         bandera: "cnombre"
-    //     };
+    else{
+        var param = {
+            nombre: $('#nombreEmp').val(),
+            bandera: "cnombre"
+        };
 
-    //     $.ajax({
-    //         data: param,
-    //         url:"/phpSISAUTO/Controlador/proveedorC.php",
-    //         method: "post",
-    //         success: function(data){
-    //             if (data==0) {
-    //                 return true;
-    //             }else{
-    //                notaError("El nombre ingresado ya ha sido registrado!"); 
-    //                return false;
-    //             }
-    //         }
-    //     });
-    // }
+        return $.ajax({
+            data: param,
+            url:"/phpSISAUTO/Controlador/proveedorC.php",
+            method: "post",
+            success: function(data){
+                if (data==0) {
+                    return true;
+                }else{
+                   notaError("El nombre ingresado ya ha sido registrado!"); 
+                   return false;
+                }
+            }
+        });
+    }
     }
 
     function validarCorreoE(){
@@ -52,17 +51,17 @@
     }
     return true;
 
-  //   if ($('#email').val().trim()=="") {
-  //       notaError("El correo es obligatorio!");
-  //       return false;
-  //   }
-  // return true;
     }
 
     function validarTelefonoE(){
 
     if ($('#telefonoEmp').val().trim()=="") {
         notaError("El teléfono de la empresa es obligatorio!");
+        return false;
+    }
+
+    if ($('#telefonoEmp').val().length!=8) {
+        notaError("El telefono debe contener 8 digitos!");
         return false;
     }
 return true;

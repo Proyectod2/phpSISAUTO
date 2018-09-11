@@ -81,7 +81,7 @@ and open the template in the editor.
                                             <td><?php echo $proveedore['nombreResp_Prov'] ?></td>
                                                                                        
                                             <th align="center">
-                                                <button title="Ver"type="button" class="btn btn-info fa fa-eye" data-toggle="modal" data-target="#modalVerProveedor" href="" onclick="mostrarPro('<?php echo $proveedor['nombre_Prov']?>','<?php echo $proveedor['correo_Prov']?>','<?php echo $proveedor['telefono_Prov']?>','<?php echo $proveedor['direccion_Prov']?>','<?php echo $proveedor['nombreResp_Prov']?>','<?php echo $proveedor['telefonoResp_Prov']?>');"></button>
+                                                <button title="Ver"type="button" class="btn btn-info fa fa-eye" data-toggle="modal" data-target="#modalVerProveedor" href="" onclick="mostrarPro('<?php echo $proveedore['nombre_Prov']?>','<?php echo $proveedore['correo_Prov']?>','<?php echo $proveedore['telefono_Prov']?>','<?php echo $proveedore['direccion_Prov']?>','<?php echo $proveedore['nombreResp_Prov']?>','<?php echo $proveedore['telefonoResp_Prov']?>');"></button>
                                                 <button title="Editar" type="button" class="btn btn-primary fa fa-pencil-square-o"></button>
                                                 <!-- <button type="button" class="btn btn-success fa fa-toggle-up "></button> -->
                                                 <!-- <button type="button" class="btn btn-warning"></button> -->
