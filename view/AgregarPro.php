@@ -6,30 +6,30 @@ and open the template in the editor.
 -->
 <html>
 
-<?php include("Generalidadespantalla/apertura.php"); ?>
+    <?php include("Generalidadespantalla/apertura.php"); ?>
 
-<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+    <body class="fixed-nav sticky-footer bg-dark" id="page-top">
 
- <?php include("Generalidadespantalla/Menu.php"); ?>
+        <?php include("Generalidadespantalla/Menu.php"); ?>
 
- <div class="content-wrapper" style="background-color:#eff3f4;">
-    <div class="container-fluid">
-        <!-- Breadcrumbs-->
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item">
-                <a href="index.php">Inicio</a>
+        <div class="content-wrapper" style="background-color:#eff3f4;">
+            <div class="container-fluid">
+                <!-- Breadcrumbs-->
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="index.php">Inicio</a>
 
-                <li class="breadcrumb-item active">
-                    <a href="/phpSISAUTO/view/Proveedor.php">Proveedores</a>
-                </li>
-                <li class="breadcrumb-item">
-                    <a>Registrar Proveedor</a>
-                </li>
-            </ol>
-            <!-- Example DataTables Card-->
-            <div class="card mb-3">
-                <div class="card-header">
-                    <i class=""></i> Registrar Proveedor</div>
+                    <li class="breadcrumb-item active">
+                        <a href="/phpSISAUTO/view/Proveedor.php">Proveedores</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a>Registrar Proveedor</a>
+                    </li>
+                </ol>
+                <!-- Example DataTables Card-->
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <i class=""></i> Registrar Proveedor</div>
                     <div class="card-body">
                         <form action="../Controlador/proveedorC.php" method="POST" id="guardarPro" align="center" autocomplete="off">
                             <h5 align="center">Datos Generales</h5><br>
@@ -49,7 +49,7 @@ and open the template in the editor.
                             <div class="form-group row">
                                 <label  for="tele1" class="col-sm-12 col-md-2 col-form-label">Teléfono:</label>
                                 <div  class="col-sm-12 col-md-10">
-                                    <input class="form-control" type="text" id="telefonoEmp" placeholder="9999-9999" data-inputmask="'mask' : '9999-9999'" name="Telefono_Emp" style="width:110px;height:40px" onkeypress="return validarTel(this,event,this.value)"/>
+                                    <input class="form-control" type="text" id="telefonoEmp" placeholder="9999-9999" data-inputmask="'mask' : '9999-9999'" name="Telefono_Emp" style="width:110px;height:40px" onkeypress="return validarTel(this, event, this.value)"/>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -69,21 +69,21 @@ and open the template in the editor.
                             <div class="form-group row">
                                 <label for="tel2" class="col-sm-12 col-md-2 col-form-label">Teléfono: </label>
                                 <div class="col-sm-12 col-md-10">
-                                <input type="tel" class="form-control" placeholder="9999-9999" data-inputmask="'mask' : '9999-9999'" id="telefonoResp" name="Telefono_Res" maxlength="9" style="width:110px;height:40px" onkeypress="return validarTel(this,event,this.value)"></div>
-                                </div>
-                            </div><br>
-                            <hr width="75%" />
-                            <div class="form-group" align="center">
-                                <button title="Aceptar" type="button" class="btn btn-success " onclick="validarProveedor();">Aceptar</button>
-                                <button title="Cancelar" type="reset" value="Cancelar" class="btn btn-warning " style="color:#fff">Cancelar</button>
+                                    <input type="tel" class="form-control" placeholder="9999-9999" data-inputmask="'mask' : '9999-9999'" id="telefonoResp" name="Telefono_Res" maxlength="9" style="width:110px;height:40px" onkeypress="return validarTel(this, event, this.value)"></div>
                             </div>
-                        </form>
+                    </div><br>
+                    <hr width="75%" />
+                    <div class="form-group" align="center">
+                        <button title="Aceptar" type="button" class="btn btn-success " onclick="validarProveedor();">Aceptar</button>
+                        <button title="Cancelar" type="reset" value="Cancelar" class="btn btn-warning " style="color:#fff">Cancelar</button>
                     </div>
+                    </form>
                 </div>
             </div>
-            <?php include("Generalidadespantalla/cierre.php"); ?>
-            <script src="../assets/Validaciones/validarProveedor.js"></script>
-</body>
+        </div>
+        <?php include("Generalidadespantalla/cierre.php"); ?>
+        <script src="../assets/Validaciones/validarProveedor.js"></script>
+    </body>
 </html>
 
 
