@@ -86,5 +86,3 @@ and open the template in the editor.
             <script src="../assets/Validaciones/validarNombreCompletoUsuario.js"></script>
 </body>
 </html>
-
-
