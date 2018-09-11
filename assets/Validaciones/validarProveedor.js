@@ -16,7 +16,6 @@
     	notaError("El nombre de la empresa es obligatorio!");
     	return false;
     }
-
     else{
         var param = {
             nombre: $('#nombreEmp').val(),

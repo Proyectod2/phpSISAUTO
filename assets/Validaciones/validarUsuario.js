@@ -1,12 +1,12 @@
 async function validarUsuario(){
     var nombreU = await validarNombreU();    
     var telefonoU = await validarTelefonoU();
-    var correoU = validarCorreoU(); 
-    var direccionU = validarDireccionU();
-    var duiU = validarDUIU();
-    var nombreusuU = validarNombreUsu();
-    var contrasenaU = validarContrasenaU();
-    var contrasenaU2 = validarContrasenaU2();  
+    var correoU = await validarCorreoU(); 
+    var direccionU = await validarDireccionU();
+    var duiU = await validarDUIU();
+    var nombreusuU = await validarNombreUsu();
+    var contrasenaU = await validarContrasenaU();
+    var contrasenaU2 = await validarContrasenaU2();  
     if (nombreU && telefonoU && correoU && direccionU && duiU && nombreusuU && contrasenaU && contrasenaU2) {
     	$('#guardarUsu').submit();
     }  
@@ -16,31 +16,27 @@ function validarNombreU(){
     if ($('#nombreUsu').val().trim()=="") {
         notaError("¡El nombre es obligatorio!");
         return false;
-    }/*
+    }
     else{
         var param = {
             nombre: $('#nombreUsu').val(),
             bandera: "unombre",
         };
-        $.ajax({
+        return $.ajax({
             data: param,
             url:"/phpSISAUTO/Controlador/usuarioC.php",
             method: "post",
             success: function(data){
                 console.log(data);
                 if (data == 0){
-                    console.log('Hola');
-                    x=true;
+                    return true;
                 }else{
-                    console.log('Holaaa');
                     notaError("¡El nombre ingresado ya ha sido registrado!"); 
-                    x=false;
+                    return false;
                 }
-                return x;
             }
         });
-    }*/
-    return true;
+    }
 }
 
 function validarTelefonoU(){
