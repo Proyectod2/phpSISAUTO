@@ -16,26 +16,10 @@ function validarNombreP() {
     if ($('#nombreP').val().trim()=="") {
         notaError("El nombre es obligatorio!");
         return false;
-    }else{
-        var param = {
-            nombre: $('#nombreP').val(),
-            bandera: "nproducto",
-        };
-
-        $.ajax({
-            data: param,
-            url:"/phpSISAUTO/Controlador/productoC.php",
-            method: "post",
-            success: function(data){
-                if (data==0) {
-                    return true;
-                }else{
-                   notaError("El nombre ingresado ya ha sido registrado!"); 
-                   return false;
-                }
-            }
-        });
     }
+    ;
+
+    return true;
 }
 
 function validarCategoriaP() {

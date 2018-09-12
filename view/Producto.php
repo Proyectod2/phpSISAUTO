@@ -6,55 +6,6 @@ and open the template in the editor.
 -->
 <html><?php include("Generalidadespantalla/apertura.php"); ?>
     <body class="fixed-nav sticky-footer bg-dark" id="page-top">
-<<<<<<< HEAD
-        <?php include("Generalidadespantalla/Menu.php"); ?>
-        <?php $cate = array(1 => "Suspensión", 2 => "Dirección"); ?>
-        <div class="content-wrapper" style="background-color:#eff3f4;">
-            <div class="container-fluid">
-                <!-- Breadcrumbs-->
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item">
-                        <a href="index.php">Inicio</a>
-                    <li class="breadcrumb-item active">
-                        <a>Produtos</a>
-                    </li>
-                </ol>
-                <div class="row">
-                    <div class="col-12">
-                        <h1 align="center"></h1>
-                        <a class="pull-right" href="http://localhost/phpSISAUTO/view/AgregarProd.php">
-                            <button class="btn btn-primary" data-toggle="modal" data-target="#modalNuevo">
-                                Agregar nuevo 
-                                <span class="fa fa-plus"></span>
-                            </button></a>
-                        <a class="pull-right" href="">
-                            <button class="btn btn-primary" data-toggle="modal" data-target="#modalNuevo">
-                                Reporte
-                                <span class="fa fa-file-pdf-o"></span>
-                            </button>
-                        </a><br><br>
-                        <!-- TABLA PRODUCTOS-->
-                        <div class="card mb-3">
-                            <div class="card-header">
-                                <i class="fa fa-table"></i> Productos</div>
-                            <form align="right" ><br>
-                                <table class="pull-right " id="dataTable" width="100%" cellspacing="0" >
-                                    <thead>
-                                        <tr>
-                                            <th style="width:200px"></th>
-                                            <th style="width:120px"><div class="input-group" style="width:500px" align="center">
-                                                    <input type="text" class="form-control" placeholder="Buscar" name="" align="center">
-                                                    <div class="input-group-btn">
-                                                        <button class="btn btn-default" type="submit" title="Buscar"><i class="fa fa-search" ></i></button>
-                                                    </div>
-                                                </div></th>
-                                        </tr>
-                                    </thead>
-                                </table>
-                            </form>
-                            <div class="card-body">
-                                <div class="table-responsive">
-=======
 <?php include("Generalidadespantalla/Menu.php"); ?>
 <?php $cate = array(1=>"Suspensión",2=>"Dirección" ); ?>
     <div class="content-wrapper" style="background-color:#eff3f4;">
@@ -103,7 +54,6 @@ and open the template in the editor.
                         </form>
                         <div class="card-body">
                             <div class="table-responsive">
->>>>>>> 54f70f9544aa038574a8f53c30e747916a91f6a6
                                     <?php
                                     include("../confi/Conexion.php");
                                     $conexion = conectarMysql();
@@ -131,7 +81,6 @@ and open the template in the editor.
                                                     <td><?php echo $producto['codigo_Prod'] ?></td>
                                                     <td><?php echo $producto['nombre_Prod'] ?></td>
                                                     <td><?php echo $cate[$producto['categoria_Prod']] ?></td>
-                                                    <!---->
                                                     <td><?php echo $producto['marca_Prod'] ?></td>
                                                     <td><?php echo $producto['modeloVehiculo_Prod'] ?></td>
                                                     <td><?php echo $producto['anioVehiculo_Prod'] ?></td>
