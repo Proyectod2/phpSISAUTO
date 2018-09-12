@@ -181,7 +181,7 @@ and open the template in the editor.
         </div>
     </div>
 
-      <!-- MODAL VER PROVEEDOR -->
+      <!-- MODAL EDITAR PROVEEDOR -->
 <div class="modal fade" id="modalEditarProveedor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
