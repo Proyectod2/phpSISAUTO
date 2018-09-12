@@ -71,7 +71,7 @@
 
     function validarTelefonoE(){
 
-     if ($('#telefonoResp').val().length!=9) {
+     if ($('#telefonoEmp').val().length!=9) {
         notaError("El teléfono debe contener 8 dígitos!");
         return true;
     }   
@@ -130,13 +130,13 @@ return true;
       function validarTelefonoR(){
 
     if ($('#telefonoResp').val().length!=9) {
-        notaError("El teléfono debe contener 8 dígitos!");
-        return false;
+        notaError("El teléfono del proveedor debe contener 8 dígitos!");
+        return true;
     }
 
     else if ($('#telefonoResp').val().trim()=="") {
     	notaError("El teléfono del responsable es obligatorio!");
-    	return false;
+    	return true;
     }
     else{
         var param = {
