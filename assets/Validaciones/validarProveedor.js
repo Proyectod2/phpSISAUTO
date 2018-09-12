@@ -45,7 +45,7 @@
         return false;
     }else{
         var param = {
-            nombre: $('#email').val(),
+            correo: $('#email').val(),
             bandera: "ccorreo"
         };
 
@@ -68,7 +68,7 @@
         notaError("¡El correo es incorrecto!");
         return false;
     }
-    return true;
+    // return true;
 
     }
 
@@ -78,6 +78,26 @@
         notaError("El teléfono de la empresa es obligatorio!");
         return false;
     }
+    // else{
+    //     var param = {
+    //         nombre: $('#telefonoEmp').val(),
+    //         bandera: "ctelEmp"
+    //     };
+
+    //     return $.ajax({
+    //         data: param,
+    //         url:"/phpSISAUTO/Controlador/proveedorC.php",
+    //         method: "post",
+    //         success: function(data){
+    //             if (data==0) {
+    //                 return true;
+    //             }else{
+    //                notaError("El telefono ingresado ya ha sido registrado!"); 
+    //                return false;
+    //             }
+    //         }
+    //     });
+    // }
 
     if ($('#telefonoEmp').val().length!=9) {
         notaError("El telefono debe contener 8 digitos!");

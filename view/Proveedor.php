@@ -135,7 +135,7 @@ and open the template in the editor.
                             </div>
                             <label  for="tel3" class="col-sm-12 col-md-3 col-form-label">Correo:</label>
                             <div  class="col-sm-12 col-md-8">
-                                <input class="form-control" type="email" id="correoPro" data-inputmask="'mask' : '9999-9999'" name="Correo_Pro" style="width:150px;height:40px" disabled="true">
+                                <input class="form-control" type="email" id="correoPro" data-inputmask="'mask' : '9999-9999'" name="Correo_Pro" style="width:400px;height:40px" disabled="true">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -143,7 +143,7 @@ and open the template in the editor.
                             </div>
                             <label for="nombre" class="col-sm-12 col-md-3 col-form-label">Teléfono:</label>
                             <div class="col-sm-12 col-md-8">
-                                <input class="form-control" type="text" id="telefonoPro" name="Correo_Usu" style="width:400px;height:40px" value="" disabled="true">
+                                <input class="form-control" type="text" id="telefonoPro" name="Correo_Usu" style="width:150px;height:40px" value="" disabled="true">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -206,9 +206,9 @@ and open the template in the editor.
                         <div class="form-group row">
                             <div class="col-sm-12 col-md-1">
                             </div>
-                            <label  for="tel3" class="col-sm-12 col-md-3 col-form-label">Correo:</label>
+                            <label  for="correo" class="col-sm-12 col-md-3 col-form-label">Correo:</label>
                             <div  class="col-sm-12 col-md-8">
-                                <input class="form-control" type="email" id="correoProEditar"  name="Correo_Emp" style="width:150px;height:40px" >
+                                <input class="form-control" type="email" id="correoProEditar"  name="Correo_Emp" style="width:400px;height:40px" >
                             </div>
                         </div>
                         <div class="form-group row">
@@ -216,7 +216,7 @@ and open the template in the editor.
                             </div>
                             <label for="nombre" class="col-sm-12 col-md-3 col-form-label">Teléfono:</label>
                             <div class="col-sm-12 col-md-8">
-                                <input class="form-control" type="text" id="telefonoProEditar" data-mask="9999-9999" name="Telefono_Emp" style="width:400px;height:40px" value="">
+                                <input class="form-control" type="text" id="telefonoProEditar" data-mask="9999-9999" name="Telefono_Emp" style="width:150px;height:40px" value="">
                             </div>
                         </div>
                         <div class="form-group row">
