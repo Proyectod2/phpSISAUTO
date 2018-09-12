@@ -5,7 +5,16 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html>
-
+<script>
+//		function deshabilitar(value)
+//		{
+//			if(value=="3" || value==false){
+//				// deshabilitamos
+//				document.getElementById("marcaP").disabled=true;
+//			}
+//		}
+//	</script>
+         
     <?php include("Generalidadespantalla/apertura.php"); ?>
 
     <body class="fixed-nav sticky-footer bg-dark" id="page-top">
@@ -65,22 +74,11 @@ and open the template in the editor.
                         <div class="form-group row">
                             <label for="categoriaP" class="col-sm-12 col-md-2 col-form-label">Categoria:</label>
                             <div class="col-sm-12 col-md-10">
-                                <select name="categorias" style="width:600px;height:40px" class="form-control" id="categoriaP"> 
+                                <select name="categorias" style="width:600px;height:40px" class="form-control" id="categoriaP" > 
                                     <option value="">[Selecionar Categoria]</option>
                                     <option value="1">Suspensión</option>
                                     <option value="2">Dirección</option>
-                                    <option value="Electrico">Eléctrico</option>
-                                    <option value="Friccion">Fricción</option>
-                                    <option value="Rodamiento">Rodamiento</option>
-                                    <option value="fajas">Fajas</option>
-                                    <option value="Carburacion">Carburación</option>
-                                    <option value="Bomba">Bomba</option>
-                                    <option value="Cricos">Cricos</option>
-                                    <option value="Soporte de motor">Soportes de motor</option>
-                                    <option value="Distribucion">Distribución</option>
-                                    <option value="Soporte de caja">Soporte de caja</option>
-                                    <option value="Soporte de cardan">Soporte de cardan</option>
-                                    <option value="Lubricacion">Lubricación</option>
+                                    <option value="3">Universal</option>
                                 </select>
                             </div>
                         </div>
@@ -88,7 +86,7 @@ and open the template in the editor.
                             <label for="marcaP" class="col-sm-12 col-md-2 col-form-label">Marca:</label>
                             <div class="col-sm-12 col-md-10">
                                 <select style="width:600px;height:40px" class="form-control" name="marca" id="marcaP"> 
-                                    <option value="">[Selecionar Marca]</option>
+                                    <option value="" selected>[Selecionar Marca]</option>
                                     <option value="Toyota">Toyota</option>
                                     <option value="Suzuki">Suzuki</option>
                                     <option value="Honda">Honda</option>

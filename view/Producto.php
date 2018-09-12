@@ -7,7 +7,7 @@ and open the template in the editor.
 <html><?php include("Generalidadespantalla/apertura.php"); ?>
     <body class="fixed-nav sticky-footer bg-dark" id="page-top">
 <?php include("Generalidadespantalla/Menu.php"); ?>
-<?php $cate = array(1=>"Suspensión",2=>"Dirección" ); ?>
+<?php $cate = array(1=>"Suspensión",2=>"Dirección",3=>"Universal"); ?>
     <div class="content-wrapper" style="background-color:#eff3f4;">
         <div class="container-fluid">
             <!-- Breadcrumbs-->

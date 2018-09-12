@@ -39,8 +39,7 @@ function validarMarcaP() {
         notaError("La marca es obligatorio!");
         return false;
     }
-    ;
-
+    
     return true;
 }
 
