@@ -17,20 +17,18 @@ and open the template in the editor.
         $conexion = conectarMysql();
         $sql = "SELECT * from producto order by idProducto ASC";
         $producto = mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta");
-        $contador=mysqli_num_rows($producto);
-        if($contador>-1 && $contador<9){
-            $ceros="0000";
-        }else if($contador>=9 && $contador<100){
-            $ceros="000";
-        }else if($contador>=99 && $contador<1000){
-            $ceros="00";
-        }else if($contador>=999 && $contador<10000){
-            $ceros="0";
-        }else {
-            $ceros="";
+        $contador = mysqli_num_rows($producto);
+        if ($contador > -1 && $contador < 9) {
+            $ceros = "0000";
+        } else if ($contador >= 9 && $contador < 100) {
+            $ceros = "000";
+        } else if ($contador >= 99 && $contador < 1000) {
+            $ceros = "00";
+        } else if ($contador >= 999 && $contador < 10000) {
+            $ceros = "0";
+        } else {
+            $ceros = "";
         }
-            
-         
         ?>
 
         <div class="content-wrapper" style="background-color:#eff3f4;">
@@ -47,13 +45,6 @@ and open the template in the editor.
                         <a>Registrar Producto</a>
                     </li>
                 </ol>
-                <!-- Example DataTables Card-->
-                <!--<a class="pull-right" href="">-->
-                <!--<button class="btn btn-primary" data-toggle="modal" data-target="#modalNuevo">-->
-                <!--Nuevo-->
-                <!--<span class="fa fa-new"></span>-->
-                <!--</button>-->
-                <!--</a><br><br>-->
                 <div class="card-header">
                     <i class=""></i> Registrar Producto</div>
                 <div class="card-body">
@@ -62,7 +53,7 @@ and open the template in the editor.
                         <div class="form-group row">
                             <label for="nombreP" class="col-sm-12 col-md-2 col-form-label">Codigo:</label>
                             <div class="col-sm-12 col-md-10">
-                                <input name="codigoPro" value="<?php echo $ceros.($contador+1)?>" class="form-control" placeholder="" type="text" id="codigoP" style="width:600px;height:40px" readonly="readonly">
+                                <input name="codigoPro" value="<?php echo $ceros . ($contador + 1) ?>" class="form-control" placeholder="" type="text" id="codigoP" style="width:600px;height:40px" readonly="readonly">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -148,9 +139,9 @@ and open the template in the editor.
                 </div>
             </div>
         </div>
-<?php include("Generalidadespantalla/cierre.php"); ?>
-        <script src="../assets/Validaciones/validarProducto.js"></script>
+        <?php include("Generalidadespantalla/cierre.php"); ?>
     </body>
+    <script src="../assets/Validaciones/validarProducto.js"></script>
 </html>
 
 

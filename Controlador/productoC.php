@@ -1,9 +1,12 @@
 <?php
 
+include("../confi/Conexion.php");
+$conexion = conectarMysql();
+
 $bandera = $_POST["bandera"];
 
 
-include("../confi/Conexion.php");
+
 if ($bandera == "guardar") {
     $codigo = $_POST["codigoPro"];
     $nombrePro = $_POST["nombrePro"];
@@ -12,18 +15,12 @@ if ($bandera == "guardar") {
     $modelo = $_POST["modelo"];
     $anio = $_POST["anio"];
     $descripcion = $_POST["descripcion"];
-    $sql = "INSERT INTO producto (nombre_Prod,categoria_Prod,marca_Prod,descripcion_Prod,modeloVehiculo_Prod,anioVehiculo_Prod,codigo_Prod) VALUES ('$nombrePro','$categoria','$marca','$descripcion','$modelo','$anio','$codigo')";
 
-    $conexion = conectarMysql();
+    $sql = "INSERT INTO producto (nombre_Prod,categoria_Prod,marca_Prod,descripcion_Prod,modeloVehiculo_Prod,anioVehiculo_Prod,codigo_Prod) VALUES ('$nombrePro','$categoria','$marca','$descripcion','$modelo','$anio','$codigo')";
 
     mysqli_query($conexion, $sql)or die("Error a Conectar en la BD" . mysqli_connect_error());
     $mensajes = "Registro guardado exitosamente";
     header("location: /phpSISAUTO/view/Producto.php?mensaje=" . $mensajes);
-}
-if ($bandera == "nproducto") {
-    $sql = "SELECT * from proveedor where nombre_Prov like '%" . $_POST["nombre"] . "%'";
-    $proveedor = mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta");
-    echo mysqli_num_rows($proveedor);
 }
 ?>
 
