@@ -49,19 +49,19 @@ and open the template in the editor.
                         <div class="form-group row">
                             <label  for="telefono" class="col-sm-12 col-md-2 col-form-label">Teléfono:</label>
                             <div  class="col-sm-12 col-md-10">
-                                <input class="form-control" name="TelefonoC" type="tel" id="telefono" placeholder="XXXX-XXXX" style="width:110px;height:40px">
+                                <input class="form-control" name="TelefonoC" type="tel" id="telefono" placeholder="9999-9999" data-mask="9999-9999" style="width:110px;height:40px">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="nrc" class="col-sm-12 col-md-2 col-form-label">NRC:</label>
                             <div class="col-sm-12 col-md-10">
-                                <input class="form-control" name="NRC" type="number" id="nrc" placeholder="xxxxxxxx" style="width:150px;height:40px">
+                                <input class="form-control" name="NRC" type="text" id="nrc" placeholder="999999-9" data-mask="999999-9" style="width:150px;height:40px">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-sm-12 col-md-2 col-form-label">NIT:</label>
                             <div class="col-sm-12 col-md-10">
-                                <input class="form-control" name="NIT" type="number" id="nit" placeholder="XXXX-XXXX-XXX" style="width:150px;height:40px">
+                                <input class="form-control" name="NIT" type="text" id="nit" placeholder="9999-999999-999-9" data-mask="9999-999999-999-9" style="width:175px;height:40px">
                             </div>
                         </div><br>
                         <hr width="75%" />

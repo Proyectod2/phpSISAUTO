@@ -48,7 +48,7 @@ and open the template in the editor.
                                     <tr>
                                         <th style="width:200px"></th>
                                         <th style="width:120px"><div class="input-group" style="width:500px" align="center">
-                                                <input type="text" class="form-control" placeholder="Buscar" name="" align="center">
+                                                <input type="text" class="form-control" id="entradafilter" placeholder="Buscar" name="" align="center">
                                                 <div class="input-group-btn">
                                                     <button class="btn btn-default" type="submit" title="Buscar"><i class="fa fa-search" ></i></button>
                                                 </div>
@@ -68,25 +68,25 @@ and open the template in the editor.
                                     <thead>
                                         <tr>
                                             <th style="width:175px">Nombre</th>
-                                            <th style="width:175px">Dirección</th>
+                                            <!-- <th style="width:175px">Dirección</th> -->
                                             <th style="width:85px">Teléfono</th>
                                             <th style="width:85px">NCR</th>
                                             <th style="width:85px">NIT</th>
                                             <th align="center" style="width:2px">Acción</th>
                                         </tr>
                                     </thead>
-                                    <tfoot>
+                                    <tfoot class="contenidobusqueda">
                                     <?php While($cliente=mysqli_fetch_assoc($clientes)){?>
                                         <tr>
                                             <td><?php echo $cliente['nombre_Cli'] ?></td>
-                                            <td><?php echo $cliente['direccion_Cli'] ?></td>
                                             <td><?php echo $cliente['telefono_Cli'] ?></td>
                                             <td><?php echo $cliente['nrc_Cli'] ?></td>
                                             <td><?php echo $cliente['nit_Cli'] ?></td>
                                                                                        
                                             <th align="center">
+                                                <button title="Ver" type="button" class="btn btn-info fa fa-eye"></button>
                                                 <button title="Editar" type="button" class="btn btn-primary fa fa-pencil-square-o"></button>
-                                                <button title="Eliminar" type="button" class="btn btn-danger fa fa-trash"></button>
+                                                <button title="Dar de baja" type="button" class="btn btn-danger fa fa-arrow-circle-down"></button>
                                             </th>
                                         </tr>
                                         <?php } ?>
@@ -106,7 +106,18 @@ and open the template in the editor.
     </div>
  <?php include("Generalidadespantalla/cierre.php"); ?>
 
+        <script type="text/javascript">
+            $(document).ready(function () {
+               $('#entradafilter').keyup(function () {
+                  var rex = new RegExp($(this).val(), 'i');
+                  $('.contenidobusqueda tr').hide();
+                  $('.contenidobusqueda tr').filter(function () {
+                    return rex.test($(this).text());
+                }).show();
+              })
 
+           });
+        </script>
 
 </body>
 </html>

@@ -68,13 +68,13 @@ if ($bandera=="ccorreo") {
 }
 
 if ($bandera=="ctelEmp") {
-	$sql="SELECT * from proveedor where telefono_Prov ";
+	$sql="SELECT * from proveedor where telefono_Prov like '".$_POST["telefono"]."' ";
 	$proveedor = mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta");
     echo mysqli_num_rows($proveedor);
 }
 
 if ($bandera=="ctelResp") {
-	$sql="SELECT * from proveedor where telefonoResp_Prov ";
+	$sql="SELECT * from proveedor where telefonoResp_Prov like '".$_POST["telefonoR"]."'";
 	$proveedor = mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta");
     echo mysqli_num_rows($proveedor);
 }

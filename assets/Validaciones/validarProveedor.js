@@ -40,9 +40,12 @@
 
     function validarCorreoE(){
     var regex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
-    if ($('#email').val().trim()=="") {
+    if(!regex.test($('#email').val())){
+        notaError("¡El correo es incorrecto!");
+        return true;
+    }else if ($('#email').val().trim()=="") {
         notaError("¡El correo es obligatorio!");
-        return false;
+        return true;
     }else{
         var param = {
             correo: $('#email').val(),
@@ -64,18 +67,18 @@
         });
     }
 
-    if(!regex.test($('#email').val())){
-        notaError("¡El correo es incorrecto!");
-        return false;
-    }
-
     }
 
     function validarTelefonoE(){
 
-    if ($('#telefonoEmp').val().trim()=="") {
+     if ($('#telefonoResp').val().length!=9) {
+        notaError("El teléfono debe contener 8 dígitos!");
+        return true;
+    }   
+
+    else if ($('#telefonoEmp').val().trim()=="") {
         notaError("El teléfono de la empresa es obligatorio!");
-        return false;
+        return true;
     }
     else{
         var param = {
@@ -91,17 +94,14 @@
                 if (data==0) {
                     return true;
                 }else{
-                   notaError("El telefono ingresado ya ha sido registrado!"); 
+                   notaError("El teléfono ingresado ya ha sido registrado!"); 
                    return false;
                 }
             }
         });
     }
 
-    if ($('#telefonoEmp').val().length!=9) {
-        notaError("El telefono debe contener 8 digitos!");
-        return false;
-    }
+    
 // return true;
     }
 
@@ -129,7 +129,12 @@ return true;
 
       function validarTelefonoR(){
 
-    if ($('#telefonoResp').val().trim()=="") {
+    if ($('#telefonoResp').val().length!=9) {
+        notaError("El teléfono debe contener 8 dígitos!");
+        return false;
+    }
+
+    else if ($('#telefonoResp').val().trim()=="") {
     	notaError("El teléfono del responsable es obligatorio!");
     	return false;
     }
@@ -147,15 +152,10 @@ return true;
                 if (data==0) {
                     return true;
                 }else{
-                   notaError("El telefono del responsable ingresado ya ha sido registrado!"); 
+                   notaError("El teléfono del responsable ingresado ya ha sido registrado!"); 
                    return false;
                 }
             }
         });
     }
-    if ($('#telefonoResp').val().length!=9) {
-        notaError("El telefono debe contener 8 digitos!");
-        return false;
-    }
-// return true;
     }
