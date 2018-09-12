@@ -5,8 +5,8 @@
         var direccionE= await validarDireccionE();    
         var nombreR= await validarNombreR();
         var telefonoR= await validarTelefonoR(); 
-        // console.log(direccionE); 
-        if (nombreE && correoE && telefonoE && direccionE && nombreR && telefonoR) {
+
+        if (nombreE==0 && correoE==0 && telefonoE==0 && direccionE && nombreR && telefonoR==0) {
         	$('#guardarPro').submit();
         }   
     }
@@ -68,7 +68,6 @@
         notaError("¡El correo es incorrecto!");
         return false;
     }
-    // return true;
 
     }
 
@@ -78,32 +77,32 @@
         notaError("El teléfono de la empresa es obligatorio!");
         return false;
     }
-    // else{
-    //     var param = {
-    //         nombre: $('#telefonoEmp').val(),
-    //         bandera: "ctelEmp"
-    //     };
+    else{
+        var param = {
+            telefono: $('#telefonoEmp').val(),
+            bandera: "ctelEmp"
+        };
 
-    //     return $.ajax({
-    //         data: param,
-    //         url:"/phpSISAUTO/Controlador/proveedorC.php",
-    //         method: "post",
-    //         success: function(data){
-    //             if (data==0) {
-    //                 return true;
-    //             }else{
-    //                notaError("El telefono ingresado ya ha sido registrado!"); 
-    //                return false;
-    //             }
-    //         }
-    //     });
-    // }
+        return $.ajax({
+            data: param,
+            url:"/phpSISAUTO/Controlador/proveedorC.php",
+            method: "post",
+            success: function(data){
+                if (data==0) {
+                    return true;
+                }else{
+                   notaError("El telefono ingresado ya ha sido registrado!"); 
+                   return false;
+                }
+            }
+        });
+    }
 
     if ($('#telefonoEmp').val().length!=9) {
         notaError("El telefono debe contener 8 digitos!");
         return false;
     }
-return true;
+// return true;
     }
 
      function validarDireccionE(){
@@ -134,5 +133,29 @@ return true;
     	notaError("El teléfono del responsable es obligatorio!");
     	return false;
     }
-return true;
+    else{
+        var param = {
+            telefonoR: $('#telefonoResp').val(),
+            bandera: "ctelResp"
+        };
+
+        return $.ajax({
+            data: param,
+            url:"/phpSISAUTO/Controlador/proveedorC.php",
+            method: "post",
+            success: function(data){
+                if (data==0) {
+                    return true;
+                }else{
+                   notaError("El telefono del responsable ingresado ya ha sido registrado!"); 
+                   return false;
+                }
+            }
+        });
+    }
+    if ($('#telefonoResp').val().length!=9) {
+        notaError("El telefono debe contener 8 digitos!");
+        return false;
+    }
+// return true;
     }
