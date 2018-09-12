@@ -48,7 +48,7 @@ and open the template in the editor.
                             </div>
                             <label  for="tel3" class="col-sm-12 col-md-3 col-form-label">Teléfono:</label>
                             <div  class="col-sm-12 col-md-3">
-                                <input class="form-control" type="text" id="telefonoUsu" placeholder="9999-9999" data-inputmask="'mask' : '9999-9999'" name="Telefono_Usu" style="width:150px;height:40px" onkeypress="return validarTel(this,event,this.value)"><a id='mensajitoTel'></a>
+                                <input class="form-control" type="text" id="telefonoUsu" placeholder="9999-9999" data-mask="9999-9999" name="Telefono_Usu" style="width:150px;height:40px" onkeypress="return validarTel(this,event,this.value)"><a id='mensajitoTel'></a>
                             </div>
                         </div>
                         <div class="form-group row">
