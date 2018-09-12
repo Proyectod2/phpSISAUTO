@@ -57,9 +57,14 @@ and open the template in the editor.
                         </form>
                         <div class="card-body">
                             <div class="table-responsive">
+                            <?php if (!isset($_GET['tipo'])) { 
+                                $tipo=1;
+                                }else{
+                                    $tipo = $_GET['tipo'];
+                                    }?>
                             <?php include("../confi/Conexion.php"); 
                             $conexion = conectarMysql();
-                            $sql="SELECT * from proveedor order by nombre_Prov ASC";
+                            $sql="SELECT * from proveedor where tipo_Prov='$tipo' order by nombre_Prov ASC";
                             $proveedores= mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); ?>
                                 <!-- <input id="entradafilter" type="text" class="form-control"> -->
                                 <table class="table table-striped table-bordered" id="example" width="100%" cellspacing="0">
@@ -82,10 +87,13 @@ and open the template in the editor.
                                                                                        
                                             <th align="center">
                                                 <button title="Ver"type="button" class="btn btn-info fa fa-eye" data-toggle="modal" data-target="#modalVerProveedor" href="" onclick="mostrarPro('<?php echo $proveedore['nombre_Prov']?>','<?php echo $proveedore['correo_Prov']?>','<?php echo $proveedore['telefono_Prov']?>','<?php echo $proveedore['direccion_Prov']?>','<?php echo $proveedore['nombreResp_Prov']?>','<?php echo $proveedore['telefonoResp_Prov']?>');"></button>
-                                                <button title="Editar" type="button" class="btn btn-primary fa fa-pencil-square-o"></button>
-                                                <!-- <button type="button" class="btn btn-success fa fa-toggle-up "></button> -->
-                                                <!-- <button type="button" class="btn btn-warning"></button> -->
-                                                <button title="Eliminar" type="button" class="btn btn-danger fa fa-arrow-circle-down"></button>
+                                                <button title="Editar" type="button" class="btn btn-primary fa fa-pencil-square-o" data-toggle="modal" data-target="#modalEditarProveedor" onclick="editarPro('<?php echo $proveedore['nombre_Prov']?>','<?php echo $proveedore['correo_Prov']?>','<?php echo $proveedore['telefono_Prov']?>','<?php echo $proveedore['direccion_Prov']?>','<?php echo $proveedore['nombreResp_Prov']?>','<?php echo $proveedore['telefonoResp_Prov']?>','<?php echo $proveedore['idProveedor']?>');"></button>
+                                                <?php  if ($tipo == 1) {
+                                                ?>
+                                                <button title="Dar de baja" type="button" class="btn btn-danger fa fa-arrow-circle-down" onclick="baja(<?php echo $proveedore['idProveedor'] ?>)"></button>
+                                                <?php  }else{ ?>
+                                                <button title="Dar de alta" type="button" class="btn btn-success fa fa-arrow-circle-up" onclick="alta(<?php echo $proveedore['idProveedor'] ?>)"></button>
+                                                <?php } ?>
                                             </th>
                                         </tr>
                                         <?php } ?>
@@ -173,6 +181,86 @@ and open the template in the editor.
         </div>
     </div>
 
+      <!-- MODAL VER PROVEEDOR -->
+<div class="modal fade" id="modalEditarProveedor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color:#007bff;">
+
+                    <h5 class="modal-title" id="myModalLabel"> <i class="fa fa-user"></i> Proveedor</h5>
+                </div>
+                <div class="modal-body">
+                    <form action="../Controlador/proveedorC.php" method="POST" id="guardarPro" align="center" autocomplete="off">
+                        <h5 align="center">Datos Generales</h5>
+                        <hr width="75%" style="background-color:#007bff;"/>
+                        <input type="hidden" value="EditarPro" name="bandera"></input>
+                        <input type="hidden" value="" name="idproveedor" id="idproveedor"></input>
+                        <div class="form-group row">
+                            <div class="col-sm-12 col-md-1">
+                            </div>
+                            <label for="nombre" class="col-sm-12 col-md-3 col-form-label">Nombre de la Empresa:</label>
+                            <div class="col-sm-12 col-md-8">
+                                <input class="form-control" type="text" id="nombreProEditar" name="Nombre_Emp" style="width:400px;height:40px" aria-required="true" value="">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12 col-md-1">
+                            </div>
+                            <label  for="tel3" class="col-sm-12 col-md-3 col-form-label">Correo:</label>
+                            <div  class="col-sm-12 col-md-8">
+                                <input class="form-control" type="email" id="correoProEditar"  name="Correo_Emp" style="width:150px;height:40px" >
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12 col-md-1">
+                            </div>
+                            <label for="nombre" class="col-sm-12 col-md-3 col-form-label">Teléfono:</label>
+                            <div class="col-sm-12 col-md-8">
+                                <input class="form-control" type="text" id="telefonoProEditar" data-mask="9999-9999" name="Telefono_Emp" style="width:400px;height:40px" value="">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12 col-md-1">
+                            </div>
+                            <label for="direccion" class="col-sm-12 col-md-3 col-form-label">Dirección:</label>
+                            <div class="col-sm-12 col-md-8">
+                                <input class="form-control" type="text" name="Direccion_Emp" style="width:400px;height:40px" id="direccionProEditar" >
+                            </div>
+                        </div>
+                        <h5 align="center">Datos del Proveedor</h5>
+                        <hr width="75%" style="background-color:#007bff;"/>
+                        <div class="form-group row">
+                            <div class="col-sm-12 col-md-1">
+                            </div>
+                            <label for="nombre" class="col-sm-12 col-md-3 col-form-label">Nombre Responsable:</label>
+                            <div class="col-sm-12 col-md-8">
+                                <input class="form-control" type="text" id="nombreResEditar" name="Nombre_Res" style="width:400px;height:40px">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12 col-md-1">
+                            </div>
+                            <label for="usuario" class="col-sm-12 col-md-3 col-form-label">Teléfono:</label> 
+                            <div class="col-sm-12 col-md-8">
+                                <input class="form-control" type="text" id="telefonoResEditar" data-mask="9999-9999" name="Telefono_Res" style="width:150px;height:40px" >
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="submit" class="btn btn-default" style="background-color:#007bff;">Aceptar</button>
+                          <button type="button" class="btn btn-default" data-dismiss="modal" style="background-color:#007bff;">Cerrar</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+        <form method="POST" id="cambio">
+            <input type="hidden" name="id" id="id"  />
+            <input type="hidden" name="bandera" id="bandera" />
+            <input type="hidden" name="valor" id="valor" />
+        </form>
+    </div>
+
         <?php include("Generalidadespantalla/cierre.php"); ?>
 
         <script src="../assets/Validaciones/mostrarProveedor.js"></script> 
@@ -195,6 +283,50 @@ and open the template in the editor.
             $(document).ready(function() {
                 $('#example').DataTable();
             } );
+        </script>
+
+        <script type="text/javascript">
+            function baja(id){
+                swal({
+                    title: '¿Está seguro en dar de baja?',
+                  // text: "You won't be able to revert this!",
+                  type: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#3085d6',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: 'Si',
+                  cancelButtonText: 'No',
+
+              }).then((result) => {
+                $('#id').val(id);
+                $('#bandera').val('cambio');
+                $('#valor').val('0');
+                var dominio = window.location.host;
+                 $('#cambio').attr('action','http://'+dominio+'/phpSISAUTO/Controlador/proveedorC.php');
+                 $('#cambio').submit();
+            })
+            }
+
+            function alta(id){
+                swal({
+                    title: '¿Está seguro en dar de alta?',
+                  // text: "You won't be able to revert this!",
+                  type: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#3085d6',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: 'Si',
+                  cancelButtonText: 'No',
+
+              }).then((result) => {
+                $('#id').val(id);
+                $('#bandera').val('cambio');
+                $('#valor').val('1');
+                var dominio = window.location.host;
+                 $('#cambio').attr('action','http://'+dominio+'/phpSISAUTO/Controlador/proveedorC.php');
+                 $('#cambio').submit();
+            })
+            }
         </script>
 </body>
 </html>

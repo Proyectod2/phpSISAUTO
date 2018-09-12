@@ -12,6 +12,7 @@
         <!-- Custom styles for this template-->
         <link href="../assets/css/sb-admin.css" rel="stylesheet">
         <link href="../assets/pNotify/pnotify.custom.min.css" rel="stylesheet">
+        <link href="../assets/package/dist/sweetalert2.css" rel="stylesheet">
 
         <script src="../assets/js/jquery.min.js"></script>
         <script src="../assets/js/bootstrap.min.js"></script>
@@ -25,6 +26,7 @@
         <script src="../js/plugins/pace/pace.min.js"></script>
         <script src="../assets/inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
         <script src="../assets/Validaciones/validarTelefono.js"></script>
+        <script src="../assets/package/dist/sweetalert2.js"></script>
 
         <script>
         $(document).ready(function(){

@@ -15,7 +15,7 @@ if($bandera=="guardar"){
 	$nombreR = $_POST["Nombre_Res"];
 	$telefonoR = $_POST["Telefono_Res"];
 
-	$sql = "INSERT INTO proveedor (nombre_Prov,correo_Prov,telefono_Prov,direccion_Prov,nombreResp_Prov,telefonoResp_Prov) VALUES ('$nombreE','$correoE','$telefonoE','$direccionE','$nombreR','$telefonoR')";
+	$sql = "INSERT INTO proveedor (nombre_Prov,correo_Prov,telefono_Prov,direccion_Prov,nombreResp_Prov,telefonoResp_Prov,tipo_Prov) VALUES ('$nombreE','$correoE','$telefonoE','$direccionE','$nombreR','$telefonoR',1)";
 
     mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD".mysqli_connect_error());
     $mensaje = "Registro guardado exitosamente";
@@ -23,6 +23,37 @@ if($bandera=="guardar"){
 
 }
 
+if($bandera=="EditarPro"){
+
+    $nombreE = $_POST["Nombre_Emp"];
+	$correoE = $_POST["Correo_Emp"];
+	$telefonoE = $_POST["Telefono_Emp"];
+	$direccionE = $_POST["Direccion_Emp"];
+	$nombreR = $_POST["Nombre_Res"];
+	$telefonoR = $_POST["Telefono_Res"];
+	$idproveedor = $_POST["idproveedor"];
+
+	$sql = "UPDATE proveedor set nombre_Prov='$nombreE',correo_Prov='$correoE',telefono_Prov='$telefonoE',direccion_Prov='$direccionE',nombreResp_Prov='$nombreR',telefonoResp_Prov='$telefonoR' where idProveedor = '$idproveedor'";
+
+    mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD".mysqli_connect_error());
+    $mensaje = "Registro editado exitosamente";
+    header("location: /phpSISAUTO/view/Proveedor.php?mensaje=".$mensaje);
+
+}
+
+if ($bandera=="cambio") {
+
+	$sql = "UPDATE proveedor set tipo_Prov='".$_POST["valor"]."' where idProveedor = '".$_POST["id"]."'";
+	$proveedor = mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta");
+	if ($_POST["valor"]==1) {
+		$aux = 0;
+		$mensaje = "Proveedor dado de alta exitosamente";
+	}else{
+		$aux = 1;
+		$mensaje = "Proveedor dado de baja exitosamente";
+	}
+    header("location: /phpSISAUTO/view/Proveedor.php?tipo=".$aux."&mensaje=".$mensaje);
+}
 
 if ($bandera=="cnombre") {
 	$sql="SELECT * from proveedor where nombre_Prov like '".$_POST["nombre"]."'";
@@ -30,11 +61,11 @@ if ($bandera=="cnombre") {
     echo mysqli_num_rows($proveedor);
 }
 
-// if ($bandera=="ccorreo") {
-// 	$sql="SELECT * from proveedor where correo_Prov ";
-// 	$proveedor = mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta");
-//     echo mysqli_num_rows($proveedor);
-// }
+if ($bandera=="ccorreo") {
+	$sql="SELECT * from proveedor where correo_Prov like '".$_POST["correo"]."'";
+	$proveedor = mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta");
+    echo mysqli_num_rows($proveedor);
+}
 
 // if ($bandera=="ctelEmp") {
 // 	$sql="SELECT * from proveedor where telefono_Prov ";

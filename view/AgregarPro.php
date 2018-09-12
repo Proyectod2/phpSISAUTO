@@ -49,7 +49,7 @@ and open the template in the editor.
                             <div class="form-group row">
                                 <label  for="tele1" class="col-sm-12 col-md-2 col-form-label">Teléfono:</label>
                                 <div  class="col-sm-12 col-md-10">
-                                    <input class="form-control" type="text" id="telefonoEmp" placeholder="9999-9999" data-inputmask="'mask' : '9999-9999'" name="Telefono_Emp" style="width:110px;height:40px" onkeypress="return validarTelPro(this,event,this.value)"><a id='mensajitoTel'></a>
+                                    <input class="form-control" type="text" id="telefonoEmp" placeholder="9999-9999" data-mask="9999-9999" name="Telefono_Emp" style="width:110px;height:40px" onkeypress="return validarTelPro(this,event,this.value)"><a id='mensajitoTel'></a>
                                 </div>
                             </div>
                             <div class="form-group row">

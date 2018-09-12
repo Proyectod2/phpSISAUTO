@@ -8,3 +8,13 @@ function mostrarPro(nombre,correo,telefono,direccion,nombreR,telefonoR){
 
 	
 }
+
+function editarPro(nombre,correo,telefono,direccion,nombreR,telefonoR,idproveedor){
+	$("#nombreProEditar").val(nombre);
+	$("#correoProEditar").val(correo);
+	$("#telefonoProEditar").val(telefono);
+	$("#direccionProEditar").val(direccion);
+	$("#nombreResEditar").val(nombreR);
+	$("#telefonoResEditar").val(telefonoR);
+	$("#idproveedor").val(idproveedor);
+}

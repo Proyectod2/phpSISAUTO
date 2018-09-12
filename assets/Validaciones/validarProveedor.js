@@ -44,7 +44,27 @@
     if ($('#email').val().trim()=="") {
         notaError("¡El correo es obligatorio!");
         return false;
+    }else{
+        var param = {
+            nombre: $('#email').val(),
+            bandera: "ccorreo"
+        };
+
+        return $.ajax({
+            data: param,
+            url:"/phpSISAUTO/Controlador/proveedorC.php",
+            method: "post",
+            success: function(data){
+                if (data==0) {
+                    return true;
+                }else{
+                   notaError("El correo ingresado ya ha sido registrado!"); 
+                   return false;
+                }
+            }
+        });
     }
+
     if(!regex.test($('#email').val())){
         notaError("¡El correo es incorrecto!");
         return false;
@@ -60,7 +80,7 @@
         return false;
     }
 
-    if ($('#telefonoEmp').val().length!=8) {
+    if ($('#telefonoEmp').val().length!=9) {
         notaError("El telefono debe contener 8 digitos!");
         return false;
     }
