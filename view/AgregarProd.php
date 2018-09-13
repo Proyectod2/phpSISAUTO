@@ -64,7 +64,7 @@ and open the template in the editor.
                         <div class="form-group row">
                             <label for="categoriaP" class="col-sm-12 col-md-2 col-form-label">Categoria:</label>
                             <div class="col-sm-12 col-md-10">
-                                <select name="categorias" style="width:600px;height:40px" class="form-control" id="categoriaPr" > 
+                                <select name="categorias" style="width:600px;height:40px" class="form-control" id="categoriaPr" onchange="veruniversal();">
                                     <option value="">[Selecionar Categoria]</option>
                                     <option value="1">Suspensión</option>
                                     <option value="2">Dirección</option>
@@ -76,7 +76,7 @@ and open the template in the editor.
                         <div class="form-group row">
                             <label for="marcaP" class="col-sm-12 col-md-2 col-form-label">Marca:</label>
                             <div class="col-sm-12 col-md-10">
-                                <select style="width:600px;height:40px" class="form-control" name="marca" id="marcaPr"> 
+                                <select style="width:600px;height:40px" class="form-control" name="marca" id="marcaPr">
                                     <option value="" selected>[Selecionar Marca]</option>
                                     <option value="Toyota">Toyota</option>
                                     <option value="Suzuki">Suzuki</option>
@@ -96,7 +96,7 @@ and open the template in the editor.
                         <div class="form-group row">
                             <label for="modeloP" class="col-sm-12 col-md-2 col-form-label">Modelo:</label>
                             <div class="col-sm-12 col-md-10">
-                                <select style="width:600px;height:40px" class="form-control" name="modelo" id="modeloPr"> 
+                                <select style="width:600px;height:40px" class="form-control" name="modelo" id="modeloPr">
                                     <option value="">[Selecionar Modelo]</option>
                                     <option value="Corolla">Corolla</option>
                                     <option value="Yaris">Yaris</option>
@@ -123,14 +123,28 @@ and open the template in the editor.
                         <div class="form-group" align="center">
                             <button title="Aceptar" type="button" class="btn btn-success " onclick="validarProducto();">Aceptar</button>
                             <button title="Cancelar" type="button" class="btn btn-warning " style="color:#fff">Cancelar</button>
+                            <input type="hidden" id="universal"value="0">
                         </div>
                     </form>
                 </div>
             </div>
             <?php include("Generalidadespantalla/cierre.php"); ?>
             <script src="../assets/Validaciones/validarProducto.js"></script>
+            <script type="text/javascript">
+              function veruniversal(){
+                if($('#categoriaPr').find('option:selected').text()=="Universal"){
+                  $('#universal').val(1);
+                  $("#marcaPr").attr("disabled","disabled");
+                  $("#modeloPr").attr("disabled","disabled");
+                  $("#anioPr").attr("disabled","disabled");
+                }else{
+                  $('#universal').val(0);
+                  $("#marcaPr").removeAttr("disabled");
+                  $("#modeloPr").removeAttr("disabled");
+                  $("#anioPr").removeAttr("disabled");
+                }
+              }
+            </script>
         </div>
     </body>
 </html>
-
-

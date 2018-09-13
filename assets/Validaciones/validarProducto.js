@@ -1,9 +1,15 @@
 async function validarProducto() {
     var nombre = await validarNombreP();
     var categoria = await validarCategoriaP();
-    var marca = await validarMarcaP();
-    var modelo = await validarModeloP();
-    var anio = await validarAnioP();
+    if($().val()=='0'){
+      var marca = await validarMarcaP();
+      var modelo = await validarModeloP();
+      var anio = await validarAnioP();
+    }else{
+      var marca = 1;
+      var modelo = 1;
+      var anio = 1;
+    }
     var descripcion = await validarDescripcionP();
 
     if (nombre && categoria && marca && modelo && anio && descripcion) {
