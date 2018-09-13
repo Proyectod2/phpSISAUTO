@@ -81,7 +81,8 @@ and open the template in the editor.
                                                     <td><?php echo $producto['codigo_Prod'] ?></td>
                                                     <td><?php echo $producto['nombre_Prod'] ?></td>
                                                     <td><?php echo $cate[$producto['categoria_Prod']] ?></td>
-                                                    <td><?php if($cate[$producto['categoria_Prod']]!='UNIVERSALES'){echo $producto['marca_Prod'];}else{echo "-";} ?></td>
+                                                    <td><?php echo $producto['marca_Prod'] ?></td>
+                                                    <!--<td><?php if($cate[$producto['categoria_Prod']]!='UNIVERSALES'){echo $producto['marca_Prod'];}else{echo "-";} ?></td>-->
                                                     <td><?php if($cate[$producto['categoria_Prod']]!='UNIVERSALES'){echo $producto['modeloVehiculo_Prod'];}else{echo "-";} ?></td>
                                                     <td><?php if($cate[$producto['categoria_Prod']]!='UNIVERSALES'){echo $producto['anioVehiculo_Prod'];}else{echo "-";} ?></td> 
                                                     <!--si solo cambia  $producto['anioVehiculo_Prod'] por el valor que ya esta en la columna-->

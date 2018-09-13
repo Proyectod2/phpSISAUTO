@@ -152,12 +152,12 @@ and open the template in the editor.
                                 function veruniversal() {
                                     if ($('#categoriaPr').find('option:selected').text() == "UNIVERSALES") {
                                         $('#universal').val(1);
-                                        $("#marcaPr").attr("disabled", "disabled");
+//                                        $("#marcaPr").attr("disabled", "disabled");
                                         $("#modeloPr").attr("disabled", "disabled");
                                         $("#anioPr").attr("disabled", "disabled");
                                     } else {
                                         $('#universal').val(0);
-                                        $("#marcaPr").removeAttr("disabled");
+//                                        $("#marcaPr").removeAttr("disabled");
                                         $("#modeloPr").removeAttr("disabled");
                                         $("#anioPr").removeAttr("disabled");
                                     }
