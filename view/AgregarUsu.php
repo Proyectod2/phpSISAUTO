@@ -72,7 +72,7 @@ and open the template in the editor.
                             </div>
                             <label class="col-sm-12 col-md-3 col-form-label">DUI:</label>
                             <div class="col-sm-12 col-md-4">
-                                <input class="form-control" type="text" placeholder="99999999-9" id="duiUsu"  name="DUI_Usu" style="width:150px;height:40px" onkeypress="return validarDUI(this,event,this.value)"><a id='mensajitoDUI1'></a><a id='mensajitoDUI2'></a>
+                                <input class="form-control" type="text" placeholder="99999999-9" data-mask="99999999-9" id="duiUsu"  name="DUI_Usu" style="width:150px;height:40px" onkeypress="return validarDUI(this,event,this.value)"><a id='mensajitoDUI1'></a><a id='mensajitoDUI2'></a>
                             </div>
                         </div>
                         <div class="form-group row">

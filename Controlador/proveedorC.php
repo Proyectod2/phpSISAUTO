@@ -62,7 +62,7 @@ if ($bandera=="cnombre") {
 }
 
 if ($bandera=="ccorreo") {
-	$sql="SELECT * from proveedor where correo_Prov like '".$_POST["correo"]."'";
+	$sql="SELECT * from proveedor where correo_Prov = BINARY '".$_POST["correo"]."'";
 	$proveedor = mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta");
     echo mysqli_num_rows($proveedor);
 }

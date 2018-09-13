@@ -7,9 +7,9 @@ async function validarUsuario(){
     var nombreusuU = await validarNombreUsu();
     var contrasenaU = await validarContrasenaU();
     var contrasenaU2 = await validarContrasenaU2();  
-    if (nombreU && telefonoU && correoU && direccionU && duiU && nombreusuU && contrasenaU && contrasenaU2) {
+    if (nombreU && telefonoU && correoU == 0 && direccionU && duiU && nombreusuU && contrasenaU && contrasenaU2){
     	$('#guardarUsu').submit();
-    }  
+    }; 
 }
 
 function validarNombreU(){
@@ -17,26 +17,7 @@ function validarNombreU(){
         notaError("¡El nombre es obligatorio!");
         return false;
     }
-    else{
-        var param = {
-            nombre: $('#nombreUsu').val(),
-            bandera: "unombre",
-        };
-        return $.ajax({
-            data: param,
-            url:"/phpSISAUTO/Controlador/usuarioC.php",
-            method: "post",
-            success: function(data){
-                console.log(data);
-                if (data == 0){
-                    return true;
-                }else{
-                    notaError("¡El nombre ingresado ya ha sido registrado!"); 
-                    return false;
-                }
-            }
-        });
-    }
+    return true;
 }
 
 function validarTelefonoU(){
@@ -56,17 +37,34 @@ function validarCorreoU(){
     if ($('#email').val().trim()=="") {
         notaError("¡El correo es obligatorio!");
         return false;
-    }
-    if(!regex.test($('#email').val())){
+    }else if(!regex.test($('#email').val())){
         notaError("¡El correo es incorrecto!");
         return false;
+    }else{
+        var param = {
+            correo: $('#email').val(),
+            bandera: "ucorreo"
+        };
+
+        return $.ajax({
+            data: param,
+            url:"/phpSISAUTO/Controlador/usuarioC.php",
+            method: "post",
+            success: function(data){
+                if (data==0) {
+                    return true;
+                }else{
+                   notaError("¡El correo ingresado ya ha sido registrado!"); 
+                   return false;
+                }
+            }
+        });
     }
-    return true;
 }
 
 function validarDireccionU(){
     if ($('#direccionUsu').val().trim()=="") {
-        notaError("¡La Dirección es obligatoria!");
+        notaError("¡La dirección es obligatoria!");
         return false;
     }
     return true;
@@ -86,7 +84,7 @@ function validarDUIU(){
 
 function validarNombreUsu(){
     if ($('#nombreusuUsu').val().trim()=="") {
-        notaError("¡El Nombre de Usuario es obligatorio!");
+        notaError("¡El nombre de usuario es obligatorio!");
         return false;
     }
     return true;
@@ -106,11 +104,11 @@ function validarContrasenaU(){
 
 function validarContrasenaU2(){
     if ($('#contrasenaUsu2').val().trim() == "") {
-        notaError("¡La verificacion de contraseña es obligatoria!");
+        notaError("¡La verificación de contraseña es obligatoria!");
         return false;
     }
-    if($('#contrasenaUsu2').val().length<6){
-        notaError("¡La confirmacion de contraseña deben cohincidir!");
+    if($('#contrasenaUsu2').val().length<6 || $('#contrasenaUsu2').val().length>8){
+        notaError("¡La confirmación de contraseña deben coincidir!");
         return false;
     }
     return true;

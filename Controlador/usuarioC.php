@@ -17,10 +17,11 @@
 	    mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD".mysqli_connect_error());
 	    $mensaje = "¡Registro guardado exitosamente!";
 	    header("location: /phpSISAUTO/view/Usuarios.php?mensaje=".$mensaje);
-	}else if ($bandera == "unombre") {
-		$sql = "SELECT * from usuario where nombre_Usu like '".$_POST["nombre"]."'";
+	}
+
+	if ($bandera == "ucorreo"){
+		$sql="SELECT * from usuario where correo_Usu = BINARY '".$_POST["correo"]."'";
 		$usuario = mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta");
 	    echo mysqli_num_rows($usuario);
 	}
-
 ?>
