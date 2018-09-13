@@ -36,17 +36,17 @@ and open the template in the editor.
                         </button>
                     </a>
                     <br><br>
-                    <!-- TABLA CLIENTES-->
+                    <!-- TABLA USUARIOS-->
                     <div class="card mb-3">
                         <div class="card-header" style="background-color:#eff3f4;">
                             <i class="fa fa-users"></i> Usuarios</div>
                             <form align="right" ><br>
-                            <table class="pull-right " id="dataTable" width="100%" cellspacing="0" >
+                            <table id="dataTable" class="pull-right " width="100%" cellspacing="0" >
                                 <thead>
                                     <tr>
                                         <th style="width:200px"></th>
                                         <th style="width:120px"><div class="input-group" style="width:500px" align="center">
-                                                <input type="text" class="form-control" placeholder="Buscar" name="" align="center">
+                                                <input type="text" class="form-control" id="entradafilter" placeholder="Buscar" name="" align="center">
                                                 <div class="input-group-btn">
                                                     <button class="btn btn-default" type="submit" title="Buscar"><i class="fa fa-search" ></i></button>
                                                 </div>
@@ -59,11 +59,11 @@ and open the template in the editor.
 
                         <div class="card-body">
                             <div class="table-responsive">
-                            <?php include("../confi/Conexion.php"); 
+                            <?php include("../confi/Conexion.php");
                             $conexion = conectarMysql();
                             $sql="SELECT * from usuario order by nombre_Usu ASC";
                             $usuarios= mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); ?>
-                                <table class="table table-striped table-bordered" id="dataTable" width="100%" cellspacing="0"  style="width:100%">
+                                <table class="table table-striped table-bordered" id="example" width="100%" cellspacing="0"  style="width:100%">
                                     <thead>
                                         <tr>
                                             <th style="width:175px">Nombre</th>
@@ -174,27 +174,154 @@ and open the template in the editor.
             </div>
         </div>
     </div>
+
+    <!-- MODAL EDITAR USUARIOS -->
+
+    <div class="modal fade" id="modalEditarUsuario" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color:#007bff;">
+
+                    <h5 class="modal-title" id="myModalLabel"> <i class="fa fa-user"></i> Usuario</h5>
+                </div>
+                <div class="modal-body">
+                    <form action="../Controlador/usuarioC.php" method="POST" id="guardarUsu" align="center" autocomplete="off">
+                        <h5 align="center">Datos Generales</h5>
+                        <hr width="75%" style="background-color:#007bff;"/>
+                        <input type="hidden" value="GuardarUsu" name="bandera"></input>
+                        <div class="form-group row">
+                            <div class="col-sm-12 col-md-1">
+                            </div>
+                            <label for="nombre" class="col-sm-12 col-md-3 col-form-label">Nombre:</label>
+                            <div class="col-sm-12 col-md-8">
+                                <input class="form-control" placeholder="Nombre Completo" type="text" id="nombreUsu" name="Nombre_Usu" style="width:400px;height:40px" readonly="readonly" aria-required="true" value="">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12 col-md-1">
+                            </div>
+                            <label  for="tel3" class="col-sm-12 col-md-3 col-form-label">Teléfono:</label>
+                            <div  class="col-sm-12 col-md-8">
+                                <input class="form-control" type="text" id="telefonoUsu" placeholder="9999-9999" data-inputmask="'mask' : '9999-9999'" name="Telefono_Usu" style="width:150px;height:40px" disabled="true">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12 col-md-1">
+                            </div>
+                            <label for="nombre" class="col-sm-12 col-md-3 col-form-label">Correo:</label>
+                            <div class="col-sm-12 col-md-8">
+                                <input class="form-control" placeholder="Correo" type="email" id="correoUsu" name="Correo_Usu" style="width:400px;height:40px" value="" disabled="true">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12 col-md-1">
+                            </div>
+                            <label for="direccion" class="col-sm-12 col-md-3 col-form-label">Dirección:</label>
+                            <div class="col-sm-12 col-md-8">
+                                <input class="form-control" type="text" placeholder="Dirección" name="Direccion_Usu" style="width:400px;height:40px" id="direccionUsu" disabled="true">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12 col-md-1">
+                            </div>
+                            <label class="col-sm-12 col-md-3 col-form-label">DUI:</label>
+                            <div class="col-sm-12 col-md-8">
+                                <input class="form-control" type="text" placeholder="99999999-9" id="duiUsu" name="DUI_Usu" style="width:150px;height:40px" disabled="true">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12 col-md-1">
+                            </div>
+                            <label for="usuario" class="col-sm-12 col-md-3 col-form-label">Usuario:</label>
+                            <div class="col-sm-12 col-md-8">
+                                <input class="form-control" type="text" placeholder="Nombre de Usuario" id="nombreusuUsu" name="NombreUsu_Usu" style="width:400px;height:40px" disabled="true">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12 col-md-1">
+                            </div>
+                            <label for="usuario" class="col-sm-12 col-md-3 col-form-label">Tipo de Usuario:</label>
+                            <div class="col-sm-12 col-md-8">
+                                <input class="form-control" type="text" placeholder="Tipo de Usuario" id="tipoUsu" name="Tipo_Usu" style="width:400px;height:40px" disabled="true" aria-required="true" value="">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-default" style="background-color:#007bff;">Aceptar</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" style="background-color:#007bff;">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <?php include("Generalidadespantalla/cierre.php"); ?>
 </div>
 <script src="../assets/Validaciones/mostrarUsuario.js"></script>     
+
+
+
 <!-- Filtrado de la tabla -->
-<script type="text/javascript">
-    $(document).ready(function () {
-       $('#entradafilter').keyup(function () {
-          var rex = new RegExp($(this).val(), 'i');
-          $('.contenidobusqueda tr').hide();
-          $('.contenidobusqueda tr').filter(function () {
-            return rex.test($(this).text());
-        }).show();
-      })
+        <script type="text/javascript">
+            $(document).ready(function () {
+               $('#entradafilter').keyup(function () {
+                  var rex = new RegExp($(this).val(), 'i');
+                  $('.contenidobusqueda tr').hide();
+                  $('.contenidobusqueda tr').filter(function () {
+                    return rex.test($(this).text());
+                }).show();
+              })
 
-   });
-</script>
+           });
+        </script>
 
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('#example').DataTable();
-    } );
-</script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#example').DataTable();
+            } );
+        </script>
+
+        <script type="text/javascript">
+            function baja(id){
+                swal({
+                    title: '¿Está seguro en dar de baja?',
+                  // text: "You won't be able to revert this!",
+                  type: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#3085d6',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: 'Si',
+                  cancelButtonText: 'No',
+
+              }).then((result) => {
+                $('#id').val(id);
+                $('#bandera').val('cambio');
+                $('#valor').val('0');
+                var dominio = window.location.host;
+                 $('#cambio').attr('action','http://'+dominio+'/phpSISAUTO/Controlador/proveedorC.php');
+                 $('#cambio').submit();
+            })
+            }
+
+            function alta(id){
+                swal({
+                    title: '¿Está seguro en dar de alta?',
+                  // text: "You won't be able to revert this!",
+                  type: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#3085d6',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: 'Si',
+                  cancelButtonText: 'No',
+
+              }).then((result) => {
+                $('#id').val(id);
+                $('#bandera').val('cambio');
+                $('#valor').val('1');
+                var dominio = window.location.host;
+                 $('#cambio').attr('action','http://'+dominio+'/phpSISAUTO/Controlador/proveedorC.php');
+                 $('#cambio').submit();
+            })
+            }
+        </script>
 </body>
 </html>

@@ -25,7 +25,8 @@ function validarContrasena(obj,e,valor){
   return aux;
 }
 
-function validarContrasena2(){
+function validarContrasena2(obj,e,valor){
+ 
   var confirmar = $('#contrasenaUsu').val();
   var contrasena = $('#contrasenaUsu2').val();
   if( confirmar == contrasena){
