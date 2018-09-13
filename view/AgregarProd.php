@@ -5,16 +5,6 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html>
-<script>
-//		function deshabilitar(value)
-//		{
-//			if(value=="3" || value==false){
-//				// deshabilitamos
-//				document.getElementById("marcaP").disabled=true;
-//			}
-//		}
-//	</script>
-         
     <?php include("Generalidadespantalla/apertura.php"); ?>
 
     <body class="fixed-nav sticky-footer bg-dark" id="page-top">
@@ -68,24 +58,25 @@ and open the template in the editor.
                         <div class="form-group row">
                             <label for="nombreP" class="col-sm-12 col-md-2 col-form-label">Nombre:</label>
                             <div class="col-sm-12 col-md-10">
-                                <input name="nombrePro" class="form-control" placeholder="Nombre del Producto" type="text" id="nombreP" style="width:600px;height:40px">
+                                <input name="nombrePro" class="form-control" placeholder="Nombre del Producto" type="text" id="nombrePr" style="width:600px;height:40px">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="categoriaP" class="col-sm-12 col-md-2 col-form-label">Categoria:</label>
                             <div class="col-sm-12 col-md-10">
-                                <select name="categorias" style="width:600px;height:40px" class="form-control" id="categoriaP" > 
+                                <select name="categorias" style="width:600px;height:40px" class="form-control" id="categoriaPr" > 
                                     <option value="">[Selecionar Categoria]</option>
                                     <option value="1">Suspensión</option>
                                     <option value="2">Dirección</option>
                                     <option value="3">Universal</option>
+                                    <option value="Lubricacion">Lubricación</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="marcaP" class="col-sm-12 col-md-2 col-form-label">Marca:</label>
                             <div class="col-sm-12 col-md-10">
-                                <select style="width:600px;height:40px" class="form-control" name="marca" id="marcaP"> 
+                                <select style="width:600px;height:40px" class="form-control" name="marca" id="marcaPr"> 
                                     <option value="" selected>[Selecionar Marca]</option>
                                     <option value="Toyota">Toyota</option>
                                     <option value="Suzuki">Suzuki</option>
@@ -105,7 +96,7 @@ and open the template in the editor.
                         <div class="form-group row">
                             <label for="modeloP" class="col-sm-12 col-md-2 col-form-label">Modelo:</label>
                             <div class="col-sm-12 col-md-10">
-                                <select style="width:600px;height:40px" class="form-control" name="modelo" id="modeloP"> 
+                                <select style="width:600px;height:40px" class="form-control" name="modelo" id="modeloPr"> 
                                     <option value="">[Selecionar Modelo]</option>
                                     <option value="Corolla">Corolla</option>
                                     <option value="Yaris">Yaris</option>
@@ -117,14 +108,14 @@ and open the template in the editor.
                         <div class="form-group row">
                             <label for="anioP" class="col-sm-12 col-md-2 col-form-label">Año:</label>
                             <div class="col-sm-12 col-md-10">
-                                <input class="form-control" type="number" id="anioP" name="anio" placeholder="Año" style="width:150px;height:40px">
+                                <input class="form-control" type="number" id="anioPr" name="anio" placeholder="Año" style="width:150px;height:40px">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="descripcionP" class="col-sm-12 col-md-2 col-form-label">Descripción:</label>
                             <div class="col-sm-12 col-md-2">
                                 <!--wrap="hard"-->
-                                <textarea rows="3" cols="75" name="descripcion"  placeholder="Escriba aqui..." id="descripcionP">
+                                <textarea rows="3" cols="75" name="descripcion"  placeholder="Escriba aqui..." id="descripcionPr">
                                 </textarea>
                             </div>
                         </div><br>
@@ -136,10 +127,10 @@ and open the template in the editor.
                     </form>
                 </div>
             </div>
+            <?php include("Generalidadespantalla/cierre.php"); ?>
+            <script src="../assets/Validaciones/validarProducto.js"></script>
         </div>
-        <?php include("Generalidadespantalla/cierre.php"); ?>
     </body>
-    <script src="../assets/Validaciones/validarProducto.js"></script>
 </html>
 
 
