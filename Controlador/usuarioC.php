@@ -20,8 +20,33 @@
 	}
 
 	if ($bandera == "ucorreo"){
-		$sql="SELECT * from usuario where correo_Usu = BINARY '".$_POST["correo"]."'";
+		$sql = "SELECT * from usuario where correo_Usu = BINARY '".$_POST["correo"]."'";
 		$usuario = mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta");
 	    echo mysqli_num_rows($usuario);
+	}
+
+	if ($bandera == "udui"){
+		$sql = "SELECT * from usuario where dui_Usu = BINARY '".$_POST["dui"]."'";
+		$usuario = mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta");
+	    echo mysqli_num_rows($usuario);
+	}
+
+	if ($bandera == "unombreusuario"){
+		$sql = "SELECT * from usuario where usuario_Usu = BINARY '".$_POST["nombreusuario"]."'";
+		$usuario = mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta");
+	    echo mysqli_num_rows($usuario);
+	}
+
+	if ($bandera == "cambio") {
+		$sql = "UPDATE usuario set estado_Usu = '".$_POST["valor"]."' where idUsuario = '".$_POST["id"]."'";
+		$proveedor = mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta");
+		if ($_POST["valor"] == 1) {
+			$aux = 0;
+			$mensaje = "Usuario dado de alta exitosamente";
+		}else{
+			$aux = 1;
+			$mensaje = "Usuario dado de baja exitosamente";
+		}
+	    header("location: /phpSISAUTO/view/Usuarios.php?tipo=".$aux."&mensaje=".$mensaje);
 	}
 ?>

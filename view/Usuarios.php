@@ -40,7 +40,7 @@ and open the template in the editor.
                     <div class="card mb-3">
                         <div class="card-header" style="background-color:#eff3f4;">
                             <i class="fa fa-users"></i> Usuarios</div>
-                            <form align="right" ><br>
+                            <form align="right"><br>
                             <table id="dataTable" class="pull-right " width="100%" cellspacing="0" >
                                 <thead>
                                     <tr>
@@ -56,12 +56,16 @@ and open the template in the editor.
                                 </thead>
                             </table>
                         </form>
-
                         <div class="card-body">
                             <div class="table-responsive">
+                                <?php if (!isset($_GET['tipo'])) { 
+                                 $tipo = 1;
+                             }else{
+                                $tipo = $_GET['tipo'];
+                            }?>
                             <?php include("../confi/Conexion.php");
                             $conexion = conectarMysql();
-                            $sql="SELECT * from usuario order by nombre_Usu ASC";
+                            $sql="SELECT * from usuario where estado_Usu = '$tipo' order by nombre_Usu ASC";
                             $usuarios= mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); ?>
                                 <table class="table table-striped table-bordered" id="example" width="100%" cellspacing="0"  style="width:100%">
                                     <thead>
@@ -81,7 +85,12 @@ and open the template in the editor.
                                             <th align="center">
                                                 <button title="Ver"type="button" class="btn btn-info fa fa-eye" data-toggle="modal" data-target="#modalVerUsuario" href="" onclick="mostrarUsu('<?php echo $usuario['nombre_Usu']?>','<?php echo $usuario['telefono_Usu']?>','<?php echo $usuario['correo_Usu']?>','<?php echo $usuario['direccion_Usu']?>','<?php echo $usuario['dui_Usu']?>','<?php echo $usuario['usuario_Usu']?>','<?php echo $usuario['tipo_Usu']?>');"></button>
                                                 <button title="Editar" type="button" class="btn btn-primary fa fa-pencil-square-o"></button>
-                                                <button title="Dar de baja" type="button" class="btn btn-danger fa fa-arrow-circle-down"></button>
+                                                <?php  if ($tipo == 1) {
+                                                ?>
+                                                <button title="Dar de baja" type="button" class="btn btn-danger fa fa-arrow-circle-down" onclick="bajaUsu(<?php echo $usuario['idUsuario'] ?>)"></button>
+                                                <?php  }else{ ?>
+                                                <button title="Dar de alta" type="button" class="btn btn-success fa fa-arrow-circle-up" onclick="altaUsu(<?php echo $usuario['idUsuario'] ?>)"></button>
+                                                <?php } ?>
                                             </th>
                                         </tr>
                                         <?php } ?>
@@ -253,6 +262,11 @@ and open the template in the editor.
                 </div>
             </div>
         </div>
+        <form method="POST" id="cambio">
+            <input type="hidden" name="id" id="id"  />
+            <input type="hidden" name="bandera" id="bandera" />
+            <input type="hidden" name="valor" id="valor" />
+        </form>
     </div>
     <?php include("Generalidadespantalla/cierre.php"); ?>
 </div>
@@ -281,7 +295,7 @@ and open the template in the editor.
         </script>
 
         <script type="text/javascript">
-            function baja(id){
+            function bajaUsu(id){
                 swal({
                     title: '¿Está seguro en dar de baja?',
                   // text: "You won't be able to revert this!",
@@ -297,12 +311,12 @@ and open the template in the editor.
                 $('#bandera').val('cambio');
                 $('#valor').val('0');
                 var dominio = window.location.host;
-                 $('#cambio').attr('action','http://'+dominio+'/phpSISAUTO/Controlador/proveedorC.php');
+                 $('#cambio').attr('action','http://'+dominio+'/phpSISAUTO/Controlador/usuarioC.php');
                  $('#cambio').submit();
             })
             }
 
-            function alta(id){
+            function altaUsu(id){
                 swal({
                     title: '¿Está seguro en dar de alta?',
                   // text: "You won't be able to revert this!",
@@ -318,7 +332,7 @@ and open the template in the editor.
                 $('#bandera').val('cambio');
                 $('#valor').val('1');
                 var dominio = window.location.host;
-                 $('#cambio').attr('action','http://'+dominio+'/phpSISAUTO/Controlador/proveedorC.php');
+                 $('#cambio').attr('action','http://'+dominio+'/phpSISAUTO/Controlador/usuarioC.php');
                  $('#cambio').submit();
             })
             }
