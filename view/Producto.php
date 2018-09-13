@@ -81,12 +81,18 @@ and open the template in the editor.
                                                     <td><?php echo $producto['codigo_Prod'] ?></td>
                                                     <td><?php echo $producto['nombre_Prod'] ?></td>
                                                     <td><?php echo $cate[$producto['categoria_Prod']] ?></td>
-                                                    <td><?php echo $producto['marca_Prod'] ?></td>
-                                                    <td><?php echo $producto['modeloVehiculo_Prod'] ?></td>
-                                                    <td><?php echo $producto['anioVehiculo_Prod'] ?></td>
+                                                    <td><?php if($cate[$producto['categoria_Prod']]!='Universal'){echo $producto['marca_Prod'];}else{echo "-";} ?></td>
+                                                    <td><?php if($cate[$producto['categoria_Prod']]!='Universal'){echo $producto['modeloVehiculo_Prod'];}else{echo "-";} ?></td>
+                                                    <td><?php if($cate[$producto['categoria_Prod']]!='Universal'){echo $producto['anioVehiculo_Prod'];}else{echo "-";} ?></td> 
+                                                    <!--si solo cambia  $producto['anioVehiculo_Prod'] por el valor que ya esta en la columna-->
                                                     <th align="center">
-                                                        <button title="Editar" type="button" class="btn btn-primary fa fa-pencil-square-o"></button>
-                                                        <button title="Cancelar" type="button" class="btn btn-danger fa fa-trash"></button>
+                                                        <button title="Ver"type="button" class="btn btn-info fa fa-eye" data-toggle="modal" data-target="#modalVerProveedor" href="" onclick=""></button>
+                                                <button title="Editar" type="button" class="btn btn-primary fa fa-pencil-square-o" data-toggle="modal" data-target="#modalEditarProveedor" onclick=""></button>
+                                                
+                                                <button title="Dar de baja" type="button" class="btn btn-danger fa fa-arrow-circle-down" onclick=""></button>
+                                                
+                                                <button title="Dar de alta" type="button" class="btn btn-success fa fa-arrow-circle-up" onclick=""></button>
+                                                
                                                     </th>
                                                 </tr>
                                             <?php } ?>
