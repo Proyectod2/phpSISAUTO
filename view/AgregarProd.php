@@ -44,106 +44,108 @@ and open the template in the editor.
                         <a>Registrar Producto</a>
                     </li>
                 </ol>
-                <div class="card-header">
-                    <i class=""></i> Registrar Producto</div>
-                <div class="card-body">
-                    <form action="../Controlador/productoC.php" method="POST" align="center" id="guardarProd" autocomplete="off">
-                        <input type="hidden" value="guardar" name="bandera"></input>
-                        <div class="form-group row">
-                            <label for="nombreP" class="col-sm-12 col-md-2 col-form-label">Codigo:</label>
-                            <div class="col-sm-12 col-md-10">
-                                <input name="codigoPro" value="<?php echo $ceros . ($contador + 1) ?>" class="form-control" placeholder="" type="text" id="codigoP" style="width:600px;height:40px" readonly="readonly">
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <i class=""></i> Registrar Producto</div>
+                    <div class="card-body">
+                        <form action="../Controlador/productoC.php" method="POST" align="center" id="guardarProd" autocomplete="off">
+                            <input type="hidden" value="guardar" name="bandera"></input>
+                            <div class="form-group row">
+                                <label for="nombreP" class="col-sm-12 col-md-2 col-form-label">Codigo:</label>
+                                <div class="col-sm-12 col-md-10">
+                                    <input name="codigoPro" value="<?php echo $ceros . ($contador + 1) ?>" class="form-control" placeholder="" type="text" id="codigoP" style="width:600px;height:40px" readonly="readonly">
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="nombreP" class="col-sm-12 col-md-2 col-form-label">Nombre:</label>
-                            <div class="col-sm-12 col-md-10">
-                                <input name="nombrePro" class="form-control" placeholder="Nombre del Producto" type="text" id="nombrePr" style="width:600px;height:40px">
+                            <div class="form-group row">
+                                <label for="nombreP" class="col-sm-12 col-md-2 col-form-label">Nombre:</label>
+                                <div class="col-sm-12 col-md-10">
+                                    <input name="nombrePro" class="form-control" placeholder="Nombre del Producto" type="text" id="nombrePr" style="width:600px;height:40px">
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="categoriaP" class="col-sm-12 col-md-2 col-form-label">Categoria:</label>
-                            <div class="col-sm-12 col-md-10">
-                                <select name="categorias" style="width:600px;height:40px" class="form-control" id="categoriaPr" onchange="veruniversal();">
-                                    <option value="">[Selecionar Categoria]</option>
-                                    <option value="1">Suspensión</option>
-                                    <option value="2">Dirección</option>
-                                    <option value="3">Universal</option>
-                                    <option value="Lubricacion">Lubricación</option>
-                                </select>
+                            <div class="form-group row">
+                                <label for="categoriaP" class="col-sm-12 col-md-2 col-form-label">Categoria:</label>
+                                <div class="col-sm-12 col-md-10">
+                                    <select name="categorias" style="width:600px;height:40px" class="form-control" id="categoriaPr" onchange="veruniversal();">
+                                        <option value="">[Selecionar Categoria]</option>
+                                        <option value="1">Suspensión</option>
+                                        <option value="2">Dirección</option>
+                                        <option value="3">Universal</option>
+                                        <option value="Lubricacion">Lubricación</option>
+                                    </select>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="marcaP" class="col-sm-12 col-md-2 col-form-label">Marca:</label>
-                            <div class="col-sm-12 col-md-10">
-                                <select style="width:600px;height:40px" class="form-control" name="marca" id="marcaPr">
-                                    <option value="" selected>[Selecionar Marca]</option>
-                                    <option value="Toyota">Toyota</option>
-                                    <option value="Suzuki">Suzuki</option>
-                                    <option value="Honda">Honda</option>
-                                    <option value="Mazda">Mazda</option>
-                                    <option value="Chevrolet">Chevrolet</option>
-                                    <option value="Kia">Kia</option>
-                                    <option value="BMW">BMW</option>
-                                    <option value="Nissan">Nissan</option>
-                                    <option value="Mitsubichi">Mitsubishi</option>
-                                    <option value="Ford">Ford</option>
-                                    <option value="Mercedez-Benz">Mercedez-Benz</option>
-                                    <option value="Hyundai">Hyundai</option>
-                                </select>
+                            <div class="form-group row">
+                                <label for="marcaP" class="col-sm-12 col-md-2 col-form-label">Marca:</label>
+                                <div class="col-sm-12 col-md-10">
+                                    <select style="width:600px;height:40px" class="form-control" name="marca" id="marcaPr">
+                                        <option value="" selected>[Selecionar Marca]</option>
+                                        <option value="Toyota">Toyota</option>
+                                        <option value="Suzuki">Suzuki</option>
+                                        <option value="Honda">Honda</option>
+                                        <option value="Mazda">Mazda</option>
+                                        <option value="Chevrolet">Chevrolet</option>
+                                        <option value="Kia">Kia</option>
+                                        <option value="BMW">BMW</option>
+                                        <option value="Nissan">Nissan</option>
+                                        <option value="Mitsubichi">Mitsubishi</option>
+                                        <option value="Ford">Ford</option>
+                                        <option value="Mercedez-Benz">Mercedez-Benz</option>
+                                        <option value="Hyundai">Hyundai</option>
+                                    </select>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="modeloP" class="col-sm-12 col-md-2 col-form-label">Modelo:</label>
-                            <div class="col-sm-12 col-md-10">
-                                <select style="width:600px;height:40px" class="form-control" name="modelo" id="modeloPr">
-                                    <option value="">[Selecionar Modelo]</option>
-                                    <option value="Corolla">Corolla</option>
-                                    <option value="Yaris">Yaris</option>
-                                    <option value="RAV4">RAV4</option>
-                                    <option value="Land Cruiser Coronela">Land Cruiser Coronela</option>
-                                </select>
+                            <div class="form-group row">
+                                <label for="modeloP" class="col-sm-12 col-md-2 col-form-label">Modelo:</label>
+                                <div class="col-sm-12 col-md-10">
+                                    <select style="width:600px;height:40px" class="form-control" name="modelo" id="modeloPr">
+                                        <option value="">[Selecionar Modelo]</option>
+                                        <option value="Corolla">Corolla</option>
+                                        <option value="Yaris">Yaris</option>
+                                        <option value="RAV4">RAV4</option>
+                                        <option value="Land Cruiser Coronela">Land Cruiser Coronela</option>
+                                    </select>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="anioP" class="col-sm-12 col-md-2 col-form-label">Año:</label>
-                            <div class="col-sm-12 col-md-10">
-                                <input class="form-control" type="number" id="anioPr" name="anio" placeholder="Año" style="width:150px;height:40px">
+                            <div class="form-group row">
+                                <label for="anioP" class="col-sm-12 col-md-2 col-form-label">Año:</label>
+                                <div class="col-sm-12 col-md-10">
+                                    <input class="form-control" type="number" id="anioPr" name="anio" placeholder="Año" style="width:150px;height:40px">
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="descripcionP" class="col-sm-12 col-md-2 col-form-label">Descripción:</label>
-                            <div class="col-sm-12 col-md-2">
-                                <!--wrap="hard"-->
-                                <textarea rows="3" cols="75" name="descripcion"  placeholder="Escriba aqui..." id="descripcionPr">
-                                </textarea>
+                            <div class="form-group row">
+                                <label for="descripcionP" class="col-sm-12 col-md-2 col-form-label">Descripción:</label>
+                                <div class="col-sm-12 col-md-2">
+                                    <!--wrap="hard"-->
+                                    <textarea rows="3" cols="75" name="descripcion"  placeholder="Escriba aqui..." id="descripcionPr">
+                                    </textarea>
+                                </div>
+                            </div><br>
+                            <hr width="75%" />
+                            <div class="form-group" align="center">
+                                <button title="Aceptar" type="button" class="btn btn-success " onclick="validarProducto();">Aceptar</button>
+                                <button title="Cancelar" type="reset" class="btn btn-warning " style="color:#fff">Cancelar</button>
+                                <input type="hidden" id="universal"value="0">
                             </div>
-                        </div><br>
-                        <hr width="75%" />
-                        <div class="form-group" align="center">
-                            <button title="Aceptar" type="button" class="btn btn-success " onclick="validarProducto();">Aceptar</button>
-                            <button title="Cancelar" type="button" class="btn btn-warning " style="color:#fff">Cancelar</button>
-                            <input type="hidden" id="universal"value="0">
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
             <?php include("Generalidadespantalla/cierre.php"); ?>
             <script src="../assets/Validaciones/validarProducto.js"></script>
             <script type="text/javascript">
-              function veruniversal(){
-                if($('#categoriaPr').find('option:selected').text()=="Universal"){
-                  $('#universal').val(1);
-                  $("#marcaPr").attr("disabled","disabled");
-                  $("#modeloPr").attr("disabled","disabled");
-                  $("#anioPr").attr("disabled","disabled");
-                }else{
-                  $('#universal').val(0);
-                  $("#marcaPr").removeAttr("disabled");
-                  $("#modeloPr").removeAttr("disabled");
-                  $("#anioPr").removeAttr("disabled");
-                }
-              }
+                                function veruniversal() {
+                                    if ($('#categoriaPr').find('option:selected').text() == "Universal") {
+                                        $('#universal').val(1);
+                                        $("#marcaPr").attr("disabled", "disabled");
+                                        $("#modeloPr").attr("disabled", "disabled");
+                                        $("#anioPr").attr("disabled", "disabled");
+                                    } else {
+                                        $('#universal').val(0);
+                                        $("#marcaPr").removeAttr("disabled");
+                                        $("#modeloPr").removeAttr("disabled");
+                                        $("#anioPr").removeAttr("disabled");
+                                    }
+                                }
             </script>
         </div>
     </body>

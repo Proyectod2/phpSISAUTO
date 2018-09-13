@@ -89,10 +89,7 @@ and open the template in the editor.
                                                         <button title="Ver"type="button" class="btn btn-info fa fa-eye" data-toggle="modal" data-target="#modalVerProveedor" href="" onclick=""></button>
                                                 <button title="Editar" type="button" class="btn btn-primary fa fa-pencil-square-o" data-toggle="modal" data-target="#modalEditarProveedor" onclick=""></button>
                                                 
-                                                <button title="Dar de baja" type="button" class="btn btn-danger fa fa-arrow-circle-down" onclick=""></button>
-                                                
-                                                <button title="Dar de alta" type="button" class="btn btn-success fa fa-arrow-circle-up" onclick=""></button>
-                                                
+                                                <button title="Dar de baja" type="button" class="btn btn-danger fa fa-arrow-circle-down" onclick=""></button>                                                
                                                     </th>
                                                 </tr>
                                             <?php } ?>
