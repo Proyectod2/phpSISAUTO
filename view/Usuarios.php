@@ -77,7 +77,7 @@ and open the template in the editor.
                                         </tr>
                                     </thead>
                                     <tfoot class="contenidobusqueda">
-                                    <?php While($usuario=mysqli_fetch_assoc($usuarios)){?>
+                                    <?php While($usuario = mysqli_fetch_assoc($usuarios)){?>
                                         <tr>
                                             <td><?php echo $usuario['nombre_Usu'] ?></td>
                                             <td><?php echo $usuario['correo_Usu'] ?></td>
