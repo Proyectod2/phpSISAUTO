@@ -7,7 +7,7 @@ and open the template in the editor.
 <html><?php include("Generalidadespantalla/apertura.php"); ?>
     <body class="fixed-nav sticky-footer bg-dark" id="page-top">
 <?php include("Generalidadespantalla/Menu.php"); ?>
-<?php $cate = array(1=>"Suspensión",2=>"Dirección",3=>"Universal"); ?>
+<?php $cate = array(1=>"AMORTIGUADORES",2=>"BUJÍAS",3=>"COMBUSTIBLE",4=>"ELÉCTRICO",5=>"ENFRIAMIENTO",6=>"FILTROS",7=>"MOTOR",8=>"SENSORES",9=>"SUSPENSIÓN Y DIRECCIÓN",10=>"TRANSMISIÓN Y EMBRAGUE",11=>"UNIVERSALES"); ?>
     <div class="content-wrapper" style="background-color:#eff3f4;">
         <div class="container-fluid">
             <!-- Breadcrumbs-->
@@ -64,12 +64,12 @@ and open the template in the editor.
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
-                                                <th style="width:100px">Codigo</th>
-                                                <th style="width:100px">Nombre</th>
-                                                <th style="width:100px">Categoria</th>
+                                                <th style="width:60px">Codigo</th>
+                                                <th style="width:90px">Nombre</th>
+                                                <th style="width:90px">Categoria</th>
                                                 <th style="width:95px">Marca</th>
                                                 <th style="width:50px">Modelo</th>
-                                                <th style="width:85px">Año</th>
+                                                <th style="width:70px">Año</th>
                                                 <th align="center" style="width:2px">Acción</th>
                                             </tr>
                                         </thead>
@@ -81,9 +81,9 @@ and open the template in the editor.
                                                     <td><?php echo $producto['codigo_Prod'] ?></td>
                                                     <td><?php echo $producto['nombre_Prod'] ?></td>
                                                     <td><?php echo $cate[$producto['categoria_Prod']] ?></td>
-                                                    <td><?php if($cate[$producto['categoria_Prod']]!='Universal'){echo $producto['marca_Prod'];}else{echo "-";} ?></td>
-                                                    <td><?php if($cate[$producto['categoria_Prod']]!='Universal'){echo $producto['modeloVehiculo_Prod'];}else{echo "-";} ?></td>
-                                                    <td><?php if($cate[$producto['categoria_Prod']]!='Universal'){echo $producto['anioVehiculo_Prod'];}else{echo "-";} ?></td> 
+                                                    <td><?php if($cate[$producto['categoria_Prod']]!='UNIVERSALES'){echo $producto['marca_Prod'];}else{echo "-";} ?></td>
+                                                    <td><?php if($cate[$producto['categoria_Prod']]!='UNIVERSALES'){echo $producto['modeloVehiculo_Prod'];}else{echo "-";} ?></td>
+                                                    <td><?php if($cate[$producto['categoria_Prod']]!='UNIVERSALES'){echo $producto['anioVehiculo_Prod'];}else{echo "-";} ?></td> 
                                                     <!--si solo cambia  $producto['anioVehiculo_Prod'] por el valor que ya esta en la columna-->
                                                     <th align="center">
                                                         <button title="Ver"type="button" class="btn btn-info fa fa-eye" data-toggle="modal" data-target="#modalVerProveedor" href="" onclick=""></button>

@@ -96,7 +96,7 @@ and open the template in the editor.
                                                 <?php } ?>
                                             </th>
                                         </tr>
-                                        <?php } ?>
+                                        //<?php } ?>
                                     </tfoot>
                                 </table>
                             </div>

@@ -67,10 +67,18 @@ and open the template in the editor.
                                 <div class="col-sm-12 col-md-10">
                                     <select name="categorias" style="width:600px;height:40px" class="form-control" id="categoriaPr" onchange="veruniversal();">
                                         <option value="">[Selecionar Categoria]</option>
-                                        <option value="1">Suspensión</option>
-                                        <option value="2">Dirección</option>
-                                        <option value="3">Universal</option>
-                                        <option value="Lubricacion">Lubricación</option>
+                                        <option value="1">AMORTIGUADORES</option>
+                                        <option value="2">BUJÍAS</option>
+                                        <option value="3">ELÉCTRICO</option>
+                                        <option value="4">ENFRIAMIENTO</option>
+                                        <option value="5">FILTROS</option>
+                                        <option value="6">FRENOS</option>
+                                        <option value="7">MOTOR</option>
+                                        <option value="8">SENSORES</option>
+                                        <option value="9">SUSPENSIÓN Y DIRECCIÓN</option>
+                                        <option value="10">TRANSMISIÓN Y EMBRAGUE</option>
+                                        <option value="11">UNIVERSALES</option>
+                                        
                                     </select>
                                 </div>
                             </div>
@@ -79,18 +87,18 @@ and open the template in the editor.
                                 <div class="col-sm-12 col-md-10">
                                     <select style="width:600px;height:40px" class="form-control" name="marca" id="marcaPr">
                                         <option value="" selected>[Selecionar Marca]</option>
-                                        <option value="Toyota">Toyota</option>
-                                        <option value="Suzuki">Suzuki</option>
-                                        <option value="Honda">Honda</option>
-                                        <option value="Mazda">Mazda</option>
-                                        <option value="Chevrolet">Chevrolet</option>
-                                        <option value="Kia">Kia</option>
-                                        <option value="BMW">BMW</option>
-                                        <option value="Nissan">Nissan</option>
-                                        <option value="Mitsubichi">Mitsubishi</option>
-                                        <option value="Ford">Ford</option>
-                                        <option value="Mercedez-Benz">Mercedez-Benz</option>
-                                        <option value="Hyundai">Hyundai</option>
+                                        <option value="HELIAR">HELIAR</option>
+                                        <option value="BRM">BRM</option>
+                                        <option value="CRAL">CRAL</option>
+                                        <option value="ELECTRAN">ELECTRAN</option>
+                                        <option value="ACEDELCO">ACEDELCO</option>
+                                        <option value="KYB">KYB</option>
+                                        <option value="CORVEN">amortiguador-CORVEN</option>
+                                        <option value="BOGE">BOGE</option>
+                                        <option value="SANCH">SANCH</option>
+                                        <option value="VALVOLINE">VALVOLINE</option>
+                                        <option value="JURID">JURID</option>
+                                        <option value="BEHR">BEHR</option>
                                     </select>
                                 </div>
                             </div>
@@ -99,10 +107,18 @@ and open the template in the editor.
                                 <div class="col-sm-12 col-md-10">
                                     <select style="width:600px;height:40px" class="form-control" name="modelo" id="modeloPr">
                                         <option value="">[Selecionar Modelo]</option>
-                                        <option value="Corolla">Corolla</option>
-                                        <option value="Yaris">Yaris</option>
-                                        <option value="RAV4">RAV4</option>
-                                        <option value="Land Cruiser Coronela">Land Cruiser Coronela</option>
+                                        <option value="Toyota-Corolla">Corolla</option>
+                                        <option value="Toyota-Yaris">Yaris</option>
+                                        <option value="Toyota-RAV4">RAV4</option>
+                                        <option value="Land Cruiser Coronella">Land Cruiser Coronella</option>
+                                        <option value="Mazda-Tribute">Mazda-Tribute</option>
+                                        <option value="Nissan-Murano">Nissan-Murano</option>
+                                        <option value="Nissan-Rogue">Nissan-Rogue</option>
+                                        <option value="Honda-CRV">Honda-CRV</option>
+                                        <option value="Toyoya-Hilux">Toyoya-Hilux</option>
+                                        <option value="Mitsubishi-L200">Mitsubishi-L200</option>
+                                        <option value="Suzuki-Vitara">Suzuki-Vitara</option>
+                                        <option value="BMW-Z4">BMW-Z4</option>
                                     </select>
                                 </div>
                             </div>
@@ -134,7 +150,7 @@ and open the template in the editor.
             <script src="../assets/Validaciones/validarProducto.js"></script>
             <script type="text/javascript">
                                 function veruniversal() {
-                                    if ($('#categoriaPr').find('option:selected').text() == "Universal") {
+                                    if ($('#categoriaPr').find('option:selected').text() == "UNIVERSALES") {
                                         $('#universal').val(1);
                                         $("#marcaPr").attr("disabled", "disabled");
                                         $("#modeloPr").attr("disabled", "disabled");
