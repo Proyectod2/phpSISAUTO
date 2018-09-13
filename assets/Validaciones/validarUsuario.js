@@ -13,7 +13,7 @@ async function validarUsuario(){
 }
 
 function validarNombreU(){
-    if ($('#nombreUsu').val().trim()=="") {
+    if ($('#nombreUsu').val().trim() == "") {
         notaError("¡El nombre es obligatorio!");
         return false;
     }
@@ -21,11 +21,11 @@ function validarNombreU(){
 }
 
 function validarTelefonoU(){
-    if ($('#telefonoUsu').val().trim()=="") {
+    if ($('#telefonoUsu').val().trim() == "") {
         notaError("¡El teléfono es obligatorio!");
         return false;
     }
-    if($('#telefonoUsu').val().length<8){
+    if($('#telefonoUsu').val().length < 8){
         notaError("¡El telefono debe tener 8 digitos!");
         return false;
     }
@@ -149,3 +149,43 @@ function validarContrasenaU2(){
     }
     return true;
 }
+//-------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------
+async function validareditarUsuario(){
+    var nombreU = await validareditarNombreU();    
+    var telefonoU = await validareditarTelefonoU();
+    var direccionU = await validareditarDireccionU(); 
+    if (nombreU && telefonoU && direccionU){
+        $('#editarUsu').submit();
+    }; 
+}
+
+function validareditarNombreU(){
+    if ($('#editarnombreUsu').val().trim() == "") {
+        notaError("¡El nombre es obligatorio!");
+        return false;
+    }
+    return true;
+}
+
+function validareditarTelefonoU(){
+    if ($('#editartelefonoUsu').val().trim() == "") {
+        notaError("¡El teléfono es obligatorio!");
+        return false;
+    }
+    if($('#editartelefonoUsu').val().length < 8){
+        notaError("¡El telefono debe tener 8 digitos!");
+        return false;
+    }
+    return true;
+}
+
+
+function validareditarDireccionU(){
+    if ($('#editardireccionUsu').val().trim()=="") {
+        notaError("¡La dirección es obligatoria!");
+        return false;
+    }
+    return true;
+}
+

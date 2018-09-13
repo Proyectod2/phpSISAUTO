@@ -19,6 +19,21 @@
 	    header("location: /phpSISAUTO/view/Usuarios.php?mensaje=".$mensaje);
 	}
 
+	if($bandera == "EditarUsu"){
+	    $nombreusuU = $_POST["NombreUsu_Usu"];
+		$contrasenaU = $_POST["Contrasena_Usu"];
+		$nombreU = $_POST["Nombre_Usu"];
+		$correoU = $_POST["Correo_Usu"];
+		$direccionU = $_POST["Direccion_Usu"];
+		$telefonoU = $_POST["Telefono_Usu"];
+		$duiU = $_POST["DUI_Usu"];
+		$idusuario = $_POST["idusuario"];
+		$sql = "UPDATE usuario set usuario_Usu = '$nombreusuU',contrasena_Usu = '$contrasenaU',nombre_Usu = '$nombreU',correo_Usu = '$correoU',direccion_Usu = '$direccionU',telefono_Usu = '$telefonoU',dui_Usu = '$duiU',tipo_Usu = 1,estado_Usu = 1 where idUsuario = '$idusuario'";
+	    mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD".mysqli_connect_error());
+	    $mensaje = "Registro editado exitosamente";
+	    header("location: /phpSISAUTO/view/Usuarios.php?mensaje=".$mensaje);
+	}
+
 	if ($bandera == "ucorreo"){
 		$sql = "SELECT * from usuario where correo_Usu = BINARY '".$_POST["correo"]."'";
 		$usuario = mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta");
