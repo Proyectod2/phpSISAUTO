@@ -43,7 +43,7 @@ and open the template in the editor.
                                     <tr>
                                         <th style="width:200px"></th>
                                         <th style="width:120px"><div class="input-group" style="width:500px" align="center">
-                                                <input type="text" class="form-control" placeholder="Buscar" name="" align="center">
+                                                <input type="text" class="form-control" placeholder="Buscar" id="entradafilter" name="" align="center">
                                                 <div class="input-group-btn">
                                                     <button class="btn btn-default" type="submit" title="Buscar"><i class="fa fa-search" ></i></button>
                                                 </div>
@@ -73,7 +73,7 @@ and open the template in the editor.
                                                 <th align="center" style="width:2px">Acción</th>
                                             </tr>
                                         </thead>
-                                        <tfoot>
+                                        <tfoot class="contenidobusqueda">
 
                                             <?php While ($producto = mysqli_fetch_assoc($productos)) { ?>
 
@@ -140,5 +140,19 @@ and open the template in the editor.
         <script src="../assets/js/sb-admin.min.js"></script>
 
     </div>
+    
+    <!-- Filtrado de la tabla -->
+        <script type="text/javascript">
+            $(document).ready(function () {
+               $('#entradafilter').keyup(function () {
+                  var rex = new RegExp($(this).val(), 'i');
+                  $('.contenidobusqueda tr').hide();
+                  $('.contenidobusqueda tr').filter(function () {
+                    return rex.test($(this).text());
+                }).show();
+              })
+
+           });
+        </script>
 </body>
 </html>
