@@ -40,7 +40,7 @@ and open the template in the editor.
                     <div class="card mb-3">
                         <div class="card-header" style="background-color:#eff3f4;">
                             <i class="fa fa-users"></i> Usuarios</div>
-                            <form align="right" ><br>
+                            <form align="right"><br>
                             <table id="dataTable" class="pull-right " width="100%" cellspacing="0" >
                                 <thead>
                                     <tr>
@@ -56,12 +56,16 @@ and open the template in the editor.
                                 </thead>
                             </table>
                         </form>
-
                         <div class="card-body">
                             <div class="table-responsive">
+                                <?php if (!isset($_GET['tipo'])) { 
+                                 $tipo = 1;
+                             }else{
+                                $tipo = $_GET['tipo'];
+                            }?>
                             <?php include("../confi/Conexion.php");
                             $conexion = conectarMysql();
-                            $sql="SELECT * from usuario order by nombre_Usu ASC";
+                            $sql="SELECT * from usuario where estado_Usu = '$tipo' order by nombre_Usu ASC";
                             $usuarios= mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); ?>
                                 <table class="table table-striped table-bordered" id="example" width="100%" cellspacing="0"  style="width:100%">
                                     <thead>
@@ -73,15 +77,20 @@ and open the template in the editor.
                                         </tr>
                                     </thead>
                                     <tfoot class="contenidobusqueda">
-                                    <?php While($usuario=mysqli_fetch_assoc($usuarios)){?>
+                                    <?php While($usuario = mysqli_fetch_assoc($usuarios)){?>
                                         <tr>
                                             <td><?php echo $usuario['nombre_Usu'] ?></td>
                                             <td><?php echo $usuario['correo_Usu'] ?></td>
                                             <td><?php echo $usuario['telefono_Usu'] ?></td>  
                                             <th align="center">
                                                 <button title="Ver"type="button" class="btn btn-info fa fa-eye" data-toggle="modal" data-target="#modalVerUsuario" href="" onclick="mostrarUsu('<?php echo $usuario['nombre_Usu']?>','<?php echo $usuario['telefono_Usu']?>','<?php echo $usuario['correo_Usu']?>','<?php echo $usuario['direccion_Usu']?>','<?php echo $usuario['dui_Usu']?>','<?php echo $usuario['usuario_Usu']?>','<?php echo $usuario['tipo_Usu']?>');"></button>
-                                                <button title="Editar" type="button" class="btn btn-primary fa fa-pencil-square-o"></button>
-                                                <button title="Dar de baja" type="button" class="btn btn-danger fa fa-arrow-circle-down"></button>
+                                                <button title="Editar" type="button" class="btn btn-primary fa fa-pencil-square-o" data-toggle="modal" data-target="#modalEditarUsuario" onclick="editarUsu('<?php echo $usuario['nombre_Usu']?>','<?php echo $usuario['telefono_Usu']?>','<?php echo $usuario['correo_Usu']?>','<?php echo $usuario['direccion_Usu']?>','<?php echo $usuario['dui_Usu']?>','<?php echo $usuario['usuario_Usu']?>','<?php echo $usuario['tipo_Usu']?>','<?php echo $usuario['idUsuario']?>');"></button>
+                                                <?php  if ($tipo == 1) {
+                                                ?>
+                                                <button title="Dar de baja" type="button" class="btn btn-danger fa fa-arrow-circle-down" onclick="bajaUsu(<?php echo $usuario['idUsuario'] ?>)"></button>
+                                                <?php  }else{ ?>
+                                                <button title="Dar de alta" type="button" class="btn btn-success fa fa-arrow-circle-up" onclick="altaUsu(<?php echo $usuario['idUsuario'] ?>)"></button>
+                                                <?php } ?>
                                             </th>
                                         </tr>
                                         <?php } ?>
@@ -175,89 +184,122 @@ and open the template in the editor.
         </div>
     </div>
 
-    <!-- MODAL EDITAR USUARIOS -->
+<!-- MODAL EDITAR USUARIOS -->
 
-    <div class="modal fade" id="modalEditarUsuario" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header" style="background-color:#007bff;">
-
-                    <h5 class="modal-title" id="myModalLabel"> <i class="fa fa-user"></i> Usuario</h5>
-                </div>
-                <div class="modal-body">
-                    <form action="../Controlador/usuarioC.php" method="POST" id="guardarUsu" align="center" autocomplete="off">
-                        <h5 align="center">Datos Generales</h5>
-                        <hr width="75%" style="background-color:#007bff;"/>
-                        <input type="hidden" value="GuardarUsu" name="bandera"></input>
-                        <div class="form-group row">
-                            <div class="col-sm-12 col-md-1">
-                            </div>
-                            <label for="nombre" class="col-sm-12 col-md-3 col-form-label">Nombre:</label>
-                            <div class="col-sm-12 col-md-8">
-                                <input class="form-control" placeholder="Nombre Completo" type="text" id="nombreUsu" name="Nombre_Usu" style="width:400px;height:40px" readonly="readonly" aria-required="true" value="">
-                            </div>
+<div class="modal fade" id="modalEditarUsuario" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color:#007bff;">
+                <h5 class="modal-title" id="myModalLabel"> <i class="fa fa-user"></i> Usuario</h5>
+            </div>
+            <div class="modal-body">
+                <form action="../Controlador/usuarioC.php" method="POST" id="editarUsu" align="center" autocomplete="off">
+                    <h5 align="center">Datos Generales</h5>
+                    <hr width="75%" style="background-color:#007bff;"/>
+                    <input type="hidden" value="EditarUsu" name="bandera"></input>
+                    <input type="hidden" value="" name="idusuario" id="idusuario"></input>
+                    <div class="form-group row">
+                        <div class="col-sm-12 col-md-1">
                         </div>
-                        <div class="form-group row">
-                            <div class="col-sm-12 col-md-1">
-                            </div>
-                            <label  for="tel3" class="col-sm-12 col-md-3 col-form-label">Teléfono:</label>
-                            <div  class="col-sm-12 col-md-8">
-                                <input class="form-control" type="text" id="telefonoUsu" placeholder="9999-9999" data-inputmask="'mask' : '9999-9999'" name="Telefono_Usu" style="width:150px;height:40px" disabled="true">
-                            </div>
+                        <label for="nombre" class="col-sm-12 col-md-3 col-form-label">Nombre:</label>
+                        <div class="col-sm-12 col-md-8">
+                            <input class="form-control" type="text" id="editarnombreUsu" name="Nombre_Usu" style="width:400px;height:40px" aria-required="true" value="">
                         </div>
-                        <div class="form-group row">
-                            <div class="col-sm-12 col-md-1">
-                            </div>
-                            <label for="nombre" class="col-sm-12 col-md-3 col-form-label">Correo:</label>
-                            <div class="col-sm-12 col-md-8">
-                                <input class="form-control" placeholder="Correo" type="email" id="correoUsu" name="Correo_Usu" style="width:400px;height:40px" value="" disabled="true">
-                            </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-12 col-md-1">
                         </div>
-                        <div class="form-group row">
-                            <div class="col-sm-12 col-md-1">
-                            </div>
-                            <label for="direccion" class="col-sm-12 col-md-3 col-form-label">Dirección:</label>
-                            <div class="col-sm-12 col-md-8">
-                                <input class="form-control" type="text" placeholder="Dirección" name="Direccion_Usu" style="width:400px;height:40px" id="direccionUsu" disabled="true">
-                            </div>
+                        <label  for="tel3" class="col-sm-12 col-md-3 col-form-label">Teléfono:</label>
+                        <div  class="col-sm-12 col-md-8">
+                            <input class="form-control" type="text" id="editartelefonoUsu" data-mask="9999-9999" name="Telefono_Usu" style="width:150px;height:40px">
                         </div>
-                        <div class="form-group row">
-                            <div class="col-sm-12 col-md-1">
-                            </div>
-                            <label class="col-sm-12 col-md-3 col-form-label">DUI:</label>
-                            <div class="col-sm-12 col-md-8">
-                                <input class="form-control" type="text" placeholder="99999999-9" id="duiUsu" name="DUI_Usu" style="width:150px;height:40px" disabled="true">
-                            </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-12 col-md-1">
                         </div>
-                        <div class="form-group row">
-                            <div class="col-sm-12 col-md-1">
-                            </div>
-                            <label for="usuario" class="col-sm-12 col-md-3 col-form-label">Usuario:</label>
-                            <div class="col-sm-12 col-md-8">
-                                <input class="form-control" type="text" placeholder="Nombre de Usuario" id="nombreusuUsu" name="NombreUsu_Usu" style="width:400px;height:40px" disabled="true">
-                            </div>
+                        <label for="nombre" class="col-sm-12 col-md-3 col-form-label">Correo:</label>
+                        <div class="col-sm-12 col-md-8">
+                            <input class="form-control" type="email" id="editarcorreoUsu" name="Correo_Usu" style="width:400px;height:40px" value="" disabled="true">
                         </div>
-                        <div class="form-group row">
-                            <div class="col-sm-12 col-md-1">
-                            </div>
-                            <label for="usuario" class="col-sm-12 col-md-3 col-form-label">Tipo de Usuario:</label>
-                            <div class="col-sm-12 col-md-8">
-                                <input class="form-control" type="text" placeholder="Tipo de Usuario" id="tipoUsu" name="Tipo_Usu" style="width:400px;height:40px" disabled="true" aria-required="true" value="">
-                            </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-12 col-md-1">
                         </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-default" style="background-color:#007bff;">Aceptar</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal" style="background-color:#007bff;">Cerrar</button>
-                </div>
+                        <label for="direccion" class="col-sm-12 col-md-3 col-form-label">Dirección:</label>
+                        <div class="col-sm-12 col-md-8">
+                            <input class="form-control" type="text" name="Direccion_Usu" style="width:400px;height:40px" id="editardireccionUsu">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-12 col-md-1">
+                        </div>
+                        <label class="col-sm-12 col-md-3 col-form-label">DUI:</label>
+                        <div class="col-sm-12 col-md-8">
+                            <input class="form-control" type="text" data-mask="99999999-9" id="editarduiUsu" name="DUI_Usu" style="width:150px;height:40px">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-12 col-md-1">
+                        </div>
+                        <label for="usuario" class="col-sm-12 col-md-3 col-form-label">Usuario:</label>
+                        <div class="col-sm-12 col-md-8">
+                            <input class="form-control" type="text" id="editarnombreusuUsu" name="NombreUsu_Usu" style="width:400px;height:40px" disabled="true">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-12 col-md-1">
+                        </div>
+                        <label for="usuario" class="col-sm-12 col-md-3 col-form-label">Tipo de Usuario:</label>
+                        <div class="col-sm-12 col-md-8">
+                            <input class="form-control" type="text" id="editartipoUsu" name="Tipo_Usu" style="width:400px;height:40px" disabled="true" aria-required="true" value="">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-12 col-md-1">
+                        </div>
+                        <label for="contrasena" class="col-sm-12 col-md-3 col-form-label">Contraseña actual:</label>
+                        
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-12 col-md-1">
+                        </div>
+                        <label for="contrasena" class="col-sm-12 col-md-3 col-form-label">Nueva Contraseña:</label>
+                        <div class="col-sm-12 col-md-2">
+                            <input class="form-control" type="password" placeholder="******" id="editarcontrasenaUsu" name="Contrasena_Usu" style="width:150px;height:40px" onkeypress="return validareditarContrasena(this,event,this.value)">
+                        </div><a id='mensajito1'></a>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-12 col-md-1">
+                        </div>
+                        <label for="contrasena" class="col-sm-12 col-md-3 col-form-label">Vuelve a escribir la nueva contraseña:</label>
+                        <div class="col-sm-12 col-md-2">
+                            <input class="form-control" type="password" placeholder="******" id="editarcontrasenaUsu2" name="Contrasena_Usu2" style="width:150px;height:40px" onkeyup="return validareditarContrasena2(this,event,this.value)"</a>
+                        </div><a id='mensajito'></a>
+                    </div><br>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-default" style="background-color:#007bff;"  onclick="validareditarUsuario();">Aceptar</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" style="background-color:#007bff;">Cerrar</button>
             </div>
         </div>
     </div>
+    <form method="POST" id="cambio">
+        <input type="hidden" name="id" id="id"  />
+        <input type="hidden" name="bandera" id="bandera" />
+        <input type="hidden" name="valor" id="valor" />
+    </form>
+</div>
     <?php include("Generalidadespantalla/cierre.php"); ?>
 </div>
 <script src="../assets/Validaciones/mostrarUsuario.js"></script>     
-
+<script src="../assets/Validaciones/validarUsuario.js"></script>
+<script src="../assets/Validaciones/validarDUI.js"></script>
+<script src="../assets/Validaciones/validarTelefono.js"></script>
+<script src="../assets/Validaciones/validarContrasena.js"></script>
+<script src="../assets/Validaciones/validarNombreUsuario.js"></script>
+<script src="../assets/Validaciones/validarNombreCompletoUsuario.js"></script>
+<script src="../assets/Validaciones/validarCorreo.js"></script>
 
 
 <!-- Filtrado de la tabla -->
@@ -281,7 +323,7 @@ and open the template in the editor.
         </script>
 
         <script type="text/javascript">
-            function baja(id){
+            function bajaUsu(id){
                 swal({
                     title: '¿Está seguro en dar de baja?',
                   // text: "You won't be able to revert this!",
@@ -297,12 +339,12 @@ and open the template in the editor.
                 $('#bandera').val('cambio');
                 $('#valor').val('0');
                 var dominio = window.location.host;
-                 $('#cambio').attr('action','http://'+dominio+'/phpSISAUTO/Controlador/proveedorC.php');
+                 $('#cambio').attr('action','http://'+dominio+'/phpSISAUTO/Controlador/usuarioC.php');
                  $('#cambio').submit();
             })
             }
 
-            function alta(id){
+            function altaUsu(id){
                 swal({
                     title: '¿Está seguro en dar de alta?',
                   // text: "You won't be able to revert this!",
@@ -318,7 +360,7 @@ and open the template in the editor.
                 $('#bandera').val('cambio');
                 $('#valor').val('1');
                 var dominio = window.location.host;
-                 $('#cambio').attr('action','http://'+dominio+'/phpSISAUTO/Controlador/proveedorC.php');
+                 $('#cambio').attr('action','http://'+dominio+'/phpSISAUTO/Controlador/usuarioC.php');
                  $('#cambio').submit();
             })
             }
