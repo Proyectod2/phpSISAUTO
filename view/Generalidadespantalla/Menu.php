@@ -57,10 +57,10 @@
                         <li>
                             <a href="/phpSISAUTO/view/Inventario.php"><span class="fa fa-book"> Inventario Principal</span></a>
                         </li>
-                        <li>
+                       <!--  <li>
                             <a href="">seccion1</a>
                         </li>
-                        <li>
+                        <li> -->
                     </ul>
                 </li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right">
