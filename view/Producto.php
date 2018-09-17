@@ -6,54 +6,54 @@ and open the template in the editor.
 -->
 <html><?php include("Generalidadespantalla/apertura.php"); ?>
     <body class="fixed-nav sticky-footer bg-dark" id="page-top">
-<?php include("Generalidadespantalla/Menu.php"); ?>
-<?php $cate = array(1=>"AMORTIGUADORES",2=>"BUJÍAS",3=>"COMBUSTIBLE",4=>"ELÉCTRICO",5=>"ENFRIAMIENTO",6=>"FILTROS",7=>"MOTOR",8=>"SENSORES",9=>"SUSPENSIÓN Y DIRECCIÓN",10=>"TRANSMISIÓN Y EMBRAGUE",11=>"UNIVERSALES"); ?>
-    <div class="content-wrapper" style="background-color:#eff3f4;">
-        <div class="container-fluid">
-            <!-- Breadcrumbs-->
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item">
-                    <a href="index.php">Inicio</a>
-                <li class="breadcrumb-item active">
-                    <a>Produtos</a>
-                </li>
-            </ol>
-            <div class="row">
-                <div class="col-12">
-                    <h1 align="center"></h1>
-                    <a class="pull-right" href="">
-                        <button class="btn btn-primary" data-toggle="modal" data-target="#modalNuevo">
-                            Reporte
-                            <span class="fa fa-file-pdf-o"></span>
-                        </button>
-                    </a>
-                    <a class="pull-right" href="http://localhost/phpSISAUTO/view/AgregarProd.php">
-                        <button class="btn btn-primary" data-toggle="modal" data-target="#modalNuevo">
-                            Agregar nuevo 
-                            <span class="fa fa-plus"></span>
-                        </button></a>
-                    <br><br>
-                    <!-- TABLA PRODUCTOS-->
-                    <div class="card mb-3">
-                        <div class="card-header">
-                            <i class="fa fa-table"></i> Productos</div>
-                        <form align="right" ><br>
-                            <table class="pull-right " id="dataTable" width="100%" cellspacing="0" >
-                                <thead>
-                                    <tr>
-                                        <th style="width:200px"></th>
-                                        <th style="width:120px"><div class="input-group" style="width:500px" align="center">
-                                                <input type="text" class="form-control" placeholder="Buscar" id="entradafilter" name="" align="center">
-                                                <div class="input-group-btn">
-                                                    <button class="btn btn-default" type="submit" title="Buscar"><i class="fa fa-search" ></i></button>
-                                                </div>
-                                            </div></th>
-                                    </tr>
-                                </thead>
-                            </table>
-                        </form>
-                        <div class="card-body">
-                            <div class="table-responsive">
+        <?php include("Generalidadespantalla/Menu.php"); ?>
+        <?php $cate = array(1 => "AMORTIGUADORES", 2 => "BUJÍAS", 3 => "COMBUSTIBLE", 4 => "ELÉCTRICO", 5 => "ENFRIAMIENTO", 6 => "FILTROS", 7 => "MOTOR", 8 => "SENSORES", 9 => "SUSPENSIÓN Y DIRECCIÓN", 10 => "TRANSMISIÓN Y EMBRAGUE", 11 => "UNIVERSALES"); ?>
+        <div class="content-wrapper" style="background-color:#eff3f4;">
+            <div class="container-fluid">
+                <!-- Breadcrumbs-->
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="index.php">Inicio</a>
+                    <li class="breadcrumb-item active">
+                        <a>Produtos</a>
+                    </li>
+                </ol>
+                <div class="row">
+                    <div class="col-12">
+                        <h1 align="center"></h1>
+                        <a class="pull-right" href="">
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#modalNuevo">
+                                Reporte
+                                <span class="fa fa-file-pdf-o"></span>
+                            </button>
+                        </a>
+                        <a class="pull-right" href="http://localhost/phpSISAUTO/view/AgregarProd.php">
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#modalNuevo">
+                                Agregar nuevo 
+                                <span class="fa fa-plus"></span>
+                            </button></a>
+                        <br><br>
+                        <!-- TABLA PRODUCTOS-->
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <i class="fa fa-table"></i> Productos</div>
+                            <form align="right" ><br>
+                                <table class="pull-right " id="dataTable" width="100%" cellspacing="0" >
+                                    <thead>
+                                        <tr>
+                                            <th style="width:200px"></th>
+                                            <th style="width:120px"><div class="input-group" style="width:500px" align="center">
+                                                    <input type="text" class="form-control" placeholder="Buscar" id="entradafilter" name="" align="center">
+                                                    <div class="input-group-btn">
+                                                        <button class="btn btn-default" type="submit" title="Buscar"><i class="fa fa-search" ></i></button>
+                                                    </div>
+                                                </div></th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </form>
+                            <div class="card-body">
+                                <div class="table-responsive">
                                     <?php
                                     include("../confi/Conexion.php");
                                     $conexion = conectarMysql();
@@ -64,7 +64,7 @@ and open the template in the editor.
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
-                                                <th style="width:60px">Codigo</th>
+                                                <th style="width:20px">Codigo</th>
                                                 <th style="width:90px">Nombre</th>
                                                 <th style="width:90px">Categoria</th>
                                                 <th style="width:95px">Marca</th>
@@ -82,18 +82,30 @@ and open the template in the editor.
                                                     <td><?php echo $producto['nombre_Prod'] ?></td>
                                                     <td><?php echo $cate[$producto['categoria_Prod']] ?></td>
                                                     <td><?php echo $producto['marca_Prod'] ?></td>
-                                                    <!--<td><?php if($cate[$producto['categoria_Prod']]!='UNIVERSALES'){echo $producto['marca_Prod'];}else{echo "-";} ?></td>-->
-                                                    <td><?php if($cate[$producto['categoria_Prod']]!='UNIVERSALES'){echo $producto['modeloVehiculo_Prod'];}else{echo "-";} ?></td>
-                                                    <td><?php if($cate[$producto['categoria_Prod']]!='UNIVERSALES'){echo $producto['anioVehiculo_Prod'];}else{echo "-";} ?></td> 
+                                                    <!--<td><?php if ($cate[$producto['categoria_Prod']] != 'UNIVERSALES') {
+                                                echo $producto['marca_Prod'];
+                                            } else {
+                                                echo "-";
+                                            } ?></td>-->
+                                                    <td><?php if ($cate[$producto['categoria_Prod']] != 'UNIVERSALES') {
+                                                echo $producto['modeloVehiculo_Prod'];
+                                            } else {
+                                                echo "-";
+                                            } ?></td>
+                                                    <td><?php if ($cate[$producto['categoria_Prod']] != 'UNIVERSALES') {
+                                                echo $producto['anioVehiculo_Prod'];
+                                            } else {
+                                                echo "-";
+                                            } ?></td> 
                                                     <!--si solo cambia  $producto['anioVehiculo_Prod'] por el valor que ya esta en la columna-->
                                                     <th align="center">
-                                                        <button title="Ver"type="button" class="btn btn-info fa fa-eye" data-toggle="modal" data-target="#modalVerProveedor" href="" onclick=""></button>
-                                                <button title="Editar" type="button" class="btn btn-primary fa fa-pencil-square-o" data-toggle="modal" data-target="#modalEditarProveedor" onclick=""></button>
-                                                
-                                                <button title="Dar de baja" type="button" class="btn btn-danger fa fa-arrow-circle-down" onclick=""></button>                                                
+                                                        <button title="Ver"type="button" class="btn btn-info fa fa-eye" data-toggle="modal" data-target="#modalVerProducto" href="" onclick="mostrarProduc('<?php echo $producto['codigo_Prod']?>','<?php echo $producto['nombre_Prod']?>','<?php echo $producto['categoria_Prod']?>','<?php echo $producto['marca_Prod']?>','<?php echo $producto['modeloVehiculo_Prod']?>','<?php echo $producto['anioVehiculo_Prod']?>','<?php echo $producto['descripcion_Prod']?>');"></button>
+                                                        <button title="Editar" type="button" class="btn btn-primary fa fa-pencil-square-o" data-toggle="modal" data-target="#modalEditar" onclick=""></button>
+
+                                                        <button title="Dar de baja" type="button" class="btn btn-danger fa fa-arrow-circle-down" onclick=""></button>                                                
                                                     </th>
                                                 </tr>
-                                            <?php } ?>
+<?php } ?>
                                         </tfoot>
                                     </table>
                                 </div>
@@ -103,6 +115,84 @@ and open the template in the editor.
                     </div>
                 </div>
             </div>
+            <!-- MODAL VER PRODUCTO -->
+
+    <div class="modal fade" id="modalVerProducto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color:#007bff;">
+
+                    <h5 class="modal-title" id="myModalLabel"> <i class="fa fa-user"></i> Productos</h5>
+                </div>
+                <div class="modal-body">
+                    <form action="../Controlador/productoC.php" method="POST" align="center" id="guardarProd" autocomplete="off">
+                        <hr width="75%" style="background-color:#007bff;"/>
+                        <input type="hidden" value="guardar" name="bandera"></input>
+                        <div class="form-group row">
+                            <div class="col-sm-12 col-md-1">
+                            </div>
+                            <label for="codigoP" class="col-sm-12 col-md-3 col-form-label">Codigo de producto:</label>
+                            <div class="col-sm-12 col-md-8">
+                                <input class="form-control" type="text" id="codigoP" name="codigoP" style="width:400px;height:40px" readonly="readonly" aria-required="true" value="">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12 col-md-1">
+                            </div>
+                            <label  for="nombreP" class="col-sm-12 col-md-3 col-form-label">Nombre de producto:</label>
+                            <div  class="col-sm-12 col-md-8">
+                                <input class="form-control" type="text" id="nombreP" name="nombreP" style="width:400px;height:40px" disabled="true">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12 col-md-1">
+                            </div>
+                            <label for="cateP" class="col-sm-12 col-md-3 col-form-label">Categoria de producto:</label>
+                            <div class="col-sm-12 col-md-8">
+                                <input class="form-control" type="number" id="cateP" name="cateP" style="width:150px;height:40px" value="" disabled="true">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12 col-md-1">
+                            </div>
+                            <label for="marcaP" class="col-sm-12 col-md-3 col-form-label">Marca de pruducto:</label>
+                            <div class="col-sm-12 col-md-8">
+                                <input class="form-control" type="text" name="marcaP" style="width:400px;height:40px" id="marcaP" disabled="true">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12 col-md-1">
+                            </div>
+                            <label for="modeloP" class="col-sm-12 col-md-3 col-form-label">Modelo de Vehiculo:</label>
+                            <div class="col-sm-12 col-md-8">
+                                <input class="form-control" type="text" id="modeloP" name="modeloP" style="width:400px;height:40px" disabled="true">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12 col-md-1">
+                            </div>
+                            <label for="anioP" class="col-sm-12 col-md-3 col-form-label">año del vehiculo:</label> 
+                            <div class="col-sm-12 col-md-8">
+                                <input class="form-control" type="number" id="anioP" name="anioP" style="width:150px;height:40px" disabled="true">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12 col-md-1">
+                            </div>
+                            <label for="codigoP" class="col-sm-12 col-md-3 col-form-label">Descripción del producto:</label>
+                            <div class="col-sm-12 col-md-8">
+                                <textarea rows="3" cols="60" name="descripcion" id="descripcionP" value="" disabled="true">
+                                    </textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" style="background-color:#007bff;">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
         </div>
         <!-- /.container-fluid-->
         <!-- /.content-wrapper-->
@@ -143,20 +233,21 @@ and open the template in the editor.
         <!-- Custom scripts for all pages-->
         <script src="../assets/js/sb-admin.min.js"></script>
 
-    </div>
-    
+        <script src="../assets/Validaciones/mostrarProducto.js"></script>
+        <script src="../assets/Validaciones/mostrarProducto.js"></script>
     <!-- Filtrado de la tabla -->
-        <script type="text/javascript">
-            $(document).ready(function () {
-               $('#entradafilter').keyup(function () {
-                  var rex = new RegExp($(this).val(), 'i');
-                  $('.contenidobusqueda tr').hide();
-                  $('.contenidobusqueda tr').filter(function () {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#entradafilter').keyup(function () {
+                var rex = new RegExp($(this).val(), 'i');
+                $('.contenidobusqueda tr').hide();
+                $('.contenidobusqueda tr').filter(function () {
                     return rex.test($(this).text());
                 }).show();
-              })
+            })
 
-           });
-        </script>
+        });
+    </script>        
+    <?php include("Generalidadespantalla/cierre.php"); ?>
 </body>
 </html>
