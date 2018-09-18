@@ -332,12 +332,17 @@ and open the template in the editor.
             confirmButtonText: 'Si',
             cancelButtonText: 'No',
         }).then((result) => {
-            $('#id').val(id);
-            $('#bandera').val('cambio');
-            $('#valor').val('0');
-            var dominio = window.location.host;
-            $('#cambio').attr('action','http://'+dominio+'/phpSISAUTO/Controlador/usuarioC.php');
-            $('#cambio').submit();
+            if(result.value){
+                $('#id').val(id);
+                $('#bandera').val('cambio');
+                $('#valor').val('0');
+                var dominio = window.location.host;
+                $('#cambio').attr('action','http://'+dominio+'/phpSISAUTO/Controlador/usuarioC.php');
+                $('#cambio').submit();
+            }else{
+
+            }
+            
         })
     }
 
@@ -353,12 +358,16 @@ and open the template in the editor.
           cancelButtonText: 'No',
 
       }).then((result) => {
+        if(result.value){
         $('#id').val(id);
         $('#bandera').val('cambio');
         $('#valor').val('1');
         var dominio = window.location.host;
          $('#cambio').attr('action','http://'+dominio+'/phpSISAUTO/Controlador/usuarioC.php');
          $('#cambio').submit();
+         }else{
+
+            }
     })
     }
 </script>

@@ -71,5 +71,4 @@
 	    header("location: /phpSISAUTO/view/Usuarios.php?tipo=".$aux."&mensaje=".$mensaje);
 	}
 
-	
 ?>
