@@ -5,13 +5,9 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html>
-
 <?php include("Generalidadespantalla/apertura.php"); ?>
-
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
- 
 <?php include("Generalidadespantalla/Menu.php"); ?>
-
     <div class="content-wrapper" style="background-color:#eff3f4;">
         <div class="container-fluid">
             <!-- Breadcrumbs-->
@@ -73,7 +69,7 @@ and open the template in the editor.
                                             <th style="width:175px">Nombre</th>
                                             <th style="width:85px">Correo</th>
                                             <th style="width:85px">Teléfono</th>
-                                            <th align="center" style="width:2px">Acción</th>
+                                            <th align="center" style="width:2px">Acciones</th>
                                         </tr>
                                     </thead>
                                     <tfoot class="contenidobusqueda">
@@ -190,11 +186,11 @@ and open the template in the editor.
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header" style="background-color:#007bff;">
-                <h5 class="modal-title" id="myModalLabel"> <i class="fa fa-user"></i> Usuario</h5>
+                <h5 class="modal-title" id="myModalLabel"> <i class="fa fa-user"></i> Editar usuario</h5>
             </div>
             <div class="modal-body">
                 <form action="../Controlador/usuarioC.php" method="POST" id="editarUsu" align="center" autocomplete="off">
-                    <h5 align="center">Datos Generales</h5>
+                    <h5 align="center">Datos generales</h5>
                     <hr width="75%" style="background-color:#007bff;"/>
                     <input type="hidden" value="EditarUsu" name="bandera"></input>
                     <input type="hidden" value="" name="idusuario" id="idusuario"></input>
@@ -203,7 +199,7 @@ and open the template in the editor.
                         </div>
                         <label for="nombre" class="col-sm-12 col-md-3 col-form-label">Nombre:</label>
                         <div class="col-sm-12 col-md-8">
-                            <input class="form-control" type="text" id="editarnombreUsu" name="Nombre_Usu" style="width:400px;height:40px" aria-required="true" value="">
+                            <input class="form-control" type="text" id="nombreUsuEditar" name="Nombre_Usu" style="width:400px;height:40px" aria-required="true" value=""  onkeypress="return validarNombreCompletoUsuario(this,event,this.value)">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -211,15 +207,15 @@ and open the template in the editor.
                         </div>
                         <label  for="tel3" class="col-sm-12 col-md-3 col-form-label">Teléfono:</label>
                         <div  class="col-sm-12 col-md-8">
-                            <input class="form-control" type="text" id="editartelefonoUsu" data-mask="9999-9999" name="Telefono_Usu" style="width:150px;height:40px">
+                            <input class="form-control" type="text" id="telefonoUsuEditar" data-mask="9999-9999" name="Telefono_Usu" style="width:150px;height:40px">
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-sm-12 col-md-1">
                         </div>
                         <label for="nombre" class="col-sm-12 col-md-3 col-form-label">Correo:</label>
-                        <div class="col-sm-12 col-md-8">
-                            <input class="form-control" type="email" id="editarcorreoUsu" name="Correo_Usu" style="width:400px;height:40px" value="" disabled="true">
+                        <div class="col-sm-12 col-md-3">
+                            <input class="form-control" type="email" id="email" name="Correo_Usu" style="width:400px;height:40px" value="" onkeyup="validarCorreoEditar(this)"><a id='mensajitoCorreo'></a>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -227,7 +223,7 @@ and open the template in the editor.
                         </div>
                         <label for="direccion" class="col-sm-12 col-md-3 col-form-label">Dirección:</label>
                         <div class="col-sm-12 col-md-8">
-                            <input class="form-control" type="text" name="Direccion_Usu" style="width:400px;height:40px" id="editardireccionUsu">
+                            <input class="form-control" type="text" name="Direccion_Usu" style="width:400px;height:40px" id="direccionUsuEditar">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -235,7 +231,7 @@ and open the template in the editor.
                         </div>
                         <label class="col-sm-12 col-md-3 col-form-label">DUI:</label>
                         <div class="col-sm-12 col-md-8">
-                            <input class="form-control" type="text" data-mask="99999999-9" id="editarduiUsu" name="DUI_Usu" style="width:150px;height:40px">
+                            <input class="form-control" type="text" data-mask="99999999-9" id="duiUsuEditar" name="DUI_Usu" style="width:150px;height:40px">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -243,7 +239,7 @@ and open the template in the editor.
                         </div>
                         <label for="usuario" class="col-sm-12 col-md-3 col-form-label">Usuario:</label>
                         <div class="col-sm-12 col-md-8">
-                            <input class="form-control" type="text" id="editarnombreusuUsu" name="NombreUsu_Usu" style="width:400px;height:40px" disabled="true">
+                            <input class="form-control" type="text" id="nombreusuUsuEditar" name="NombreUsu_Usu" style="width:400px;height:40px" readonly="readonly"aria-required="true" value="">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -251,21 +247,23 @@ and open the template in the editor.
                         </div>
                         <label for="usuario" class="col-sm-12 col-md-3 col-form-label">Tipo de Usuario:</label>
                         <div class="col-sm-12 col-md-8">
-                            <input class="form-control" type="text" id="editartipoUsu" name="Tipo_Usu" style="width:400px;height:40px" disabled="true" aria-required="true" value="">
+                            <input class="form-control" type="text" id="tipoUsuEditar" name="Tipo_Usu" style="width:400px;height:40px" readonly="readonly" aria-required="true" value="">
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-sm-12 col-md-1">
                         </div>
                         <label for="contrasena" class="col-sm-12 col-md-3 col-form-label">Contraseña actual:</label>
-                        
+                        <div class="col-sm-12 col-md-2">
+                            <input class="form-control" type="password" placeholder="******" id="contrasenaActualUsuEditar" name="Contrasena_Usu" style="width:150px;height:40px" onkeypress="return validarContrasenaActual(this,event,this.value)">
+                        </div><a id='mensajito2'></a>
                     </div>
                     <div class="form-group row">
                         <div class="col-sm-12 col-md-1">
                         </div>
-                        <label for="contrasena" class="col-sm-12 col-md-3 col-form-label">Nueva Contraseña:</label>
+                        <label for="contrasena" class="col-sm-12 col-md-3 col-form-label">Nueva contraseña:</label>
                         <div class="col-sm-12 col-md-2">
-                            <input class="form-control" type="password" placeholder="******" id="editarcontrasenaUsu" name="Contrasena_Usu" style="width:150px;height:40px" onkeypress="return validareditarContrasena(this,event,this.value)">
+                            <input class="form-control" type="password" placeholder="******" id="contrasenaUsuEditar" name="Contrasena_Usu" style="width:150px;height:40px" onkeypress="return validareditarContrasena(this,event,this.value)">
                         </div><a id='mensajito1'></a>
                     </div>
                     <div class="form-group row">
@@ -273,7 +271,7 @@ and open the template in the editor.
                         </div>
                         <label for="contrasena" class="col-sm-12 col-md-3 col-form-label">Vuelve a escribir la nueva contraseña:</label>
                         <div class="col-sm-12 col-md-2">
-                            <input class="form-control" type="password" placeholder="******" id="editarcontrasenaUsu2" name="Contrasena_Usu2" style="width:150px;height:40px" onkeyup="return validareditarContrasena2(this,event,this.value)"</a>
+                            <input class="form-control" type="password" placeholder="******" id="contrasenaUsu2Editar" name="Contrasena_Usu2" style="width:150px;height:40px" onkeyup="return validareditarContrasena2(this,event,this.value)"</a>
                         </div><a id='mensajito'></a>
                     </div><br>
                 </form>

@@ -13,7 +13,7 @@
 		$direccionU = $_POST["Direccion_Usu"];
 		$telefonoU = $_POST["Telefono_Usu"];
 		$duiU = $_POST["DUI_Usu"];
-		$sql = "INSERT INTO usuario (usuario_Usu,contrasena_Usu,nombre_Usu,correo_Usu,direccion_Usu,telefono_Usu,dui_Usu,tipo_Usu,estado_Usu) VALUES ('$nombreusuU',MD5('$contrasenaU'),'$nombreU','$correoU','$direccionU','$telefonoU','$duiU',1,1)";
+		$sql = "INSERT INTO usuario (usuario_Usu,contrasena_Usu,nombre_Usu,correo_Usu,direccion_Usu,telefono_Usu,dui_Usu,tipo_Usu,estado_Usu) VALUES ('$nombreusuU',('$contrasenaU'),'$nombreU','$correoU','$direccionU','$telefonoU','$duiU',1,1)";
 	    mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD".mysqli_connect_error());
 	    $mensaje = "¡Registro guardado exitosamente!";
 	    header("location: /phpSISAUTO/view/Usuarios.php?mensaje=".$mensaje);
@@ -28,7 +28,7 @@
 		$telefonoU = $_POST["Telefono_Usu"];
 		$duiU = $_POST["DUI_Usu"];
 		$idusuario = $_POST["idusuario"];
-		$sql = "UPDATE usuario set usuario_Usu = '$nombreusuU',contrasena_Usu = '$contrasenaU',nombre_Usu = '$nombreU',correo_Usu = '$correoU',direccion_Usu = '$direccionU',telefono_Usu = '$telefonoU',dui_Usu = '$duiU',tipo_Usu = 1,estado_Usu = 1 where idUsuario = '$idusuario'";
+		$sql = "UPDATE usuario set usuario_Usu = '$nombreusuU',contrasena_Usu = ('$contrasenaU'),nombre_Usu = '$nombreU',correo_Usu = '$correoU',direccion_Usu = '$direccionU',telefono_Usu = '$telefonoU',dui_Usu = '$duiU',tipo_Usu = 1,estado_Usu = 1 where idUsuario = '$idusuario'";
 	    mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD".mysqli_connect_error());
 	    $mensaje = "Registro editado exitosamente";
 	    header("location: /phpSISAUTO/view/Usuarios.php?mensaje=".$mensaje);
@@ -52,6 +52,12 @@
 	    echo mysqli_num_rows($usuario);
 	}
 
+	if ($bandera == "ucontrasenaActual"){
+		$sql = "SELECT * from usuario where contrasena_Usu = BINARY '".$_POST["contrasenaActual"]."'";
+		$usuario = mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta");
+	    echo mysqli_num_rows($usuario);
+	}
+
 	if ($bandera == "cambio") {
 		$sql = "UPDATE usuario set estado_Usu = '".$_POST["valor"]."' where idUsuario = '".$_POST["id"]."'";
 		$proveedor = mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta");
@@ -64,4 +70,6 @@
 		}
 	    header("location: /phpSISAUTO/view/Usuarios.php?tipo=".$aux."&mensaje=".$mensaje);
 	}
+
+	
 ?>

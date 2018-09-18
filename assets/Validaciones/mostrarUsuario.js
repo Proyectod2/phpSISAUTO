@@ -14,17 +14,17 @@ function mostrarUsu(nombre,telefono,correo,direccion,dui,usuario,tipo){
 }
 
 function editarUsu(nombre,telefono,correo,direccion,dui,usuario,tipo,idusuario){
-	$("#editarnombreUsu").val(nombre);
-	$("#editartelefonoUsu").val(telefono);
-	$("#editarcorreoUsu").val(correo);
-	$("#editardireccionUsu").val(direccion);
-	$("#editarduiUsu").val(dui);
-	$("#editarnombreusuUsu").val(usuario);
+	$("#nombreUsuEditar").val(nombre);
+	$("#telefonoUsuEditar").val(telefono);
+	$("#email").val(correo);
+	$("#direccionUsuEditar").val(direccion);
+	$("#duiUsuEditar").val(dui);
+	$("#nombreusuUsuEditar").val(usuario);
 	if(tipo == '1'){
 		var aux = 'Empleado';
 	}else{
 		var aux = 'Administrador';
 	}
-	$("#editartipoUsu").val(aux);	
+	$("#tipoUsuEditar").val(aux);	
 	$("#idusuario").val(idusuario);
 }
