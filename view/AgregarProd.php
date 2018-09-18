@@ -85,7 +85,7 @@ and open the template in the editor.
                             <div class="form-group row">
                                 <label for="marcaP" class="col-sm-12 col-md-2 col-form-label">Marca:</label>
                                 <div class="col-sm-12 col-md-10">
-                                    <select style="width:600px;height:40px" class="form-control" name="marca" id="marcaPr">
+<!--                                    <select style="width:600px;height:40px" class="form-control" name="marca" id="marcaPr">
                                         <option value="" selected>[Selecionar Marca]</option>
                                         <option value="HELIAR">HELIAR</option>
                                         <option value="BRM">BRM</option>
@@ -99,13 +99,14 @@ and open the template in the editor.
                                         <option value="VALVOLINE">VALVOLINE</option>
                                         <option value="JURID">JURID</option>
                                         <option value="BEHR">BEHR</option>
-                                    </select>
+                                    </select>-->
+                                    <input style="width:600px;height:40px" class="form-control" name="marca" id="marcaPr" placeholder="Marca del Producto">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="modeloP" class="col-sm-12 col-md-2 col-form-label">Modelo:</label>
                                 <div class="col-sm-12 col-md-10">
-                                    <select style="width:600px;height:40px" class="form-control" name="modelo" id="modeloPr">
+<!--                                    <select style="width:600px;height:40px" class="form-control" name="modelo" id="modeloPr">
                                         <option value="">[Selecionar Modelo]</option>
                                         <option value="Toyota-Corolla">Corolla</option>
                                         <option value="Toyota-Yaris">Yaris</option>
@@ -119,7 +120,8 @@ and open the template in the editor.
                                         <option value="Mitsubishi-L200">Mitsubishi-L200</option>
                                         <option value="Suzuki-Vitara">Suzuki-Vitara</option>
                                         <option value="BMW-Z4">BMW-Z4</option>
-                                    </select>
+                                    </select>-->
+                                    <input style="width:600px;height:40px" class="form-control" name="modelo" id="modeloPr" placeholder="Modelo de Auto">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -146,8 +148,7 @@ and open the template in the editor.
                     </div>
                 </div>
             </div>
-            <?php include("Generalidadespantalla/cierre.php"); ?>
-            <script src="../assets/Validaciones/validarProducto.js"></script>
+                        
             <script type="text/javascript">
                                 function veruniversal() {
                                     if ($('#categoriaPr').find('option:selected').text() == "UNIVERSALES") {
@@ -164,5 +165,7 @@ and open the template in the editor.
                                 }
             </script>
         </div>
+        <?php include("Generalidadespantalla/cierre.php"); ?>
+        <script src="../assets/Validaciones/validarProducto.js"></script>
     </body>
 </html>
