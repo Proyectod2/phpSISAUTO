@@ -301,67 +301,66 @@ and open the template in the editor.
 
 
 <!-- Filtrado de la tabla -->
-        <script type="text/javascript">
-            $(document).ready(function () {
-               $('#entradafilter').keyup(function () {
-                  var rex = new RegExp($(this).val(), 'i');
-                  $('.contenidobusqueda tr').hide();
-                  $('.contenidobusqueda tr').filter(function () {
-                    return rex.test($(this).text());
-                }).show();
-              })
+<script type="text/javascript">
+    $(document).ready(function () {
+       $('#entradafilter').keyup(function () {
+          var rex = new RegExp($(this).val(), 'i');
+          $('.contenidobusqueda tr').hide();
+          $('.contenidobusqueda tr').filter(function () {
+            return rex.test($(this).text());
+        }).show();
+      })
 
-           });
-        </script>
+   });
+</script>
 
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $('#example').DataTable();
-            } );
-        </script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#example').DataTable();
+    } );
+</script>
+<!-- Dar de Baja Dar de Alta -->
+<script type="text/javascript">
+    function bajaUsu(id){
+        swal({
+            title: '¿Está seguro en dar de baja?',
+          // text: "You won't be able to revert this!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si',
+            cancelButtonText: 'No',
+        }).then((result) => {
+            $('#id').val(id);
+            $('#bandera').val('cambio');
+            $('#valor').val('0');
+            var dominio = window.location.host;
+            $('#cambio').attr('action','http://'+dominio+'/phpSISAUTO/Controlador/usuarioC.php');
+            $('#cambio').submit();
+        })
+    }
 
-        <script type="text/javascript">
-            function bajaUsu(id){
-                swal({
-                    title: '¿Está seguro en dar de baja?',
-                  // text: "You won't be able to revert this!",
-                  type: 'warning',
-                  showCancelButton: true,
-                  confirmButtonColor: '#3085d6',
-                  cancelButtonColor: '#d33',
-                  confirmButtonText: 'Si',
-                  cancelButtonText: 'No',
+    function altaUsu(id){
+        swal({
+            title: '¿Está seguro en dar de alta?',
+          // text: "You won't be able to revert this!",
+          type: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Si',
+          cancelButtonText: 'No',
 
-              }).then((result) => {
-                $('#id').val(id);
-                $('#bandera').val('cambio');
-                $('#valor').val('0');
-                var dominio = window.location.host;
-                 $('#cambio').attr('action','http://'+dominio+'/phpSISAUTO/Controlador/usuarioC.php');
-                 $('#cambio').submit();
-            })
-            }
-
-            function altaUsu(id){
-                swal({
-                    title: '¿Está seguro en dar de alta?',
-                  // text: "You won't be able to revert this!",
-                  type: 'warning',
-                  showCancelButton: true,
-                  confirmButtonColor: '#3085d6',
-                  cancelButtonColor: '#d33',
-                  confirmButtonText: 'Si',
-                  cancelButtonText: 'No',
-
-              }).then((result) => {
-                $('#id').val(id);
-                $('#bandera').val('cambio');
-                $('#valor').val('1');
-                var dominio = window.location.host;
-                 $('#cambio').attr('action','http://'+dominio+'/phpSISAUTO/Controlador/usuarioC.php');
-                 $('#cambio').submit();
-            })
-            }
-        </script>
+      }).then((result) => {
+        $('#id').val(id);
+        $('#bandera').val('cambio');
+        $('#valor').val('1');
+        var dominio = window.location.host;
+         $('#cambio').attr('action','http://'+dominio+'/phpSISAUTO/Controlador/usuarioC.php');
+         $('#cambio').submit();
+    })
+    }
+</script>
 </body>
 </html>
