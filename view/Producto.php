@@ -61,10 +61,10 @@ and open the template in the editor.
                                     $productos = mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta");
                                     ?>
 
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
                                         <thead>
                                             <tr>
-                                                <th style="width:20px">Codigo</th>
+                                                <th style="width:60px">Codigo</th>
                                                 <th style="width:90px">Nombre</th>
                                                 <th style="width:90px">Categoria</th>
                                                 <th style="width:95px">Marca</th>
@@ -82,21 +82,8 @@ and open the template in the editor.
                                                     <td><?php echo $producto['nombre_Prod'] ?></td>
                                                     <td><?php echo $cate[$producto['categoria_Prod']] ?></td>
                                                     <td><?php echo $producto['marca_Prod'] ?></td>
-                                                    <!--<td><?php if ($cate[$producto['categoria_Prod']] != 'UNIVERSALES') {
-                                                echo $producto['marca_Prod'];
-                                            } else {
-                                                echo "-";
-                                            } ?></td>-->
-                                                    <td><?php if ($cate[$producto['categoria_Prod']] != 'UNIVERSALES') {
-                                                echo $producto['modeloVehiculo_Prod'];
-                                            } else {
-                                                echo "-";
-                                            } ?></td>
-                                                    <td><?php if ($cate[$producto['categoria_Prod']] != 'UNIVERSALES') {
-                                                echo $producto['anioVehiculo_Prod'];
-                                            } else {
-                                                echo "-";
-                                            } ?></td> 
+                                                    <td><?php if ($cate[$producto['categoria_Prod']] != 'UNIVERSALES') {echo $producto['modeloVehiculo_Prod'];}else{echo "-";} ?></td>
+                                                    <td><?php if ($cate[$producto['categoria_Prod']] != 'UNIVERSALES') {echo $producto['anioVehiculo_Prod'];}else{echo "-";} ?></td> 
                                                     <!--si solo cambia  $producto['anioVehiculo_Prod'] por el valor que ya esta en la columna-->
                                                     <th align="center">
                                                         <button title="Ver"type="button" class="btn btn-info fa fa-eye" data-toggle="modal" data-target="#modalVerProducto" href="" onclick="mostrarProduc('<?php echo $producto['codigo_Prod']?>','<?php echo $producto['nombre_Prod']?>','<?php echo $producto['categoria_Prod']?>','<?php echo $producto['marca_Prod']?>','<?php echo $producto['modeloVehiculo_Prod']?>','<?php echo $producto['anioVehiculo_Prod']?>','<?php echo $producto['descripcion_Prod']?>');"></button>
@@ -133,7 +120,7 @@ and open the template in the editor.
                             </div>
                             <label for="codigoP" class="col-sm-12 col-md-3 col-form-label">Codigo de producto:</label>
                             <div class="col-sm-12 col-md-8">
-                                <input class="form-control" type="text" id="codigoP" name="codigoP" style="width:400px;height:40px" readonly="readonly" aria-required="true" value="">
+                                <input class="form-control" type="text" id="codigoP" name="codigoP" style="width:400px;height:40px" readonly="readonly" disabled="true" value="">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -248,6 +235,16 @@ and open the template in the editor.
 
         });
     </script>        
+    
+    <script>
+    $(document).ready(function(){
+        $("#dataTabl").paginationTdA({
+            elemPerPage: 1
+        });
+    });
+</script>
+<script src="pagination-tda-plugin.js"></script>
+    
     <?php include("Generalidadespantalla/cierre.php"); ?>
 </body>
 </html>
