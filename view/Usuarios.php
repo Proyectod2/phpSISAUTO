@@ -81,6 +81,7 @@ and open the template in the editor.
                                             <th align="center">
                                                 <button title="Ver"type="button" class="btn btn-info fa fa-eye" data-toggle="modal" data-target="#modalVerUsuario" href="" onclick="mostrarUsu('<?php echo $usuario['nombre_Usu']?>','<?php echo $usuario['telefono_Usu']?>','<?php echo $usuario['correo_Usu']?>','<?php echo $usuario['direccion_Usu']?>','<?php echo $usuario['dui_Usu']?>','<?php echo $usuario['usuario_Usu']?>','<?php echo $usuario['tipo_Usu']?>');"></button>
                                                 <button title="Editar" type="button" class="btn btn-primary fa fa-pencil-square-o" data-toggle="modal" data-target="#modalEditarUsuario" onclick="editarUsu('<?php echo $usuario['nombre_Usu']?>','<?php echo $usuario['telefono_Usu']?>','<?php echo $usuario['correo_Usu']?>','<?php echo $usuario['direccion_Usu']?>','<?php echo $usuario['dui_Usu']?>','<?php echo $usuario['usuario_Usu']?>','<?php echo $usuario['tipo_Usu']?>','<?php echo $usuario['idUsuario']?>');"></button>
+                                                <button title="Contrasena" type="button" class="btn btn-primary fa fa-pencil-square-o" data-toggle="modal" data-target="#modalEditarUsuarioContrasena" onclick="editarUsuContrasena('<?php echo $usuario['usuario_Usu']?>','<?php echo $usuario['tipo_Usu']?>','<?php echo $usuario['idUsuario']?>');"></button>
                                                 <?php  if ($tipo == 1) {
                                                 ?>
                                                 <button title="Dar de baja" type="button" class="btn btn-danger fa fa-arrow-circle-down" onclick="bajaUsu(<?php echo $usuario['idUsuario'] ?>)"></button>
@@ -180,7 +181,7 @@ and open the template in the editor.
         </div>
     </div>
 
-<!-- MODAL EDITAR USUARIOS -->
+<!-- MODAL EDITAR USUARIOS ADMINISTRADOR -->
 
 <div class="modal fade" id="modalEditarUsuario" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog modal-lg" role="document">
@@ -250,12 +251,54 @@ and open the template in the editor.
                             <input class="form-control" type="text" id="tipoUsuEditar" name="Tipo_Usu" style="width:400px;height:40px" readonly="readonly" aria-required="true" value="">
                         </div>
                     </div>
+                    <br>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-default" style="background-color:#007bff;"  onclick="validareditarUsuario();">Aceptar</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" style="background-color:#007bff;">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- MODAL EDITAR USUARIO -->
+
+<div class="modal fade" id="modalEditarUsuarioContrasena" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color:#007bff;">
+                <h5 class="modal-title" id="myModalLabel"> <i class="fa fa-user"></i> Editar usuario</h5>
+            </div>
+            <div class="modal-body">
+                <form action="../Controlador/usuarioC.php" method="POST" id="editarUsuContrasena" align="center" autocomplete="off">
+                    <h5 align="center">Datos del usuario</h5>
+                    <hr width="75%" style="background-color:#007bff;"/>
+                    <input type="hidden" value="EditarUsuContrasena" name="bandera"></input>
+                    <input type="hidden" value="" name="idusuarioContrasena" id="idusuarioContrasena"></input>
+                    <div class="form-group row">
+                        <div class="col-sm-12 col-md-1">
+                        </div>
+                        <label for="usuario" class="col-sm-12 col-md-3 col-form-label">Usuario:</label>
+                        <div class="col-sm-12 col-md-8">
+                            <input class="form-control" type="text" id="nombreusuUsuContrasenaEditar" name="NombreUsu_Usu" style="width:400px;height:40px" readonly="readonly"aria-required="true" value="">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-12 col-md-1">
+                        </div>
+                        <label for="usuario" class="col-sm-12 col-md-3 col-form-label">Tipo de Usuario:</label>
+                        <div class="col-sm-12 col-md-8">
+                            <input class="form-control" type="text" id="tipoUsuContrasenaEditar" name="Tipo_Usu" style="width:400px;height:40px" readonly="readonly" aria-required="true" value="">
+                        </div>
+                    </div>
                     <div class="form-group row">
                         <div class="col-sm-12 col-md-1">
                         </div>
                         <label for="contrasena" class="col-sm-12 col-md-3 col-form-label">Contraseña actual:</label>
                         <div class="col-sm-12 col-md-2">
-                            <input class="form-control" type="password" placeholder="******" id="contrasenaActualUsuEditar" name="Contrasena_Usu" style="width:150px;height:40px" onkeypress="return validarContrasenaActual(this,event,this.value)">
+                            <input class="form-control" type="password" placeholder="******" id="contrasenaActualUsuEditar" name="Contrasena_UsuA" style="width:150px;height:40px" onkeypress="return validarContrasenaActual(this,event,this.value)">
                         </div><a id='mensajito2'></a>
                     </div>
                     <div class="form-group row">
@@ -263,7 +306,7 @@ and open the template in the editor.
                         </div>
                         <label for="contrasena" class="col-sm-12 col-md-3 col-form-label">Nueva contraseña:</label>
                         <div class="col-sm-12 col-md-2">
-                            <input class="form-control" type="password" placeholder="******" id="contrasenaUsuEditar" name="Contrasena_Usu" style="width:150px;height:40px" onkeypress="return validareditarContrasena(this,event,this.value)">
+                            <input class="form-control" type="password" placeholder="******" id="contrasenaUsuEditar" name="Contrasena_Usukk" style="width:150px;height:40px" onkeypress="return validareditarContrasena(this,event,this.value)">
                         </div><a id='mensajito1'></a>
                     </div>
                     <div class="form-group row">
@@ -273,11 +316,12 @@ and open the template in the editor.
                         <div class="col-sm-12 col-md-2">
                             <input class="form-control" type="password" placeholder="******" id="contrasenaUsu2Editar" name="Contrasena_Usu2" style="width:150px;height:40px" onkeyup="return validareditarContrasena2(this,event,this.value)"</a>
                         </div><a id='mensajito'></a>
-                    </div><br>
+                    </div>
+                    <br>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-default" style="background-color:#007bff;"  onclick="validareditarUsuario();">Aceptar</button>
+                <button type="submit" class="btn btn-default" style="background-color:#007bff;"  onclick="validareditarUsuarioContrasena();">Aceptar</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal" style="background-color:#007bff;">Cerrar</button>
             </div>
         </div>

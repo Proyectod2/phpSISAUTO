@@ -28,3 +28,14 @@ function editarUsu(nombre,telefono,correo,direccion,dui,usuario,tipo,idusuario){
 	$("#tipoUsuEditar").val(aux);	
 	$("#idusuario").val(idusuario);
 }
+
+function editarUsuContrasena(usuario,tipo,idusuario){
+	$("#nombreusuUsuContrasenaEditar").val(usuario);
+	if(tipo == '1'){
+		var aux = 'Empleado';
+	}else{
+		var aux = 'Administrador';
+	}
+	$("#tipoUsuContrasenaEditar").val(aux);	
+	$("#idusuario").val(idusuario);
+}

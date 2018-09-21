@@ -64,7 +64,6 @@ function validareditarContrasena(obj,e,valor){
 }
 
 function validareditarContrasena2(obj,e,valor){
- 
   var confirmar = $('#contrasenaUsuEditar').val();
   var contrasena = $('#contrasenaUsu2Editar').val();
   if( confirmar == contrasena){

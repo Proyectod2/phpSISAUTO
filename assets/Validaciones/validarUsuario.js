@@ -157,11 +157,7 @@ async function validareditarUsuario(){
     var correoU = await validareditarCorreoU();
     var direccionU = await validareditarDireccionU(); 
     var duiU = await validareditarDUIU();
-    var contrasenaactualU = await validareditarContrasenaActualU();
-    var contrasenaU = await validareditarContrasenaU();
-    var contrasenaU2 = await validareditarContrasenaU2();
-    //&& ($('#nombreusuUsuEditar').val().trim()!="")
-    if (nombreU && telefonoU && direccionU && duiU && (correoU == 1 || correoU == 0) && contrasenaU && contrasenaU2 && (contrasenaactualU == 1)){
+    if (nombreU && telefonoU && direccionU && duiU && (correoU == 1 || correoU == 0)){
         $('#editarUsu').submit();
     }; 
 }
@@ -253,6 +249,15 @@ function validareditarCorreoU(){
     }
 }
 
+async function validareditarUsuarioContrasena(){
+    var contrasenaactualU = await validareditarContrasenaActualU();
+    var contrasenaU = await validareditarContrasenaU();
+    var contrasenaU2 = await validareditarContrasenaU2();
+    if (contrasenaU && contrasenaU2 && (contrasenaactualU == 1)){
+        $('#editarUsuContrasena').submit();
+    }; 
+}
+
 function validareditarContrasenaActualU(){
     if ($('#contrasenaActualUsuEditar').val().trim() == "") {
         notaError("¡La contraseña actual es obligatoria!");
@@ -309,4 +314,3 @@ function validareditarContrasenaU2(){
     }
     return true;
 }
-
