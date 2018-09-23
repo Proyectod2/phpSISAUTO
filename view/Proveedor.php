@@ -171,6 +171,15 @@ and open the template in the editor.
                                 <input class="form-control" type="text" id="telefonoRes" name="DUI_Usu" style="width:150px;height:40px" disabled="true">
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12 col-md-1">
+                            </div>
+                            <label for="usuario" class="col-sm-12 col-md-3 col-form-label">Descripción:</label> 
+                            <div class="col-sm-12 col-md-8">
+                               <textarea class="form-control" type="text" name="descripcion"  placeholder="Escriba aqui..." id="descripcionProv" style="width:400px;height:80px" disabled="true">
+                               </textarea>
+                            </div>
+                        </div>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -242,6 +251,15 @@ and open the template in the editor.
                             <label for="usuario" class="col-sm-12 col-md-3 col-form-label">Teléfono:</label> 
                             <div class="col-sm-12 col-md-8">
                                 <input class="form-control" type="text" id="telefonoResEditar" data-mask="9999-9999" name="Telefono_Res" style="width:150px;height:40px" >
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12 col-md-1">
+                            </div>
+                            <label for="usuario" class="col-sm-12 col-md-3 col-form-label">Descripción:</label> 
+                            <div class="col-sm-12 col-md-8">
+                               <textarea class="form-control" type="text" name="descripcion"  placeholder="Escriba aqui..." id="descripcionProv" style="width:400px;height:80px">
+                               </textarea>
                             </div>
                         </div>
                         <div class="modal-footer">
