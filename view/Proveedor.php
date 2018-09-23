@@ -62,8 +62,7 @@ and open the template in the editor.
                                 }else{
                                     $tipo = $_GET['tipo'];
                                     }?>
-                            <?php include("../confi/Conexion.php"); 
-                            $conexion = conectarMysql();
+                            <?php 
                             $sql="SELECT * from proveedor where tipo_Prov='$tipo' order by nombre_Prov ASC";
                             $proveedores= mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); ?>
                                 <!-- <input id="entradafilter" type="text" class="form-control"> -->

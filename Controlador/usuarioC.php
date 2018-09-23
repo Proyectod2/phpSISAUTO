@@ -34,11 +34,11 @@
 	}
 
 	if($bandera == "EditarUsuContrasena"){
-		$contrasenaU = $_POST["Contrasena_Usukk"];
-		echo $_POST["Contrasena_Usukk"];
-		$idusuario = $_POST["idusuarioContrasena"];
+		$contrasenaUa = $_POST["Contrasena_Usu"];
+		echo $_POST["Contrasena_Usu"];
+		$idusuarioa = $_POST["idusuarioContrasena"];
 		echo $_POST["idusuarioContrasena"];
-		$sql = "UPDATE usuario set contrasena_Usu = '$contrasenaU' where idUsuario = '$idusuario'";
+		$sql = "UPDATE usuario set contrasena_Usu = '$contrasenaUa' where idUsuario = '$idusuarioa'";
 	    mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD".mysqli_connect_error());
 	    $mensaje = "Registro editado exitosamente";
 	    header("location: /phpSISAUTO/view/Usuarios.php?mensaje=".$mensaje);

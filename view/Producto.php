@@ -55,8 +55,6 @@ and open the template in the editor.
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <?php
-                                    include("../confi/Conexion.php");
-                                    $conexion = conectarMysql();
                                     $sql = "SELECT * from producto order by idProducto ASC";
                                     $productos = mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta");
                                     ?>
