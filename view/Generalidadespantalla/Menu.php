@@ -208,7 +208,7 @@
                         <div class="col-sm-12 col-md-1">
                         </div>
                         <label for="contrasena" class="col-sm-12 col-md-3 col-form-label">Contraseña actual:</label>
-                        <div class="col-sm-12 col-md-2">
+                        <div class="col-sm-12 col-md-3">
                             <input class="form-control" type="password" placeholder="******" id="contrasenaActualUsuEditar" name="Contrasena_UsuA" style="width:150px;height:40px" onkeypress="return validarContrasenaActual(this,event,this.value)">
                         </div><a id='mensajito2'></a>
                     </div>
@@ -216,7 +216,7 @@
                         <div class="col-sm-12 col-md-1">
                         </div>
                         <label for="contrasena" class="col-sm-12 col-md-3 col-form-label">Nueva contraseña:</label>
-                        <div class="col-sm-12 col-md-2">
+                        <div class="col-sm-12 col-md-3">
                             <input class="form-control" type="password" placeholder="******" id="contrasenaUsuEditar" name="Contrasena_Usu" style="width:150px;height:40px" onkeypress="return validareditarContrasena(this,event,this.value)">
                         </div><a id='mensajito1'></a>
                     </div>
@@ -224,7 +224,7 @@
                         <div class="col-sm-12 col-md-1">
                         </div>
                         <label for="contrasena" class="col-sm-12 col-md-3 col-form-label">Vuelve a escribir la nueva contraseña:</label>
-                        <div class="col-sm-12 col-md-2">
+                        <div class="col-sm-12 col-md-3">
                             <input class="form-control" type="password" placeholder="******" id="contrasenaUsu2Editar" name="Contrasena_Usu2" style="width:150px;height:40px" onkeyup="return validareditarContrasena2(this,event,this.value)"</a>
                         </div><a id='mensajito'></a>
                     </div>

@@ -1,16 +1,16 @@
 function validarNombreCompletoUsuario(obj,e,valor){
   tecla = (document.all) ? e.keyCode : e.which;
-  val= tecla;
+  val = tecla;
   tecla = String.fromCharCode(tecla);
   aux = false;
   if(valor == ''){
     if((val > 64 && val < 91) || (val > 96 && val < 123)){
-      aux=true;
+      aux = true;
     }
   }else if(valor[0] != (val > 64 && val < 91) || (val > 96 && val < 123)){
     if((val > 64 && val < 91) || (val > 96 && val < 123) || val == 32){//poner rangos de letras 
       
-        aux=true;
+        aux = true;
   
     }
   }
@@ -19,17 +19,17 @@ function validarNombreCompletoUsuario(obj,e,valor){
 
 function validarNombreCompletoProveedor(obj,e,valor){
   tecla = (document.all) ? e.keyCode : e.which;
-  val= tecla;
+  val = tecla;
   tecla = String.fromCharCode(tecla);
-  aux=false;
-  if(valor==''){
+  aux = false;
+  if(valor == ''){
     if((val > 64 && val < 91) || (val > 96 && val < 123)){
-      aux=true;
+      aux = true;
     }
   }else if(valor[0] != (val > 64 && val < 91) || (val > 96 && val < 123)){
     if((val > 64 && val < 91) || (val > 96 && val < 123) || val == 32){//poner rangos de letras 
       
-        aux=true;
+        aux = true;
   
     }
   }
