@@ -213,7 +213,7 @@ and open the template in the editor.
                             </div>
                             <label for="direccion" class="col-sm-12 col-md-3 col-form-label">NCR:</label>
                             <div class="col-sm-12 col-md-8">
-                                <input class="form-control" type="text" name="nrcCli" id="nrcCliEditar" style="width:400px;height:40px"  >
+                                <input class="form-control" type="text" name="nrcCli" id="nrcCliEditar" style="width:150px;height:40px" readonly="readonly"aria-required="true" value="" >
                             </div>
                         </div>
                          <div class="form-group row">
@@ -221,7 +221,7 @@ and open the template in the editor.
                             </div>
                             <label for="direccion" class="col-sm-12 col-md-3 col-form-label">NIT:</label>
                             <div class="col-sm-12 col-md-8">
-                                <input class="form-control" type="text" name="nitCli" id="nitCliEditar" style="width:400px;height:40px"  >
+                                <input class="form-control" type="text" name="nitCli" id="nitCliEditar" style="width:175px;height:40px" readonly="readonly"aria-required="true" value="" >
                             </div>
                         </div>
                         
@@ -256,6 +256,7 @@ and open the template in the editor.
               })
 
            });
+
         </script>
 
 </body>
