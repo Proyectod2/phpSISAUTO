@@ -62,12 +62,12 @@ and open the template in the editor.
                                     <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
                                         <thead>
                                             <tr>
-                                                <th style="width:60px">Codigo</th>
-                                                <th style="width:90px">Nombre</th>
+                                                <th style="width:35px">Codigo</th>
+                                                <th style="width:80px">Nombre</th>
                                                 <th style="width:90px">Categoria</th>
                                                 <th style="width:95px">Marca</th>
                                                 <th style="width:50px">Modelo</th>
-                                                <th style="width:70px">Año</th>
+                                                <th style="width:35px">Año</th>
                                                 <th align="center" style="width:2px">Acción</th>
                                             </tr>
                                         </thead>

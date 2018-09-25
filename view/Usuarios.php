@@ -17,6 +17,15 @@ and open the template in the editor.
                 </li>
                 <li class="breadcrumb-item active">Control Usuarios</li>
             </ol>
+            <?php if (!isset($_GET['tipo'])) {
+                $tipo = 1;
+            }else{
+                $tipo = $_GET['tipo'];
+            }?>
+            <?php
+            $sql = "SELECT * from usuario where estado_Usu = '$tipo' order by nombre_Usu ASC";
+            $usuarios= mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); 
+            ?>
             <div class="row">
                 <div class="col-12">
                     <a class="pull-right" href="">
@@ -32,17 +41,28 @@ and open the template in the editor.
                         </button>
                         &nbsp;
                     </a>
-                    <a class="pull-right" href="/phpSISAUTO/view/Usuarios.php?tipo=0">
-                        <button class="btn btn-primary">
-                            Ver usuarios inactivos
-                        </button>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-                    </a>
+                    <?php  if ($tipo == 1) { ?>
+                        <a class="pull-right" href="/phpSISAUTO/view/Usuarios.php?tipo=0">
+                            <button class="btn btn-primary">
+                                Ver usuarios inactivos  <i class="fa fa-bars"></i>
+                            </button>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                        </a>
+                        
+                    <?php  }else{ ?>
+                        <a class="pull-right" href="/phpSISAUTO/view/Usuarios.php?tipo=1">
+                            <button class="btn btn-primary">
+                                Ver usuarios activos <i class="fa fa-bars"></i>
+                            </button>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                        </a>
+                        
+                    <?php } ?>
                     <br><br>
-                    <!-- TABLA USUARIOS-->
-                    <div class="card mb-3">
-                        <div class="card-header" style="background-color:#eff3f4;">
-                            <i class="fa fa-users"></i> Usuarios activos</div>
+                        <!-- TABLA USUARIOS-->
+                        <div class="card mb-3">
+                            <div class="card-header" style="background-color:#eff3f4;">
+                                <i class="fa fa-users"></i> Usuarios</div>
                             <form align="right"><br>
                             <table id="dataTable" class="pull-right " width="100%" cellspacing="0" >
                                 <thead>
@@ -63,15 +83,6 @@ and open the template in the editor.
                         </form>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <?php if (!isset($_GET['tipo'])) {
-                                    $tipo = 1;
-                                }else{
-                                    $tipo = $_GET['tipo'];
-                                }?>
-                                <?php
-                                $sql = "SELECT * from usuario where estado_Usu = '$tipo' order by nombre_Usu ASC";
-                                $usuarios= mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); 
-                                ?>
                                 <table class="table table-striped table-bordered" id="example" width="100%" cellspacing="0"  style="width:100%">
                                     <thead>
                                         <tr>
@@ -89,9 +100,9 @@ and open the template in the editor.
                                             <td><?php echo $usuario['telefono_Usu'] ?></td>  
                                             <th align="center">
                                                 <button title="Ver" type="button" class="btn btn-info fa fa-eye" data-toggle="modal" data-target="#modalVerUsuario" href="" onclick="mostrarUsu('<?php echo $usuario['nombre_Usu']?>','<?php echo $usuario['telefono_Usu']?>','<?php echo $usuario['correo_Usu']?>','<?php echo $usuario['direccion_Usu']?>','<?php echo $usuario['dui_Usu']?>','<?php echo $usuario['usuario_Usu']?>','<?php echo $usuario['tipo_Usu']?>');"></button>
-                                                <button title="Editar" type="button" class="btn btn-primary fa fa-pencil-square-o" data-toggle="modal" data-target="#modalEditarUsuario" onclick="editarUsu('<?php echo $usuario['nombre_Usu']?>','<?php echo $usuario['telefono_Usu']?>','<?php echo $usuario['correo_Usu']?>','<?php echo $usuario['direccion_Usu']?>','<?php echo $usuario['dui_Usu']?>','<?php echo $usuario['usuario_Usu']?>','<?php echo $usuario['tipo_Usu']?>','<?php echo $usuario['idUsuario']?>');"></button>
-                                                <?php  if ($tipo == 1) {
-                                                    if($usuario['tipo_Usu'] == 0){
+                                                <?php  if ($tipo == 1) { ?>
+                                                    <button title="Editar" type="button" class="btn btn-primary fa fa-pencil-square-o" data-toggle="modal" data-target="#modalEditarUsuario" onclick="editarUsu('<?php echo $usuario['nombre_Usu']?>','<?php echo $usuario['telefono_Usu']?>','<?php echo $usuario['correo_Usu']?>','<?php echo $usuario['direccion_Usu']?>','<?php echo $usuario['dui_Usu']?>','<?php echo $usuario['usuario_Usu']?>','<?php echo $usuario['tipo_Usu']?>','<?php echo $usuario['idUsuario']?>');"></button>
+                                                <?php if($usuario['tipo_Usu'] == 0){
                                                 ?>
                                                 <?php }else{ ?>
                                                 <!--
