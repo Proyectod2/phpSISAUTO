@@ -1,3 +1,6 @@
+<?php
+if (isset($_SESSION['usuarioActivo'])) {
+?>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -261,4 +264,19 @@ and open the template in the editor.
 
 </body>
 </html>
+<?php
+}else{
+    ?>
+    <!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="refresh" content="0;URL=/phpSISAUTO/view/login.html">
+</head>
+<body>
+</body>
+</html>
+    <?php
+}
+?>
 
