@@ -21,11 +21,11 @@ if($bandera=="GuardarCli"){
 
 if($bandera=="EditarCli"){
 
-    $nombreCli = $_POST["NombreC"];
-	$direccionCli = $_POST["DireccionC"];
-	$telefonoCli = $_POST["TelefonoC"];
-	$NRCcli = $_POST["NRC"];
-	$NITcli = $_POST["NIT"];
+    $nombreCli = $_POST["nombreCli"];
+	$direccionCli = $_POST["direccionCli"];
+	$telefonoCli = $_POST["telefonoCli"];
+	$NRCcli = $_POST["nrcCli"];
+	$NITcli = $_POST["nitCli"];
 	$idcliente = $_POST["idcliente"];
 
 	$sql = "UPDATE cliente set nombre_Cli='$nombreCli',direccion_Cli='$direccionCli',telefono_Cli='$telefonoCli',nrc_Cli='$NRCcli',nit_Cli='$NITcli' where idCliente = '$idcliente'";

@@ -88,7 +88,7 @@ and open the template in the editor.
                                                                                        
                                             <th align="center">
                                                 <button title="Ver" type="button" class="btn btn-info fa fa-eye" data-toggle="modal" data-target="#modalVerCliente" href="" onclick="mostrarCli('<?php echo $cliente['nombre_Cli']?>','<?php echo $cliente['direccion_Cli']?>','<?php echo $cliente['telefono_Cli']?>','<?php echo $cliente['nrc_Cli']?>','<?php echo $cliente['nit_Cli']?>');"></button>
-                                                <button title="Editar" type="button" class="btn btn-primary fa fa-pencil-square-o" data-toggle="modal" data-target="#modalEditarCliente" onclick="EditarCli('<?php echo $cliente['nombre_Cli']?>','<?php echo $cliente['direccion_Cli']?>','<?php echo $cliente['telefono_Cli']?>','<?php echo $cliente['nrc_Cli']?>','<?php echo $cliente['nit_Cli']?>','<?php echo $cliente['idCliente']?>');"></button>
+                                                <button title="Editar" type="button" class="btn btn-primary fa fa-pencil-square-o" data-toggle="modal" data-target="#modalEditarCliente" onclick="editarCli('<?php echo $cliente['nombre_Cli']?>','<?php echo $cliente['direccion_Cli']?>','<?php echo $cliente['telefono_Cli']?>','<?php echo $cliente['nrc_Cli']?>','<?php echo $cliente['nit_Cli']?>','<?php echo $cliente['idCliente']?>');"></button>
                                                 <button title="Dar de baja" type="button" class="btn btn-danger fa fa-arrow-circle-down"></button>
                                             </th>
                                         </tr>
@@ -213,7 +213,7 @@ and open the template in the editor.
                             </div>
                             <label for="direccion" class="col-sm-12 col-md-3 col-form-label">NCR:</label>
                             <div class="col-sm-12 col-md-8">
-                                <input class="form-control" type="text" name="nrcCli" id="nrcCliEditar" style="width:400px;height:40px"  >
+                                <input class="form-control" type="text" name="nrcCli" id="nrcCliEditar" style="width:150px;height:40px" readonly="readonly"aria-required="true" value="" >
                             </div>
                         </div>
                          <div class="form-group row">
@@ -221,7 +221,7 @@ and open the template in the editor.
                             </div>
                             <label for="direccion" class="col-sm-12 col-md-3 col-form-label">NIT:</label>
                             <div class="col-sm-12 col-md-8">
-                                <input class="form-control" type="text" name="nitCli" id="nitCliEditar" style="width:400px;height:40px"  >
+                                <input class="form-control" type="text" name="nitCli" id="nitCliEditar" style="width:175px;height:40px" readonly="readonly"aria-required="true" value="" >
                             </div>
                         </div>
                         
@@ -256,6 +256,7 @@ and open the template in the editor.
               })
 
            });
+
         </script>
 
 </body>
