@@ -290,6 +290,7 @@ and open the template in the editor.
         <?php include("Generalidadespantalla/cierre.php"); ?>
 
         <script src="../assets/Validaciones/mostrarProveedor.js"></script> 
+        <script src="../assets/Validaciones/validarProveedor.js"></script>
 
         <!-- Filtrado de la tabla -->
         <script type="text/javascript">

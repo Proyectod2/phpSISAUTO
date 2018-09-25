@@ -524,9 +524,10 @@
     </div>
 
     <?php
-    if (isset($_GET['mensaje'])) {
+    if (isset($_SESSION['mensaje'])) {
          echo ("<script type='text/javascript'>
-    notaInfo('".$_GET['mensaje']."');
+    notaInfo('".$_SESSION['mensaje']."');
     </script>");
      } 
+     unset($_SESSION['mensaje']);
     ?>

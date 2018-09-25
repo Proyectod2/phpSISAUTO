@@ -1,5 +1,5 @@
 <?php
-
+    session_start();
 include("../confi/Conexion.php");
 $conexion = conectarMysql();
 
@@ -18,8 +18,8 @@ if($bandera=="guardar"){
 	$sql = "INSERT INTO proveedor (nombre_Prov,correo_Prov,telefono_Prov,direccion_Prov,nombreResp_Prov,telefonoResp_Prov,tipo_Prov) VALUES ('$nombreE','$correoE','$telefonoE','$direccionE','$nombreR','$telefonoR',1)";
 
     mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD".mysqli_connect_error());
-    $mensaje = "Registro guardado exitosamente";
-    header("location: /phpSISAUTO/view/Proveedor.php?mensaje=".$mensaje);
+    $_SESSION['mensaje'] = "Registro guardado exitosamente";
+    header("location: /phpSISAUTO/view/Proveedor.php?");
 
 }
 
@@ -36,8 +36,8 @@ if($bandera=="EditarPro"){
 	$sql = "UPDATE proveedor set nombre_Prov='$nombreE',correo_Prov='$correoE',telefono_Prov='$telefonoE',direccion_Prov='$direccionE',nombreResp_Prov='$nombreR',telefonoResp_Prov='$telefonoR' where idProveedor = '$idproveedor'";
 
     mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD".mysqli_connect_error());
-    $mensaje = "Registro editado exitosamente";
-    header("location: /phpSISAUTO/view/Proveedor.php?mensaje=".$mensaje);
+    $_SESSION['mensaje'] ="Registro editado exitosamente";
+    header("location: /phpSISAUTO/view/Proveedor.php");
 
 }
 
