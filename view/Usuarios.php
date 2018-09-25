@@ -17,6 +17,15 @@ and open the template in the editor.
                 </li>
                 <li class="breadcrumb-item active">Control Usuarios</li>
             </ol>
+            <?php if (!isset($_GET['tipo'])) {
+                $tipo = 1;
+            }else{
+                $tipo = $_GET['tipo'];
+            }?>
+            <?php
+            $sql = "SELECT * from usuario where estado_Usu = '$tipo' order by nombre_Usu ASC";
+            $usuarios= mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); 
+            ?>
             <div class="row">
                 <div class="col-12">
                     <a class="pull-right" href="">
@@ -30,18 +39,38 @@ and open the template in the editor.
                             Agregar nuevo
                             <span class="fa fa-plus"></span>
                         </button>
+                        &nbsp;
                     </a>
+                    <?php  if ($tipo == 1) { ?>
+                        <a class="pull-right" href="/phpSISAUTO/view/Usuarios.php?tipo=0">
+                            <button class="btn btn-primary">
+                                Ver usuarios inactivos  <i class="fa fa-bars"></i>
+                            </button>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                        </a>
+                        
+                    <?php  }else{ ?>
+                        <a class="pull-right" href="/phpSISAUTO/view/Usuarios.php?tipo=1">
+                            <button class="btn btn-primary">
+                                Ver usuarios activos <i class="fa fa-bars"></i>
+                            </button>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                        </a>
+                        
+                    <?php } ?>
                     <br><br>
-                    <!-- TABLA USUARIOS-->
-                    <div class="card mb-3">
-                        <div class="card-header" style="background-color:#eff3f4;">
-                            <i class="fa fa-users"></i> Usuarios</div>
+                        <!-- TABLA USUARIOS-->
+                        <div class="card mb-3">
+                            <div class="card-header" style="background-color:#eff3f4;">
+                                <i class="fa fa-users"></i> Usuarios</div>
                             <form align="right"><br>
                             <table id="dataTable" class="pull-right " width="100%" cellspacing="0" >
                                 <thead>
                                     <tr>
-                                        <th style="width:200px"></th>
-                                        <th style="width:120px"><div class="input-group" style="width:500px" align="center">
+                                        <th style="width:200px">
+                                        </th>
+                                        <th style="width:120px">
+                                            <div class="input-group" style="width:500px" align="center">
                                                 <input type="text" class="form-control" id="entradafilter" placeholder="Buscar" name="" align="center">
                                                 <div class="input-group-btn">
                                                     <button class="btn btn-default" type="submit" title="Buscar"><i class="fa fa-search" ></i></button>
@@ -54,15 +83,6 @@ and open the template in the editor.
                         </form>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <?php if (!isset($_GET['tipo'])) { 
-                                 $tipo = 1;
-                             }else{
-                                $tipo = $_GET['tipo'];
-                            }?>
-                            <?php include("../confi/Conexion.php");
-                            $conexion = conectarMysql();
-                            $sql="SELECT * from usuario where estado_Usu = '$tipo' order by nombre_Usu ASC";
-                            $usuarios= mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); ?>
                                 <table class="table table-striped table-bordered" id="example" width="100%" cellspacing="0"  style="width:100%">
                                     <thead>
                                         <tr>
@@ -79,12 +99,17 @@ and open the template in the editor.
                                             <td><?php echo $usuario['correo_Usu'] ?></td>
                                             <td><?php echo $usuario['telefono_Usu'] ?></td>  
                                             <th align="center">
-                                                <button title="Ver"type="button" class="btn btn-info fa fa-eye" data-toggle="modal" data-target="#modalVerUsuario" href="" onclick="mostrarUsu('<?php echo $usuario['nombre_Usu']?>','<?php echo $usuario['telefono_Usu']?>','<?php echo $usuario['correo_Usu']?>','<?php echo $usuario['direccion_Usu']?>','<?php echo $usuario['dui_Usu']?>','<?php echo $usuario['usuario_Usu']?>','<?php echo $usuario['tipo_Usu']?>');"></button>
-                                                <button title="Editar" type="button" class="btn btn-primary fa fa-pencil-square-o" data-toggle="modal" data-target="#modalEditarUsuario" onclick="editarUsu('<?php echo $usuario['nombre_Usu']?>','<?php echo $usuario['telefono_Usu']?>','<?php echo $usuario['correo_Usu']?>','<?php echo $usuario['direccion_Usu']?>','<?php echo $usuario['dui_Usu']?>','<?php echo $usuario['usuario_Usu']?>','<?php echo $usuario['tipo_Usu']?>','<?php echo $usuario['idUsuario']?>');"></button>
-                                                <button title="Contrasena" type="button" class="btn btn-primary fa fa-pencil-square-o" data-toggle="modal" data-target="#modalEditarUsuarioContrasena" onclick="editarUsuContrasena('<?php echo $usuario['usuario_Usu']?>','<?php echo $usuario['tipo_Usu']?>','<?php echo $usuario['idUsuario']?>');"></button>
-                                                <?php  if ($tipo == 1) {
+                                                <button title="Ver" type="button" class="btn btn-info fa fa-eye" data-toggle="modal" data-target="#modalVerUsuario" href="" onclick="mostrarUsu('<?php echo $usuario['nombre_Usu']?>','<?php echo $usuario['telefono_Usu']?>','<?php echo $usuario['correo_Usu']?>','<?php echo $usuario['direccion_Usu']?>','<?php echo $usuario['dui_Usu']?>','<?php echo $usuario['usuario_Usu']?>','<?php echo $usuario['tipo_Usu']?>');"></button>
+                                                <?php  if ($tipo == 1) { ?>
+                                                    <button title="Editar" type="button" class="btn btn-primary fa fa-pencil-square-o" data-toggle="modal" data-target="#modalEditarUsuario" onclick="editarUsu('<?php echo $usuario['nombre_Usu']?>','<?php echo $usuario['telefono_Usu']?>','<?php echo $usuario['correo_Usu']?>','<?php echo $usuario['direccion_Usu']?>','<?php echo $usuario['dui_Usu']?>','<?php echo $usuario['usuario_Usu']?>','<?php echo $usuario['tipo_Usu']?>','<?php echo $usuario['idUsuario']?>');"></button>
+                                                <?php if($usuario['tipo_Usu'] == 0){
                                                 ?>
+                                                <?php }else{ ?>
+                                                <!--
+                                                    <button title="Contrasena" type="button" class="btn btn-primary fa fa-pencil-square-o" data-toggle="modal" data-target="#modalEditarUsuarioContrasena" onclick="editarUsuContrasena('<?php echo $usuario['usuario_Usu']?>','<?php echo $usuario['tipo_Usu']?>','<?php echo $usuario['idUsuario']?>');"></button>
+                                                -->
                                                 <button title="Dar de baja" type="button" class="btn btn-danger fa fa-arrow-circle-down" onclick="bajaUsu(<?php echo $usuario['idUsuario'] ?>)"></button>
+                                                <?php }?>
                                                 <?php  }else{ ?>
                                                 <button title="Dar de alta" type="button" class="btn btn-success fa fa-arrow-circle-up" onclick="altaUsu(<?php echo $usuario['idUsuario'] ?>)"></button>
                                                 <?php } ?>
@@ -94,7 +119,6 @@ and open the template in the editor.
                                     </tfoot>
                                 </table>
                             </div>
-
                         </div>
                         <div class="card-footer small text-muted"> </div>
                     </div>
@@ -263,75 +287,7 @@ and open the template in the editor.
 </div>
 
 
-<!-- MODAL EDITAR USUARIO -->
 
-<div class="modal fade" id="modalEditarUsuarioContrasena" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header" style="background-color:#007bff;">
-                <h5 class="modal-title" id="myModalLabel"> <i class="fa fa-user"></i> Editar usuario</h5>
-            </div>
-            <div class="modal-body">
-                <form action="../Controlador/usuarioC.php" method="POST" id="editarUsuContrasena" align="center" autocomplete="off">
-                    <h5 align="center">Datos del usuario</h5>
-                    <hr width="75%" style="background-color:#007bff;"/>
-                    <input type="hidden" value="EditarUsuContrasena" name="bandera"></input>
-                    <input type="hidden" value="" name="idusuarioContrasena" id="idusuarioContrasena"></input>
-                    <div class="form-group row">
-                        <div class="col-sm-12 col-md-1">
-                        </div>
-                        <label for="usuario" class="col-sm-12 col-md-3 col-form-label">Usuario:</label>
-                        <div class="col-sm-12 col-md-8">
-                            <input class="form-control" type="text" id="nombreusuUsuContrasenaEditar" name="NombreUsu_Usu" style="width:400px;height:40px" readonly="readonly"aria-required="true" value="">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-sm-12 col-md-1">
-                        </div>
-                        <label for="usuario" class="col-sm-12 col-md-3 col-form-label">Tipo de Usuario:</label>
-                        <div class="col-sm-12 col-md-8">
-                            <input class="form-control" type="text" id="tipoUsuContrasenaEditar" name="Tipo_Usu" style="width:400px;height:40px" readonly="readonly" aria-required="true" value="">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-sm-12 col-md-1">
-                        </div>
-                        <label for="contrasena" class="col-sm-12 col-md-3 col-form-label">Contraseña actual:</label>
-                        <div class="col-sm-12 col-md-2">
-                            <input class="form-control" type="password" placeholder="******" id="contrasenaActualUsuEditar" name="Contrasena_UsuA" style="width:150px;height:40px" onkeypress="return validarContrasenaActual(this,event,this.value)">
-                        </div><a id='mensajito2'></a>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-sm-12 col-md-1">
-                        </div>
-                        <label for="contrasena" class="col-sm-12 col-md-3 col-form-label">Nueva contraseña:</label>
-                        <div class="col-sm-12 col-md-2">
-                            <input class="form-control" type="password" placeholder="******" id="contrasenaUsuEditar" name="Contrasena_Usukk" style="width:150px;height:40px" onkeypress="return validareditarContrasena(this,event,this.value)">
-                        </div><a id='mensajito1'></a>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-sm-12 col-md-1">
-                        </div>
-                        <label for="contrasena" class="col-sm-12 col-md-3 col-form-label">Vuelve a escribir la nueva contraseña:</label>
-                        <div class="col-sm-12 col-md-2">
-                            <input class="form-control" type="password" placeholder="******" id="contrasenaUsu2Editar" name="Contrasena_Usu2" style="width:150px;height:40px" onkeyup="return validareditarContrasena2(this,event,this.value)"</a>
-                        </div><a id='mensajito'></a>
-                    </div>
-                    <br>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-default" style="background-color:#007bff;"  onclick="validareditarUsuarioContrasena();">Aceptar</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal" style="background-color:#007bff;">Cerrar</button>
-            </div>
-        </div>
-    </div>
-    <form method="POST" id="cambio">
-        <input type="hidden" name="id" id="id"  />
-        <input type="hidden" name="bandera" id="bandera" />
-        <input type="hidden" name="valor" id="valor" />
-    </form>
-</div>
     <?php include("Generalidadespantalla/cierre.php"); ?>
 </div>
 <script src="../assets/Validaciones/mostrarUsuario.js"></script>     

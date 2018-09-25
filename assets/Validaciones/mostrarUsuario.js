@@ -37,5 +37,6 @@ function editarUsuContrasena(usuario,tipo,idusuario){
 		var aux = 'Administrador';
 	}
 	$("#tipoUsuContrasenaEditar").val(aux);	
-	$("#idusuario").val(idusuario);
+	console.log(idusuario);
+	$("#idusuarioContrasena").val(idusuario);
 }
