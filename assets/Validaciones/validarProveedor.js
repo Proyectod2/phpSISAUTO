@@ -159,3 +159,20 @@ return true;
         });
     }
     }
+
+// *******************************************************************************
+
+function validarproveedorEditar(){
+    nombreE = $("#nombreProEditar").val();
+    descripcionE = $("#descripcionProvEditar").val();
+    anteriorE = $("#anterior").val();
+    if (nombreE == anteriorE) {
+        $("#editarPro").submit();
+    }else if(descripcionE.length > 14){
+        $("#editarPro").submit();
+    }else if(descripcionE.length <= 14){
+        notaError("Descripción muy corta");
+    }else{
+        notaError("Justifique en la descripción porque modificó el nombre de la empresa");
+    }
+}

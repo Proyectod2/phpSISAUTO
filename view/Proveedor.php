@@ -34,7 +34,13 @@ and open the template in the editor.
                         <button class="btn btn-primary" data-toggle="modal" data-target="#modalNuevo">
                             Agregar nuevo 
                             <span class="fa fa-plus"></span>
-                        </button></a>
+                        </button>
+                    </a>
+                    <a class="pull-right" href="/phpSISAUTO/view/Proveedor.php?tipo=0">
+                        <button class="btn btn-primary">
+                            Ver proveedores inactivos
+                        </button>
+                    </a>
                     <br><br>
                     <!-- TABLA CLIENTES-->
                     <div class="card mb-3">
@@ -85,8 +91,8 @@ and open the template in the editor.
                                             <td><?php echo $proveedore['nombreResp_Prov'] ?></td>
                                                                                        
                                             <th align="center">
-                                                <button title="Ver"type="button" class="btn btn-info fa fa-eye" data-toggle="modal" data-target="#modalVerProveedor" href="" onclick="mostrarPro('<?php echo $proveedore['nombre_Prov']?>','<?php echo $proveedore['correo_Prov']?>','<?php echo $proveedore['telefono_Prov']?>','<?php echo $proveedore['direccion_Prov']?>','<?php echo $proveedore['nombreResp_Prov']?>','<?php echo $proveedore['telefonoResp_Prov']?>');"></button>
-                                                <button title="Editar" type="button" class="btn btn-primary fa fa-pencil-square-o" data-toggle="modal" data-target="#modalEditarProveedor" onclick="editarPro('<?php echo $proveedore['nombre_Prov']?>','<?php echo $proveedore['correo_Prov']?>','<?php echo $proveedore['telefono_Prov']?>','<?php echo $proveedore['direccion_Prov']?>','<?php echo $proveedore['nombreResp_Prov']?>','<?php echo $proveedore['telefonoResp_Prov']?>','<?php echo $proveedore['idProveedor']?>');"></button>
+                                                <button title="Ver"type="button" class="btn btn-info fa fa-eye" data-toggle="modal" data-target="#modalVerProveedor" href="" onclick="mostrarPro('<?php echo $proveedore['nombre_Prov']?>','<?php echo $proveedore['correo_Prov']?>','<?php echo $proveedore['telefono_Prov']?>','<?php echo $proveedore['direccion_Prov']?>','<?php echo $proveedore['nombreResp_Prov']?>','<?php echo $proveedore['telefonoResp_Prov']?>','<?php echo $proveedore['descripcion_Prov']?>');"></button>
+                                                <button title="Editar" type="button" class="btn btn-primary fa fa-pencil-square-o" data-toggle="modal" data-target="#modalEditarProveedor" onclick="editarPro('<?php echo $proveedore['nombre_Prov']?>','<?php echo $proveedore['correo_Prov']?>','<?php echo $proveedore['telefono_Prov']?>','<?php echo $proveedore['direccion_Prov']?>','<?php echo $proveedore['nombreResp_Prov']?>','<?php echo $proveedore['telefonoResp_Prov']?>','<?php echo $proveedore['idProveedor']?>','<?php echo $proveedore['descripcion_Prov']?>');"></button>
                                                 <?php  if ($tipo == 1) {
                                                 ?>
                                                 <button title="Dar de baja" type="button" class="btn btn-danger fa fa-arrow-circle-down" onclick="baja(<?php echo $proveedore['idProveedor'] ?>)"></button>
@@ -171,6 +177,7 @@ and open the template in the editor.
                                 <input class="form-control" type="text" id="telefonoRes" name="DUI_Usu" style="width:150px;height:40px" disabled="true">
                             </div>
                         </div>
+                        <div id="ocultar">
                         <div class="form-group row">
                             <div class="col-sm-12 col-md-1">
                             </div>
@@ -180,6 +187,7 @@ and open the template in the editor.
                                </textarea>
                             </div>
                         </div>
+                       </div> 
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -198,7 +206,7 @@ and open the template in the editor.
                     <h5 class="modal-title" id="myModalLabel"> <i class="fa fa-user"></i> Proveedor</h5>
                 </div>
                 <div class="modal-body">
-                    <form action="../Controlador/proveedorC.php" method="POST" id="guardarPro" align="center" autocomplete="off">
+                    <form action="../Controlador/proveedorC.php" method="POST" id="editarPro" align="center" autocomplete="off">
                         <h5 align="center">Datos Generales</h5>
                         <hr width="75%" style="background-color:#007bff;"/>
                         <input type="hidden" value="EditarPro" name="bandera"></input>
@@ -258,12 +266,13 @@ and open the template in the editor.
                             </div>
                             <label for="usuario" class="col-sm-12 col-md-3 col-form-label">Descripción:</label> 
                             <div class="col-sm-12 col-md-8">
-                               <textarea class="form-control" type="text" name="descripcion"  placeholder="Escriba aqui..." id="descripcionProv" style="width:400px;height:80px">
+                               <textarea class="form-control" type="text" name="descripcion"  placeholder="Escriba aqui..." id="descripcionProvEditar" style="width:400px;height:80px">
                                </textarea>
                             </div>
                         </div>
                         <div class="modal-footer">
-                          <button type="submit" class="btn btn-default" style="background-color:#007bff;">Aceptar</button>
+                           <input type="hidden" id="anterior" value=""  />
+                          <button type="button" class="btn btn-default" style="background-color:#007bff;" onclick="validarproveedorEditar()">Aceptar</button>
                           <button type="button" class="btn btn-default" data-dismiss="modal" style="background-color:#007bff;">Cerrar</button>
                         </div>
                     </form>
