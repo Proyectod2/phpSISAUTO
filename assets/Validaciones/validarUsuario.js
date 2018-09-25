@@ -154,14 +154,16 @@ function validarContrasenaU2(){
 async function validareditarUsuario(){
     var nombreU = await validareditarNombreU();    
     var telefonoU = await validareditarTelefonoU();
+    var correoU = await validareditarCorreoU();
     var direccionU = await validareditarDireccionU(); 
-    if (nombreU && telefonoU && direccionU){
+    var duiU = await validareditarDUIU();
+    if (nombreU && telefonoU && direccionU && duiU && (correoU == 1 || correoU == 0)){
         $('#editarUsu').submit();
     }; 
 }
 
 function validareditarNombreU(){
-    if ($('#editarnombreUsu').val().trim() == "") {
+    if ($('#nombreUsuEditar').val().trim() == "") {
         notaError("¡El nombre es obligatorio!");
         return false;
     }
@@ -169,23 +171,146 @@ function validareditarNombreU(){
 }
 
 function validareditarTelefonoU(){
-    if ($('#editartelefonoUsu').val().trim() == "") {
+    if ($('#telefonoUsuEditar').val().trim() == "") {
         notaError("¡El teléfono es obligatorio!");
         return false;
     }
-    if($('#editartelefonoUsu').val().length < 8){
+    if($('#telefonoUsuEditar').val().length < 8){
         notaError("¡El telefono debe tener 8 digitos!");
         return false;
     }
     return true;
 }
 
-
 function validareditarDireccionU(){
-    if ($('#editardireccionUsu').val().trim()=="") {
+    if ($('#direccionUsuEditar').val().trim()=="") {
         notaError("¡La dirección es obligatoria!");
         return false;
     }
     return true;
 }
 
+function validareditarDUIU(){
+    if ($('#duiUsuEditar').val().trim() == "") {
+        notaError("¡El DUI es obligatorio!");
+        return false;
+    }else if($('#duiUsuEditar').val().length < 10){
+        notaError("¡El DUI debe contener los 10 caracteres!");
+        return false;
+    }else{
+        var param = {
+            dui: $('#duiUsuEditar').val(),
+            bandera: "udui"
+        };
+        return $.ajax({
+            data: param,
+            url:"/phpSISAUTO/Controlador/usuarioC.php",
+            method: "post",
+            success: function(data){
+                if (data != 0 && data != 1) {
+                   notaError("¡El DUI ingresado ya ha sido registrado!"); 
+                   return false;
+                }else{
+                   return true;
+                }
+            }
+        });
+    }
+}
+
+function validareditarCorreoU(){
+    var regex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+    if ($('#email').val().trim() == "") {
+        notaError("¡El correo es obligatorio!");
+        return false;
+    }else if(!regex.test($('#email').val())){
+        notaError("¡El correo es incorrecto!");
+        return false;
+    }else{
+        var param = {
+            correo: $('#email').val(),
+            bandera: "ucorreo"
+        };
+
+        return $.ajax({
+            data: param,
+            url:"/phpSISAUTO/Controlador/usuarioC.php",
+            method: "post",
+            success: function(data){
+                if (data == 0 || data == 1) {
+                    return true;
+                }else{
+                    console.log(data);
+                    notaError("¡El correo ingresado ya ha sido registrado!"); 
+                    return false;
+                }
+            }
+        });
+    }
+}
+
+async function validareditarUsuarioContrasena(){
+    var contrasenaactualU = await validareditarContrasenaActualU();
+    var contrasenaU = await validareditarContrasenaU();
+    var contrasenaU2 = await validareditarContrasenaU2();
+    if (contrasenaU && contrasenaU2 && (contrasenaactualU == 1)){
+        $('#editarUsuContrasena').submit();
+    }; 
+}
+
+function validareditarContrasenaActualU(){
+    if ($('#contrasenaActualUsuEditar').val().trim() == "") {
+        notaError("¡La contraseña actual es obligatoria!");
+        return false;
+    }
+    if($('#contrasenaActualUsuEditar').val().length < 6){
+        notaError("¡La contraseña actual es incorrecta!");
+        return false;
+    }
+    else{
+        var param = {
+            contrasenaActual: $('#contrasenaActualUsuEditar').val(),
+            bandera: "ucontrasenaActual"
+        };
+
+        return $.ajax({
+            data: param,
+            url:"/phpSISAUTO/Controlador/usuarioC.php",
+            method: "post",
+            success: function(data){
+                if (data == 0) {
+                    console.log(data);
+                    notaError("¡La contraseña actual es incorrecta!");
+                    return false;
+                }else{
+                    console.log(data);
+                    return true;
+                }
+            }
+        });
+    }
+}
+
+function validareditarContrasenaU(){
+    if ($('#contrasenaUsuEditar').val().trim() == "") {
+        notaError("¡La nueva contraseña es obligatoria!");
+        return false;
+    }
+    if($('#contrasenaUsuEditar').val().length < 6){
+        notaError("¡La contraseña debe tener al menos 6 caracteres!");
+        return false;
+    }
+    return true;
+}
+
+function validareditarContrasenaU2(){
+    if ($('#contrasenaUsu2Editar').val().trim() == "") {
+        notaError("¡La verificación de contraseña es obligatoria!");
+        return false;
+    }
+    if($('#contrasenaUsu2Editar').val().length < 6 || $('#contrasenaUsu2Editar').val().length > 8){
+        notaError("¡La confirmación de contraseña debe coincidir!");
+        return false;
+    }
+    return true;
+}

@@ -10,8 +10,8 @@ function validarContrasena(obj,e,valor){
     }
   }else if(valor[0] >= 0 || valor[0] >= '0'){
     if((val > 47 && val < 58) || (val > 64 && val < 91) || (val > 96 && val < 123)){//poner rangos de letras 
-      if(valor.length<8){
-        aux=true;
+      if(valor.length < 8){
+        aux = true;
       }   
     }
   }
@@ -48,13 +48,13 @@ function validareditarContrasena(obj,e,valor){
     }
   }else if(valor[0] >= 0 || valor[0] >= '0'){
     if((val > 47 && val < 58) || (val > 64 && val < 91) || (val > 96 && val < 123)){//poner rangos de letras 
-      if(valor.length<8){
-        aux=true;
+      if(valor.length < 8){
+        aux = true;
       }   
     }
   }
   
-  var tamanio = $('#editarcontrasenaUsu').val().length+1;
+  var tamanio = $('#contrasenaUsuEditar').val().length+1;
   if( tamanio < 6){
     $('#mensajito1').text("Debe contener al menos 6 caracteres");
   }else{
@@ -64,9 +64,8 @@ function validareditarContrasena(obj,e,valor){
 }
 
 function validareditarContrasena2(obj,e,valor){
- 
-  var confirmar = $('#editarcontrasenaUsu').val();
-  var contrasena = $('#editarcontrasenaUsu2').val();
+  var confirmar = $('#contrasenaUsuEditar').val();
+  var contrasena = $('#contrasenaUsu2Editar').val();
   if( confirmar == contrasena){
     $('#mensajito').text("La contraseña coinciden");
   }else{
@@ -80,23 +79,23 @@ function validarContrasenaActual(obj,e,valor){
   tecla = String.fromCharCode(tecla);
   aux = false;//bandera
 
-    if(valor==''){
+    if(valor == ''){
     if((val > 47 && val < 58) || (val > 64 && val < 91) || (val > 96 && val < 123)){
-      aux=true;
+      aux = true;
     }
-  }else if(valor[0]>=0 || valor[0]>='0'){
+  }else if(valor[0] >= 0 || valor[0] >= '0'){
     if((val > 47 && val < 58) || (val > 64 && val < 91) || (val > 96 && val < 123)){//poner rangos de letras 
-      if(valor.length<8){
-        aux=true;
+      if(valor.length < 8){
+        aux = true;
       }   
     }
   }
   
-  var tamanio = $('#contrasenaUsu').val().length+1;
+  var tamanio = $('#contrasenaActualUsuEditar').val().length+1;
   if( tamanio < 6){
-    $('#mensajito1').text("Debe contener al menos 6 caracteres");
+    $('#mensajito2').text("Debe contener al menos 6 caracteres");
   }else{
-    $('#mensajito1').text("");
+    $('#mensajito2').text("");
   }
   return aux;
 }

@@ -16,6 +16,7 @@ and open the template in the editor.
         $conexion = conectarMysql();
         $sql = "SELECT * from producto order by idProducto ASC";
         $producto = mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta");
+        
         $contador = mysqli_num_rows($producto);
         if ($contador > -1 && $contador < 9) {
             $ceros = "0000";

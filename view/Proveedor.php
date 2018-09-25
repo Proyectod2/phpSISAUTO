@@ -62,8 +62,7 @@ and open the template in the editor.
                                 }else{
                                     $tipo = $_GET['tipo'];
                                     }?>
-                            <?php include("../confi/Conexion.php"); 
-                            $conexion = conectarMysql();
+                            <?php 
                             $sql="SELECT * from proveedor where tipo_Prov='$tipo' order by nombre_Prov ASC";
                             $proveedores= mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); ?>
                                 <!-- <input id="entradafilter" type="text" class="form-control"> -->
@@ -172,6 +171,15 @@ and open the template in the editor.
                                 <input class="form-control" type="text" id="telefonoRes" name="DUI_Usu" style="width:150px;height:40px" disabled="true">
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12 col-md-1">
+                            </div>
+                            <label for="usuario" class="col-sm-12 col-md-3 col-form-label">Descripción:</label> 
+                            <div class="col-sm-12 col-md-8">
+                               <textarea class="form-control" type="text" name="descripcion"  placeholder="Escriba aqui..." id="descripcionProv" style="width:400px;height:80px" disabled="true">
+                               </textarea>
+                            </div>
+                        </div>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -245,6 +253,15 @@ and open the template in the editor.
                                 <input class="form-control" type="text" id="telefonoResEditar" data-mask="9999-9999" name="Telefono_Res" style="width:150px;height:40px" >
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12 col-md-1">
+                            </div>
+                            <label for="usuario" class="col-sm-12 col-md-3 col-form-label">Descripción:</label> 
+                            <div class="col-sm-12 col-md-8">
+                               <textarea class="form-control" type="text" name="descripcion"  placeholder="Escriba aqui..." id="descripcionProv" style="width:400px;height:80px">
+                               </textarea>
+                            </div>
+                        </div>
                         <div class="modal-footer">
                           <button type="submit" class="btn btn-default" style="background-color:#007bff;">Aceptar</button>
                           <button type="button" class="btn btn-default" data-dismiss="modal" style="background-color:#007bff;">Cerrar</button>
@@ -298,12 +315,16 @@ and open the template in the editor.
                   cancelButtonText: 'No',
 
               }).then((result) => {
+                if(result.value){
                 $('#id').val(id);
                 $('#bandera').val('cambio');
                 $('#valor').val('0');
                 var dominio = window.location.host;
                  $('#cambio').attr('action','http://'+dominio+'/phpSISAUTO/Controlador/proveedorC.php');
                  $('#cambio').submit();
+                 }else{
+
+                }
             })
             }
 
@@ -319,12 +340,16 @@ and open the template in the editor.
                   cancelButtonText: 'No',
 
               }).then((result) => {
+                if(result.value){
                 $('#id').val(id);
                 $('#bandera').val('cambio');
                 $('#valor').val('1');
                 var dominio = window.location.host;
                  $('#cambio').attr('action','http://'+dominio+'/phpSISAUTO/Controlador/proveedorC.php');
                  $('#cambio').submit();
+                 }else{
+
+                 }
             })
             }
         </script>

@@ -64,8 +64,7 @@ and open the template in the editor.
                                 }else{
                                     $tipo = $_GET['tipo'];
                                     }?>
-                            <?php include("../confi/Conexion.php"); 
-                            $conexion = conectarMysql();
+                            <?php 
                             $sql="SELECT * from cliente where tipo_Cli='$tipo' order by nombre_Cli ASC";
                             $clientes= mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); ?>
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
