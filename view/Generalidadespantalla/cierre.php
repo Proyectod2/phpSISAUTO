@@ -469,7 +469,7 @@
 
 
     </script>
-     
+
     <script>
         $('#data_1 .input-group.date').datepicker({
                 todayBtn: "linked",
@@ -520,7 +520,7 @@
 
     });
 
-</script>   
+</script>
     </div>
 
     <?php
@@ -528,6 +528,6 @@
          echo ("<script type='text/javascript'>
     notaInfo('".$_SESSION['mensaje']."');
     </script>");
-     } 
-     unset($_SESSION['mensaje']);
+    unset($_SESSION['mensaje']);
+     }
     ?>
