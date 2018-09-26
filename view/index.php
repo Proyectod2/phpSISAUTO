@@ -231,7 +231,7 @@ and open the template in the editor.
                         Seleccione "Cerrar sesión" a continuación si está listo para finalizar su sesión actual.</div>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                        <a class="btn btn-primary" href="http://localhost/phpSISAUTO/view/login.html">Cerrar sesión</a>
+                        <a href="../Controlador/cerrar.php" class="btn btn-primary" href="http://localhost/phpSISAUTO/view/login.html">Cerrar sesión</a>
                     </div>
                 </div>
             </div>

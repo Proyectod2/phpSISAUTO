@@ -1,4 +1,5 @@
 <?php
+session_start();
 if (isset($_SESSION['usuarioActivo'])) {
 ?>
 <!DOCTYPE html>
@@ -126,10 +127,8 @@ and open the template in the editor.
                     <h5 class="modal-title" id="myModalLabel"> <i class="fa fa-user"></i> Proveedor</h5>
                 </div>
                 <div class="modal-body">
-                    <form action="../Controlador/proveedorC.php" method="POST" id="guardarPro" align="center" autocomplete="off">
                         <h5 align="center">Datos Generales</h5>
                         <hr width="75%" style="background-color:#007bff;"/>
-                        <input type="hidden" value="GuardarPro" name="bandera"></input>
                         <div class="form-group row">
                             <div class="col-sm-12 col-md-1">
                             </div>
@@ -191,7 +190,6 @@ and open the template in the editor.
                             </div>
                         </div>
                        </div> 
-                    </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal" style="background-color:#007bff;">Cerrar</button>
@@ -283,10 +281,10 @@ and open the template in the editor.
 
             </div>
         </div>
-        <form method="POST" id="cambio">
-            <input type="hidden" name="id" id="id"  />
-            <input type="hidden" name="bandera" id="bandera" />
-            <input type="hidden" name="valor" id="valor" />
+        <form method="POST" id="cambioProv">
+            <input type="hidden" name="id" id="idProv"  />
+            <input type="hidden" name="bandera" id="banderaProv" />
+            <input type="hidden" name="valor" id="valorProv" />
         </form>
     </div>
 
@@ -329,12 +327,12 @@ and open the template in the editor.
 
               }).then((result) => {
                 if(result.value){
-                $('#id').val(id);
-                $('#bandera').val('cambio');
-                $('#valor').val('0');
+                $('#idProv').val(id);
+                $('#banderaProv').val('cambio');
+                $('#valorProv').val('0');
                 var dominio = window.location.host;
-                 $('#cambio').attr('action','http://'+dominio+'/phpSISAUTO/Controlador/proveedorC.php');
-                 $('#cambio').submit();
+                 $('#cambioProv').attr('action','http://'+dominio+'/phpSISAUTO/Controlador/proveedorC.php');
+                 $('#cambioProv').submit();
                  }else{
 
                 }
@@ -354,12 +352,12 @@ and open the template in the editor.
 
               }).then((result) => {
                 if(result.value){
-                $('#id').val(id);
-                $('#bandera').val('cambio');
-                $('#valor').val('1');
+                $('#idProv').val(id);
+                $('#banderaProv').val('cambio');
+                $('#valorProv').val('1');
                 var dominio = window.location.host;
-                 $('#cambio').attr('action','http://'+dominio+'/phpSISAUTO/Controlador/proveedorC.php');
-                 $('#cambio').submit();
+                 $('#cambioProv').attr('action','http://'+dominio+'/phpSISAUTO/Controlador/proveedorC.php');
+                 $('#cambioProv').submit();
                  }else{
 
                  }
@@ -375,7 +373,7 @@ and open the template in the editor.
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta http-equiv="refresh" content="0;URL=/phpSISAUTO/view/login.html">
+<meta http-equiv="refresh" content="0;URL=/phpSISAUTO/view/login.php">
 </head>
 <body>
 </body>

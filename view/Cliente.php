@@ -1,4 +1,5 @@
 <?php
+session_start();
 if (isset($_SESSION['usuarioActivo'])) {
 ?>
 <!DOCTYPE html>
@@ -271,7 +272,7 @@ and open the template in the editor.
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta http-equiv="refresh" content="0;URL=/phpSISAUTO/view/login.html">
+<meta http-equiv="refresh" content="0;URL=/phpSISAUTO/view/login.php">
 </head>
 <body>
 </body>

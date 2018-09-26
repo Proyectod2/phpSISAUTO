@@ -1,7 +1,3 @@
-
-
-<?php session_start(); 
- ?>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,7 +16,7 @@
     <script src="../assets/js/jquery.min.js"></script>
     <script src="../assets/js/bootstrap.min.js"></script>
     <script src="../js/plugins/dataTables/datatables.min.js"></script>
-    <script src="../js/jquery-2.1.1.js"></script>
+    <script src="../../phpSISAUTO/js/jquery-2.1.1.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/plugins/metisMenu/jquery.metisMenu.js"></script>
     <script src="../js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
@@ -32,7 +28,7 @@
     <script src="../assets/package/dist/sweetalert2.js"></script>
    <!--  <link href="../assets/font-awesome/css/font-awesome.css" rel="stylesheet"> -->
     <!-- Toastr style -->
-    <link href="css/plugins/toastr/toastr.min.css" rel="stylesheet">
+    <!-- <link href="css/plugins/toastr/toastr.min.css" rel="stylesheet"> -->
     <!-- Gritter -->
     <link href="../js/plugins/gritter/jquery.gritter.css" rel="stylesheet">
     <!-- <link href="css/animate.css" rel="stylesheet"> -->
