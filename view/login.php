@@ -19,7 +19,7 @@
         <link href="../assets/pNotify/pnotify.custom.min.css" rel="stylesheet">
         <style>
         body {
-            background-image: url("auto.jpg");
+            background-image: url("../assets/img/auto.jpg");
         }</style>
     </head>
 
@@ -46,7 +46,7 @@
                         <button class="btn btn-primary btn-block" type="submit">Entrar</button>
                     </form><br>
                     <div class="text-center">
-                        <a class="d-block small" href="/phpSISAUTO/view/forgot-password.html">Olvidaste tu contraseña?</a>
+                        <a class="d-block small" href="/phpSISAUTO/view/forgot-password.php">Olvidaste tu contraseña?</a>
                     </div>
                 </div>
             </div>

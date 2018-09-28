@@ -54,7 +54,7 @@ if ($bandera=="cambio") {
 		$aux = 1;
 		$_SESSION['mensaje'] ="Proveedor dado de baja exitosamente";
 	}
-    header("location: /phpSISAUTO/view/Proveedor.php?tipo=".$aux."&mensaje=".$mensaje);
+    header("location: /phpSISAUTO/view/Proveedor.php?tipo=".$aux."");
 }
 
 if ($bandera=="cnombre") {
