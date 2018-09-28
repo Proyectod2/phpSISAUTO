@@ -162,6 +162,19 @@ return true;
 
 // *******************************************************************************
 
+    async function validareditarProveedor(){
+        var nombreE= await validarproveedorEditar(); 
+        var correoE= await validareditarCorreoE();
+        var telefonoE= await validareditarTelefonoE(); 
+        var direccionE= await validareditarDireccionE();    
+        var nombreR= await validareditarNombreR();
+        var telefonoR= await validareditarTelefonoR(); 
+
+        if (nombreE==0 && correoE==0 && telefonoE==0 && direccionE && nombreR && telefonoR==0) {
+            $('#editarPro').submit();
+        }   
+    }
+
 function validarproveedorEditar(){
     nombreE = $("#nombreProEditar").val();
     descripcionE = $("#descripcionProvEditar").val();
@@ -176,3 +189,123 @@ function validarproveedorEditar(){
         notaError("Justifique en la descripción porque modificó el nombre de la empresa");
     }
 }
+
+    function validareditarCorreoE(){
+    var regex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+    if(!regex.test($('#email').val())){
+        notaError("¡El correo es incorrecto!");
+        return true;
+    }else if ($('#email').val().trim()=="") {
+        notaError("¡El correo es obligatorio!");
+        return true;
+    }else{
+        var param = {
+            correo: $('#email').val(),
+            bandera: "ccorreo"
+        };
+
+        return $.ajax({
+            data: param,
+            url:"/phpSISAUTO/Controlador/proveedorC.php",
+            method: "post",
+            success: function(data){
+                if (data==0) {
+                    return true;
+                }else{
+                   notaError("El correo ingresado ya ha sido registrado!"); 
+                   return false;
+                }
+            }
+        });
+    }
+
+    }
+
+    function validareditarTelefonoE(){
+
+       if ($('#telefonoProEditar').val().length!=9) {
+        notaError("El teléfono debe contener 8 dígitos!");
+        return true;
+    }   
+
+    else if ($('#telefonoProEditar').val().trim()=="") {
+        notaError("El teléfono de la empresa es obligatorio!");
+        return true;
+    }
+    else{
+        var param = {
+            telefono: $('#telefonoProEditar').val(),
+            bandera: "ctelEmp"
+        };
+
+        return $.ajax({
+            data: param,
+            url:"/phpSISAUTO/Controlador/proveedorC.php",
+            method: "post",
+            success: function(data){
+                if (data==0) {
+                    return true;
+                }else{
+                 notaError("El teléfono ingresado ya ha sido registrado!"); 
+                 return false;
+             }
+         }
+     });
+    }
+
+}
+
+    function validareditarDireccionE(){
+
+        if ($('#direccionProEditar').val().trim()=="") {
+            notaError("La Dirección es obligatoria!");
+            return false;
+        }
+
+
+        return true;
+    }
+
+    function validareditarNombreR(){
+
+        if ($('#nombreResEditar').val().trim()=="") {
+            notaError("El nombre del responsable es obligatorio!");
+            return false;
+        }
+
+
+        return true;
+    }
+
+    function validarTelefonoR(){
+
+        if ($('#telefonoResEditar').val().length!=9) {
+            notaError("El teléfono del proveedor debe contener 8 dígitos!");
+            return true;
+        }
+
+        else if ($('#telefonoResEditar').val().trim()=="") {
+            notaError("El teléfono del responsable es obligatorio!");
+            return true;
+        }
+        else{
+            var param = {
+                telefonoR: $('#telefonoResEditar').val(),
+                bandera: "ctelResp"
+            };
+
+            return $.ajax({
+                data: param,
+                url:"/phpSISAUTO/Controlador/proveedorC.php",
+                method: "post",
+                success: function(data){
+                    if (data==0) {
+                        return true;
+                    }else{
+                     notaError("El teléfono del responsable ingresado ya ha sido registrado!"); 
+                     return false;
+                 }
+             }
+         });
+        }
+    }

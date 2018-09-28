@@ -31,9 +31,10 @@ if($bandera=="EditarPro"){
 	$direccionE = $_POST["Direccion_Emp"];
 	$nombreR = $_POST["Nombre_Res"];
 	$telefonoR = $_POST["Telefono_Res"];
+	$descripcionE = $_POST["descripcion"];
 	$idproveedor = $_POST["idproveedor"];
 
-	$sql = "UPDATE proveedor set nombre_Prov='$nombreE',correo_Prov='$correoE',telefono_Prov='$telefonoE',direccion_Prov='$direccionE',nombreResp_Prov='$nombreR',telefonoResp_Prov='$telefonoR' where idProveedor = '$idproveedor'";
+	$sql = "UPDATE proveedor set nombre_Prov='$nombreE',correo_Prov='$correoE',telefono_Prov='$telefonoE',direccion_Prov='$direccionE',nombreResp_Prov='$nombreR',telefonoResp_Prov='$telefonoR',descripcion_Prov='$descripcionE' where idProveedor = '$idproveedor'";
 
     mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD".mysqli_connect_error());
     $_SESSION['mensaje'] ="Registro editado exitosamente";
@@ -47,10 +48,11 @@ if ($bandera=="cambio") {
 	$proveedor = mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta");
 	if ($_POST["valor"]==1) {
 		$aux = 0;
-		$mensaje = "Proveedor dado de alta exitosamente";
+		$_SESSION['mensaje'] ="Proveedor dado de alta exitosamente";
+		// $mensaje = "Proveedor dado de alta exitosamente";
 	}else{
 		$aux = 1;
-		$mensaje = "Proveedor dado de baja exitosamente";
+		$_SESSION['mensaje'] ="Proveedor dado de baja exitosamente";
 	}
     header("location: /phpSISAUTO/view/Proveedor.php?tipo=".$aux."&mensaje=".$mensaje);
 }

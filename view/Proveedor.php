@@ -25,9 +25,17 @@ and open the template in the editor.
                 </li>
                 <li class="breadcrumb-item active">Proveedores</li>
             </ol>
+            <?php if (!isset($_GET['tipo'])) { 
+                $tipo=1;
+            }else{
+                $tipo = $_GET['tipo'];
+            }?>
+            <?php 
+            $sql="SELECT * from proveedor where tipo_Prov='$tipo' order by nombre_Prov ASC";
+            $proveedores= mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); ?>
             <div class="row">
                 <div class="col-12">
-                    <h1 align="center"></h1>
+                    <!-- <h1 align="center"></h1> -->
                     <a class="pull-right" href="">
                         <button class="btn btn-primary" data-toggle="modal" data-target="#modalNuevo">
                             Reporte
@@ -39,16 +47,29 @@ and open the template in the editor.
                             Agregar nuevo 
                             <span class="fa fa-plus"></span>
                         </button>
+                        &nbsp;
                     </a>
-                    <a class="pull-right" href="/phpSISAUTO/view/Proveedor.php?tipo=0">
-                        <button class="btn btn-primary">
-                            Ver proveedores inactivos
-                        </button>
-                    </a>
+                     <?php  if ($tipo == 1) { ?>
+                        <a class="pull-right" href="/phpSISAUTO/view/Proveedor.php?tipo=0">
+                            <button class="btn btn-primary">
+                                Ver proveedores inactivos  <i class="fa fa-bars"></i>
+                            </button>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                        </a>
+                        
+                    <?php  }else{ ?>
+                        <a class="pull-right" href="/phpSISAUTO/view/Proveedor.php?tipo=1">
+                            <button class="btn btn-primary">
+                                Ver proveedores activos <i class="fa fa-bars"></i>
+                            </button>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                        </a>
+                        
+                    <?php } ?>
                     <br><br>
                     <!-- TABLA CLIENTES-->
                     <div class="card mb-3">
-                        <div class="card-header">
+                        <div class="card-header" style="background-color:#eff3f4;">
                             <i class="fa fa-table"></i> Proveedores</div>
                             <form align="right" ><br>
                             <table id="dataTable" class="pull-right " width="100%" cellspacing="0" >
@@ -67,16 +88,9 @@ and open the template in the editor.
                         </form>
                         <div class="card-body">
                             <div class="table-responsive">
-                            <?php if (!isset($_GET['tipo'])) { 
-                                $tipo=1;
-                                }else{
-                                    $tipo = $_GET['tipo'];
-                                    }?>
-                            <?php 
-                            $sql="SELECT * from proveedor where tipo_Prov='$tipo' order by nombre_Prov ASC";
-                            $proveedores= mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); ?>
+                           
                                 <!-- <input id="entradafilter" type="text" class="form-control"> -->
-                                <table class="table table-striped table-bordered" id="example" width="100%" cellspacing="0">
+                                <table class="table table-striped table-bordered" id="example" width="100%" cellspacing="0" style="width:100%">
                                     <thead>
                                         <tr>
                                             <th style="width:150px">Empresa</th>
@@ -96,7 +110,10 @@ and open the template in the editor.
                                                                                        
                                             <th align="center">
                                                 <button title="Ver"type="button" class="btn btn-info fa fa-eye" data-toggle="modal" data-target="#modalVerProveedor" href="" onclick="mostrarPro('<?php echo $proveedore['nombre_Prov']?>','<?php echo $proveedore['correo_Prov']?>','<?php echo $proveedore['telefono_Prov']?>','<?php echo $proveedore['direccion_Prov']?>','<?php echo $proveedore['nombreResp_Prov']?>','<?php echo $proveedore['telefonoResp_Prov']?>','<?php echo $proveedore['descripcion_Prov']?>');"></button>
+                                                <?php  if ($tipo == 1) {
+                                                ?>
                                                 <button title="Editar" type="button" class="btn btn-primary fa fa-pencil-square-o" data-toggle="modal" data-target="#modalEditarProveedor" onclick="editarPro('<?php echo $proveedore['nombre_Prov']?>','<?php echo $proveedore['correo_Prov']?>','<?php echo $proveedore['telefono_Prov']?>','<?php echo $proveedore['direccion_Prov']?>','<?php echo $proveedore['nombreResp_Prov']?>','<?php echo $proveedore['telefonoResp_Prov']?>','<?php echo $proveedore['idProveedor']?>','<?php echo $proveedore['descripcion_Prov']?>');"></button>
+                                                <?php  }else{ }?>
                                                 <?php  if ($tipo == 1) {
                                                 ?>
                                                 <button title="Dar de baja" type="button" class="btn btn-danger fa fa-arrow-circle-down" onclick="baja(<?php echo $proveedore['idProveedor'] ?>)"></button>
@@ -225,7 +242,7 @@ and open the template in the editor.
                             </div>
                             <label  for="correo" class="col-sm-12 col-md-3 col-form-label">Correo:</label>
                             <div  class="col-sm-12 col-md-8">
-                                <input class="form-control" type="email" id="correoProEditar"  name="Correo_Emp" style="width:400px;height:40px" >
+                                <input class="form-control" type="email" id="correoProEditar"  name="Correo_Emp" style="width:400px;height:40px" onkeyup="validarCorreoProvEditar(this)" ><a id='correoProEditar'></a>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -251,7 +268,7 @@ and open the template in the editor.
                             </div>
                             <label for="nombre" class="col-sm-12 col-md-3 col-form-label">Nombre Responsable:</label>
                             <div class="col-sm-12 col-md-8">
-                                <input class="form-control" type="text" id="nombreResEditar" name="Nombre_Res" style="width:400px;height:40px">
+                                <input class="form-control" type="text" id="nombreResEditar" name="Nombre_Res" style="width:400px;height:40px" onkeypress="return validarNombreCompletoProveedor(this,event,this.value)">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -262,12 +279,13 @@ and open the template in the editor.
                                 <input class="form-control" type="text" id="telefonoResEditar" data-mask="9999-9999" name="Telefono_Res" style="width:150px;height:40px" >
                             </div>
                         </div>
+                        <hr width="75%" style="background-color:#007bff;"/>
                         <div class="form-group row">
                             <div class="col-sm-12 col-md-1">
                             </div>
                             <label for="usuario" class="col-sm-12 col-md-3 col-form-label">Descripción:</label> 
                             <div class="col-sm-12 col-md-8">
-                               <textarea class="form-control" type="text" name="descripcion"  placeholder="Escriba aqui..." id="descripcionProvEditar" style="width:400px;height:80px">
+                               <textarea class="form-control" type="text" name="descripcion"  placeholder="Escriba aqui porque va a modificar el nombre de la empresa " id="descripcionProvEditar" style="width:400px;height:80px">
                                </textarea>
                             </div>
                         </div>
@@ -292,6 +310,8 @@ and open the template in the editor.
 
         <script src="../assets/Validaciones/mostrarProveedor.js"></script> 
         <script src="../assets/Validaciones/validarProveedor.js"></script>
+        <script src="../assets/Validaciones/validarCorreo.js"></script>
+        <script src="../assets/Validaciones/validarNombreCompletoUsuario.js"></script>
 
         <!-- Filtrado de la tabla -->
         <script type="text/javascript">
