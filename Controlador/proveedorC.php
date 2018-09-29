@@ -81,4 +81,24 @@ if ($bandera=="ctelResp") {
     echo mysqli_num_rows($proveedor);
 }
 
+// ---------------------------------------------------------------------
+
+if ($bandera=="ccorreoEditar") {
+	$sql="SELECT * from proveedor where correo_Prov = BINARY '".$_POST["correo"]."' AND idProveedor<>'".$_POST["idP"]."'";
+	$proveedor = mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta");
+    echo mysqli_num_rows($proveedor);
+}
+
+if ($bandera=="ctelEmpEditar") {
+	$sql="SELECT * from proveedor where telefono_Prov like '".$_POST["telefono"]."'  AND idProveedor<>'".$_POST["idP"]."' ";
+	$proveedor = mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta");
+    echo mysqli_num_rows($proveedor);
+}
+
+if ($bandera=="ctelRespEditar") {
+	$sql="SELECT * from proveedor where telefonoResp_Prov like '".$_POST["telefonoR"]."' AND idProveedor<>'".$_POST["idP"]."'";
+	$proveedor = mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta");
+    echo mysqli_num_rows($proveedor);
+}
+
 ?>

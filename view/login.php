@@ -70,4 +70,10 @@ notaError('".$_SESSION['error']."');
 </script>");
  unset($_SESSION['error']);
  }
+ if (isset($_SESSION['mensaje'])) {
+     echo ("<script type='text/javascript'>
+notaInfo('".$_SESSION['mensaje']."');
+</script>");
+ unset($_SESSION['mensaje']);
+ }
 ?>

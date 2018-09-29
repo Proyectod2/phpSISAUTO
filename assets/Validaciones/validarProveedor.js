@@ -171,7 +171,7 @@ return true;
         var telefonoR= await validareditarTelefonoR(); 
 
         if (nombreE==0 && correoE==0 && telefonoE==0 && direccionE && nombreR && telefonoR==0) {
-            $('#editarPro').submit();
+            // $('#editarPro').submit();
         }   
     }
 
@@ -179,29 +179,36 @@ function validarproveedorEditar(){
     nombreE = $("#nombreProEditar").val();
     descripcionE = $("#descripcionProvEditar").val();
     anteriorE = $("#anterior").val();
-    if (nombreE == anteriorE) {
-        $("#editarPro").submit();
+
+    if ($('#nombreProEditar').val().trim()=="") {
+        notaError("¡El nombre de la empresa es obligatorio!");
+        return 1;
+    }else if (nombreE == anteriorE) {
+        return 0;
     }else if(descripcionE.length > 14){
-        $("#editarPro").submit();
+        return 0;
     }else if(descripcionE.length !=0 && descripcionE.length <= 14){
         notaError("Descripción muy corta");
+        return 1;
     }else{
         notaError("Justifique en la descripción porque modificó el nombre de la empresa");
+        return 1;
     }
 }
 
     function validareditarCorreoE(){
     var regex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
-    if(!regex.test($('#email').val())){
-        notaError("¡El correo es incorrecto!");
-        return true;
-    }else if ($('#email').val().trim()=="") {
+    if ($('#correoProEditar').val().trim()=="") {
         notaError("¡El correo es obligatorio!");
+        return true;
+    }else if(!regex.test($('#correoProEditar').val())){
+        notaError("¡El correo es incorrecto!");
         return true;
     }else{
         var param = {
-            correo: $('#email').val(),
-            bandera: "ccorreo"
+            correo: $('#correoProEditar').val(),
+            bandera: "ccorreoEditar",
+            idP: $('#idproveedor').val()
         };
 
         return $.ajax({
@@ -277,7 +284,7 @@ function validarproveedorEditar(){
         return true;
     }
 
-    function validarTelefonoR(){
+    function validareditarTelefonoR(){
 
         if ($('#telefonoResEditar').val().length!=9) {
             notaError("El teléfono del proveedor debe contener 8 dígitos!");
@@ -291,7 +298,8 @@ function validarproveedorEditar(){
         else{
             var param = {
                 telefonoR: $('#telefonoResEditar').val(),
-                bandera: "ctelResp"
+                bandera: "ctelRespEditar",
+                idP:$('#idproveedor').val()
             };
 
             return $.ajax({
