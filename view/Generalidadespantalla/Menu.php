@@ -207,8 +207,8 @@
                 <form action="../Controlador/usuarioC.php" method="POST" id="editarUsuContrasena" align="center" autocomplete="off">
                     <h5 align="center">Datos del usuario</h5>
                     <hr width="75%" style="background-color:#007bff;"/>
-                    <input type="hidden" value="EditarUsuContrasena" name="bandera"></input>
-                    <input type="hidden" value="" name="idusuarioContrasena" id="idusuarioContrasena"></input>
+                    <input type="hidden" value="EditarUsuContrasena" name="bandera"/>
+                    <input type="hidden" value="" name="idusuarioContrasena" id="idusuarioContrasena"/>
                     <div class="form-group row">
                         <div class="col-sm-12 col-md-1">
                         </div>

@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,9 +15,11 @@
         <link href="../assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <!-- Custom styles for this template-->
         <link href="../assets/css/sb-admin.css" rel="stylesheet">
+
+        <link href="../assets/pNotify/pnotify.custom.min.css" rel="stylesheet">
         <style>
         body {
-            background-image: url("auto.jpg");
+            background-image: url("../assets/img/auto.jpg");
         }</style>
     </head>
 
@@ -29,15 +32,15 @@
                         <h4>¿Olvidaste tu contraseña?</h4>
                         <p>Ingrese su dirección de correo electrónico y le enviaremos instrucciones sobre cómo restablecer su contraseña.</p>
                     </div>
-                    <form>
+                    <form method="post" action="../Controlador/correo.php">
                         <div class="form-group">
-                            <input class="form-control" id="exampleInputEmail1" type="email" aria-describedby="emailHelp" placeholder="Email">
+                            <input class="form-control" id="exampleInputEmail1" type="text" name="correo" aria-describedby="emailHelp" placeholder="Correo Electrónico">
                         </div>
-                        <a class="btn btn-primary btn-block" href="">
-                            Restablecer la contraseña</a>
+                        <button class="btn btn-primary btn-block" type="submit">
+                            Restablecer la contraseña</button>
                     </form>
                     <div class="text-center">
-                        <a class="d-block small" href="http://localhost/phpSISAUTO/view/login.html">
+                        <a class="d-block small" href="http://localhost/phpSISAUTO/view/login.php">
                             Página de inicio de sesión</a>
                     </div>
                 </div>
@@ -48,6 +51,18 @@
         <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
         <!-- Core plugin JavaScript-->
         <script src="../assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+        <script src="../assets/pNotify/pnotify.custom.min.js"></script>
+
+        <script src="../assets/Validaciones/Mensajes.js"></script>
     </body>
 
 </html>
+<?php
+if (isset($_SESSION['error'])) {
+     echo ("<script type='text/javascript'>
+notaError('".$_SESSION['error']."');
+</script>");
+ unset($_SESSION['error']);
+ }
+?>
