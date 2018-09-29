@@ -171,7 +171,7 @@ return true;
         var telefonoR= await validareditarTelefonoR(); 
 
         if (nombreE==0 && correoE==0 && telefonoE==0 && direccionE && nombreR && telefonoR==0) {
-            // $('#editarPro').submit();
+            $('#editarPro').submit();
         }   
     }
 
@@ -242,7 +242,8 @@ function validarproveedorEditar(){
     else{
         var param = {
             telefono: $('#telefonoProEditar').val(),
-            bandera: "ctelEmp"
+            bandera: "ctelEmpEditar",
+            idP: $('#idproveedor').val()
         };
 
         return $.ajax({

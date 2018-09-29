@@ -17,7 +17,7 @@ if ($row= mysqli_fetch_assoc($var)){
         }
         $sql = "UPDATE usuario set contrasena_Usu=MD5('$cad') where correo_Usu = '$correo'";
         try {
-        	mail($_POST['correo'],"Recuperación de contraseña","Su nueva contraseña: ".$cad,"SISAUTO");
+        	mail($_POST['correo'],"Recuperación de contraseña","Su nueva contraseña es : ".$cad,"SISAUTO");
         	mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD".mysqli_connect_error());
         	$_SESSION['mensaje']="La contraseña fue enviada al correo";
     	    header("location: /phpSISAUTO/view/login.php");

@@ -289,7 +289,7 @@ and open the template in the editor.
                             </div>
                         </div>
                         <div class="modal-footer">
-                           <input type="hidden" id="anterior" value=""  />
+                          <input type="hidden" id="anterior" value=""  />
                           <button type="button" class="btn btn-default" style="background-color:#007bff;" onclick="validareditarProveedor()">Aceptar</button>
                           <button type="button" class="btn btn-default" data-dismiss="modal" style="background-color:#007bff;">Cerrar</button>
                         </div>

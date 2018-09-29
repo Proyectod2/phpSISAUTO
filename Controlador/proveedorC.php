@@ -81,7 +81,13 @@ if ($bandera=="ctelResp") {
     echo mysqli_num_rows($proveedor);
 }
 
-// ---------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------
+
+if ($bandera=="cnombreEditar") {
+	$sql="SELECT * from proveedor where nombre_Prov like '".$_POST["nombre"]."' AND idProveedor<>'".$_POST["idP"]."'";
+	$proveedor = mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta");
+    echo mysqli_num_rows($proveedor);
+}
 
 if ($bandera=="ccorreoEditar") {
 	$sql="SELECT * from proveedor where correo_Prov = BINARY '".$_POST["correo"]."' AND idProveedor<>'".$_POST["idP"]."'";
