@@ -1,5 +1,6 @@
 <?php
 
+  session_start();
 include("../confi/Conexion.php");
 $conexion = conectarMysql();
 
@@ -14,8 +15,9 @@ if($bandera=="GuardarCli"){
 	$sql = "INSERT INTO cliente (nombre_Cli,direccion_Cli,telefono_Cli,nrc_Cli,nit_Cli,tipo_Cli) VALUES ('$nombreCli','$direccionCli','$telefonoCli','$NRCcli','$NITcli',1)";
 
     mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD".mysqli_connect_error());
-    $mensaje = "Registro guardado exitosamente";
-    header("location: /phpSISAUTO/view/Cliente.php?mensaje=".$mensaje);
+   
+    $_SESSION['mensaje'] ="Registro guardado exitosamente";
+    header("location: /phpSISAUTO/view/Cliente.php");
 
 }
 
@@ -26,13 +28,15 @@ if($bandera=="EditarCli"){
 	$telefonoCli = $_POST["telefonoCli"];
 	$NRCcli = $_POST["nrcCli"];
 	$NITcli = $_POST["nitCli"];
+	$descripcion = $_POST["descripcion"];
 	$idcliente = $_POST["idcliente"];
 
-	$sql = "UPDATE cliente set nombre_Cli='$nombreCli',direccion_Cli='$direccionCli',telefono_Cli='$telefonoCli',nrc_Cli='$NRCcli',nit_Cli='$NITcli' where idCliente = '$idcliente'";
+	$sql = "UPDATE cliente set nombre_Cli='$nombreCli',direccion_Cli='$direccionCli',telefono_Cli='$telefonoCli',nrc_Cli='$NRCcli',nit_Cli='$NITcli',descripcion_Cli='$descripcion' where idCliente = '$idcliente'";
 
     mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD".mysqli_connect_error());
-    $mensaje = "Registro editado exitosamente";
-    header("location: /phpSISAUTO/view/Cliente.php?mensaje=".$mensaje);
+    
+    $_SESSION['mensaje'] ="Registro editado exitosamente";
+    header("location: /phpSISAUTO/view/Cliente.php");
 
 }
 if ($bandera=="cambio") {
@@ -69,6 +73,12 @@ if ($bandera=="nitC") {
 
 if ($bandera=="nrcC") {
 	$sql="SELECT * from cliente where nrc_Cli like '".$_POST["nrc"]."' ";
+	$cliente = mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta");
+    echo mysqli_num_rows($cliente);
+}
+
+if ($bandera=="telefonoCEditar") {
+	$sql="SELECT * from cliente where telefono_Cli like '".$_POST["telefono"]."' AND idCliente<>'".$_POST["idP"]."' ";
 	$cliente = mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta");
     echo mysqli_num_rows($cliente);
 }

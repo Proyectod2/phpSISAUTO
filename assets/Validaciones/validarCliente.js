@@ -143,3 +143,101 @@ return true;
     }
     
     }
+   // *********************************************************************************************************************
+      async function validareditarCliente(){
+        var nombre= await validarclienteEditar(); 
+        var direccion= await validarDireccionEditar();   
+        var telefono= await validarTelefonoEditar();  
+        var nrc= await validarNRCEditar();
+        var nit= await validarNITEditar();  
+        if (nombre==0 && direccion && telefono==0 && nrc==0 && nit==0) {
+            $('#editarCli').submit();
+        };      
+    }
+
+    function validarclienteEditar(){
+    nombre = $("#nombreCliEditar").val();
+    descripcionE = $("#descripcionCliEditar").val();
+    anteriorE = $("#anterior").val();
+
+    if ($('#nombreCliEditar').val().trim()=="") {
+        notaError("¡El nombre del cliente es obligatorio!");
+        return 1;
+    }else if (nombre == anteriorE) {
+        return 0;
+    }else if(descripcionE.length > 14){
+        return 0;
+    }else if(descripcionE.length !=0 && descripcionE.length <= 14){
+        notaError("Descripción muy corta");
+        return 1;
+    }else{
+        notaError("Justifique en la descripción porque modificó el nombre del cliente");
+        return 1;
+    }
+        }
+
+    function validarDireccionEditar(){
+
+    if ($('#direccionCliEditar').val().trim()=="") {
+        notaError("La Dirección es obligatoria!");
+        return false;
+    }
+        return true;
+    }
+
+
+      function validarTelefonoEditar(){
+
+    if ($('#telefonoCliEditar').val().length!=9) {
+        notaError("El teléfono debe contener 8 dígitos!");
+        return true;
+    }
+    else if ($('#telefonoCliEditar').val().trim()=="") {
+        notaError("El teléfono es obligatorio!");
+        return true;
+    }else{
+        var param = {
+            telefono: $('#telefonoCliEditar').val(),
+            bandera: "telefonoCEditar",
+            idP: $('#idcliente').val()
+        };
+
+        return $.ajax({
+            data: param,
+            url:"/phpSISAUTO/Controlador/clienteC.php",
+            method: "post",
+            success: function(data){
+                if (data==0) {
+                    return true;
+                }else{
+                   notaError("El teléfono ingresado ya ha sido registrado!"); 
+                   return false;
+                }
+            }
+        });
+    }
+    
+    }
+
+      function validarNRCEditar(){
+
+    if ($('#nrcCliEditar').val().trim()=="") {
+        notaError("El NRC es obligatorio!");
+        return 1;
+    }
+    else{
+       return 0;
+    }
+
+    }
+
+    function validarNITEditar(){
+
+       if ($('#nitCliEditar').val().trim()=="") {
+        notaError("El NIT es obligatorio!");
+        return 1;
+    }else{
+        return 0;     
+    }
+}
+    

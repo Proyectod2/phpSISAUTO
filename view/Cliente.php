@@ -26,6 +26,15 @@ and open the template in the editor.
                 </li>
                 <li class="breadcrumb-item active"> Clientes</li>
             </ol>
+            <?php if (!isset($_GET['tipo'])) { 
+                $tipo=1;
+            }else{
+                $tipo = $_GET['tipo'];
+            }?>
+            <?php 
+            $sql="SELECT * from cliente where tipo_Cli='$tipo' order by nombre_Cli ASC";
+            $clientes= mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); ?>
+
             <div class="row">
                 <div class="col-12">
                     <a class="pull-right" href="">
@@ -40,6 +49,23 @@ and open the template in the editor.
                             <span class="fa fa-plus"></span>
                         </button>
                     </a>
+                    <?php  if ($tipo == 1) { ?>
+                        <a class="pull-right" href="/phpSISAUTO/view/Cliente.php?tipo=0">
+                            <button class="btn btn-primary">
+                                Ver proveedores inactivos  <i class="fa fa-bars"></i>
+                            </button>
+                            <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  -->
+                        </a>
+                        
+                    <?php  }else{ ?>
+                        <a class="pull-right" href="/phpSISAUTO/view/Cliente.php?tipo=1">
+                            <button class="btn btn-primary">
+                                Ver proveedores activos <i class="fa fa-bars"></i>
+                            </button>
+                            <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  -->
+                        </a>
+                        
+                    <?php } ?>
                     <br><br>
                     <!-- TABLA CLIENTES-->
                     <div class="card mb-3">
@@ -63,14 +89,7 @@ and open the template in the editor.
                         </form>
                         <div class="card-body">
                             <div class="table-responsive">
-                            <?php if (!isset($_GET['tipo'])) { 
-                                $tipo=1;
-                                }else{
-                                    $tipo = $_GET['tipo'];
-                                    }?>
-                            <?php 
-                            $sql="SELECT * from cliente where tipo_Cli='$tipo' order by nombre_Cli ASC";
-                            $clientes= mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); ?>
+                            
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
@@ -91,9 +110,17 @@ and open the template in the editor.
                                             <td><?php echo $cliente['nit_Cli'] ?></td>
                                                                                        
                                             <th align="center">
-                                                <button title="Ver" type="button" class="btn btn-info fa fa-eye" data-toggle="modal" data-target="#modalVerCliente" href="" onclick="mostrarCli('<?php echo $cliente['nombre_Cli']?>','<?php echo $cliente['direccion_Cli']?>','<?php echo $cliente['telefono_Cli']?>','<?php echo $cliente['nrc_Cli']?>','<?php echo $cliente['nit_Cli']?>');"></button>
-                                                <button title="Editar" type="button" class="btn btn-primary fa fa-pencil-square-o" data-toggle="modal" data-target="#modalEditarCliente" onclick="editarCli('<?php echo $cliente['nombre_Cli']?>','<?php echo $cliente['direccion_Cli']?>','<?php echo $cliente['telefono_Cli']?>','<?php echo $cliente['nrc_Cli']?>','<?php echo $cliente['nit_Cli']?>','<?php echo $cliente['idCliente']?>');"></button>
-                                                <button title="Dar de baja" type="button" class="btn btn-danger fa fa-arrow-circle-down"></button>
+                                                <button title="Ver" type="button" class="btn btn-info fa fa-eye" data-toggle="modal" data-target="#modalVerCliente" href="" onclick="mostrarCli('<?php echo $cliente['nombre_Cli']?>','<?php echo $cliente['direccion_Cli']?>','<?php echo $cliente['telefono_Cli']?>','<?php echo $cliente['nrc_Cli']?>','<?php echo $cliente['nit_Cli']?>','<?php echo $cliente['descripcion_Cli']?>');"></button>
+                                               <?php  if ($tipo == 1) {
+                                                ?>
+                                                <button title="Editar" type="button" class="btn btn-primary fa fa-pencil-square-o" data-toggle="modal" data-target="#modalEditarCliente" onclick="editarCli('<?php echo $cliente['nombre_Cli']?>','<?php echo $cliente['direccion_Cli']?>','<?php echo $cliente['telefono_Cli']?>','<?php echo $cliente['nrc_Cli']?>','<?php echo $cliente['nit_Cli']?>','<?php echo $cliente['idCliente']?>','<?php echo $cliente['descripcion_Cli']?>');"></button>
+                                                 <?php  }else{ }?>
+                                                <?php  if ($tipo == 1) {
+                                                ?>
+                                                <button title="Dar de baja" type="button" class="btn btn-danger fa fa-arrow-circle-down" onclick="baja(<?php echo $cliente['idCliente'] ?>)"></button>
+                                                <?php  }else{ ?>
+                                                <button title="Dar de alta" type="button" class="btn btn-success fa fa-arrow-circle-up" onclick="alta(<?php echo $cliente['idCliente'] ?>)"></button>
+                                                <?php } ?>
                                             </th>
                                         </tr>
                                         <?php } ?>
@@ -122,7 +149,7 @@ and open the template in the editor.
                     <h5 class="modal-title" id="myModalLabel"> <i class="fa fa-user"></i> Cliente</h5>
                 </div>
                 <div class="modal-body">
-                    <form action="../Controlador/clienteC.php" method="POST" id="guardarCli" align="center" autocomplete="off">
+                    <form action="../Controlador/clienteC.php" method="POST"  align="center" autocomplete="off">
                         <h5 align="center">Datos Generales</h5>
                         <hr width="75%" style="background-color:#007bff;"/>
                         <input type="hidden" value="GuardarCli" name="bandera"></input>
@@ -166,6 +193,17 @@ and open the template in the editor.
                                 <input class="form-control" type="text" name="NIT" style="width:200px;height:40px" id="nit" disabled="true">
                             </div>
                         </div>
+                         <div id="ocultar">
+                        <div class="form-group row">
+                            <div class="col-sm-12 col-md-1">
+                            </div>
+                            <label for="usuario" class="col-sm-12 col-md-3 col-form-label">Descripción:</label> 
+                            <div class="col-sm-12 col-md-8">
+                               <textarea class="form-control" type="text" name="descripcion"  placeholder="Escriba aqui..." id="descripcionCli" style="width:400px;height:80px" disabled="true">
+                               </textarea>
+                            </div>
+                        </div>
+                       </div> 
                      </form>
                 </div>
                 <div class="modal-footer">
@@ -183,7 +221,7 @@ and open the template in the editor.
                     <h5 class="modal-title" id="myModalLabel"> <i class="fa fa-user"></i> Editar Cliente</h5>
                 </div>
                 <div class="modal-body">
-                    <form action="../Controlador/clienteC.php" method="POST" id="guardarCli" align="center" autocomplete="off">
+                    <form action="../Controlador/clienteC.php" method="POST" id="editarCli" align="center" autocomplete="off">
                         <h5 align="center">Datos Generales</h5>
                         <hr width="75%" style="background-color:#007bff;"/>
                         <input type="hidden" value="EditarCli" name="bandera"></input>
@@ -228,9 +266,19 @@ and open the template in the editor.
                                 <input class="form-control" type="text" name="nitCli" id="nitCliEditar" style="width:175px;height:40px" readonly="readonly"aria-required="true" value="" >
                             </div>
                         </div>
-                        
+                         <hr width="75%" style="background-color:#007bff;"/>
+                        <div class="form-group row">
+                            <div class="col-sm-12 col-md-1">
+                            </div>
+                            <label for="usuario" class="col-sm-12 col-md-3 col-form-label">Descripción:</label> 
+                            <div class="col-sm-12 col-md-8">
+                               <textarea class="form-control" type="text" name="descripcion"  placeholder="Escriba aqui porque va a modificar el nombre de la empresa " id="descripcionCliEditar" style="width:400px;height:80px">
+                               </textarea>
+                            </div>
+                        </div>
                         <div class="modal-footer">
-                          <button type="submit" class="btn btn-default" style="background-color:#007bff;">Aceptar</button>
+                             <input type="hidden" id="anterior" value=""  />
+                          <button type="button" class="btn btn-default" style="background-color:#007bff;" onclick="validareditarCliente()">Aceptar</button>
                           <button type="button" class="btn btn-default" data-dismiss="modal" style="background-color:#007bff;">Cerrar</button>
                         </div>
                     </form>
@@ -247,9 +295,11 @@ and open the template in the editor.
 
  <?php include("Generalidadespantalla/cierre.php"); ?>
 
- <script src="../assets/Validaciones/mostrarCliente.js"></script> 
+ <script src="../assets/Validaciones/mostrarCliente.js"></script>
+  <script src="../assets/Validaciones/validarCliente.js"></script> 
 
         <script type="text/javascript">
+   //FILTRADO DE LA TABLA
             $(document).ready(function () {
                $('#entradafilter').keyup(function () {
                   var rex = new RegExp($(this).val(), 'i');
@@ -261,6 +311,64 @@ and open the template in the editor.
 
            });
 
+        </script>
+         <script type="text/javascript">
+            $(document).ready(function() {
+                $('#example').DataTable();
+            } );
+        </script>
+
+       <!-- DAR DE BAJA -->
+        <script type="text/javascript">
+            function baja(id){
+                swal({
+                    title: '¿Está seguro en dar de baja?',
+                  // text: "You won't be able to revert this!",
+                  type: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#3085d6',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: 'Si',
+                  cancelButtonText: 'No',
+
+              }).then((result) => {
+                if(result.value){
+                $('#idCli').val(id);
+                $('#banderaCli').val('cambio');
+                $('#valorCli').val('0');
+                var dominio = window.location.host;
+                 $('#cambioCli').attr('action','http://'+dominio+'/phpSISAUTO/Controlador/clienteC.php');
+                 $('#cambioCli').submit();
+                 }else{
+
+                }
+            })
+            }
+     //DAR DE ALTA 
+            function alta(id){
+                swal({
+                    title: '¿Está seguro en dar de alta?',
+                  // text: "You won't be able to revert this!",
+                  type: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#3085d6',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: 'Si',
+                  cancelButtonText: 'No',
+
+              }).then((result) => {
+                if(result.value){
+                $('#idCli').val(id);
+                $('#banderaCli').val('cambio');
+                $('#valorCli').val('1');
+                var dominio = window.location.host;
+                 $('#cambioCli').attr('action','http://'+dominio+'/phpSISAUTO/Controlador/clienteC.php');
+                 $('#cambioCli').submit();
+                 }else{
+
+                 }
+            })
+            }
         </script>
 
 </body>
