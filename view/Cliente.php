@@ -24,7 +24,7 @@ and open the template in the editor.
                 <li class="breadcrumb-item">
                     <a href="index.php">Inicio</a>
                 </li>
-                <li class="breadcrumb-item active">Clientes</li>
+                <li class="breadcrumb-item active"> Clientes</li>
             </ol>
             <div class="row">
                 <div class="col-12">
@@ -44,7 +44,7 @@ and open the template in the editor.
                     <!-- TABLA CLIENTES-->
                     <div class="card mb-3">
                         <div class="card-header">
-                            <i class="fa fa-table"></i>Clientes
+                            <i class="fa fa-table"></i> Clientes
                         </div>
                         <form align="right" ><br>
                             <table class="pull-right " id="dataTable" width="100%" cellspacing="0" >
@@ -238,10 +238,10 @@ and open the template in the editor.
 
             </div>
         </div>
-        <form method="POST" id="cambio">
-            <input type="hidden" name="id" id="id"  />
-            <input type="hidden" name="bandera" id="bandera" />
-            <input type="hidden" name="valor" id="valor" />
+        <form method="POST" id="cambioCli">
+            <input type="hidden" name="id" id="idCli"  />
+            <input type="hidden" name="bandera" id="banderaCli" />
+            <input type="hidden" name="valor" id="valorCli" />
         </form>
     </div>
 

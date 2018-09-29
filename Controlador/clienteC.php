@@ -35,7 +35,20 @@ if($bandera=="EditarCli"){
     header("location: /phpSISAUTO/view/Cliente.php?mensaje=".$mensaje);
 
 }
+if ($bandera=="cambio") {
 
+	$sql = "UPDATE cliente set tipo_Cli='".$_POST["valor"]."' where idCliente = '".$_POST["id"]."'";
+	$cliente = mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta");
+	if ($_POST["valor"]==1) {
+	$aux = 0;
+		$_SESSION['mensaje'] ="Cliente dado de alta exitosamente";
+		// $mensaje = "Cliente dado de alta exitosamente";
+	}else{
+		$aux = 1;
+		$_SESSION['mensaje'] ="Cliente dado de baja exitosamente";
+	}
+    header("location: /phpSISAUTO/view/Cliente.php?tipo=".$aux."");
+ }
 if ($bandera=="nombreC") {
 	$sql="SELECT * from cliente where nombre_Cli like '".$_POST["nombre"]."'";
 	$cliente = mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta");
