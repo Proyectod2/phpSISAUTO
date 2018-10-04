@@ -25,12 +25,12 @@ and open the template in the editor.
                 </li>
                 <li class="breadcrumb-item active">Proveedores</li>
             </ol>
-            <?php if (!isset($_GET['tipo'])) { 
+            <?php if (!isset($_GET['tipo'])) {
                 $tipo=1;
             }else{
                 $tipo = $_GET['tipo'];
             }?>
-            <?php 
+            <?php
             $sql="SELECT * from proveedor where tipo_Prov='$tipo' order by nombre_Prov ASC";
             $proveedores= mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); ?>
             <div class="row">
@@ -44,7 +44,7 @@ and open the template in the editor.
                     </a>
                     <a class="pull-right" href="/phpSISAUTO/view/AgregarPro.php">
                         <button class="btn btn-primary" data-toggle="modal" data-target="#modalNuevo">
-                            Agregar nuevo 
+                            Agregar nuevo
                             <span class="fa fa-plus"></span>
                         </button>
                     </a>
@@ -55,7 +55,7 @@ and open the template in the editor.
                             </button>
                             <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  -->
                         </a>
-                        
+
                     <?php  }else{ ?>
                         <a class="pull-right" href="/phpSISAUTO/view/Proveedor.php?tipo=1">
                             <button class="btn btn-primary">
@@ -63,7 +63,7 @@ and open the template in the editor.
                             </button>
                             <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  -->
                         </a>
-                        
+
                     <?php } ?>
                     <br><br>
                     <!-- TABLA CLIENTES-->
@@ -87,7 +87,7 @@ and open the template in the editor.
                         </form>
                         <div class="card-body">
                             <div class="table-responsive">
-                           
+
                                 <!-- <input id="entradafilter" type="text" class="form-control"> -->
                                 <table class="table table-striped table-bordered" id="example" width="100%" cellspacing="0" style="width:100%">
                                     <thead>
@@ -106,7 +106,7 @@ and open the template in the editor.
 
                                             <td><?php echo $proveedore['telefono_Prov'] ?></td>
                                             <td><?php echo $proveedore['nombreResp_Prov'] ?></td>
-                                                                                       
+
                                             <th align="center">
                                                 <button title="Ver"type="button" class="btn btn-info fa fa-eye" data-toggle="modal" data-target="#modalVerProveedor" href="" onclick="mostrarPro('<?php echo $proveedore['nombre_Prov']?>','<?php echo $proveedore['correo_Prov']?>','<?php echo $proveedore['telefono_Prov']?>','<?php echo $proveedore['direccion_Prov']?>','<?php echo $proveedore['nombreResp_Prov']?>','<?php echo $proveedore['telefonoResp_Prov']?>','<?php echo $proveedore['descripcion_Prov']?>');"></button>
                                                 <?php  if ($tipo == 1) {
@@ -190,7 +190,7 @@ and open the template in the editor.
                         <div class="form-group row">
                             <div class="col-sm-12 col-md-1">
                             </div>
-                            <label for="usuario" class="col-sm-12 col-md-3 col-form-label">Teléfono:</label> 
+                            <label for="usuario" class="col-sm-12 col-md-3 col-form-label">Teléfono:</label>
                             <div class="col-sm-12 col-md-8">
                                 <input class="form-control" type="text" id="telefonoRes" name="DUI_Usu" style="width:150px;height:40px" disabled="true">
                             </div>
@@ -199,13 +199,13 @@ and open the template in the editor.
                         <div class="form-group row">
                             <div class="col-sm-12 col-md-1">
                             </div>
-                            <label for="usuario" class="col-sm-12 col-md-3 col-form-label">Descripción:</label> 
+                            <label for="usuario" class="col-sm-12 col-md-3 col-form-label">Descripción:</label>
                             <div class="col-sm-12 col-md-8">
                                <textarea class="form-control" type="text" name="descripcion"  placeholder="Escriba aqui..." id="descripcionProv" style="width:400px;height:80px" disabled="true">
                                </textarea>
                             </div>
                         </div>
-                       </div> 
+                       </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal" style="background-color:#007bff;">Cerrar</button>
@@ -273,7 +273,7 @@ and open the template in the editor.
                         <div class="form-group row">
                             <div class="col-sm-12 col-md-1">
                             </div>
-                            <label for="usuario" class="col-sm-12 col-md-3 col-form-label">Teléfono:</label> 
+                            <label for="usuario" class="col-sm-12 col-md-3 col-form-label">Teléfono:</label>
                             <div class="col-sm-12 col-md-8">
                                 <input class="form-control" type="text" id="telefonoResEditar" data-mask="9999-9999" name="Telefono_Res" style="width:150px;height:40px" >
                             </div>
@@ -282,7 +282,7 @@ and open the template in the editor.
                         <div class="form-group row">
                             <div class="col-sm-12 col-md-1">
                             </div>
-                            <label for="usuario" class="col-sm-12 col-md-3 col-form-label">Descripción:</label> 
+                            <label for="usuario" class="col-sm-12 col-md-3 col-form-label">Descripción:</label>
                             <div class="col-sm-12 col-md-8">
                                <textarea class="form-control" type="text" name="descripcion"  placeholder="Escriba aqui porque va a modificar el nombre de la empresa " id="descripcionProvEditar" style="width:400px;height:80px">
                                </textarea>
@@ -307,7 +307,7 @@ and open the template in the editor.
 
         <?php include("Generalidadespantalla/cierre.php"); ?>
 
-        <script src="../assets/Validaciones/mostrarProveedor.js"></script> 
+        <script src="../assets/Validaciones/mostrarProveedor.js"></script>
         <script src="../assets/Validaciones/validarProveedor.js"></script>
         <script src="../assets/Validaciones/validarCorreo.js"></script>
         <script src="../assets/Validaciones/validarNombreCompletoUsuario.js"></script>
@@ -400,4 +400,3 @@ and open the template in the editor.
     <?php
 }
 ?>
-

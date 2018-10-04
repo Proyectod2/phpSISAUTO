@@ -1,3 +1,4 @@
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
     <a class="navbar-brand" href="/phpSISAUTO/view/index.php">SISAUTO</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -63,6 +64,7 @@
                     <li>
                 </ul>
             </li>
+            <?php  if($_SESSION['usuarioActivo']['tipo_Usu']=='0'){?>
             <li class="nav-item" data-toggle="tooltip" data-placement="right">
                 <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
                     <i class="fa fa-unlock-alt"></i>
@@ -84,6 +86,7 @@
                     </li>
                 </ul>
             </li>
+          <?php  }?>
         </ul>
         <ul class="navbar-nav sidenav-toggler">
             <li class="nav-item">
