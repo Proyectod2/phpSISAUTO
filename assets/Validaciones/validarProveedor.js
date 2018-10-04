@@ -1,14 +1,14 @@
     async function validarProveedor(){
-        var nombreE= await validarNombreE(); 
+        var nombreE= await validarNombreE();
         var correoE= await validarCorreoE();
-        var telefonoE= await validarTelefonoE(); 
-        var direccionE= await validarDireccionE();    
+        var telefonoE= await validarTelefonoE();
+        var direccionE= await validarDireccionE();
         var nombreR= await validarNombreR();
-        var telefonoR= await validarTelefonoR(); 
+        var telefonoR= await validarTelefonoR();
 
         if (nombreE==0 && correoE==0 && telefonoE==0 && direccionE && nombreR && telefonoR==0) {
         	$('#guardarPro').submit();
-        }   
+        }
     }
    function validarNombreE(){
 
@@ -30,7 +30,7 @@
                 if (data==0) {
                     return true;
                 }else{
-                   notaError("El nombre ingresado ya ha sido registrado!"); 
+                   notaError("El nombre ingresado ya ha sido registrado!");
                    return false;
                 }
             }
@@ -60,7 +60,7 @@
                 if (data==0) {
                     return true;
                 }else{
-                   notaError("El correo ingresado ya ha sido registrado!"); 
+                   notaError("El correo ingresado ya ha sido registrado!");
                    return false;
                 }
             }
@@ -74,7 +74,7 @@
      if ($('#telefonoEmp').val().length!=9) {
         notaError("El teléfono debe contener 8 dígitos!");
         return true;
-    }   
+    }
 
     else if ($('#telefonoEmp').val().trim()=="") {
         notaError("El teléfono de la empresa es obligatorio!");
@@ -94,14 +94,14 @@
                 if (data==0) {
                     return true;
                 }else{
-                   notaError("El teléfono ingresado ya ha sido registrado!"); 
+                   notaError("El teléfono ingresado ya ha sido registrado!");
                    return false;
                 }
             }
         });
     }
 
-    
+
 // return true;
     }
 
@@ -122,7 +122,7 @@ return true;
     	notaError("El nombre del responsable es obligatorio!");
     	return false;
     }
-    
+
 
 return true;
     }
@@ -152,7 +152,7 @@ return true;
                 if (data==0) {
                     return true;
                 }else{
-                   notaError("El teléfono del responsable ingresado ya ha sido registrado!"); 
+                   notaError("El teléfono del responsable ingresado ya ha sido registrado!");
                    return false;
                 }
             }
@@ -163,19 +163,20 @@ return true;
 // *******************************************************************************
 
     async function validareditarProveedor(){
-        var nombreE= await validarproveedorEditar(); 
+        var nombreE= await validarproveedorEditar();
         var correoE= await validareditarCorreoE();
-        var telefonoE= await validareditarTelefonoE(); 
-        var direccionE= await validareditarDireccionE();    
+        var telefonoE= await validareditarTelefonoE();
+        var direccionE= await validareditarDireccionE();
         var nombreR= await validareditarNombreR();
-        var telefonoR= await validareditarTelefonoR(); 
+        var telefonoR= await validareditarTelefonoR();
 
         if (nombreE==0 && correoE==0 && telefonoE==0 && direccionE && nombreR && telefonoR==0) {
             $('#editarPro').submit();
-        }   
+        }
     }
 
 function validarproveedorEditar(){
+  var retornar;
     nombreE = $("#nombreProEditar").val();
     descripcionE = $("#descripcionProvEditar").val();
     anteriorE = $("#anterior").val();
@@ -184,15 +185,36 @@ function validarproveedorEditar(){
         notaError("¡El nombre de la empresa es obligatorio!");
         return 1;
     }else if (nombreE == anteriorE) {
-        return 0;
+        retornar=0;
     }else if(descripcionE.length > 14){
-        return 0;
+        retornar=0;
     }else if(descripcionE.length !=0 && descripcionE.length <= 14){
         notaError("Descripción muy corta");
         return 1;
     }else{
         notaError("Justifique en la descripción porque modificó el nombre de la empresa");
         return 1;
+    }
+    if(retornar==0){
+      var param = {
+          nombre: $('#nombreProEditar').val(),
+          bandera: "cnombreEditar",
+          idP: $('#idproveedor').val()
+      };
+
+      return $.ajax({
+          data: param,
+          url:"/phpSISAUTO/Controlador/proveedorC.php",
+          method: "post",
+          success: function(data){
+              if (data==0) {
+                  return true;
+              }else{
+                 notaError("El nombre ingresado ya ha sido registrado!");
+                 return false;
+              }
+          }
+      });
     }
 }
 
@@ -219,7 +241,7 @@ function validarproveedorEditar(){
                 if (data==0) {
                     return true;
                 }else{
-                   notaError("El correo ingresado ya ha sido registrado!"); 
+                   notaError("El correo ingresado ya ha sido registrado!");
                    return false;
                 }
             }
@@ -233,7 +255,7 @@ function validarproveedorEditar(){
        if ($('#telefonoProEditar').val().length!=9) {
         notaError("El teléfono debe contener 8 dígitos!");
         return true;
-    }   
+    }
 
     else if ($('#telefonoProEditar').val().trim()=="") {
         notaError("El teléfono de la empresa es obligatorio!");
@@ -254,7 +276,7 @@ function validarproveedorEditar(){
                 if (data==0) {
                     return true;
                 }else{
-                 notaError("El teléfono ingresado ya ha sido registrado!"); 
+                 notaError("El teléfono ingresado ya ha sido registrado!");
                  return false;
              }
          }
@@ -311,7 +333,7 @@ function validarproveedorEditar(){
                     if (data==0) {
                         return true;
                     }else{
-                     notaError("El teléfono del responsable ingresado ya ha sido registrado!"); 
+                     notaError("El teléfono del responsable ingresado ya ha sido registrado!");
                      return false;
                  }
              }
