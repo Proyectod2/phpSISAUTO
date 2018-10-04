@@ -69,3 +69,78 @@ function validarDescripcionP() {
     }
     return true;
 }
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+async function validarProductoEditar() {
+    var nombre = await validarNombrePE();
+    var categoria = await validarCategoriaPE();
+    if($().val()=='0'){
+      var marca = await validarMarcaPE();
+      var modelo = await validarModeloPE();
+      var anio = await validarAnioPE();
+    }else{
+      var marca = 1;
+      var modelo = 1;
+      var anio = 1;
+    }
+    var descripcion = await validarDescripcionP();
+
+    if (nombre && categoria && marca && modelo && anio && descripcion) {
+        $('#editarProd').submit();
+    }
+}
+
+function validarNombrePE() {
+    if ($('#nombrePE').val().trim() == "") {
+        notaError("El nombre es obligatorio!");
+        return false;
+    }
+    return true;
+}
+
+function validarCategoriaPE() {
+
+    if ($('#catePE').val().trim() == "") {
+        notaError("La categoria es obligatorio!");
+        return false;
+    }
+    return true;
+}
+
+function validarMarcaPE() {
+
+    if ($('#marcaPE').val().trim() == "") {
+        notaError("La marca es obligatorio!");
+        return false;
+    }
+    return true;
+}
+
+function validarModeloPE() {
+
+    if ($('#modeloPE').val().trim() == "") {
+        notaError("El modelo es obligatorio!");
+        return false;
+    }
+    return true;
+}
+
+function validarAnioPE() {
+
+     if ($('#anioPE').val().trim()=="") {
+        notaError("El año es obligatorio!");
+        return false;
+    }
+    return true;
+}
+
+function validarDescripcionPE() {
+
+    if ($('#descripcionPE').val().trim() == "") {
+        notaError("La descripcion es obligatorio!");
+        return false;
+    }
+    return true;
+}

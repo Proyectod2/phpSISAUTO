@@ -8,3 +8,13 @@ function mostrarProduc(codigoP,nombreP,cateP,marcaP,modeloP,anioP,descripcionP){
     $("#descripcionP").val(descripcionP);
 }
 
+function editarProduc(codigoP,nombreP,cateP,marcaP,modeloP,anioP,descripcionP){
+    $("#codigoPE").val(codigoP);
+    $("#nombrePE").val(nombreP);
+    $("#catePE").val(cateP);
+    $("#marcaPE").val(marcaP);
+    $("#modeloPE").val(modeloP);
+    $("#anioPE").val(anioP);
+    $("#descripcionPE").val(descripcionP);
+}
+
