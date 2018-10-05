@@ -126,8 +126,9 @@ if (isset($_SESSION['usuarioActivo'])) {
                                                             <button title="Ver"type="button" class="btn btn-info fa fa-eye" data-toggle="modal" data-target="#modalVerProducto" href="" onclick="mostrarProduc('<?php echo $producto['codigo_Prod'] ?>', '<?php echo $producto['nombre_Prod'] ?>', '<?php echo $producto['categoria_Prod'] ?>', '<?php echo $producto['marca_Prod'] ?>', '<?php echo $producto['modeloVehiculo_Prod'] ?>', '<?php echo $producto['anioVehiculo_Prod'] ?>', '<?php echo $producto['descripcion_Prod'] ?>');"></button>
                                                             <?php if ($tipo == 1) {
                                                                 ?>
-                                                                <button title="Editar" type="button" class="btn btn-primary fa fa-pencil-square-o" data-toggle="modal" data-target="#modalEditarProducto" onclick="editarProduc('<?php echo $producto['codigo_Prod'] ?>', '<?php echo $producto['nombre_Prod'] ?>', '<?php echo $producto['categoria_Prod'] ?>', '<?php echo $producto['marca_Prod'] ?>', '<?php echo $producto['modeloVehiculo_Prod'] ?>', '<?php echo $producto['anioVehiculo_Prod'] ?>', '<?php echo $producto['descripcion_Prod'] ?>');"></button>
-                                                            <?php } else {
+                                                                <button title="Editar" type="button" class="btn btn-primary fa fa-pencil-square-o" data-toggle="modal" data-target="#modalEditarProducto" onclick="editarProduc('<?php echo $producto['codigo_Prod'] ?>','<?php echo $producto['nombre_Prod'] ?>','<?php echo $producto['categoria_Prod'] ?>','<?php echo $producto['marca_Prod'] ?>','<?php echo $producto['modeloVehiculo_Prod'] ?>','<?php echo $producto['anioVehiculo_Prod'] ?>','<?php echo $producto['descripcion_Prod']?>');"></button>
+                                                            <?php
+                                                            } else {
                                                                 
                                                             }
                                                             ?>
@@ -226,13 +227,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                             </div>
                         </div>
                     </div>
-                    <form method="POST" id="cambioProd">
-                        <input type="hidden" name="id" id="idProd"  />
-                        <input type="hidden" name="bandera" id="banderaProd" />
-                        <input type="hidden" name="valor" id="valorProd" />
-                    </form>
-                </div>
-
+                </div>    
                 <!-- MODAL EDITAR PRODUCTO -->
                 <div class="modal fade" id="modalEditarProducto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                     <div class="modal-dialog modal-lg" role="document">
@@ -259,7 +254,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                                         </div>
                                         <label  for="nombreP" class="col-sm-12 col-md-3 col-form-label">Nombre de producto:</label>
                                         <div  class="col-sm-12 col-md-8">
-                                            <input class="form-control" type="text" id="nombrePE" name="nombreP" style="width:400px;height:40px">
+                                            <input class="form-control" type="text" id="nombrePE" name="nombreP" style="width:400px;height:40px" >
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -303,14 +298,21 @@ if (isset($_SESSION['usuarioActivo'])) {
                                             </textarea>
                                         </div>
                                     </div>
+                                    <div class="modal-footer">
+                                        <input type="hidden" id="anterior" value=""  />
+                                        <button type="button" class="btn btn-default" style="background-color:#007bff;" onclick="validarProductoEditar()">Aceptar</button>
+                                        <button type="button" class="btn btn-default" data-dismiss="modal" style="background-color:#007bff;">Cerrar</button>
+                                    </div>
                                 </form>
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" style="background-color:#007bff;" onclick="validarProductoEditar();">Aceptar</button>
-                                <button type="button" class="btn btn-default" data-dismiss="modal" style="background-color:#007bff;">Cerrar</button>
-                            </div>
+
                         </div>
                     </div>
+                    <form method="POST" id="cambioProd">
+                        <input type="hidden" name="id" id="idProd"  />
+                        <input type="hidden" name="bandera" id="banderaProd" />
+                        <input type="hidden" name="valor" id="valorProd" />
+                    </form>
                 </div>
             </div>
             <!-- /.container-fluid-->
@@ -344,6 +346,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                     </div>
                 </div>
             </div>
+            <?php include("Generalidadespantalla/cierre.php"); ?>
             <!-- Bootstrap core JavaScript-->
             <script src="../assets/vendor/jquery/jquery.min.js"></script>
             <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -356,16 +359,16 @@ if (isset($_SESSION['usuarioActivo'])) {
             <script src="../assets/Validaciones/validarProducto.js"></script>
             <!-- Filtrado de la tabla -->
             <script type="text/javascript">
-                                    $(document).ready(function () {
-                                        $('#entradafilter').keyup(function () {
-                                            var rex = new RegExp($(this).val(), 'i');
-                                            $('.contenidobusqueda tr').hide();
-                                            $('.contenidobusqueda tr').filter(function () {
-                                                return rex.test($(this).text());
-                                            }).show();
-                                        })
+                                            $(document).ready(function () {
+                                                $('#entradafilter').keyup(function () {
+                                                    var rex = new RegExp($(this).val(), 'i');
+                                                    $('.contenidobusqueda tr').hide();
+                                                    $('.contenidobusqueda tr').filter(function () {
+                                                        return rex.test($(this).text());
+                                                    }).show();
+                                                })
 
-                                    });
+                                            });
             </script>        
 
             <script>
@@ -429,7 +432,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                 }
             </script>
 
-    <?php include("Generalidadespantalla/cierre.php"); ?>
+    
         </body>
     </html>
     <?php
