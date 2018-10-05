@@ -183,7 +183,7 @@ function validareditarTelefonoU(){
 }
 
 function validareditarDireccionU(){
-    if ($('#direccionUsuEditar').val().trim()=="") {
+    if ($('#direccionUsuEditar').val().trim() == "") {
         notaError("¡La dirección es obligatoria!");
         return false;
     }
