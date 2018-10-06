@@ -11,7 +11,7 @@ if (isset($_SESSION['usuarioActivo'])) {
     <html><?php include("Generalidadespantalla/apertura.php"); ?>
         <body class="fixed-nav sticky-footer bg-dark" id="page-top">
             <?php include("Generalidadespantalla/Menu.php"); ?>
-            <?php $cate = array(1 => "AMORTIGUADORES", 2 => "BUJÍAS", 3 => "COMBUSTIBLE", 4 => "ELÉCTRICO", 5 => "ENFRIAMIENTO", 6 => "FILTROS", 7 => "MOTOR", 8 => "SENSORES", 9 => "SUSPENSIÓN Y DIRECCIÓN", 10 => "TRANSMISIÓN Y EMBRAGUE", 11 => "UNIVERSALES"); ?>
+            <?php $cate = array(1 => "AMORTIGUADORES", 2 => "BUJÍAS", 3 => "COMBUSTIBLE", 4 => "ELÉCTRICO", 5 => "ENFRIAMIENTO", 6 => "FILTROS",7 => "FRENOS", 8 => "MOTOR", 9 => "SENSORES", 10 => "SUSPENSIÓN Y DIRECCIÓN", 11 => "TRANSMISIÓN Y EMBRAGUE", 12 => "UNIVERSALES"); ?>
             <div class="content-wrapper" style="background-color:#eff3f4;">
                 <div class="container-fluid">
                     <!-- Breadcrumbs-->
@@ -126,7 +126,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                                                             <button title="Ver"type="button" class="btn btn-info fa fa-eye" data-toggle="modal" data-target="#modalVerProducto" href="" onclick="mostrarProduc('<?php echo $producto['codigo_Prod'] ?>', '<?php echo $producto['nombre_Prod'] ?>', '<?php echo $producto['categoria_Prod'] ?>', '<?php echo $producto['marca_Prod'] ?>', '<?php echo $producto['modeloVehiculo_Prod'] ?>', '<?php echo $producto['anioVehiculo_Prod'] ?>', '<?php echo $producto['descripcion_Prod'] ?>');"></button>
                                                             <?php if ($tipo == 1) {
                                                                 ?>
-                                                                <button title="Editar" type="button" class="btn btn-primary fa fa-pencil-square-o" data-toggle="modal" data-target="#modalEditarProducto" onclick="editarProduc('<?php echo $producto['codigo_Prod'] ?>','<?php echo $producto['nombre_Prod'] ?>','<?php echo $producto['categoria_Prod'] ?>','<?php echo $producto['marca_Prod'] ?>','<?php echo $producto['modeloVehiculo_Prod'] ?>','<?php echo $producto['anioVehiculo_Prod'] ?>','<?php echo $producto['descripcion_Prod']?>');"></button>
+                                                                <button title="Editar" type="button" class="btn btn-primary fa fa-pencil-square-o" data-toggle="modal" data-target="#modalEditarProducto" onclick="editarProduc('<?php echo $producto['codigo_Prod'] ?>','<?php echo $producto['nombre_Prod'] ?>','<?php echo $producto['categoria_Prod'] ?>','<?php echo $producto['marca_Prod'] ?>','<?php echo $producto['modeloVehiculo_Prod'] ?>','<?php echo $producto['anioVehiculo_Prod'] ?>','<?php echo $producto['descripcion_Prod']?>','<?php echo $producto['idProducto']?>');"></button>
                                                             <?php
                                                             } else {
                                                                 
@@ -184,7 +184,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                                         </div>
                                         <label for="cateP" class="col-sm-12 col-md-3 col-form-label">Categoria de producto:</label>
                                         <div class="col-sm-12 col-md-8">
-                                            <input class="form-control" type="number" id="cateP" name="cateP" style="width:150px;height:40px" value="" disabled="true">
+                                            <input class="form-control" type="text" id="cateP" name="cateP" style="width:400px;height:40px" value="" disabled="true">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -208,7 +208,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                                         </div>
                                         <label for="anioP" class="col-sm-12 col-md-3 col-form-label">año del vehiculo:</label> 
                                         <div class="col-sm-12 col-md-8">
-                                            <input class="form-control" type="number" id="anioP" name="anioP" style="width:150px;height:40px" disabled="true" >
+                                            <input class="form-control" type="text" id="anioP" name="anioP" style="width:150px;height:40px" disabled="true" >
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -254,7 +254,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                                         </div>
                                         <label  for="nombreP" class="col-sm-12 col-md-3 col-form-label">Nombre de producto:</label>
                                         <div  class="col-sm-12 col-md-8">
-                                            <input class="form-control" type="text" id="nombrePE" name="nombreP" style="width:400px;height:40px" >
+                                            <input class="form-control" type="text" id="nombrePE" name="nombrePro" style="width:400px;height:40px" >
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -262,15 +262,30 @@ if (isset($_SESSION['usuarioActivo'])) {
                                         </div>
                                         <label for="cateP" class="col-sm-12 col-md-3 col-form-label">Categoria de producto:</label>
                                         <div class="col-sm-12 col-md-8">
-                                            <input class="form-control" type="number" id="catePE" name="cateP" style="width:150px;height:40px" value="" >
+                                            <select name="categorias" style="width:400px;height:40px" class="form-control" id="catePE" onchange="veruniversal();">
+                                       <option value="">[Selecionar Categoria]</option>
+                                        <option value="1">AMORTIGUADORES</option>
+                                        <option value="2">BUJÍAS</option>
+                                        <option value="3">COMBUSTIBLE</option>
+                                        <option value="4">ELÉCTRICO</option>
+                                        <option value="5">ENFRIAMIENTO</option>
+                                        <option value="6">FILTROS</option>
+                                        <option value="7">FRENOS</option>
+                                        <option value="8">MOTOR</option>
+                                        <option value="8">SENSORES</option>
+                                        <option value="10">SUSPENSIÓN Y DIRECCIÓN</option>
+                                        <option value="11">TRANSMISIÓN Y EMBRAGUE</option>
+                                        <option value="12">UNIVERSALES</option>
+                                        
+                                    </select>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-sm-12 col-md-1">
                                         </div>
-                                        <label for="marcaP" class="col-sm-12 col-md-3 col-form-label">Marca de pruducto:</label>
+                                        <label for="marca" class="col-sm-12 col-md-3 col-form-label">Marca de pruducto:</label>
                                         <div class="col-sm-12 col-md-8">
-                                            <input class="form-control" type="text" name="marcaP" style="width:400px;height:40px" id="marcaPE" >
+                                            <input class="form-control" type="text" name="marca" style="width:400px;height:40px" id="marcaPE" >
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -278,7 +293,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                                         </div>
                                         <label for="modeloP" class="col-sm-12 col-md-3 col-form-label">Modelo de Vehiculo:</label>
                                         <div class="col-sm-12 col-md-8">
-                                            <input class="form-control" type="text" id="modeloPE" name="modeloP" style="width:400px;height:40px">
+                                            <input class="form-control" type="text" id="modeloPE" name="modelo" style="width:400px;height:40px">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -286,7 +301,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                                         </div>
                                         <label for="anioP" class="col-sm-12 col-md-3 col-form-label">año del vehiculo:</label> 
                                         <div class="col-sm-12 col-md-8">
-                                            <input class="form-control" type="number" id="anioPE" name="anioP" style="width:150px;height:40px" >
+                                            <input class="form-control" type="number" id="anioPE" name="anio" style="width:150px;height:40px" >
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -302,6 +317,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                                         <input type="hidden" id="anterior" value=""  />
                                         <button type="button" class="btn btn-default" style="background-color:#007bff;" onclick="validarProductoEditar()">Aceptar</button>
                                         <button type="button" class="btn btn-default" data-dismiss="modal" style="background-color:#007bff;">Cerrar</button>
+                                        <input type="hidden" id="universal"value="0">
                                     </div>
                                 </form>
                             </div>
@@ -430,6 +446,23 @@ if (isset($_SESSION['usuarioActivo'])) {
                         }
                     })
                 }
+            </script>
+                        <script type="text/javascript">
+                                function veruniversal() {
+                                    if ($('#catePE').find('option:selected').text() == "UNIVERSALES") {
+                                        $('#universal').val(1);
+//                                        $("#marcaPr").attr("disabled", "disabled");
+                                        $("#modeloPE").val(""); 
+                                        $("#anioPE").val("");
+                                        $("#modeloPE").attr("disabled", "disabled");
+                                        $("#anioPE").attr("disabled", "disabled");
+                                    } else {
+                                        $('#universal').val(0);
+//                                        $("#marcaPr").removeAttr("disabled");
+                                        $("#modeloPE").removeAttr("disabled");
+                                        $("#anioPE").removeAttr("disabled");
+                                    }
+                                }
             </script>
 
     

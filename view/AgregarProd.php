@@ -72,15 +72,16 @@ and open the template in the editor.
                                         <option value="">[Selecionar Categoria]</option>
                                         <option value="1">AMORTIGUADORES</option>
                                         <option value="2">BUJÍAS</option>
-                                        <option value="3">ELÉCTRICO</option>
-                                        <option value="4">ENFRIAMIENTO</option>
-                                        <option value="5">FILTROS</option>
-                                        <option value="6">FRENOS</option>
-                                        <option value="7">MOTOR</option>
+                                        <option value="3">COMBUSTIBLE</option>
+                                        <option value="4">ELÉCTRICO</option>
+                                        <option value="5">ENFRIAMIENTO</option>
+                                        <option value="6">FILTROS</option>
+                                        <option value="7">FRENOS</option>
+                                        <option value="8">MOTOR</option>
                                         <option value="8">SENSORES</option>
-                                        <option value="9">SUSPENSIÓN Y DIRECCIÓN</option>
-                                        <option value="10">TRANSMISIÓN Y EMBRAGUE</option>
-                                        <option value="11">UNIVERSALES</option>
+                                        <option value="10">SUSPENSIÓN Y DIRECCIÓN</option>
+                                        <option value="11">TRANSMISIÓN Y EMBRAGUE</option>
+                                        <option value="12">UNIVERSALES</option>
                                         
                                     </select>
                                 </div>
