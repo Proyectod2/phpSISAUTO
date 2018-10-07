@@ -142,6 +142,7 @@
             <?php include("../confi/Conexion.php");
             $conexion = conectarMysql();
             $sql1 = "SELECT * FROM usuario where idUsuario = 62";//Cambiar 62 por usuario que esta logueado
+            
             $usuariosLogueado= mysqli_query($conexion, $sql1) or die("No se puedo ejecutar la consulta");
             $usuarioL = mysqli_fetch_assoc($usuariosLogueado) ;
             ?>

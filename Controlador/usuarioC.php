@@ -71,7 +71,7 @@
 	}
 
 	if ($bandera == "ucontrasenaActual"){
-		$sql = "SELECT * from usuario where contrasena_Usu = BINARY '".$_POST["contrasenaActual"]."'";
+		$sql = "SELECT * from usuario where contrasena_Usu = BINARY '".MD5($_POST["contrasenaActual"])."'";
 		$usuario = mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta");
 	    echo mysqli_num_rows($usuario);
 	}
